@@ -32,30 +32,30 @@ WM_HELP(){
     IniRead, vupd, %a_temp%\verlen.ini, UPD, v
     IniRead, desupd, %a_temp%\verlen.ini, UPD, des
     desupd := Utf8ToAnsi(desupd)
-    msgbox, , Список изменений версии %vupd%, %updupd%
+    msgbox, , РЎРїРёСЃРѕРє РёР·РјРµРЅРµРЅРёР№ РІРµСЂСЃРёРё %vupd%, %updupd%
     return
 }
 OnMessage(0x53, "WM_HELP")
 Gui +OwnDialogs
-SplashTextOn, , 60, Менеджер обновлений, Проверка обновления`n------------------------`nОжидайте
+SplashTextOn, , 60, РњРµРЅРµРґР¶РµСЂ РѕР±РЅРѕРІР»РµРЅРёР№, РџСЂРѕРІРµСЂРєР° РѕР±РЅРѕРІР»РµРЅРёСЏ`n------------------------`nРћР¶РёРґР°Р№С‚Рµ
 URLDownloadToFile, %downllen%, %a_temp%\verlen.ini
 IniRead, buildupd, %a_temp%\verlen.ini, UPD, build
 if buildupd =
 {
-    SplashTextOn, , 60, Менеджер обновлений, Ошибка подключения`n------------------------`nНет связи с сервером
+    SplashTextOn, , 60, РњРµРЅРµРґР¶РµСЂ РѕР±РЅРѕРІР»РµРЅРёР№, РћС€РёР±РєР° РїРѕРґРєР»СЋС‡РµРЅРёСЏ`n------------------------`nРќРµС‚ СЃРІСЏР·Рё СЃ СЃРµСЂРІРµСЂРѕРј
     sleep, 2000
 }
 if buildupd > % buildscr
 {
     IniRead, vupd, %a_temp%\verlen.ini, UPD, v
-    SplashTextOn, , 60, Менеджер обновлений,  Ожидайте`n------------------------`nНовая версия - %vupd%!
+    SplashTextOn, , 60, РњРµРЅРµРґР¶РµСЂ РѕР±РЅРѕРІР»РµРЅРёР№,  РћР¶РёРґР°Р№С‚Рµ`n------------------------`nРќРѕРІР°СЏ РІРµСЂСЃРёСЏ - %vupd%!
     sleep, 2000
     IniRead, desupd, %a_temp%\verlen.ini, UPD, des
     desupd := Utf8ToAnsi(desupd)
     sleep, 2000
     put2 := % A_ScriptFullPath
     RegWrite, REG_SZ, HKEY_CURRENT_USER, Software\SAMP ,put2 , % put2
-    SplashTextOn, , 60, Менеджер обновлений,  Ожидайте`n------------------------`nОбновляем скрипт
+    SplashTextOn, , 60, РњРµРЅРµРґР¶РµСЂ РѕР±РЅРѕРІР»РµРЅРёР№,  РћР¶РёРґР°Р№С‚Рµ`n------------------------`nРћР±РЅРѕРІР»СЏРµРј СЃРєСЂРёРїС‚
     URLDownloadToFile, %downlurl%, %a_temp%\updt.exe
     sleep, 500
     run, %a_temp%\updt.exe
@@ -136,8 +136,8 @@ global oweaponNames := ["Fist","Brass Knuckles","Golf Club","Nightstick","Knife"
 global oradiostationNames := ["Playback FM", "K Rose", "K-DST", "Bounce FM", "SF-UR", "Radio Los Santos", "Radio X", "CSR 103.9", "K-JAH West", "Master Sounds 98.3", "WCTR Talk Radio", "User Track Player", "Radio Off"]
 global oweatherNames := ["EXTRASUNNY_LA", "SUNNY_LA", "EXTRASUNNY_SMOG_LA", "SUNNY_SMOG_LA", "CLOUDY_LA", "SUNNY_SF", "EXTRASUNNY_SF", "CLOUDY_SF", "RAINY_SF", "FOGGY_SF", "SUNNY_VEGAS", "EXTRASUNNY_VEGAS", "CLOUDY_VEGAS", "EXTRASUNNY_COUNTRYSIDE", "SUNNY_COUNTRYSIDE", "CLOUDY_COUNTRYSIDE", "RAINY_COUNTRYSIDE", "EXTRASUNNY_DESERT", "SUNNY_DESERT", "SANDSTORM_DESERT", "UNDERWATER", "EXTRACOLOURS_1", "EXTRACOLOURS_2"]
 global oweatherNames := ["EXTRASUNNY_LA", "SUNNY_LA", "EXTRASUNNY_SMOG_LA", "SUNNY_SMOG_LA", "CLOUDY_LA", "SUNNY_SF", "EXTRASUNNY_SF", "CLOUDY_SF", "RAINY_SF", "FOGGY_SF", "SUNNY_VEGAS", "EXTRASUNNY_VEGAS", "CLOUDY_VEGAS", "EXTRASUNNY_COUNTRYSIDE", "SUNNY_COUNTRYSIDE", "CLOUDY_COUNTRYSIDE", "RAINY_COUNTRYSIDE", "EXTRASUNNY_DESERT", "SUNNY_DESERT", "SANDSTORM_DESERT", "UNDERWATER", "EXTRACOLOURS_1", "EXTRACOLOURS_2"]
-global color11namecars :=["черно-", "бело-", "голубо-", "красно-", "серо-", "лилово-", "оранжево-", "голубо-", "серо-", "серо-", "сине-", "серо-", "голубо-", "серо-", "серо-", "серо-", "зелено-", "красно-", "красно-", "серо-", "сине-", "малиново-", "малиново-", "серо-", "серо-", "серо-", "серо-", "серо-", "сине-", "серо-", "коричнево-", "коричнево-", "голубо-", "серо-", "серо-", "серо-", "черно-", "черно-", "серо-", "голубо-", "коричнево-", "серо-", "красно-", "красно-", "зелено-", "красно-", "зелено-","серо-", "серо-", "серо-", "серо-", "зелено-", "серо-", "сине-", "сине-", "коричнево-", "серо-", "коричнево-", "красно-", "сине-", "серо-", "коричнево-", "красно-", "серо-", "серо-", "желто-", "коричнево-", "голубо-", "желто-", "розово-", "красно-", "голубо-", "серо-", "серо-", "коричнево-", "черно-", "серо-", "коричнево-", "красно-", "сине-", "красно-", "коричнево-", "красно-", "зелено-", "коричнево-", "красно-", "зелено-", "голубо-", "красно-", "серо-", "светло-серо-", "сине-", "серо-", "голубо-", "сине-", "сине-", "серо-", "серо-", "серо-", "коричнево-", "серо-", "сине-", "коричнево-", "сине-", "коричнево-", "серо-", "голубо-", "серо-", "голубо-", "серо-", "коричнево-", "серо-", "голубо-", "коричнево-", "зелено-", "малиново-", "сине-", "красно-", "серо-", "коричнево-", "коричнево-", "красно-", "серо-", "желто-", "малиново-", "сине-", "розово-"]
-global color12namecars := ["салатовый", "шоколадный", "голубой", "горчичный", "кремово-розовый", "черный", "фиолетовый", "светло-голубой", "лиловый", "ярко-салатовый", "бежевый", "лилово-фиолетовый", "молочный", "кремовый", "желтый", "пудровый", "лилово-пудровый", "бледно-салатовый", "бледно-розовый", "розовый", "серый", "серо-коричневый", "серый", "серо-салатовый", "голубой", "хакки", "светло-салатовый", "серо-голубой", "песочный", "светло-серый", "кирпичный", "коричневый", "темно-зеленый", "персиково-розовый", "темно-голубой", "морская волна", "темно-серый", "серо-голубой", "бледно-голубой", "фиалковый", "светлый шоколад", "бледно-лиловый", "бледно-пурпурный", "пурпурный", "грязный зеленый", "светлый шоколад", "светло-коричневый", "яркий персиковый", "бледно-фиолетовый", "бледно-пудровый", "бледно-розовый", "ягодный", "светло-горчичный", "темный персиковый", "темный бежевый", "светло-кирпичный", "бледно-розовый", "светло-серый","темно-зеленый", "зеленый", "светло-зеленый", "серо-зеленый", "чайная роза", "бледно-салатовый", "молочный", "белый", "яркожелтый", "бледно-желтый", "белый", "яичный", "серо-голубой", "хакки", "кремовый", "серо-синий", "серо-зеленый", "темно-серый", "металлик", "черно-синий", "черно-серый", "серый", "сизый", "серо-голубой", "темный серо-голубой", "фиолетовый", "кирпичный", "молочный", "желто-зеленый", "темный зеленый", "бежевый", "светло-голубой", "персиковый", "светло-оранжевый", "истинный розовый", "светло-желтый", "персиково-оранжевый", "темно-синий", "светлый шоколад", "хакки", "салатовый", "темно-зеленый", "кремово-желтый", "зеленый", "сливовый", "грязно-желтый", "лилово-розовый", "светло-малиновый", "темно-зеленый", "серо-зеленый", "темно-серый", "пудровый", "песочный", "кирпичный", "голубой", "желто-салатовый", "темно-малиновый", "бледно-зеленый", "шоколадный", "темно-зеленый", "серо-голубой", "серый", "светлый шоколад", "вишневый", "молочный", "светло-серый", "серый", "слоновая кость", "кремово-серый", "серо-синий"]
+global color11namecars :=["С‡РµСЂРЅРѕ-", "Р±РµР»Рѕ-", "РіРѕР»СѓР±Рѕ-", "РєСЂР°СЃРЅРѕ-", "СЃРµСЂРѕ-", "Р»РёР»РѕРІРѕ-", "РѕСЂР°РЅР¶РµРІРѕ-", "РіРѕР»СѓР±Рѕ-", "СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "СЃРёРЅРµ-", "СЃРµСЂРѕ-", "РіРѕР»СѓР±Рѕ-", "СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "Р·РµР»РµРЅРѕ-", "РєСЂР°СЃРЅРѕ-", "РєСЂР°СЃРЅРѕ-", "СЃРµСЂРѕ-", "СЃРёРЅРµ-", "РјР°Р»РёРЅРѕРІРѕ-", "РјР°Р»РёРЅРѕРІРѕ-", "СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "СЃРёРЅРµ-", "СЃРµСЂРѕ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "РіРѕР»СѓР±Рѕ-", "СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "С‡РµСЂРЅРѕ-", "С‡РµСЂРЅРѕ-", "СЃРµСЂРѕ-", "РіРѕР»СѓР±Рѕ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "СЃРµСЂРѕ-", "РєСЂР°СЃРЅРѕ-", "РєСЂР°СЃРЅРѕ-", "Р·РµР»РµРЅРѕ-", "РєСЂР°СЃРЅРѕ-", "Р·РµР»РµРЅРѕ-","СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "Р·РµР»РµРЅРѕ-", "СЃРµСЂРѕ-", "СЃРёРЅРµ-", "СЃРёРЅРµ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "СЃРµСЂРѕ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "РєСЂР°СЃРЅРѕ-", "СЃРёРЅРµ-", "СЃРµСЂРѕ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "РєСЂР°СЃРЅРѕ-", "СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "Р¶РµР»С‚Рѕ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "РіРѕР»СѓР±Рѕ-", "Р¶РµР»С‚Рѕ-", "СЂРѕР·РѕРІРѕ-", "РєСЂР°СЃРЅРѕ-", "РіРѕР»СѓР±Рѕ-", "СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "С‡РµСЂРЅРѕ-", "СЃРµСЂРѕ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "РєСЂР°СЃРЅРѕ-", "СЃРёРЅРµ-", "РєСЂР°СЃРЅРѕ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "РєСЂР°СЃРЅРѕ-", "Р·РµР»РµРЅРѕ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "РєСЂР°СЃРЅРѕ-", "Р·РµР»РµРЅРѕ-", "РіРѕР»СѓР±Рѕ-", "РєСЂР°СЃРЅРѕ-", "СЃРµСЂРѕ-", "СЃРІРµС‚Р»Рѕ-СЃРµСЂРѕ-", "СЃРёРЅРµ-", "СЃРµСЂРѕ-", "РіРѕР»СѓР±Рѕ-", "СЃРёРЅРµ-", "СЃРёРЅРµ-", "СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "СЃРµСЂРѕ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "СЃРµСЂРѕ-", "СЃРёРЅРµ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "СЃРёРЅРµ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "СЃРµСЂРѕ-", "РіРѕР»СѓР±Рѕ-", "СЃРµСЂРѕ-", "РіРѕР»СѓР±Рѕ-", "СЃРµСЂРѕ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "СЃРµСЂРѕ-", "РіРѕР»СѓР±Рѕ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "Р·РµР»РµРЅРѕ-", "РјР°Р»РёРЅРѕРІРѕ-", "СЃРёРЅРµ-", "РєСЂР°СЃРЅРѕ-", "СЃРµСЂРѕ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "РєРѕСЂРёС‡РЅРµРІРѕ-", "РєСЂР°СЃРЅРѕ-", "СЃРµСЂРѕ-", "Р¶РµР»С‚Рѕ-", "РјР°Р»РёРЅРѕРІРѕ-", "СЃРёРЅРµ-", "СЂРѕР·РѕРІРѕ-"]
+global color12namecars := ["СЃР°Р»Р°С‚РѕРІС‹Р№", "С€РѕРєРѕР»Р°РґРЅС‹Р№", "РіРѕР»СѓР±РѕР№", "РіРѕСЂС‡РёС‡РЅС‹Р№", "РєСЂРµРјРѕРІРѕ-СЂРѕР·РѕРІС‹Р№", "С‡РµСЂРЅС‹Р№", "С„РёРѕР»РµС‚РѕРІС‹Р№", "СЃРІРµС‚Р»Рѕ-РіРѕР»СѓР±РѕР№", "Р»РёР»РѕРІС‹Р№", "СЏСЂРєРѕ-СЃР°Р»Р°С‚РѕРІС‹Р№", "Р±РµР¶РµРІС‹Р№", "Р»РёР»РѕРІРѕ-С„РёРѕР»РµС‚РѕРІС‹Р№", "РјРѕР»РѕС‡РЅС‹Р№", "РєСЂРµРјРѕРІС‹Р№", "Р¶РµР»С‚С‹Р№", "РїСѓРґСЂРѕРІС‹Р№", "Р»РёР»РѕРІРѕ-РїСѓРґСЂРѕРІС‹Р№", "Р±Р»РµРґРЅРѕ-СЃР°Р»Р°С‚РѕРІС‹Р№", "Р±Р»РµРґРЅРѕ-СЂРѕР·РѕРІС‹Р№", "СЂРѕР·РѕРІС‹Р№", "СЃРµСЂС‹Р№", "СЃРµСЂРѕ-РєРѕСЂРёС‡РЅРµРІС‹Р№", "СЃРµСЂС‹Р№", "СЃРµСЂРѕ-СЃР°Р»Р°С‚РѕРІС‹Р№", "РіРѕР»СѓР±РѕР№", "С…Р°РєРєРё", "СЃРІРµС‚Р»Рѕ-СЃР°Р»Р°С‚РѕРІС‹Р№", "СЃРµСЂРѕ-РіРѕР»СѓР±РѕР№", "РїРµСЃРѕС‡РЅС‹Р№", "СЃРІРµС‚Р»Рѕ-СЃРµСЂС‹Р№", "РєРёСЂРїРёС‡РЅС‹Р№", "РєРѕСЂРёС‡РЅРµРІС‹Р№", "С‚РµРјРЅРѕ-Р·РµР»РµРЅС‹Р№", "РїРµСЂСЃРёРєРѕРІРѕ-СЂРѕР·РѕРІС‹Р№", "С‚РµРјРЅРѕ-РіРѕР»СѓР±РѕР№", "РјРѕСЂСЃРєР°СЏ РІРѕР»РЅР°", "С‚РµРјРЅРѕ-СЃРµСЂС‹Р№", "СЃРµСЂРѕ-РіРѕР»СѓР±РѕР№", "Р±Р»РµРґРЅРѕ-РіРѕР»СѓР±РѕР№", "С„РёР°Р»РєРѕРІС‹Р№", "СЃРІРµС‚Р»С‹Р№ С€РѕРєРѕР»Р°Рґ", "Р±Р»РµРґРЅРѕ-Р»РёР»РѕРІС‹Р№", "Р±Р»РµРґРЅРѕ-РїСѓСЂРїСѓСЂРЅС‹Р№", "РїСѓСЂРїСѓСЂРЅС‹Р№", "РіСЂСЏР·РЅС‹Р№ Р·РµР»РµРЅС‹Р№", "СЃРІРµС‚Р»С‹Р№ С€РѕРєРѕР»Р°Рґ", "СЃРІРµС‚Р»Рѕ-РєРѕСЂРёС‡РЅРµРІС‹Р№", "СЏСЂРєРёР№ РїРµСЂСЃРёРєРѕРІС‹Р№", "Р±Р»РµРґРЅРѕ-С„РёРѕР»РµС‚РѕРІС‹Р№", "Р±Р»РµРґРЅРѕ-РїСѓРґСЂРѕРІС‹Р№", "Р±Р»РµРґРЅРѕ-СЂРѕР·РѕРІС‹Р№", "СЏРіРѕРґРЅС‹Р№", "СЃРІРµС‚Р»Рѕ-РіРѕСЂС‡РёС‡РЅС‹Р№", "С‚РµРјРЅС‹Р№ РїРµСЂСЃРёРєРѕРІС‹Р№", "С‚РµРјРЅС‹Р№ Р±РµР¶РµРІС‹Р№", "СЃРІРµС‚Р»Рѕ-РєРёСЂРїРёС‡РЅС‹Р№", "Р±Р»РµРґРЅРѕ-СЂРѕР·РѕРІС‹Р№", "СЃРІРµС‚Р»Рѕ-СЃРµСЂС‹Р№","С‚РµРјРЅРѕ-Р·РµР»РµРЅС‹Р№", "Р·РµР»РµРЅС‹Р№", "СЃРІРµС‚Р»Рѕ-Р·РµР»РµРЅС‹Р№", "СЃРµСЂРѕ-Р·РµР»РµРЅС‹Р№", "С‡Р°Р№РЅР°СЏ СЂРѕР·Р°", "Р±Р»РµРґРЅРѕ-СЃР°Р»Р°С‚РѕРІС‹Р№", "РјРѕР»РѕС‡РЅС‹Р№", "Р±РµР»С‹Р№", "СЏСЂРєРѕР¶РµР»С‚С‹Р№", "Р±Р»РµРґРЅРѕ-Р¶РµР»С‚С‹Р№", "Р±РµР»С‹Р№", "СЏРёС‡РЅС‹Р№", "СЃРµСЂРѕ-РіРѕР»СѓР±РѕР№", "С…Р°РєРєРё", "РєСЂРµРјРѕРІС‹Р№", "СЃРµСЂРѕ-СЃРёРЅРёР№", "СЃРµСЂРѕ-Р·РµР»РµРЅС‹Р№", "С‚РµРјРЅРѕ-СЃРµСЂС‹Р№", "РјРµС‚Р°Р»Р»РёРє", "С‡РµСЂРЅРѕ-СЃРёРЅРёР№", "С‡РµСЂРЅРѕ-СЃРµСЂС‹Р№", "СЃРµСЂС‹Р№", "СЃРёР·С‹Р№", "СЃРµСЂРѕ-РіРѕР»СѓР±РѕР№", "С‚РµРјРЅС‹Р№ СЃРµСЂРѕ-РіРѕР»СѓР±РѕР№", "С„РёРѕР»РµС‚РѕРІС‹Р№", "РєРёСЂРїРёС‡РЅС‹Р№", "РјРѕР»РѕС‡РЅС‹Р№", "Р¶РµР»С‚Рѕ-Р·РµР»РµРЅС‹Р№", "С‚РµРјРЅС‹Р№ Р·РµР»РµРЅС‹Р№", "Р±РµР¶РµРІС‹Р№", "СЃРІРµС‚Р»Рѕ-РіРѕР»СѓР±РѕР№", "РїРµСЂСЃРёРєРѕРІС‹Р№", "СЃРІРµС‚Р»Рѕ-РѕСЂР°РЅР¶РµРІС‹Р№", "РёСЃС‚РёРЅРЅС‹Р№ СЂРѕР·РѕРІС‹Р№", "СЃРІРµС‚Р»Рѕ-Р¶РµР»С‚С‹Р№", "РїРµСЂСЃРёРєРѕРІРѕ-РѕСЂР°РЅР¶РµРІС‹Р№", "С‚РµРјРЅРѕ-СЃРёРЅРёР№", "СЃРІРµС‚Р»С‹Р№ С€РѕРєРѕР»Р°Рґ", "С…Р°РєРєРё", "СЃР°Р»Р°С‚РѕРІС‹Р№", "С‚РµРјРЅРѕ-Р·РµР»РµРЅС‹Р№", "РєСЂРµРјРѕРІРѕ-Р¶РµР»С‚С‹Р№", "Р·РµР»РµРЅС‹Р№", "СЃР»РёРІРѕРІС‹Р№", "РіСЂСЏР·РЅРѕ-Р¶РµР»С‚С‹Р№", "Р»РёР»РѕРІРѕ-СЂРѕР·РѕРІС‹Р№", "СЃРІРµС‚Р»Рѕ-РјР°Р»РёРЅРѕРІС‹Р№", "С‚РµРјРЅРѕ-Р·РµР»РµРЅС‹Р№", "СЃРµСЂРѕ-Р·РµР»РµРЅС‹Р№", "С‚РµРјРЅРѕ-СЃРµСЂС‹Р№", "РїСѓРґСЂРѕРІС‹Р№", "РїРµСЃРѕС‡РЅС‹Р№", "РєРёСЂРїРёС‡РЅС‹Р№", "РіРѕР»СѓР±РѕР№", "Р¶РµР»С‚Рѕ-СЃР°Р»Р°С‚РѕРІС‹Р№", "С‚РµРјРЅРѕ-РјР°Р»РёРЅРѕРІС‹Р№", "Р±Р»РµРґРЅРѕ-Р·РµР»РµРЅС‹Р№", "С€РѕРєРѕР»Р°РґРЅС‹Р№", "С‚РµРјРЅРѕ-Р·РµР»РµРЅС‹Р№", "СЃРµСЂРѕ-РіРѕР»СѓР±РѕР№", "СЃРµСЂС‹Р№", "СЃРІРµС‚Р»С‹Р№ С€РѕРєРѕР»Р°Рґ", "РІРёС€РЅРµРІС‹Р№", "РјРѕР»РѕС‡РЅС‹Р№", "СЃРІРµС‚Р»Рѕ-СЃРµСЂС‹Р№", "СЃРµСЂС‹Р№", "СЃР»РѕРЅРѕРІР°СЏ РєРѕСЃС‚СЊ", "РєСЂРµРјРѕРІРѕ-СЃРµСЂС‹Р№", "СЃРµСЂРѕ-СЃРёРЅРёР№"]
 global color21namecars :=["Black", "White", "Blue", "Red", "Dark Gray", "Purple", "Orange", "Gray-blue", "Light Gray", "Gray", "Gray-blue", "Gray", "Gray-blue", "Gray", "Light Gray"," Light Gray", "Light Gray", "Green", "Cherry", "Dark Crimson"," Light Gray", "Gray-blue", "Pale Crimson", "Dark Crimson", "Light Gray", "Gray", "Dark Gray", "Light Gray", "Gray", "Gray-blue", "Light Gray", "Dark Brown", "Light Blue", "Gray", "Gray", "Dark Gray", "Gray-green", "Gray", "Gray-blue", "Dark Brown", "Gray", " Pale Cherry", "Cherry", "Dark Green", "Brown-cherry", "Light Khaki", "Gray", "Light Gray", "Light Gray", "Gray", "Green-blue", "Gray", "Blue", "Pale Blue", "Cocoa", "Light Gray", "Light Khaki", "Dark Cherry", "Gray-blue", "Light Gray", "Dark Sand", "Dark Crimson", "Gray", "Gray", "Pale Green", "Dark Brown", "Gray-blue", "Light Khaki", "Cocoa With Milk", "Pale Cherry", "Blue", "Dark Gray", "Light Gray", "Dark Brown", "Dark Blue", "Light Gray", "Light Khakki", "Pale Cherry", "Blue", "Pale Crimson", "Mocha", "Dark-cherry", "Dark Green", "Milk Chocolate", "Raspberry", "Light Green", "Blue", "Pale Cherry", "Pale Khaki", "Light Gray", "Gray", "Gray", "Blue", "Light Shiny", "Blue", "Light Gray", "Gray", "Dark Gray", "Light Khaki", "Blue", "Dark Blue", "Light Khaki", "Blue", "Mocha", "Gray", "Dark Blue", "Sand", "Blue", "Dark Gray", "Cocoa", "Light Gray", "Blue", "Chocolate", "Khaki", "Magenta", "Blue", "Cherry", "Light Gray", "Cocoa", "Mocha", "Dark Cherry", "Dark Gray", "Mustard", "Dark Magenta", "Blue", "Pink"]
 global color22namecars :=["Light Green", "Chocolate", "Blue", "Mustard", "Cream Pink", "Black", "Purple", "Light Blue", "Purple", "Bright Green", "Beige", "Purple", "Milky", "Cream", "Yellow", "Powdery", "Purple", "Pale Pink", "Pale Pink", "Pink", "Pink", "Pink", "Pink", "Gray-brown", "Gray", "Gray-light Green", "Blue", "Hakki", "Light Green", "Gray-blue", "Sand", "Light Gray", "Brick", "Brown", "Dark Green", "Peach Pink", "Dark Blue", "Sea Wave", "Dark Gray", "Gray-blue", "Pale Blue", " Violet", "Light Chocolate", "Pale Lilac", "Pale Purple", "Purple", "Dirty Green", "Light Chocolate", "Light Brown", "Bright Peach", "Pale Violet", "Pale Powdery", "Pale Pink", "Berry", "Light Mustard", "Dark Peach", "Dark Beige", "Light Brick", "Light Gray", "Light Gray", "Dark Green", "Green", "Light Green", "Gray-green", "Tea Rose", "Pale Green", "Milky", "White", "Yarkozhelty", "Pale Yellow", "White", "Egg", "Gray-blue", "Hakki", "Cream", "Gray-blue", "Gray-green", "Dark Gray", " Metallic", "Black And Blue", "Black And Gray", "Gray", "Gray", "Gray-blue", "Dark Gray-blue", "Purple", "Brick", "Milk", "Yellow-green", "Dark Green", "Beige", "Light Blue", "Peach", "Light Orange", "True Pink", "Light Yellow", "Peach Orange", "Dark Blue", "Light Chocolate", "Hakki", "Light Green", "Dark Green", "Cream Yellow", "Green", "Plum", "Dirty Yellow", "Purple-pink", "Light Crimson", "Dark Green", "Gray-green", "Dark Gray", "Powdery", "Sand", "Brick ", "Blue", "Yellow-green", "Dark Crimson", "Pale Green", "Chocolate", "Dark Green", "Gray-blue", "Gray", "Light Chocolate", "Cherry", "Milky", "Light Gray", "Gray", "Ivory", "Cream Gray", " Gray-blue"]
 global IdInCar:=-1
@@ -3495,12 +3495,12 @@ carInfo(id)
             color2 := PreobrColorCar(getVehicleColor2())
             CallCarFunc(id , getUsername(), getVehicleModelName(), getVehicleModelid(), getVehicleHealth(), color1, color2)
         }
-    else addChatMessageEx("FFFFFF","• {AC0000}[Ошибка] {FFFFFF}Вы не находитесь в транспорте.")
+    else addChatMessageEx("FFFFFF","вЂў {AC0000}[РћС€РёР±РєР°] {FFFFFF}Р’С‹ РЅРµ РЅР°С…РѕРґРёС‚РµСЃСЊ РІ С‚СЂР°РЅСЃРїРѕСЂС‚Рµ.")
     }
     else
     {
         if (getPlayerPingByid(id) = 0) or (getPlayerPingByid(id) = -1) or (getTargetPlayerSkinidByid(id) = -1)
-    addChatMessageEx("FFFFFF","• {AC0000}[Ошибка] {FFFFFF}Игрок находится вне зоны прорисовки.")
+    addChatMessageEx("FFFFFF","вЂў {AC0000}[РћС€РёР±РєР°] {FFFFFF}РРіСЂРѕРє РЅР°С…РѕРґРёС‚СЃСЏ РІРЅРµ Р·РѕРЅС‹ РїСЂРѕСЂРёСЃРѕРІРєРё.")
         else
         {
             color1 := PreobrColorCar(getTargetVehicleColor1Byid(id))
@@ -3521,13 +3521,13 @@ preobrColorCar(c) {
 }
 callCarFunc(id , player, carname, carid, carhp, carcolorone, carcolortwo)
 {
-    addChatMessageEx("AAAAAA" , "••••••••••••••••••••••••••••••••••••••")
+    addChatMessageEx("AAAAAA" , "вЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂў")
 addChatMessageEx("FFFFFF" , "{33AA33}Player: {FFFFFF}" player " [" id "]")
-addChatMessageEx("FFFFFF" , "{33AA33}СarName: {FFFFFF}" carname " [" carid "]")
+addChatMessageEx("FFFFFF" , "{33AA33}РЎarName: {FFFFFF}" carname " [" carid "]")
 addChatMessageEx("FFFFFF" , "{33AA33}CarHP: {FFFFFF}" carhp)
 addChatMessageEx("FFFFFF" , "{33AA33}CarColorOne: {FFFFFF}" carcolorone)
 addChatMessageEx("FFFFFF" , "{33AA33}CarColorTwo: {FFFFFF}" carcolortwo)
-    addChatMessageEx("AAAAAA" , "••••••••••••••••••••••••••••••••••••••")
+    addChatMessageEx("AAAAAA" , "вЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂў")
 }
 addChatMessageEx(Color, wText) {
     wText := "" wText
@@ -3565,27 +3565,27 @@ Gosub, ReadSettingsInfo
 {
     if (Name == "ERROR" or "")
     {
-        Name := "Ваше Имя."
+        Name := "Р’Р°С€Рµ РРјСЏ."
     }
     if (Surname == "ERROR" or "")
     {
-        Surname := "Ваша Фамилия."
+        Surname := "Р’Р°С€Р° Р¤Р°РјРёР»РёСЏ."
     }
     if (Ida == "ERROR" or "")
     {
-        Ida := "Ид."
+        Ida := "РРґ."
     }
     if (Marking == "ERROR" or "")
     {
-        Marking := "Маркировка."
+        Marking := "РњР°СЂРєРёСЂРѕРІРєР°."
     }
     if (Rank == "ERROR" or "")
     {
-        Rank := "Сокращенное звание."
+        Rank := "РЎРѕРєСЂР°С‰РµРЅРЅРѕРµ Р·РІР°РЅРёРµ."
     }
     if (Sex == "ERROR" or "")
     {
-        Sex := "Мужчина"
+        Sex := "РњСѓР¶С‡РёРЅР°"
     }
     if (Organ == "ERROR" or "")
     {
@@ -3593,7 +3593,7 @@ Gosub, ReadSettingsInfo
     }
     if (Tag == "ERROR" or "")
     {
-        Tag := "[Ваш тэг]:"
+        Tag := "[Р’Р°С€ С‚СЌРі]:"
     }
     if (Sleepingtime == "ERROR" or "")
     {
@@ -3754,58 +3754,58 @@ else if (nextbackground >= 6)
 Gui, Add, Picture, x712 y0 w80 h80, %a_temp%\strob.png
 Gui, Add, Radio, x352 y79 w60 h20 gCheck vRadioGroup1 %Ch1%, ON\OFF
 Gui, Add, Radio, x132 y129 w70 h20 gCheck vRadioGroup2 %Ch2%, ON\OFF
-Gui, Add, CheckBox, x242 y79 w100 h20 vEngVer %Ch3%, АНГЛ. ВЕРСИЯ
+Gui, Add, CheckBox, x242 y79 w100 h20 vEngVer %Ch3%, РђРќР“Р›. Р’Р•Р РЎРРЇ
 SoundPlay, %a_temp%\tuturu.mp3
 Gui, Add, Edit, x22 y29 w100 h20 vName, %Name%
 Gui, Add, Edit, x132 y29 w100 h20 vSurname, %Surname%
-Gui, Add, DropDownList, x252 y29 w100 h180 vSex, Мужчина|Женщина
+Gui, Add, DropDownList, x252 y29 w100 h180 vSex, РњСѓР¶С‡РёРЅР°|Р–РµРЅС‰РёРЅР°
 GuiControl, ChooseString, Sex, %Sex%
-Gui, Add, GroupBox, x12 y9 w460 h50 , Информация о пользователе
+Gui, Add, GroupBox, x12 y9 w460 h50 , РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїРѕР»СЊР·РѕРІР°С‚РµР»Рµ
 Gui, Add, Edit, x22 y79 w100 h20 vMarking, %Marking%
 Gui, Add, Edit, x132 y79 w100 h20 vRank, %Rank%
-Gui, Add, GroupBox, x12 y59 w410 h50 , Рация с отыгровкой диспетчера
+Gui, Add, GroupBox, x12 y59 w410 h50 , Р Р°С†РёСЏ СЃ РѕС‚С‹РіСЂРѕРІРєРѕР№ РґРёСЃРїРµС‚С‡РµСЂР°
 Gui, Add, Edit, x22 y129 w100 h20 vTag, %Tag%
-Gui, Add, GroupBox, x222 y109 w110 h50 , Интервал между строк(в м\с).
+Gui, Add, GroupBox, x222 y109 w110 h50 , РРЅС‚РµСЂРІР°Р» РјРµР¶РґСѓ СЃС‚СЂРѕРє(РІ Рј\СЃ).
 Gui, Add, Edit, x232 y129 w90 h20 vSleepingtime, %sleepingtime%
 Gui, Add, DropDownList, x362 y29 w100 h70 vOrgan, SAPD|FBI|SWAT|CIA
 GuiControl, ChooseString, Organ, %Organ%
-Gui, Add, GroupBox, x12 y109 w200 h50 , Тэговый вариант рации
+Gui, Add, GroupBox, x12 y109 w200 h50 , РўСЌРіРѕРІС‹Р№ РІР°СЂРёР°РЅС‚ СЂР°С†РёРё
 Gui, Add, Button, x12 y219 w20 h80 gAnimation, <
-Gui, Add, GroupBox, x12 y159 w110 h50 , Время переключение оружия(в м\с).
+Gui, Add, GroupBox, x12 y159 w110 h50 , Р’СЂРµРјСЏ РїРµСЂРµРєР»СЋС‡РµРЅРёРµ РѕСЂСѓР¶РёСЏ(РІ Рј\СЃ).
 Gui, Add, Edit, x22 y179 w90 h20 vTimeweap, %Timeweap%
 Gui, Add, Edit, x232 y179 w90 h20 vPage, %page%
-Gui, Add, GroupBox, x222 y159 w110 h50 , Кол-во строк в чате. Не меньше 12.
+Gui, Add, GroupBox, x222 y159 w110 h50 , РљРѕР»-РІРѕ СЃС‚СЂРѕРє РІ С‡Р°С‚Рµ. РќРµ РјРµРЅСЊС€Рµ 12.
 Gui, 2:Add, Hotkey, x12 y19 w50 h20 vHotKey1, %HotKey1%
 GuiControl, ChooseString, HotKey1, %HotKey1%
-Gui, 2:Add, Text, x72 y19 w100 h30 , - Ситуация "Трафик-Стоп".
+Gui, 2:Add, Text, x72 y19 w100 h30 , - РЎРёС‚СѓР°С†РёСЏ "РўСЂР°С„РёРє-РЎС‚РѕРї".
 Gui, 2:Add, Hotkey, x12 y59 w50 h20 vHotKey2, %HotKey2%
-Gui, 2:Add, Text, x72 y59 w110 h30 , - Ситуация "Арест" (57v`, 66).
+Gui, 2:Add, Text, x72 y59 w110 h30 , - РЎРёС‚СѓР°С†РёСЏ "РђСЂРµСЃС‚" (57v`, 66).
 Gui, 2:Add, Hotkey, x12 y99 w50 h20 vHotKey3, %HotKey3%
-Gui, 2:Add, Text, x72 y99 w130 h20 , - Ситуация "Теракт".
+Gui, 2:Add, Text, x72 y99 w130 h20 , - РЎРёС‚СѓР°С†РёСЏ "РўРµСЂР°РєС‚".
 Gui, 2:Add, Hotkey, x12 y139 w50 h20 vHotKey4, %HotKey4%
-Gui, 2:Add, Text, x72 y139 w130 h20 , - Меню "Рация".
+Gui, 2:Add, Text, x72 y139 w130 h20 , - РњРµРЅСЋ "Р Р°С†РёСЏ".
 Gui, 2:Add, Hotkey, x12 y179 w50 h20 vHotKey5, %HotKey5%
 Gui, 2:Add, Hotkey, x12 y219 w50 h20 vHotKey6, %HotKey6%
 Gui, 2:Add, Hotkey, x12 y259 w50 h20 vHotKey7, %HotKey7%
 Gui, 2:Add, Hotkey, x12 y299 w50 h20 vHotKey8, %HotKey8%
-Gui, 2:Add, Text, x72 y179 w140 h20 , - Фиксация на машине.
-Gui, 2:Add, Text, x72 y219 w140 h30 , - Сброс данных о машине.
-Gui, 2:Add, Text, x72 y259 w50 h20 , - Лимит
+Gui, 2:Add, Text, x72 y179 w140 h20 , - Р¤РёРєСЃР°С†РёСЏ РЅР° РјР°С€РёРЅРµ.
+Gui, 2:Add, Text, x72 y219 w140 h30 , - РЎР±СЂРѕСЃ РґР°РЅРЅС‹С… Рѕ РјР°С€РёРЅРµ.
+Gui, 2:Add, Text, x72 y259 w50 h20 , - Р›РёРјРёС‚
 Gui, 2:Add, Edit, x122 y259 w30 h20 vlimit, %limit%
-Gui, 2:Add, Text, x162 y259 w40 h20 , км\час
-Gui, 2:Add, Text, x72 y299 w140 h20 , - Отыгровка часов + F8
+Gui, 2:Add, Text, x162 y259 w40 h20 , РєРј\С‡Р°СЃ
+Gui, 2:Add, Text, x72 y299 w140 h20 , - РћС‚С‹РіСЂРѕРІРєР° С‡Р°СЃРѕРІ + F8
 Gui, Font,, Comic Sans MS
 Gui, 2:Font,, Comic Sans MS
-Gui, 2:Add, Button, x80 y329 w160 h30 gSaveButton, СОХРАНИТЬ КЛАВИШИ
-Gui, Add, Button, x12 y519 w100 h30  gButtonSave, СОХРАНИТЬ!
-Gui, Add, Button, x12 y479 w100 h30 gDownloadSamp, СКАЧАТЬ SAMP
-Gui, Add, Button, x122 y519 w100 h30 gOpen, ЗАПУСК!!!
+Gui, 2:Add, Button, x80 y329 w160 h30 gSaveButton, РЎРћРҐР РђРќРРўР¬ РљР›РђР’РРЁР
+Gui, Add, Button, x12 y519 w100 h30  gButtonSave, РЎРћРҐР РђРќРРўР¬!
+Gui, Add, Button, x12 y479 w100 h30 gDownloadSamp, РЎРљРђР§РђРўР¬ SAMP
+Gui, Add, Button, x122 y519 w100 h30 gOpen, Р—РђРџРЈРЎРљ!!!
 Gui, Font, CBlack, Counter new
-Gui, Add, Text, x42 y249 w75 h30 +Center, НАСТРОЙКА КЛАВИШ
+Gui, Add, Text, x42 y249 w75 h30 +Center, РќРђРЎРўР РћР™РљРђ РљР›РђР’РРЁ
 Gui, Font, CRed Italic, Verdana
-Gui, Add, Text, x12 y399 w200 h30 , - Помощь по биндеру в игре - F1
+Gui, Add, Text, x12 y399 w200 h30 , - РџРѕРјРѕС‰СЊ РїРѕ Р±РёРЅРґРµСЂСѓ РІ РёРіСЂРµ - F1
 Gui, Font, CBlack Italic, Verdana
-Gui, Add, Text, x12 y429 w210 h40 , - Не работает F1 или весь биндер ? - Скачай нашу версию SAMP'a нажав на кнопку...
+Gui, Add, Text, x12 y429 w210 h40 , - РќРµ СЂР°Р±РѕС‚Р°РµС‚ F1 РёР»Рё РІРµСЃСЊ Р±РёРЅРґРµСЂ ? - РЎРєР°С‡Р°Р№ РЅР°С€Сѓ РІРµСЂСЃРёСЋ SAMP'a РЅР°Р¶Р°РІ РЅР° РєРЅРѕРїРєСѓ...
 Gui, Show, w788 h565, Adjutant by Cooper << %vupd% >>
 return
 animation:
@@ -3815,7 +3815,7 @@ Gui, +AlwaysOnTop
 Loop
 {
     Sleep, 10
-    Gui, 2:Show, % "x" (x2 := X - A_Index*4) " y" Y+100 " w" 250 " h" 365 " NA", Настройки
+    Gui, 2:Show, % "x" (x2 := X - A_Index*4) " y" Y+100 " w" 250 " h" 365 " NA", РќР°СЃС‚СЂРѕР№РєРё
 } Until x2 <= X-252
 Gui, -AlwaysOnTop
 return
@@ -3841,10 +3841,10 @@ if (RadioGroup%A_Index% == 1)
 Return
 DownloadSamp:
 {
-    SplashTextOn, , 60, Менеджер обновлений,  Ожидайте`n------------------------`nСкачиваем SAMP
+    SplashTextOn, , 60, РњРµРЅРµРґР¶РµСЂ РѕР±РЅРѕРІР»РµРЅРёР№,  РћР¶РёРґР°Р№С‚Рµ`n------------------------`nРЎРєР°С‡РёРІР°РµРј SAMP
     URLDownloadToFile, https://raw.githubusercontent.com/dan1654/Officer-Adjutant/master/samp.exe, %a_temp%\samp.exe
     sleep, 500
-    SplashTextOn, , 60, Менеджер обновлений,  Ожидайте`n------------------------`nЗапускаем установщик
+    SplashTextOn, , 60, РњРµРЅРµРґР¶РµСЂ РѕР±РЅРѕРІР»РµРЅРёР№,  РћР¶РёРґР°Р№С‚Рµ`n------------------------`nР—Р°РїСѓСЃРєР°РµРј СѓСЃС‚Р°РЅРѕРІС‰РёРє
     sleep, 500
     SplashTextoff
     run, %a_temp%\samp.exe
@@ -3854,10 +3854,10 @@ Open:
 GuiControlGet, Page,, Page
 if Page <= 11
 {
-    MsgBox, 16, Запустить биндер не возможно!., Значение /pagesize меньше 12-и. `nТекущее значение - %Page%. `nИзмените значение и повторите попытку!
+    MsgBox, 16, Р—Р°РїСѓСЃС‚РёС‚СЊ Р±РёРЅРґРµСЂ РЅРµ РІРѕР·РјРѕР¶РЅРѕ!., Р—РЅР°С‡РµРЅРёРµ /pagesize РјРµРЅСЊС€Рµ 12-Рё. `nРўРµРєСѓС‰РµРµ Р·РЅР°С‡РµРЅРёРµ - %Page%. `nРР·РјРµРЅРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ Рё РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ!
     return
 }
-TrayTip, Officer Adjutant by Cooper, Вы запустили биндер!                                               Нажмите в игре F1 для того что-бы попасть в меню.,4,1
+TrayTip, Officer Adjutant by Cooper, Р’С‹ Р·Р°РїСѓСЃС‚РёР»Рё Р±РёРЅРґРµСЂ!                                               РќР°Р¶РјРёС‚Рµ РІ РёРіСЂРµ F1 РґР»СЏ С‚РѕРіРѕ С‡С‚Рѕ-Р±С‹ РїРѕРїР°СЃС‚СЊ РІ РјРµРЅСЋ.,4,1
 Gui, Submit
 Gui, 2:Submit
 HotKey, %HotKey1%, Off, UseErrorLevel
@@ -3901,103 +3901,103 @@ if Hotkey%A_Index% contains #
 {
     NameKey%A_Index% := RegExReplace("" Hotkey%A_Index% "", "#(.*)", "win + $1")
 }
-if Sex = Мужчина
+if Sex = РњСѓР¶С‡РёРЅР°
 {
     Female =
-    Female1 = ка
-    Female2 = вается
-    Female3 = одит
-    Female4 = ся
-    Female5 = он
+    Female1 = РєР°
+    Female2 = РІР°РµС‚СЃСЏ
+    Female3 = РѕРґРёС‚
+    Female4 = СЃСЏ
+    Female5 = РѕРЅ
     Female6 =
-    Female7 = ел
-    Female8 = ёл
-    Female9 = ёлся
-    Female10 = яет
-    Female11 = ёс
+    Female7 = РµР»
+    Female8 = С‘Р»
+    Female9 = С‘Р»СЃСЏ
+    Female10 = СЏРµС‚
+    Female11 = С‘СЃ
     Famele12 = 'a
-    Famele13 = ен
+    Famele13 = РµРЅ
 }
-if Sex = Женщина
+if Sex = Р–РµРЅС‰РёРЅР°
 {
-    Female = а
-    Female1 = цы
-    Female2 = лась
-    Female3 = ела
-    Female4 = ась
-    Female5 = она
-    Female6 = ла
-    Female7 = ла
-    Female8 = ела
-    Female9 = лась
-    Female10 = ила
-    Female11 = есла
+    Female = Р°
+    Female1 = С†С‹
+    Female2 = Р»Р°СЃСЊ
+    Female3 = РµР»Р°
+    Female4 = Р°СЃСЊ
+    Female5 = РѕРЅР°
+    Female6 = Р»Р°
+    Female7 = Р»Р°
+    Female8 = РµР»Р°
+    Female9 = Р»Р°СЃСЊ
+    Female10 = РёР»Р°
+    Female11 = РµСЃР»Р°
     Famele12 =
-    Famele13 = на
+    Famele13 = РЅР°
 }
 if Organ = SAPD
 {
-    Org = полиции
+    Org = РїРѕР»РёС†РёРё
     Org1 = SAPD
-    Org2 = Управления Полиции SA
-    Org3 = Офицер Полиции San Andreas
-    Org4 = Управление полиции San-Andreas
-    Org5 = сотрудник Управления Полиции SA
-    Org7 = ПОЛИЦИЯ
+    Org2 = РЈРїСЂР°РІР»РµРЅРёСЏ РџРѕР»РёС†РёРё SA
+    Org3 = РћС„РёС†РµСЂ РџРѕР»РёС†РёРё San Andreas
+    Org4 = РЈРїСЂР°РІР»РµРЅРёРµ РїРѕР»РёС†РёРё San-Andreas
+    Org5 = СЃРѕС‚СЂСѓРґРЅРёРє РЈРїСЂР°РІР»РµРЅРёСЏ РџРѕР»РёС†РёРё SA
+    Org7 = РџРћР›РР¦РРЇ
     if (engver = 1)
     {
         Org6 := "PDHQ"
     }
     else
-    Org6 = гаража ЛСПД
+    Org6 = РіР°СЂР°Р¶Р° Р›РЎРџР”
 }
 if Organ = FBI
 {
-    Org = федерального бюро
+    Org = С„РµРґРµСЂР°Р»СЊРЅРѕРіРѕ Р±СЋСЂРѕ
     Org1 = FBI
-    Org2 = Федерального Бюро
-    Org3 = Агент Федерального Бюро Расследований
-    Org4 = Федральное Бюро Расследований
-    Org5 = агент Федерального Бюро LS
-    Org7 = ФЕДЕРАЛЬНОЕ БЮРО
+    Org2 = Р¤РµРґРµСЂР°Р»СЊРЅРѕРіРѕ Р‘СЋСЂРѕ
+    Org3 = РђРіРµРЅС‚ Р¤РµРґРµСЂР°Р»СЊРЅРѕРіРѕ Р‘СЋСЂРѕ Р Р°СЃСЃР»РµРґРѕРІР°РЅРёР№
+    Org4 = Р¤РµРґСЂР°Р»СЊРЅРѕРµ Р‘СЋСЂРѕ Р Р°СЃСЃР»РµРґРѕРІР°РЅРёР№
+    Org5 = Р°РіРµРЅС‚ Р¤РµРґРµСЂР°Р»СЊРЅРѕРіРѕ Р‘СЋСЂРѕ LS
+    Org7 = Р¤Р•Р”Р•Р РђР›Р¬РќРћР• Р‘Р®Р Рћ
     if (engver = 1)
     {
         Org6 := "Garage FBI"
     }
     else
-    Org6 = гаража ФБР
+    Org6 = РіР°СЂР°Р¶Р° Р¤Р‘Р 
 }
 if Organ = SWAT
 {
-    Org = специального подразделения
+    Org = СЃРїРµС†РёР°Р»СЊРЅРѕРіРѕ РїРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ
     Org1 = SWAT
-    Org2 = Cпециального Подразделения
-    Org3 = Офицер Специального Подразделения
-    Org4 = Специальное Подразделения SA
-    Org5 = офицер Спец. Подразделения SA
-    Org7 = СПЕЦНАЗ
+    Org2 = CРїРµС†РёР°Р»СЊРЅРѕРіРѕ РџРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ
+    Org3 = РћС„РёС†РµСЂ РЎРїРµС†РёР°Р»СЊРЅРѕРіРѕ РџРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ
+    Org4 = РЎРїРµС†РёР°Р»СЊРЅРѕРµ РџРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ SA
+    Org5 = РѕС„РёС†РµСЂ РЎРїРµС†. РџРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ SA
+    Org7 = РЎРџР•Р¦РќРђР—
     if (engver = 1)
     {
         Org6 := "Garage SWAT"
     }
     else
-    Org6 = гаража СВАТ
+    Org6 = РіР°СЂР°Р¶Р° РЎР’РђРў
 }
 if Organ = CIA
 {
-    Org = разведывательного агентства
+    Org = СЂР°Р·РІРµРґС‹РІР°С‚РµР»СЊРЅРѕРіРѕ Р°РіРµРЅС‚СЃС‚РІР°
     Org1 = CIA
-    Org2 = Разведывательного Агентства
-    Org3 = Агент Разведывательного Агенства.
-    Org4 = Центральное Разведывательное Агенство.
-    Org5 = агент Разведывательного Агенства SA.
-    Org7 = ЦЕНТРАЛЬНОЕ АГЕНТСВО
+    Org2 = Р Р°Р·РІРµРґС‹РІР°С‚РµР»СЊРЅРѕРіРѕ РђРіРµРЅС‚СЃС‚РІР°
+    Org3 = РђРіРµРЅС‚ Р Р°Р·РІРµРґС‹РІР°С‚РµР»СЊРЅРѕРіРѕ РђРіРµРЅСЃС‚РІР°.
+    Org4 = Р¦РµРЅС‚СЂР°Р»СЊРЅРѕРµ Р Р°Р·РІРµРґС‹РІР°С‚РµР»СЊРЅРѕРµ РђРіРµРЅСЃС‚РІРѕ.
+    Org5 = Р°РіРµРЅС‚ Р Р°Р·РІРµРґС‹РІР°С‚РµР»СЊРЅРѕРіРѕ РђРіРµРЅСЃС‚РІР° SA.
+    Org7 = Р¦Р•РќРўР РђР›Р¬РќРћР• РђР“Р•РќРўРЎР’Рћ
     if (engver = 1)
     {
         Org6 := "Garage CIA"
     }
     else
-    Org6 = гаража ЦРУ
+    Org6 = РіР°СЂР°Р¶Р° Р¦Р РЈ
 }
 if PartnerSurname!=0
 {
@@ -4038,7 +4038,7 @@ if (ch2 = "Checked")
 }
 gosub, autoweapons
 ReadSettingsInfo:
-SplashTextOn, , 60, Менеджер сохранений,  Ожидайте`n------------------------`nСканирую данные
+SplashTextOn, , 60, РњРµРЅРµРґР¶РµСЂ СЃРѕС…СЂР°РЅРµРЅРёР№,  РћР¶РёРґР°Р№С‚Рµ`n------------------------`nРЎРєР°РЅРёСЂСѓСЋ РґР°РЅРЅС‹Рµ
 sleep, 1000
 SplashTextoff
 IniRead, Name, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Information, Name
@@ -4075,8 +4075,8 @@ if (RadioGroup2 == 1){
 if (EngVer == 1){
     Ch3 = Checked
 }
-if (sex = Мужщина){
-    IniWrite, Мужчина, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Information, Sex
+if (sex = РњСѓР¶С‰РёРЅР°){
+    IniWrite, РњСѓР¶С‡РёРЅР°, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Information, Sex
 }
 return
 ButtonSave:
@@ -4091,7 +4091,7 @@ IniWrite, %Tag%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, I
 IniWrite, %Sleepingtime%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Information, Sleepingtime
 IniWrite, %Timeweap%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Information, Timeweap
 sleep, 200
-SplashTextOn, , 60, Менеджер сохранений,  Ожидайте`n------------------------`nСканирую данные
+SplashTextOn, , 60, РњРµРЅРµРґР¶РµСЂ СЃРѕС…СЂР°РЅРµРЅРёР№,  РћР¶РёРґР°Р№С‚Рµ`n------------------------`nРЎРєР°РЅРёСЂСѓСЋ РґР°РЅРЅС‹Рµ
 sleep, 1000
 IniWrite, %partnerSurname%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Partner, Surname
 IniWrite, %partnerId%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Partner, Id
@@ -4102,7 +4102,7 @@ IniWrite, %RadioGroup2%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\confige
 IniWrite, %EngVer%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Radio, Eng
 IniWrite, %Page%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Chat, Page
 sleep, 200
-SplashTextOn, , 60, Менеджер сохранений,  Ожидайте`n------------------------`nСохранил всю информацию
+SplashTextOn, , 60, РњРµРЅРµРґР¶РµСЂ СЃРѕС…СЂР°РЅРµРЅРёР№,  РћР¶РёРґР°Р№С‚Рµ`n------------------------`nРЎРѕС…СЂР°РЅРёР» РІСЃСЋ РёРЅС„РѕСЂРјР°С†РёСЋ
 sleep, 1000
 SplashTextoff
 Return
@@ -4117,7 +4117,7 @@ IniWrite, %HotKey6%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.in
 IniWrite, %HotKey7%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Keys, HotKey7
 IniWrite, %HotKey8%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Keys, HotKey8
 IniWrite, %limit%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Auto, limit
-SplashTextOn, , 60, Менеджер сохранений,  Ожидайте`n------------------------`nСохранил всю информацию
+SplashTextOn, , 60, РњРµРЅРµРґР¶РµСЂ СЃРѕС…СЂР°РЅРµРЅРёР№,  РћР¶РёРґР°Р№С‚Рµ`n------------------------`nРЎРѕС…СЂР°РЅРёР» РІСЃСЋ РёРЅС„РѕСЂРјР°С†РёСЋ
 sleep, 1000
 SplashTextoff
 return
@@ -4161,10 +4161,10 @@ if(kid[0]!=-1)
             sleep, 50
         addChatMessage("{FFFFFF} <<< ============= Officer {00FF00}Adjutant {FFFFFF}========== >>>"  )
         addChatMessage("{FFFFFF}                          {00BFFF}P{FFFFFF}ocket {00BFFF}P{FFFFFF}ersonal {00BFFF}C{FFFFFF}omputer"  )
-        addChatMessage("{FFFFFF}           - Имя фамилия водителя: {F63939}" N " [" kid[0]"]" )
+        addChatMessage("{FFFFFF}           - РРјСЏ С„Р°РјРёР»РёСЏ РІРѕРґРёС‚РµР»СЏ: {F63939}" N " [" kid[0]"]" )
             sleep, 50
-        addChatMessage("{FFFFFF}                 - Скорость автомобиля: {F63939}" Speed " Км/ч"  )
-        addChatMessage("{FFFFFF}                - Транспортное средство: {F63939}" M )
+        addChatMessage("{FFFFFF}                 - РЎРєРѕСЂРѕСЃС‚СЊ Р°РІС‚РѕРјРѕР±РёР»СЏ: {F63939}" Speed " РљРј/С‡"  )
+        addChatMessage("{FFFFFF}                - РўСЂР°РЅСЃРїРѕСЂС‚РЅРѕРµ СЃСЂРµРґСЃС‚РІРѕ: {F63939}" M )
         addChatMessage("{FFFFFF} <<< ==================================== >>>"  )
             su:=kid[0]
             sbros:=0
@@ -4175,11 +4175,11 @@ if(kid[0]!=-1)
             sleep, 50
         addChatMessage("{FFFFFF} <<< ============= Officer {00FF00}Adjutant {FFFFFF}========== >>>"  )
         addChatMessage("{FFFFFF}                          {00BFFF}P{FFFFFF}ocket {00BFFF}P{FFFFFF}ersonal {00BFFF}C{FFFFFF}omputer"  )
-        addChatMessage("{FFFFFF}Мы установили информацию о машине. {F63939}Выберите водителя машины:" )
+        addChatMessage("{FFFFFF}РњС‹ СѓСЃС‚Р°РЅРѕРІРёР»Рё РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РјР°С€РёРЅРµ. {F63939}Р’С‹Р±РµСЂРёС‚Рµ РІРѕРґРёС‚РµР»СЏ РјР°С€РёРЅС‹:" )
             sleep, 50
             While(k<4)
             {
-            addChatMessage("{FFFFFF}{F63939}Нажмите{FFFFFF} '{00BFFF}Numpad " k+1 "{FFFFFF}' для выбора - {F63939}" getPlayerNameById(kid[k])" ["kid[k]"]" )
+            addChatMessage("{FFFFFF}{F63939}РќР°Р¶РјРёС‚Рµ{FFFFFF} '{00BFFF}Numpad " k+1 "{FFFFFF}' РґР»СЏ РІС‹Р±РѕСЂР° - {F63939}" getPlayerNameById(kid[k])" ["kid[k]"]" )
                 k++
             }
         addChatMessage("{FFFFFF} <<< ==================================== >>>"  )
@@ -4205,10 +4205,10 @@ if(kid[0]!=-1)
                 sleep, 50
             addChatMessage("{FFFFFF} <<< ============= Officer {00FF00}Adjutant {FFFFFF}========== >>>"  )
             addChatMessage("{FFFFFF}                          {00BFFF}P{FFFFFF}ocket {00BFFF}P{FFFFFF}ersonal {00BFFF}C{FFFFFF}omputer"  )
-            addChatMessage("{FFFFFF}           - Имя фамилия водителя: {F63939}" getPlayerNameById(kid[0]) " [" kid[0]"]" )
+            addChatMessage("{FFFFFF}           - РРјСЏ С„Р°РјРёР»РёСЏ РІРѕРґРёС‚РµР»СЏ: {F63939}" getPlayerNameById(kid[0]) " [" kid[0]"]" )
                 sleep, 50
-            addChatMessage("{FFFFFF}                 - Скорость автомобиля: {F63939}" Speed " Км/ч"  )
-            addChatMessage("{FFFFFF}                - Транспортное средство: {F63939}" M )
+            addChatMessage("{FFFFFF}                 - РЎРєРѕСЂРѕСЃС‚СЊ Р°РІС‚РѕРјРѕР±РёР»СЏ: {F63939}" Speed " РљРј/С‡"  )
+            addChatMessage("{FFFFFF}                - РўСЂР°РЅСЃРїРѕСЂС‚РЅРѕРµ СЃСЂРµРґСЃС‚РІРѕ: {F63939}" M )
             addChatMessage("{FFFFFF} <<< ==================================== >>>"  )
                 su:=kid[0]
                 sbros:=0
@@ -4225,10 +4225,10 @@ if(kid[0]!=-1)
                 sleep, 50
             addChatMessage("{FFFFFF} <<< ============= Officer {00FF00}Adjutant {FFFFFF}========== >>>"  )
             addChatMessage("{FFFFFF}                          {00BFFF}P{FFFFFF}ocket {00BFFF}P{FFFFFF}ersonal {00BFFF}C{FFFFFF}omputer"  )
-            addChatMessage("{FFFFFF}           - Имя фамилия водителя: {F63939}" getPlayerNameById(kid[1]) " [" kid[1]"]" )
+            addChatMessage("{FFFFFF}           - РРјСЏ С„Р°РјРёР»РёСЏ РІРѕРґРёС‚РµР»СЏ: {F63939}" getPlayerNameById(kid[1]) " [" kid[1]"]" )
                 sleep, 50
-            addChatMessage("{FFFFFF}                 - Скорость автомобиля: {F63939}" Speed " Км/ч"  )
-            addChatMessage("{FFFFFF}                - Транспортное средство: {F63939}" M )
+            addChatMessage("{FFFFFF}                 - РЎРєРѕСЂРѕСЃС‚СЊ Р°РІС‚РѕРјРѕР±РёР»СЏ: {F63939}" Speed " РљРј/С‡"  )
+            addChatMessage("{FFFFFF}                - РўСЂР°РЅСЃРїРѕСЂС‚РЅРѕРµ СЃСЂРµРґСЃС‚РІРѕ: {F63939}" M )
             addChatMessage("{FFFFFF} <<< ==================================== >>>"  )
                 su:=kid[1]
                 sbros:=0
@@ -4245,10 +4245,10 @@ if(kid[0]!=-1)
                 sleep, 50
             addChatMessage("{FFFFFF} <<< ============= Officer {00FF00}Adjutant {FFFFFF}========== >>>"  )
             addChatMessage("{FFFFFF}                          {00BFFF}P{FFFFFF}ocket {00BFFF}P{FFFFFF}ersonal {00BFFF}C{FFFFFF}omputer"  )
-            addChatMessage("{FFFFFF}           - Имя фамилия водителя: {F63939}" getPlayerNameById(kid[2]) " [" kid[2]"]" )
+            addChatMessage("{FFFFFF}           - РРјСЏ С„Р°РјРёР»РёСЏ РІРѕРґРёС‚РµР»СЏ: {F63939}" getPlayerNameById(kid[2]) " [" kid[2]"]" )
                 sleep, 50
-            addChatMessage("{FFFFFF}                 - Скорость автомобиля: {F63939}" Speed " Км/ч"  )
-            addChatMessage("{FFFFFF}                - Транспортное средство: {F63939}" M )
+            addChatMessage("{FFFFFF}                 - РЎРєРѕСЂРѕСЃС‚СЊ Р°РІС‚РѕРјРѕР±РёР»СЏ: {F63939}" Speed " РљРј/С‡"  )
+            addChatMessage("{FFFFFF}                - РўСЂР°РЅСЃРїРѕСЂС‚РЅРѕРµ СЃСЂРµРґСЃС‚РІРѕ: {F63939}" M )
             addChatMessage("{FFFFFF} <<< ==================================== >>>"  )
                 su:=kid[2]
                 sbros:=0
@@ -4265,10 +4265,10 @@ if(kid[0]!=-1)
                 sleep, 50
             addChatMessage("{FFFFFF} <<< ============= Officer {00FF00}Adjutant {FFFFFF}========== >>>"  )
             addChatMessage("{FFFFFF}                          {00BFFF}P{FFFFFF}ocket {00BFFF}P{FFFFFF}ersonal {00BFFF}C{FFFFFF}omputer"  )
-            addChatMessage("{FFFFFF}           - Имя фамилия водителя: {F63939}" getPlayerNameById(kid[3]) " [" kid[3]"]" )
-            addChatMessage("{FFFFFF}                 - Скорость автомобиля: {F63939}" Speed " Км/ч"  )
+            addChatMessage("{FFFFFF}           - РРјСЏ С„Р°РјРёР»РёСЏ РІРѕРґРёС‚РµР»СЏ: {F63939}" getPlayerNameById(kid[3]) " [" kid[3]"]" )
+            addChatMessage("{FFFFFF}                 - РЎРєРѕСЂРѕСЃС‚СЊ Р°РІС‚РѕРјРѕР±РёР»СЏ: {F63939}" Speed " РљРј/С‡"  )
                 sleep, 50
-            addChatMessage("{FFFFFF}                - Транспортное средство: {F63939}" M )
+            addChatMessage("{FFFFFF}                - РўСЂР°РЅСЃРїРѕСЂС‚РЅРѕРµ СЃСЂРµРґСЃС‚РІРѕ: {F63939}" M )
             addChatMessage("{FFFFFF} <<< ==================================== >>>"  )
                 su:=kid[3]
                 sbros:=0
@@ -4279,7 +4279,7 @@ if(kid[0]!=-1)
     {
     addChatMessage("{FFFFFF} <<< ============= Officer {00FF00}Adjutant {FFFFFF}========== >>>"  )
     addChatMessage("{FFFFFF}                          {00BFFF}P{FFFFFF}ocket {00BFFF}P{FFFFFF}ersonal {00BFFF}C{FFFFFF}omputer"  )
-    addChatMessage("{FFFFFF} В радиусе есть люди, но они не определяються / {F63939}Подъедьте ближе. " )
+    addChatMessage("{FFFFFF} Р’ СЂР°РґРёСѓСЃРµ РµСЃС‚СЊ Р»СЋРґРё, РЅРѕ РѕРЅРё РЅРµ РѕРїСЂРµРґРµР»СЏСЋС‚СЊСЃСЏ / {F63939}РџРѕРґСЉРµРґСЊС‚Рµ Р±Р»РёР¶Рµ. " )
         sleep, 50
     addChatMessage("{FFFFFF} <<< ==================================== >>>"  )
         sbros:=1
@@ -4289,7 +4289,7 @@ else
 {
 addChatMessage("{FFFFFF} <<< ============= Officer {00FF00}Adjutant {FFFFFF}========== >>>"  )
 addChatMessage("{FFFFFF}                          {00BFFF}P{FFFFFF}ocket {00BFFF}P{FFFFFF}ersonal {00BFFF}C{FFFFFF}omputer"  )
-addChatMessage("{FFFFFF} Транспортное средство не обнаружено / {F63939}Подъедьте ближе. " )
+addChatMessage("{FFFFFF} РўСЂР°РЅСЃРїРѕСЂС‚РЅРѕРµ СЃСЂРµРґСЃС‚РІРѕ РЅРµ РѕР±РЅР°СЂСѓР¶РµРЅРѕ / {F63939}РџРѕРґСЉРµРґСЊС‚Рµ Р±Р»РёР¶Рµ. " )
     sleep, 50
 addChatMessage("{FFFFFF} <<< ==================================== >>>"  )
     sbros:=1
@@ -4298,7 +4298,7 @@ Return
 Active6:
 if (sbros==1)
 {
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы не имели никакой информации о водителе и транспорте. {F63939}Don't fuck the system.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РЅРµ РёРјРµР»Рё РЅРёРєР°РєРѕР№ РёРЅС„РѕСЂРјР°С†РёРё Рѕ РІРѕРґРёС‚РµР»Рµ Рё С‚СЂР°РЅСЃРїРѕСЂС‚Рµ. {F63939}Don't fuck the system.")
 }
 else
 {
@@ -4306,7 +4306,7 @@ else
     su:=-1
     k:=0
     start_time:=0
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Информация об водителе и транспорте была {00FF00}сброшена.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РРЅС„РѕСЂРјР°С†РёСЏ РѕР± РІРѕРґРёС‚РµР»Рµ Рё С‚СЂР°РЅСЃРїРѕСЂС‚Рµ Р±С‹Р»Р° {00FF00}СЃР±СЂРѕС€РµРЅР°.")
 }
 Return
 autoweapons:
@@ -4355,7 +4355,7 @@ Loop
     }
     FileRead, info, %checkfile%
     text = %info%
-    if text contains *99 for last *57V,*99 for last *66,*99 for last *55,10-4 присоединяюсь к,10-4 for,10-4 для,10-4,*99
+    if text contains *99 for last *57V,*99 for last *66,*99 for last *55,10-4 РїСЂРёСЃРѕРµРґРёРЅСЏСЋСЃСЊ Рє,10-4 for,10-4 РґР»СЏ,10-4,*99
     {
         FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
         FileRead, info, %checkfile%
@@ -4364,7 +4364,7 @@ Loop
     if text contains 10-55,*55,'55
     {
         1055:=1
-    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-55 {FFFFFF}примите вызов используя меню рации...")
+    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-55 {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
         showGameText("RADIO", 1000, 1)
         1057v:=0
         1066:=0
@@ -4373,7 +4373,7 @@ Loop
     if text contains 10-57v,10-57 victor,*57v,'57v,*57 victor,'57 victor
     {
         1057v:=1
-    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-57 VICTOR {FFFFFF}примите вызов используя меню рации...")
+    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-57 VICTOR {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
         showGameText("RADIO", 1000, 1)
         1055:=0
         1066:=0
@@ -4382,16 +4382,16 @@ Loop
     if text contains 10-66,*66,'66
     {
         1066:=1
-    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-66 {FFFFFF}примите вызов используя меню рации...")
+    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-66 {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
         showGameText("RADIO", 1000, 1)
         1057v:=0
         1055:=0
         FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
     }
-    if text contains кюмба
+    if text contains РєСЋРјР±Р°
     {
         Sleep, 1500
-        SendChat("/rb я")
+        SendChat("/rb СЏ")
         FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
     }
 }
@@ -4401,163 +4401,163 @@ TempWeapon := getPlayerWeaponId()
 if (TempWeapon = 24) and (TazerOut != 2) {
     Random, randt, 1, 2
     if (randt = 1) {
-        SendChat("/do Усовершенствованный пистолет *Baretta 92* находится в кобуре у сотрудни" Female1 " " Org ".")
+        SendChat("/do РЈСЃРѕРІРµСЂС€РµРЅСЃС‚РІРѕРІР°РЅРЅС‹Р№ РїРёСЃС‚РѕР»РµС‚ *Baretta 92* РЅР°С…РѕРґРёС‚СЃСЏ РІ РєРѕР±СѓСЂРµ Сѓ СЃРѕС‚СЂСѓРґРЅРё" Female1 " " Org ".")
         Sleep, %sleepingtime%
-        SendChat("/me обхватив рукоятку пистолета марки *Baretta 92* вытащил его из кобуры.")
+        SendChat("/me РѕР±С…РІР°С‚РёРІ СЂСѓРєРѕСЏС‚РєСѓ РїРёСЃС‚РѕР»РµС‚Р° РјР°СЂРєРё *Baretta 92* РІС‹С‚Р°С‰РёР» РµРіРѕ РёР· РєРѕР±СѓСЂС‹.")
         TazerOut:=2
     }
     if (randt = 2) {
-        SendChat("/do В кобуре, висящей на груди сотрудни" Female1 " " Org ", находится пистолет *Beretta 92*.")
+        SendChat("/do Р’ РєРѕР±СѓСЂРµ, РІРёСЃСЏС‰РµР№ РЅР° РіСЂСѓРґРё СЃРѕС‚СЂСѓРґРЅРё" Female1 " " Org ", РЅР°С…РѕРґРёС‚СЃСЏ РїРёСЃС‚РѕР»РµС‚ *Beretta 92*.")
         Sleep, %sleepingtime%
-        SendChat("/me резким движением правой руки отстегнул" Female " кобуру, после чего вынул" Female " пистолет.")
+        SendChat("/me СЂРµР·РєРёРј РґРІРёР¶РµРЅРёРµРј РїСЂР°РІРѕР№ СЂСѓРєРё РѕС‚СЃС‚РµРіРЅСѓР»" Female " РєРѕР±СѓСЂСѓ, РїРѕСЃР»Рµ С‡РµРіРѕ РІС‹РЅСѓР»" Female " РїРёСЃС‚РѕР»РµС‚.")
         TazerOut:=2
     }
 }
 if (TempWeapon = 3) and (TazerOut != 3) {
     Random, randt, 1, 2
     if (randt = 1) {
-        SendChat("/me быстрым движением руки, обхватил" Female " рукоятку дубинки, за тем сорвал" Female " её с пояса.")
+        SendChat("/me Р±С‹СЃС‚СЂС‹Рј РґРІРёР¶РµРЅРёРµРј СЂСѓРєРё, РѕР±С…РІР°С‚РёР»" Female " СЂСѓРєРѕСЏС‚РєСѓ РґСѓР±РёРЅРєРё, Р·Р° С‚РµРј СЃРѕСЂРІР°Р»" Female " РµС‘ СЃ РїРѕСЏСЃР°.")
         Sleep, %sleepingtime%
-        SendChat("/me рывком руки вниз, полностью раскрыл" Female " телескопическую дубинку.")
+        SendChat("/me СЂС‹РІРєРѕРј СЂСѓРєРё РІРЅРёР·, РїРѕР»РЅРѕСЃС‚СЊСЋ СЂР°СЃРєСЂС‹Р»" Female " С‚РµР»РµСЃРєРѕРїРёС‡РµСЃРєСѓСЋ РґСѓР±РёРЅРєСѓ.")
         TazerOut:=3
     }
     if (randt = 2) {
-        SendChat("/do На поясе висит телескопическая дубинка.")
+        SendChat("/do РќР° РїРѕСЏСЃРµ РІРёСЃРёС‚ С‚РµР»РµСЃРєРѕРїРёС‡РµСЃРєР°СЏ РґСѓР±РёРЅРєР°.")
         Sleep, %sleepingtime%
-        SendChat("/me выхватил" Female " телескопическую дубинку с пояса, после чего раскрыл" Female " её.")
+        SendChat("/me РІС‹С…РІР°С‚РёР»" Female " С‚РµР»РµСЃРєРѕРїРёС‡РµСЃРєСѓСЋ РґСѓР±РёРЅРєСѓ СЃ РїРѕСЏСЃР°, РїРѕСЃР»Рµ С‡РµРіРѕ СЂР°СЃРєСЂС‹Р»" Female " РµС‘.")
         TazerOut:=3
     }
 }
 if (TempWeapon = 23) and (TazerOut != 4) {
     Random, randt, 1, 2
     if (randt = 1) {
-        SendChat("/me снял" Female " электрошокер с кобуры который был прикреплен к поясу.")
+        SendChat("/me СЃРЅСЏР»" Female " СЌР»РµРєС‚СЂРѕС€РѕРєРµСЂ СЃ РєРѕР±СѓСЂС‹ РєРѕС‚РѕСЂС‹Р№ Р±С‹Р» РїСЂРёРєСЂРµРїР»РµРЅ Рє РїРѕСЏСЃСѓ.")
         TazerOut:=4
     }
     if (randt = 2) {
-        SendChat("/do На поясе расположен электрошокер *Tazer*, застегнутый в чехле.")
+        SendChat("/do РќР° РїРѕСЏСЃРµ СЂР°СЃРїРѕР»РѕР¶РµРЅ СЌР»РµРєС‚СЂРѕС€РѕРєРµСЂ *Tazer*, Р·Р°СЃС‚РµРіРЅСѓС‚С‹Р№ РІ С‡РµС…Р»Рµ.")
         Sleep, %sleepingtime%
-        SendChat("/me расстегнул" Female " чехол, после чего вынул" Female " *Tazer* из него.")
+        SendChat("/me СЂР°СЃСЃС‚РµРіРЅСѓР»" Female " С‡РµС…РѕР», РїРѕСЃР»Рµ С‡РµРіРѕ РІС‹РЅСѓР»" Female " *Tazer* РёР· РЅРµРіРѕ.")
         TazerOut:=4
     }
 }
 if (TempWeapon = 25) and (TazerOut != 5) {
     Random, randt, 1, 2
     if (randt = 1) {
-        SendChat("/do За спиной виднеется дробовик *Remington 1100 " Org1 "*.")
+        SendChat("/do Р—Р° СЃРїРёРЅРѕР№ РІРёРґРЅРµРµС‚СЃСЏ РґСЂРѕР±РѕРІРёРє *Remington 1100 " Org1 "*.")
         Sleep, %sleepingtime%
-        SendChat("/me схватил" Female " дробовик двумя руками, достал" Female " его из-за спины и крепко сжал" Female ".")
+        SendChat("/me СЃС…РІР°С‚РёР»" Female " РґСЂРѕР±РѕРІРёРє РґРІСѓРјСЏ СЂСѓРєР°РјРё, РґРѕСЃС‚Р°Р»" Female " РµРіРѕ РёР·-Р·Р° СЃРїРёРЅС‹ Рё РєСЂРµРїРєРѕ СЃР¶Р°Р»" Female ".")
         TazerOut:=5
     }
     if (randt = 2) {
-        SendChat("/me вытянул" Female " из за спины дробовик *Remington 1100 " Org1 "* с резьбой.")
+        SendChat("/me РІС‹С‚СЏРЅСѓР»" Female " РёР· Р·Р° СЃРїРёРЅС‹ РґСЂРѕР±РѕРІРёРє *Remington 1100 " Org1 "* СЃ СЂРµР·СЊР±РѕР№.")
         Sleep, %sleepingtime%
-        SendChat("/me пафосным видом перезарядил" Female " помповое оружие.")
+        SendChat("/me РїР°С„РѕСЃРЅС‹Рј РІРёРґРѕРј РїРµСЂРµР·Р°СЂСЏРґРёР»" Female " РїРѕРјРїРѕРІРѕРµ РѕСЂСѓР¶РёРµ.")
         TazerOut:=5
     }
 }
 if (TempWeapon = 29) and (TazerOut != 6) {
     Random, randt, 1, 2
     if (randt = 1) {
-        SendChat("/do На плече висит полу-автомат MP-5.")
+        SendChat("/do РќР° РїР»РµС‡Рµ РІРёСЃРёС‚ РїРѕР»Сѓ-Р°РІС‚РѕРјР°С‚ MP-5.")
         Sleep, %sleepingtime%
-        SendChat("/me взял" Female " MP-5 в руки, после чего снял" Female " полуавтомат с предохранителя.")
+        SendChat("/me РІР·СЏР»" Female " MP-5 РІ СЂСѓРєРё, РїРѕСЃР»Рµ С‡РµРіРѕ СЃРЅСЏР»" Female " РїРѕР»СѓР°РІС‚РѕРјР°С‚ СЃ РїСЂРµРґРѕС…СЂР°РЅРёС‚РµР»СЏ.")
         TazerOut:=6
     }
     if (randt = 2) {
-        SendChat("/me вытянул" Female " из-за спины автоматическое оружие MP-5.")
+        SendChat("/me РІС‹С‚СЏРЅСѓР»" Female " РёР·-Р·Р° СЃРїРёРЅС‹ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ РѕСЂСѓР¶РёРµ MP-5.")
         Sleep, %sleepingtime%
-        SendChat("/me передёрнул" Female " затвор на автоматическом оружии.")
+        SendChat("/me РїРµСЂРµРґС‘СЂРЅСѓР»" Female " Р·Р°С‚РІРѕСЂ РЅР° Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРј РѕСЂСѓР¶РёРё.")
         TazerOut:=6
     }
 }
 if (TempWeapon = 31) and (TazerOut != 7) {
     Random, randt, 1, 2
     if (randt = 1) {
-        SendChat("/me достал" Female " карабин M16A4, положил" Female " палец на курок, после чего снял" Female " предохранитель.")
+        SendChat("/me РґРѕСЃС‚Р°Р»" Female " РєР°СЂР°Р±РёРЅ M16A4, РїРѕР»РѕР¶РёР»" Female " РїР°Р»РµС† РЅР° РєСѓСЂРѕРє, РїРѕСЃР»Рµ С‡РµРіРѕ СЃРЅСЏР»" Female " РїСЂРµРґРѕС…СЂР°РЅРёС‚РµР»СЊ.")
         Sleep, %sleepingtime%
-        SendChat("/do Автомат лежал в руках сотрудни" Female1 " " Org ", в полной готовности.")
+        SendChat("/do РђРІС‚РѕРјР°С‚ Р»РµР¶Р°Р» РІ СЂСѓРєР°С… СЃРѕС‚СЂСѓРґРЅРё" Female1 " " Org ", РІ РїРѕР»РЅРѕР№ РіРѕС‚РѕРІРЅРѕСЃС‚Рё.")
         TazerOut:=7
     }
     if (randt = 2) {
-        SendChat("/do На правом плече висит штурмовая винтовка *M16A4*.")
+        SendChat("/do РќР° РїСЂР°РІРѕРј РїР»РµС‡Рµ РІРёСЃРёС‚ С€С‚СѓСЂРјРѕРІР°СЏ РІРёРЅС‚РѕРІРєР° *M16A4*.")
         Sleep, %sleepingtime%
-        SendChat("/me движением правой руки снял" Female " винтовку с плеча передёрнув затвор на автоматическом оружии.")
+        SendChat("/me РґРІРёР¶РµРЅРёРµРј РїСЂР°РІРѕР№ СЂСѓРєРё СЃРЅСЏР»" Female " РІРёРЅС‚РѕРІРєСѓ СЃ РїР»РµС‡Р° РїРµСЂРµРґС‘СЂРЅСѓРІ Р·Р°С‚РІРѕСЂ РЅР° Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРј РѕСЂСѓР¶РёРё.")
         TazerOut:=7
     }
 }
 if (TempWeapon = 17) and (TazerOut != 8) {
     Random, randt, 1, 2
     if (randt = 1) {
-        SendChat("/me надел" Female " противогаз.")
+        SendChat("/me РЅР°РґРµР»" Female " РїСЂРѕС‚РёРІРѕРіР°Р·.")
         Sleep 2000
-        SendChat("/me достал" Female " светошумовую гранату.")
+        SendChat("/me РґРѕСЃС‚Р°Р»" Female " СЃРІРµС‚РѕС€СѓРјРѕРІСѓСЋ РіСЂР°РЅР°С‚Сѓ.")
         TazerOut:=8
     }
     if (randt = 2) {
-        SendChat("/me отцепил" Female " с бронежилета на груди дымовую гранату *ESG 2*.")
+        SendChat("/me РѕС‚С†РµРїРёР»" Female " СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р° РЅР° РіСЂСѓРґРё РґС‹РјРѕРІСѓСЋ РіСЂР°РЅР°С‚Сѓ *ESG 2*.")
         Sleep, %sleepingtime%
-        SendChat("/me выдернул" Female " чеку и приготовил" Female4 " к броску.")
+        SendChat("/me РІС‹РґРµСЂРЅСѓР»" Female " С‡РµРєСѓ Рё РїСЂРёРіРѕС‚РѕРІРёР»" Female4 " Рє Р±СЂРѕСЃРєСѓ.")
         TazerOut:=8
     }
 }
 if (TempWeapon = 1) and (TazerOut != 9) {
-    SendChat("/me надел" Female " кастет на руку.")
+    SendChat("/me РЅР°РґРµР»" Female " РєР°СЃС‚РµС‚ РЅР° СЂСѓРєСѓ.")
     TazerOut:=9
 }
 if (TempWeapon = 5) and (TazerOut != 10) {
-    SendChat("/me взял" Female " бейсбольную биту в руки.")
+    SendChat("/me РІР·СЏР»" Female " Р±РµР№СЃР±РѕР»СЊРЅСѓСЋ Р±РёС‚Сѓ РІ СЂСѓРєРё.")
     TazerOut:=10
 }
 if (TempWeapon = 14) and (TazerOut != 11) {
-    SendChat("/me развернул" Female " букет цветов.")
+    SendChat("/me СЂР°Р·РІРµСЂРЅСѓР»" Female " Р±СѓРєРµС‚ С†РІРµС‚РѕРІ.")
     TazerOut:=11
 }
 if (TempWeapon = 30) and (TazerOut != 12) {
-    SendChat("/me взял" Female " автомат АК-47 в руки.")
+    SendChat("/me РІР·СЏР»" Female " Р°РІС‚РѕРјР°С‚ РђРљ-47 РІ СЂСѓРєРё.")
     TazerOut:=12
 }
 if (TempWeapon = 33) and (TazerOut != 13) {
-    SendChat("/me взял" Female " винтовку в руки.")
+    SendChat("/me РІР·СЏР»" Female " РІРёРЅС‚РѕРІРєСѓ РІ СЂСѓРєРё.")
     TazerOut:=13
 }
 if (TempWeapon = 34) and (TazerOut != 14) {
     Random, randt, 1, 2
     if (randt = 1) {
-        SendChat("/me достал" Female " снайперскую винтовку из-за плеча.")
+        SendChat("/me РґРѕСЃС‚Р°Р»" Female " СЃРЅР°Р№РїРµСЂСЃРєСѓСЋ РІРёРЅС‚РѕРІРєСѓ РёР·-Р·Р° РїР»РµС‡Р°.")
         Sleep, %sleepingtime%
-        SendChat("/me снял" Female " снайперскую винтовку с предохранителя.")
+        SendChat("/me СЃРЅСЏР»" Female " СЃРЅР°Р№РїРµСЂСЃРєСѓСЋ РІРёРЅС‚РѕРІРєСѓ СЃ РїСЂРµРґРѕС…СЂР°РЅРёС‚РµР»СЏ.")
         TazerOut:=14
     }
     if (randt = 2) {
-        SendChat("/me вытянул" Female " из за спины чехол для снайперской винтовки с надписью *" Org1 "*.")
+        SendChat("/me РІС‹С‚СЏРЅСѓР»" Female " РёР· Р·Р° СЃРїРёРЅС‹ С‡РµС…РѕР» РґР»СЏ СЃРЅР°Р№РїРµСЂСЃРєРѕР№ РІРёРЅС‚РѕРІРєРё СЃ РЅР°РґРїРёСЃСЊСЋ *" Org1 "*.")
         Sleep, %sleepingtime%
-        SendChat("/me открыл" Female " чехол и вытащил" Female " от туда снайперскую винтовку *M82A1*.")
+        SendChat("/me РѕС‚РєСЂС‹Р»" Female " С‡РµС…РѕР» Рё РІС‹С‚Р°С‰РёР»" Female " РѕС‚ С‚СѓРґР° СЃРЅР°Р№РїРµСЂСЃРєСѓСЋ РІРёРЅС‚РѕРІРєСѓ *M82A1*.")
         Sleep, %sleepingtime%
-        SendChat("/me развернул" Female " снайперское оружие на против себя.")
+        SendChat("/me СЂР°Р·РІРµСЂРЅСѓР»" Female " СЃРЅР°Р№РїРµСЂСЃРєРѕРµ РѕСЂСѓР¶РёРµ РЅР° РїСЂРѕС‚РёРІ СЃРµР±СЏ.")
         Sleep, %sleepingtime%
-        SendChat("/me зарядил" Female " в винтовку магазин патрон калибра *12.7x99 мм* с резьбой -Волк-.")
+        SendChat("/me Р·Р°СЂСЏРґРёР»" Female " РІ РІРёРЅС‚РѕРІРєСѓ РјР°РіР°Р·РёРЅ РїР°С‚СЂРѕРЅ РєР°Р»РёР±СЂР° *12.7x99 РјРј* СЃ СЂРµР·СЊР±РѕР№ -Р’РѕР»Рє-.")
         TazerOut:=14
     }
 }
 if (TempWeapon = 43) and (TazerOut != 15) {
-    SendChat("/me достал" Female " фотоаппарат.")
+    SendChat("/me РґРѕСЃС‚Р°Р»" Female " С„РѕС‚РѕР°РїРїР°СЂР°С‚.")
     TazerOut:=15
 }
 if (TempWeapon = 46) and (TazerOut != 16) {
-    SendChat("/me одел" Female " парашют на плечи.")
+    SendChat("/me РѕРґРµР»" Female " РїР°СЂР°С€СЋС‚ РЅР° РїР»РµС‡Рё.")
     TazerOut:=16
 }
 if (TempWeapon = 15) and (TazerOut != 17) {
-    SendChat("/me достал" Female " элегантную трость.")
+    SendChat("/me РґРѕСЃС‚Р°Р»" Female " СЌР»РµРіР°РЅС‚РЅСѓСЋ С‚СЂРѕСЃС‚СЊ.")
     TazerOut:=17
 }
 if (TempWeapon = 36) and (TazerOut != 18) {
-    SendChat("/me взял" Female " Stinger в руки.")
+    SendChat("/me РІР·СЏР»" Female " Stinger РІ СЂСѓРєРё.")
     TazerOut:=18
 }
 if (TempWeapon = 2) and (TazerOut != 19) {
-    SendChat("/me взял" Female " клюшку в руки.")
+    SendChat("/me РІР·СЏР»" Female " РєР»СЋС€РєСѓ РІ СЂСѓРєРё.")
     TazerOut:=19
 }
 TazerIn := 0
@@ -4570,103 +4570,103 @@ if not (TempWeapon = 24) and (TazerOut = 2)
 {
     Random, randt, 1, 2
     if (randt = 1) {
-        SendChat("/do На поясе сотрудни" Female1 " " Org ", закреплена кожаная кобура с логотипом *" Org1 "*.")
+        SendChat("/do РќР° РїРѕСЏСЃРµ СЃРѕС‚СЂСѓРґРЅРё" Female1 " " Org ", Р·Р°РєСЂРµРїР»РµРЅР° РєРѕР¶Р°РЅР°СЏ РєРѕР±СѓСЂР° СЃ Р»РѕРіРѕС‚РёРїРѕРј *" Org1 "*.")
         Sleep, %sleepingtime%
-        SendChat("/me держа угол обзора перед собой, положил" Female " пистолет обратно.")
+        SendChat("/me РґРµСЂР¶Р° СѓРіРѕР» РѕР±Р·РѕСЂР° РїРµСЂРµРґ СЃРѕР±РѕР№, РїРѕР»РѕР¶РёР»" Female " РїРёСЃС‚РѕР»РµС‚ РѕР±СЂР°С‚РЅРѕ.")
     }
     if (randt = 2) {
-        SendChat("/me вернул" Female " пистолет *Beretta 92* в кобуру, после чего застегнул" Female " её.")
+        SendChat("/me РІРµСЂРЅСѓР»" Female " РїРёСЃС‚РѕР»РµС‚ *Beretta 92* РІ РєРѕР±СѓСЂСѓ, РїРѕСЃР»Рµ С‡РµРіРѕ Р·Р°СЃС‚РµРіРЅСѓР»" Female " РµС‘.")
     }
 }
 if not (TempWeapon = 3) and (TazerOut = 3)
 {
     Random, randt, 1, 2
     if (randt = 1) {
-        SendChat("/me плавно закрепил" Female " телескопическую дубинку на поясе.")
+        SendChat("/me РїР»Р°РІРЅРѕ Р·Р°РєСЂРµРїРёР»" Female " С‚РµР»РµСЃРєРѕРїРёС‡РµСЃРєСѓСЋ РґСѓР±РёРЅРєСѓ РЅР° РїРѕСЏСЃРµ.")
         Sleep, %sleepingtime%
-        SendChat("/do Дубинка у сотрудни" Female1 " " Org " находится на поясе.")
+        SendChat("/do Р”СѓР±РёРЅРєР° Сѓ СЃРѕС‚СЂСѓРґРЅРё" Female1 " " Org " РЅР°С…РѕРґРёС‚СЃСЏ РЅР° РїРѕСЏСЃРµ.")
     }
     if (randt = 2) {
-        SendChat("/me вернул" Female " телескопическую дубинку на пояс, крепко закрепив ее.")
+        SendChat("/me РІРµСЂРЅСѓР»" Female " С‚РµР»РµСЃРєРѕРїРёС‡РµСЃРєСѓСЋ РґСѓР±РёРЅРєСѓ РЅР° РїРѕСЏСЃ, РєСЂРµРїРєРѕ Р·Р°РєСЂРµРїРёРІ РµРµ.")
     }
 }
 if not (TempWeapon = 23) and (TazerOut = 4)
 {
     Random, randt, 1, 2
     if (randt = 1) {
-        SendChat("/me повесил" Female " электрошокер на пояс.")
+        SendChat("/me РїРѕРІРµСЃРёР»" Female " СЌР»РµРєС‚СЂРѕС€РѕРєРµСЂ РЅР° РїРѕСЏСЃ.")
     }
     if (randt = 2) {
-        SendChat("/me отключил" Female " электрошокер *Tazer*, после чего закрепил" Female " его в чехол, на пояс.")
+        SendChat("/me РѕС‚РєР»СЋС‡РёР»" Female " СЌР»РµРєС‚СЂРѕС€РѕРєРµСЂ *Tazer*, РїРѕСЃР»Рµ С‡РµРіРѕ Р·Р°РєСЂРµРїРёР»" Female " РµРіРѕ РІ С‡РµС…РѕР», РЅР° РїРѕСЏСЃ.")
     }
 }
 if not (TempWeapon = 3) and (TazerOut = 5)
 {
     Random, randt, 1, 2
     if (randt = 1) {
-        SendChat("/do В обеих руках сотрудни" Female1 " " Org2 ", находится дробовик.")
+        SendChat("/do Р’ РѕР±РµРёС… СЂСѓРєР°С… СЃРѕС‚СЂСѓРґРЅРё" Female1 " " Org2 ", РЅР°С…РѕРґРёС‚СЃСЏ РґСЂРѕР±РѕРІРёРє.")
         Sleep, %sleepingtime%
-        SendChat("/me слегка приподняв нос дробовика перевернул" Female " его, после чего вернул" Female " его на спину.")
+        SendChat("/me СЃР»РµРіРєР° РїСЂРёРїРѕРґРЅСЏРІ РЅРѕСЃ РґСЂРѕР±РѕРІРёРєР° РїРµСЂРµРІРµСЂРЅСѓР»" Female " РµРіРѕ, РїРѕСЃР»Рµ С‡РµРіРѕ РІРµСЂРЅСѓР»" Female " РµРіРѕ РЅР° СЃРїРёРЅСѓ.")
     }
     if (randt = 2) {
-        SendChat("/me убрал" Female " за спину дробовик *Remington 1100*. с гравировкой *" Org1 "*.")
+        SendChat("/me СѓР±СЂР°Р»" Female " Р·Р° СЃРїРёРЅСѓ РґСЂРѕР±РѕРІРёРє *Remington 1100*. СЃ РіСЂР°РІРёСЂРѕРІРєРѕР№ *" Org1 "*.")
     }
 }
 if not (TempWeapon = 3) and (TazerOut = 6)
 {
     Random, randt, 1, 2
     if (randt = 1) {
-        SendChat("/me повесил" Female " *MP-5* на плечо.")
+        SendChat("/me РїРѕРІРµСЃРёР»" Female " *MP-5* РЅР° РїР»РµС‡Рѕ.")
     }
     if (randt = 2) {
-        SendChat("/me убрал" Female " автоматическое оружие *MP-5* на перевес.")
+        SendChat("/me СѓР±СЂР°Р»" Female " Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ РѕСЂСѓР¶РёРµ *MP-5* РЅР° РїРµСЂРµРІРµСЃ.")
     }
 }
 if not (TempWeapon = 31) and (TazerOut = 7)
 {
     Random, randt, 1, 2
     if (randt = 1) {
-        SendChat("/do Автомат находится на весу, на толстом, кожаном ремешке.")
+        SendChat("/do РђРІС‚РѕРјР°С‚ РЅР°С…РѕРґРёС‚СЃСЏ РЅР° РІРµСЃСѓ, РЅР° С‚РѕР»СЃС‚РѕРј, РєРѕР¶Р°РЅРѕРј СЂРµРјРµС€РєРµ.")
         Sleep, %sleepingtime%
-        SendChat("/me держа угол обзора перед собой, открыл" Female " кобуру одной рукой и положил" Female " автомат обратно.")
+        SendChat("/me РґРµСЂР¶Р° СѓРіРѕР» РѕР±Р·РѕСЂР° РїРµСЂРµРґ СЃРѕР±РѕР№, РѕС‚РєСЂС‹Р»" Female " РєРѕР±СѓСЂСѓ РѕРґРЅРѕР№ СЂСѓРєРѕР№ Рё РїРѕР»РѕР¶РёР»" Female " Р°РІС‚РѕРјР°С‚ РѕР±СЂР°С‚РЅРѕ.")
     }
     if (randt = 2) {
-        SendChat("/me убрал" Female " за спину автоматическое оружие *M16A4* с обвесом.")
+        SendChat("/me СѓР±СЂР°Р»" Female " Р·Р° СЃРїРёРЅСѓ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ РѕСЂСѓР¶РёРµ *M16A4* СЃ РѕР±РІРµСЃРѕРј.")
     }
 }
 if not (TempWeapon = 1) and (TazerOut = 9)
 {
-    SendChat("/me снял" Female " кастет.")
+    SendChat("/me СЃРЅСЏР»" Female " РєР°СЃС‚РµС‚.")
 }
 if not (TempWeapon = 5) and (TazerOut = 10)
 {
-    SendChat("/me спрятал" Female " биту.")
+    SendChat("/me СЃРїСЂСЏС‚Р°Р»" Female " Р±РёС‚Сѓ.")
 }
 if not (TempWeapon = 14) and (TazerOut = 11)
 {
-    SendChat("/do Цветы не в руках.")
+    SendChat("/do Р¦РІРµС‚С‹ РЅРµ РІ СЂСѓРєР°С….")
 }
 if not (TempWeapon = 30) and (TazerOut = 12)
 {
-    SendChat("/me убрал" Female " АК-47 за спину.")
+    SendChat("/me СѓР±СЂР°Р»" Female " РђРљ-47 Р·Р° СЃРїРёРЅСѓ.")
 }
 if not (TempWeapon = 33) and (TazerOut = 13)
 {
-    SendChat("/me убрал" Female " винтовку.")
+    SendChat("/me СѓР±СЂР°Р»" Female " РІРёРЅС‚РѕРІРєСѓ.")
 }
 if not (TempWeapon = 34) and (TazerOut = 14)
 {
-    SendChat("/me поставил" Female " снайперскую винтовку на предохранитель.")
+    SendChat("/me РїРѕСЃС‚Р°РІРёР»" Female " СЃРЅР°Р№РїРµСЂСЃРєСѓСЋ РІРёРЅС‚РѕРІРєСѓ РЅР° РїСЂРµРґРѕС…СЂР°РЅРёС‚РµР»СЊ.")
     Sleep, %sleepingtime%
-    SendChat("/me повесил" Female " снайперскую винтовку на плечо.")
+    SendChat("/me РїРѕРІРµСЃРёР»" Female " СЃРЅР°Р№РїРµСЂСЃРєСѓСЋ РІРёРЅС‚РѕРІРєСѓ РЅР° РїР»РµС‡Рѕ.")
 }
 if not (TempWeapon = 43) and (TazerOut = 15)
 {
-    SendChat("/me закрыл" Female " крышечкой объектив фотоаппарата.")
+    SendChat("/me Р·Р°РєСЂС‹Р»" Female " РєСЂС‹С€РµС‡РєРѕР№ РѕР±СЉРµРєС‚РёРІ С„РѕС‚РѕР°РїРїР°СЂР°С‚Р°.")
 }
 if not (TempWeapon = 46) and (TazerOut = 16)
 {
-    SendChat("/me снял" Female " парашют.")
+    SendChat("/me СЃРЅСЏР»" Female " РїР°СЂР°С€СЋС‚.")
 }
 TazerOut:=0
 SetTimer UnloadGun, Off
@@ -4679,7 +4679,7 @@ Active8:
 random, randt, 1, 2
 if (randt == 1)
 {
-    SendChat("/me закатал" Female " рукав, взглянул" Female " на часы марки*G-Shock* с гравировкой*FRAPS*.")
+    SendChat("/me Р·Р°РєР°С‚Р°Р»" Female " СЂСѓРєР°РІ, РІР·РіР»СЏРЅСѓР»" Female " РЅР° С‡Р°СЃС‹ РјР°СЂРєРё*G-Shock* СЃ РіСЂР°РІРёСЂРѕРІРєРѕР№*FRAPS*.")
     Sleep, %sleepingtime%
     SendChat("/time")
     sleep, 200
@@ -4687,7 +4687,7 @@ Sendinput, {f8}{Enter}
 }
 if (randt == 2)
 {
-    SendChat("/me пафосным видом согнул" Female " правую руку к лицу, после чего посмотрел" Female " на свои*iTimes*")
+    SendChat("/me РїР°С„РѕСЃРЅС‹Рј РІРёРґРѕРј СЃРѕРіРЅСѓР»" Female " РїСЂР°РІСѓСЋ СЂСѓРєСѓ Рє Р»РёС†Сѓ, РїРѕСЃР»Рµ С‡РµРіРѕ РїРѕСЃРјРѕС‚СЂРµР»" Female " РЅР° СЃРІРѕРё*iTimes*")
     Sleep, %sleepingtime%
     SendChat("/time")
     sleep, 200
@@ -4700,38 +4700,38 @@ Sleep, %sleepingtime%
 checkfile = %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
 FileRead, info, %checkfile%
 text = %info%
-if text contains Ваше местоположение на карте скрыто!
+if text contains Р’Р°С€Рµ РјРµСЃС‚РѕРїРѕР»РѕР¶РµРЅРёРµ РЅР° РєР°СЂС‚Рµ СЃРєСЂС‹С‚Рѕ!
 {
     random, randtmask, 1, 2
     if (randtmask == 1)
     {
-        SendChat("/do У " name "'а во внутреннем кармане пиджака есть балаклава.")
+        SendChat("/do РЈ " name "'Р° РІРѕ РІРЅСѓС‚СЂРµРЅРЅРµРј РєР°СЂРјР°РЅРµ РїРёРґР¶Р°РєР° РµСЃС‚СЊ Р±Р°Р»Р°РєР»Р°РІР°.")
         Sleep, %sleepingtime%
-        SendChat("/me хлопнул" Female " себя правой рукой по внутреннему карману, нащупав балаклаву достал" Female " её.")
+        SendChat("/me С…Р»РѕРїРЅСѓР»" Female " СЃРµР±СЏ РїСЂР°РІРѕР№ СЂСѓРєРѕР№ РїРѕ РІРЅСѓС‚СЂРµРЅРЅРµРјСѓ РєР°СЂРјР°РЅСѓ, РЅР°С‰СѓРїР°РІ Р±Р°Р»Р°РєР»Р°РІСѓ РґРѕСЃС‚Р°Р»" Female " РµС‘.")
         Sleep, %sleepingtime%
     }
     if (randtmask == 2)
     {
-        SendChat("/do У " surname "'а была маска напоминающая балаклаву внутри пиджака.")
+        SendChat("/do РЈ " surname "'Р° Р±С‹Р»Р° РјР°СЃРєР° РЅР°РїРѕРјРёРЅР°СЋС‰Р°СЏ Р±Р°Р»Р°РєР»Р°РІСѓ РІРЅСѓС‚СЂРё РїРёРґР¶Р°РєР°.")
         Sleep, %sleepingtime%
-        SendChat("/me растегнул" Female " пиджак после чего достал" Female " от туда маску, после надел" Female " её.")
+        SendChat("/me СЂР°СЃС‚РµРіРЅСѓР»" Female " РїРёРґР¶Р°Рє РїРѕСЃР»Рµ С‡РµРіРѕ РґРѕСЃС‚Р°Р»" Female " РѕС‚ С‚СѓРґР° РјР°СЃРєСѓ, РїРѕСЃР»Рµ РЅР°РґРµР»" Female " РµС‘.")
         Sleep, %sleepingtime%
     }
 }
-else if text contains Вы сняли маску!
+else if text contains Р’С‹ СЃРЅСЏР»Рё РјР°СЃРєСѓ!
 {
     if (randtmask == 1)
     {
-        SendChat("/do У " name "'а на лице лежала балаклава.")
+        SendChat("/do РЈ " name "'Р° РЅР° Р»РёС†Рµ Р»РµР¶Р°Р»Р° Р±Р°Р»Р°РєР»Р°РІР°.")
         Sleep, %sleepingtime%
-        SendChat("/me подн" Female11 " обе руки к лицу и снял" Female " балаклаву, после чего положил" Female " её в карман.")
+        SendChat("/me РїРѕРґРЅ" Female11 " РѕР±Рµ СЂСѓРєРё Рє Р»РёС†Сѓ Рё СЃРЅСЏР»" Female " Р±Р°Р»Р°РєР»Р°РІСѓ, РїРѕСЃР»Рµ С‡РµРіРѕ РїРѕР»РѕР¶РёР»" Female " РµС‘ РІ РєР°СЂРјР°РЅ.")
         Sleep, %sleepingtime%
     }
     if (randtmask == 2)
     {
-        SendChat("/do У " surname "'а лежала маска на лице которая напоминала балаклаву.")
+        SendChat("/do РЈ " surname "'Р° Р»РµР¶Р°Р»Р° РјР°СЃРєР° РЅР° Р»РёС†Рµ РєРѕС‚РѕСЂР°СЏ РЅР°РїРѕРјРёРЅР°Р»Р° Р±Р°Р»Р°РєР»Р°РІСѓ.")
         Sleep, %sleepingtime%
-        SendChat("/me растегнул" Female " пиджак после снял" Female " маску с лица и положил" Female " её в пиджак.")
+        SendChat("/me СЂР°СЃС‚РµРіРЅСѓР»" Female " РїРёРґР¶Р°Рє РїРѕСЃР»Рµ СЃРЅСЏР»" Female " РјР°СЃРєСѓ СЃ Р»РёС†Р° Рё РїРѕР»РѕР¶РёР»" Female " РµС‘ РІ РїРёРґР¶Р°Рє.")
         Sleep, %sleepingtime%
     }
 }
@@ -4741,45 +4741,45 @@ return
 random, randt, 1, 2
 if (randt == 1)
 {
-    SendChat("/rep Администрация, пожалуйста, проследите за мной, тут нарущение правил игры.")
+    SendChat("/rep РђРґРјРёРЅРёСЃС‚СЂР°С†РёСЏ, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РїСЂРѕСЃР»РµРґРёС‚Рµ Р·Р° РјРЅРѕР№, С‚СѓС‚ РЅР°СЂСѓС‰РµРЅРёРµ РїСЂР°РІРёР» РёРіСЂС‹.")
 }
 if (randt == 2)
 {
-    SendChat("/rep Проследите за мной, тут нарушение правил. Буду благодар" Female13 " если верно оцените ситуацию.")
+    SendChat("/rep РџСЂРѕСЃР»РµРґРёС‚Рµ Р·Р° РјРЅРѕР№, С‚СѓС‚ РЅР°СЂСѓС€РµРЅРёРµ РїСЂР°РІРёР». Р‘СѓРґСѓ Р±Р»Р°РіРѕРґР°СЂ" Female13 " РµСЃР»Рё РІРµСЂРЅРѕ РѕС†РµРЅРёС‚Рµ СЃРёС‚СѓР°С†РёСЋ.")
 }
 return
 Active1:
 SendInput, {F6}/pagesize %page%{Enter}
 sleep, 75
 if (zavers==1){
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Выйдите из предыдущего меню и повторите попытку.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹Р№РґРёС‚Рµ РёР· РїСЂРµРґС‹РґСѓС‰РµРіРѕ РјРµРЅСЋ Рё РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ.")
 }
 else
 {
     zavers:=1
 addChatMessage("{FFFFFF} <<< ===============================  Officer {00FF00}Adjutant {FFFFFF}=============================== >>>"  )
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[F2]{FFFFFF} - Оповестить диспетчера о трафик-стопе. (c 55)")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[F2]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚СЂР°С„РёРє-СЃС‚РѕРїРµ. (c 55)")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 1]{FFFFFF} - Остановить водителя, обычный трафик-стоп, используя /m. (c 55)")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 1]{FFFFFF} - РћСЃС‚Р°РЅРѕРІРёС‚СЊ РІРѕРґРёС‚РµР»СЏ, РѕР±С‹С‡РЅС‹Р№ С‚СЂР°С„РёРє-СЃС‚РѕРї, РёСЃРїРѕР»СЊР·СѓСЏ /m. (c 55)")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 2]{FFFFFF} - Отыгровка скидывания ремня безопасности и выход из машины.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 2]{FFFFFF} - РћС‚С‹РіСЂРѕРІРєР° СЃРєРёРґС‹РІР°РЅРёСЏ СЂРµРјРЅСЏ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё Рё РІС‹С…РѕРґ РёР· РјР°С€РёРЅС‹.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 3]{FFFFFF} - Отыгровка провожения по задней фаре большим пальцем.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 3]{FFFFFF} - РћС‚С‹РіСЂРѕРІРєР° РїСЂРѕРІРѕР¶РµРЅРёСЏ РїРѕ Р·Р°РґРЅРµР№ С„Р°СЂРµ Р±РѕР»СЊС€РёРј РїР°Р»СЊС†РµРј.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 4]{FFFFFF} - Отыгровка стука в окно автомобиля на водительском месте.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 4]{FFFFFF} - РћС‚С‹РіСЂРѕРІРєР° СЃС‚СѓРєР° РІ РѕРєРЅРѕ Р°РІС‚РѕРјРѕР±РёР»СЏ РЅР° РІРѕРґРёС‚РµР»СЊСЃРєРѕРј РјРµСЃС‚Рµ.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 5]{FFFFFF} - Отыгровка представления, используя /showudost.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 5]{FFFFFF} - РћС‚С‹РіСЂРѕРІРєР° РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ, РёСЃРїРѕР»СЊР·СѓСЏ /showudost.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 6]{FFFFFF} - Отыгровка проверки документов водителя. {F63939} 'ТОЛЬКО В МАШИНЕ'.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 6]{FFFFFF} - РћС‚С‹РіСЂРѕРІРєР° РїСЂРѕРІРµСЂРєРё РґРѕРєСѓРјРµРЅС‚РѕРІ РІРѕРґРёС‚РµР»СЏ. {F63939} 'РўРћР›Р¬РљРћ Р’ РњРђРЁРРќР•'.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 7]{FFFFFF} - Отыгровка изымания вод. прав, используя /take.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 7]{FFFFFF} - РћС‚С‹РіСЂРѕРІРєР° РёР·С‹РјР°РЅРёСЏ РІРѕРґ. РїСЂР°РІ, РёСЃРїРѕР»СЊР·СѓСЏ /take.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 8]{FFFFFF} - Отыгровка выписывания штрафа, используя /ticket.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 8]{FFFFFF} - РћС‚С‹РіСЂРѕРІРєР° РІС‹РїРёСЃС‹РІР°РЅРёСЏ С€С‚СЂР°С„Р°, РёСЃРїРѕР»СЊР·СѓСЏ /ticket.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 9]{FFFFFF} - Отыгровка помилования нарушителя {F63939}'ПО УСМОТРЕНИЮ ПОЛИЦЕЙСКОГО'.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 9]{FFFFFF} - РћС‚С‹РіСЂРѕРІРєР° РїРѕРјРёР»РѕРІР°РЅРёСЏ РЅР°СЂСѓС€РёС‚РµР»СЏ {F63939}'РџРћ РЈРЎРњРћРўР Р•РќРР® РџРћР›РР¦Р•Р™РЎРљРћР“Рћ'.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из меню ситуации. {F63939}'НАЖИМАТЬ ОБЯЗАТЕЛЬНО ЕСЛИ ХОТИТЕ ВЫЙТИ'.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Р’С‹Р№С‚Рё РёР· РјРµРЅСЋ СЃРёС‚СѓР°С†РёРё. {F63939}'РќРђР–РРњРђРўР¬ РћР‘РЇР—РђРўР•Р›Р¬РќРћ Р•РЎР›Р РҐРћРўРРўР• Р’Р«Р™РўР'.")
     obratka4:
     Loop
     {
@@ -4828,7 +4828,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
             text = %info%
             restarting:=0
         }
-        if text contains *99 for last *57V,*99 for last *66,*99 for last *55,10-4 присоединяюсь к,10-4 for,10-4 для,10-4,*99
+        if text contains *99 for last *57V,*99 for last *66,*99 for last *55,10-4 РїСЂРёСЃРѕРµРґРёРЅСЏСЋСЃСЊ Рє,10-4 for,10-4 РґР»СЏ,10-4,*99
         {
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
             FileRead, info, %checkfile%
@@ -4837,7 +4837,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-55,*55,'55
         {
             1055:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-55 {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-55 {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1057v:=0
             1066:=0
@@ -4846,7 +4846,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-57v,10-57 victor,*57v,'57v,*57 victor,'57 victor
         {
             1057v:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-57 VICTOR {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-57 VICTOR {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1055:=0
             1066:=0
@@ -4855,16 +4855,16 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-66,*66,'66
         {
             1066:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-66 {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-66 {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1057v:=0
             1055:=0
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
         }
-        if text contains кюмба
+        if text contains РєСЋРјР±Р°
         {
             sleep, 750
-            SendChat("/rb я")
+            SendChat("/rb СЏ")
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
         }
         sleep, 75
@@ -4878,25 +4878,25 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     }
     if ErrorLevel = EndKey:F2
     {
-        55с := 1
+        55СЃ := 1
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         if (Radio1 = 1 and EngVer = 1)
@@ -4905,30 +4905,30 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         }
         else if (Radio1 = 1 and EngVer = 0)
         {
-            SendChat("/r " Marking " to DISP: *55, Код *четыре*, *20 " getPlayerZone() ", " M " [AT" su "" City "], недоступен, конец**")
+            SendChat("/r " Marking " to DISP: *55, РљРѕРґ *С‡РµС‚С‹СЂРµ*, *20 " getPlayerZone() ", " M " [AT" su "" City "], РЅРµРґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС†**")
         }
         else if (Radio2 = 1)
         {
             if (partner>=1)
             {
-                SendChat("/r " Tag " Докладывает " surname " | Остановили " M " | Номера: [AT" su "" City "] | Район: " getPlayerZone() ".")
+                SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РћСЃС‚Р°РЅРѕРІРёР»Рё " M " | РќРѕРјРµСЂР°: [AT" su "" City "] | Р Р°Р№РѕРЅ: " getPlayerZone() ".")
             }
             else
-            SendChat("/r " Tag " Докладывает " surname " | Остановил " M " | Номера: [AT" su "" City "] | Район: " getPlayerZone() ".")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РћСЃС‚Р°РЅРѕРІРёР» " M " | РќРѕРјРµСЂР°: [AT" su "" City "] | Р Р°Р№РѕРЅ: " getPlayerZone() ".")
         }
         restarting:=1
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
         goto, obratka4
     }
@@ -4936,93 +4936,93 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     {
         If (sbros == 1)
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}Error: {FFFFFF}Вы не получили информацию о водителе / {FFFFFF}Нажмите [{F63939}" NameKey6 "{FFFFFF}]")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}Error: {FFFFFF}Р’С‹ РЅРµ РїРѕР»СѓС‡РёР»Рё РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РІРѕРґРёС‚РµР»Рµ / {FFFFFF}РќР°Р¶РјРёС‚Рµ [{F63939}" NameKey6 "{FFFFFF}]")
         }
         else if (sbros == 0)
         {
             Random, randt, 1, 3
             if (randt = 1)
             {
-                SendChat("/do На торпеде полицейского крузера лежит мегафон.")
+                SendChat("/do РќР° С‚РѕСЂРїРµРґРµ РїРѕР»РёС†РµР№СЃРєРѕРіРѕ РєСЂСѓР·РµСЂР° Р»РµР¶РёС‚ РјРµРіР°С„РѕРЅ.")
                 Sleep, %sleepingtime%
-                SendChat("/me потянул" Female4 " к торпеде, взял" Female " мегафон, поднес" Female6 " его ко рту, сказал" Female ":")
+                SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " Рє С‚РѕСЂРїРµРґРµ, РІР·СЏР»" Female " РјРµРіР°С„РѕРЅ, РїРѕРґРЅРµСЃ" Female6 " РµРіРѕ РєРѕ СЂС‚Сѓ, СЃРєР°Р·Р°Р»" Female ":")
             }
             if (randt = 2)
             {
-                SendChat("/do Между седеньями лежал мегафон.")
+                SendChat("/do РњРµР¶РґСѓ СЃРµРґРµРЅСЊСЏРјРё Р»РµР¶Р°Р» РјРµРіР°С„РѕРЅ.")
                 Sleep, %sleepingtime%
-                SendChat("/me потянул" Female4 " к мегафону, после чего взял" Female " его высунул" Female4 " из окна сказав:")
+                SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " Рє РјРµРіР°С„РѕРЅСѓ, РїРѕСЃР»Рµ С‡РµРіРѕ РІР·СЏР»" Female " РµРіРѕ РІС‹СЃСѓРЅСѓР»" Female4 " РёР· РѕРєРЅР° СЃРєР°Р·Р°РІ:")
             }
             if (randt = 3)
             {
-                SendChat("/do На торпеде был закреплен мегафон.")
+                SendChat("/do РќР° С‚РѕСЂРїРµРґРµ Р±С‹Р» Р·Р°РєСЂРµРїР»РµРЅ РјРµРіР°С„РѕРЅ.")
                 Sleep, %sleepingtime%
-                SendChat("/me обхватил" Female " рукоятку мегафона, после чего снял" Female " его с крепежа.")
+                SendChat("/me РѕР±С…РІР°С‚РёР»" Female " СЂСѓРєРѕСЏС‚РєСѓ РјРµРіР°С„РѕРЅР°, РїРѕСЃР»Рµ С‡РµРіРѕ СЃРЅСЏР»" Female " РµРіРѕ СЃ РєСЂРµРїРµР¶Р°.")
                 Sleep, %sleepingtime%
-                SendChat("/do Мегафон находился в руке у " name "" Female12 ".")
+                SendChat("/do РњРµРіР°С„РѕРЅ РЅР°С…РѕРґРёР»СЃСЏ РІ СЂСѓРєРµ Сѓ " name "" Female12 ".")
             }
             Sleep, %sleepingtime%
             if (M = "Coach") or (M = "Bus")
             {
-                SendChat("/m - Водитель автобуса, немедленно прижмитесь к обочине, это " Org1 "!")
+                SendChat("/m - Р’РѕРґРёС‚РµР»СЊ Р°РІС‚РѕР±СѓСЃР°, РЅРµРјРµРґР»РµРЅРЅРѕ РїСЂРёР¶РјРёС‚РµСЃСЊ Рє РѕР±РѕС‡РёРЅРµ, СЌС‚Рѕ " Org1 "!")
                 Sleep, %sleepingtime%
-                SendChat("/m - Приготовьте документы сидящих в автобусе, и не выходите из автобуса.")
+                SendChat("/m - РџСЂРёРіРѕС‚РѕРІСЊС‚Рµ РґРѕРєСѓРјРµРЅС‚С‹ СЃРёРґСЏС‰РёС… РІ Р°РІС‚РѕР±СѓСЃРµ, Рё РЅРµ РІС‹С…РѕРґРёС‚Рµ РёР· Р°РІС‚РѕР±СѓСЃР°.")
             }
             else if (M = "Cabbie") or (M = "Taxi")
             {
-                SendChat("/m - Водитель такси, немедленно прижмитесь к обочине, это " Org1 "!")
+                SendChat("/m - Р’РѕРґРёС‚РµР»СЊ С‚Р°РєСЃРё, РЅРµРјРµРґР»РµРЅРЅРѕ РїСЂРёР¶РјРёС‚РµСЃСЊ Рє РѕР±РѕС‡РёРЅРµ, СЌС‚Рѕ " Org1 "!")
                 Sleep, %sleepingtime%
-                SendChat("/m - Не выходите из своего транспортного средства и приготовьте документы сидящих в машине!")
+                SendChat("/m - РќРµ РІС‹С…РѕРґРёС‚Рµ РёР· СЃРІРѕРµРіРѕ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕРіРѕ СЃСЂРµРґСЃС‚РІР° Рё РїСЂРёРіРѕС‚РѕРІСЊС‚Рµ РґРѕРєСѓРјРµРЅС‚С‹ СЃРёРґСЏС‰РёС… РІ РјР°С€РёРЅРµ!")
             }
             else if (M = "Tanker") or (M = "Linerunner")  or (M = "Roadtrain")
             {
-                SendChat("/m - Водитель грузовика, немедленно прижмитесь к обочине, это " Org1 "!")
+                SendChat("/m - Р’РѕРґРёС‚РµР»СЊ РіСЂСѓР·РѕРІРёРєР°, РЅРµРјРµРґР»РµРЅРЅРѕ РїСЂРёР¶РјРёС‚РµСЃСЊ Рє РѕР±РѕС‡РёРЅРµ, СЌС‚Рѕ " Org1 "!")
                 Sleep, %sleepingtime%
-                SendChat("/m - Положите все нужные документы на торпеду, а руки на руль. Выходить из грузовика - запрещено!")
+                SendChat("/m - РџРѕР»РѕР¶РёС‚Рµ РІСЃРµ РЅСѓР¶РЅС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹ РЅР° С‚РѕСЂРїРµРґСѓ, Р° СЂСѓРєРё РЅР° СЂСѓР»СЊ. Р’С‹С…РѕРґРёС‚СЊ РёР· РіСЂСѓР·РѕРІРёРєР° - Р·Р°РїСЂРµС‰РµРЅРѕ!")
             }
             else if (M = "PCJ-600") or (M = "Faggio") or (M = "Freeway") or (M = "Sanchez") or (M = "FCR-900") or (M = "NRG") or (M = "BF-400") or (M = "Wayfarer")
             {
-                SendChat("/m - Водитель мотоцикла " M ", немедленно прижмитесь к обочине, это " Org1 "!")
+                SendChat("/m - Р’РѕРґРёС‚РµР»СЊ РјРѕС‚РѕС†РёРєР»Р° " M ", РЅРµРјРµРґР»РµРЅРЅРѕ РїСЂРёР¶РјРёС‚РµСЃСЊ Рє РѕР±РѕС‡РёРЅРµ, СЌС‚Рѕ " Org1 "!")
                 Sleep, %sleepingtime%
-                SendChat("/m - Приготовьте документы свои документы, и ожидайте меня возле мотоцикла!")
+                SendChat("/m - РџСЂРёРіРѕС‚РѕРІСЊС‚Рµ РґРѕРєСѓРјРµРЅС‚С‹ СЃРІРѕРё РґРѕРєСѓРјРµРЅС‚С‹, Рё РѕР¶РёРґР°Р№С‚Рµ РјРµРЅСЏ РІРѕР·Р»Рµ РјРѕС‚РѕС†РёРєР»Р°!")
             }
             else if (M = "Quad")
             {
-                SendChat("/m - Водитель квадроцикла, немедленно прижмитесь к обочине, это " Org1 "!")
+                SendChat("/m - Р’РѕРґРёС‚РµР»СЊ РєРІР°РґСЂРѕС†РёРєР»Р°, РЅРµРјРµРґР»РµРЅРЅРѕ РїСЂРёР¶РјРёС‚РµСЃСЊ Рє РѕР±РѕС‡РёРЅРµ, СЌС‚Рѕ " Org1 "!")
                 Sleep, %sleepingtime%
-                SendChat("/m - Приготовьте документы свои документы, и ожидайте меня возле квадроцикла!")
+                SendChat("/m - РџСЂРёРіРѕС‚РѕРІСЊС‚Рµ РґРѕРєСѓРјРµРЅС‚С‹ СЃРІРѕРё РґРѕРєСѓРјРµРЅС‚С‹, Рё РѕР¶РёРґР°Р№С‚Рµ РјРµРЅСЏ РІРѕР·Р»Рµ РєРІР°РґСЂРѕС†РёРєР»Р°!")
             }
             else
             {
                 Random, randt, 1, 3
                 if (randt = 1) {
-                    SendChat("/m - Говорит сотрудник " Org2 ". Водитель автомобиля марки - *" M "*.")
+                    SendChat("/m - Р“РѕРІРѕСЂРёС‚ СЃРѕС‚СЂСѓРґРЅРёРє " Org2 ". Р’РѕРґРёС‚РµР»СЊ Р°РІС‚РѕРјРѕР±РёР»СЏ РјР°СЂРєРё - *" M "*.")
                     Sleep, %sleepingtime%
-                    SendChat("/m - Приготовьте документы сидящих в машине, и не выходите из своего транспортного средства.")
+                    SendChat("/m - РџСЂРёРіРѕС‚РѕРІСЊС‚Рµ РґРѕРєСѓРјРµРЅС‚С‹ СЃРёРґСЏС‰РёС… РІ РјР°С€РёРЅРµ, Рё РЅРµ РІС‹С…РѕРґРёС‚Рµ РёР· СЃРІРѕРµРіРѕ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕРіРѕ СЃСЂРµРґСЃС‚РІР°.")
                 }
                 if (randt = 2) {
-                    SendChat("/m - Говорит " Org1 "! Водитель *" M "*. Остановитесь у обочины и заглушите двигатель!")
+                    SendChat("/m - Р“РѕРІРѕСЂРёС‚ " Org1 "! Р’РѕРґРёС‚РµР»СЊ *" M "*. РћСЃС‚Р°РЅРѕРІРёС‚РµСЃСЊ Сѓ РѕР±РѕС‡РёРЅС‹ Рё Р·Р°РіР»СѓС€РёС‚Рµ РґРІРёРіР°С‚РµР»СЊ!")
                     Sleep, %sleepingtime%
-                    SendChat("/m - Не выходите из своего транспортного средства и приготовьте документы сидящих в машине!")
+                    SendChat("/m - РќРµ РІС‹С…РѕРґРёС‚Рµ РёР· СЃРІРѕРµРіРѕ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕРіРѕ СЃСЂРµРґСЃС‚РІР° Рё РїСЂРёРіРѕС‚РѕРІСЊС‚Рµ РґРѕРєСѓРјРµРЅС‚С‹ СЃРёРґСЏС‰РёС… РІ РјР°С€РёРЅРµ!")
                 }
                 if (randt = 3) {
-                    SendChat("/m - Водитель автомобиля *" M "*, прижмитесь к обочине и заглушите двигательно.")
+                    SendChat("/m - Р’РѕРґРёС‚РµР»СЊ Р°РІС‚РѕРјРѕР±РёР»СЏ *" M "*, РїСЂРёР¶РјРёС‚РµСЃСЊ Рє РѕР±РѕС‡РёРЅРµ Рё Р·Р°РіР»СѓС€РёС‚Рµ РґРІРёРіР°С‚РµР»СЊРЅРѕ.")
                     Sleep, %sleepingtime%
-                    SendChat("/m - Положите документы на торпеду, а руки на руль. Выходить из машины - запрещено!")
+                    SendChat("/m - РџРѕР»РѕР¶РёС‚Рµ РґРѕРєСѓРјРµРЅС‚С‹ РЅР° С‚РѕСЂРїРµРґСѓ, Р° СЂСѓРєРё РЅР° СЂСѓР»СЊ. Р’С‹С…РѕРґРёС‚СЊ РёР· РјР°С€РёРЅС‹ - Р·Р°РїСЂРµС‰РµРЅРѕ!")
                 }
             }
             Sleep, %sleepingtime%
             if (randt = 1)
             {
-                SendChat("/me закончив говорить положил" Female " мегафон обратно на торпеду.")
+                SendChat("/me Р·Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ РїРѕР»РѕР¶РёР»" Female " РјРµРіР°С„РѕРЅ РѕР±СЂР°С‚РЅРѕ РЅР° С‚РѕСЂРїРµРґСѓ.")
             }
             if (randt = 2)
             {
-                SendChat("/me донес" Female6 " свои требования до правонарушителя, положил" Female " мегафон на место.")
+                SendChat("/me РґРѕРЅРµСЃ" Female6 " СЃРІРѕРё С‚СЂРµР±РѕРІР°РЅРёСЏ РґРѕ РїСЂР°РІРѕРЅР°СЂСѓС€РёС‚РµР»СЏ, РїРѕР»РѕР¶РёР»" Female " РјРµРіР°С„РѕРЅ РЅР° РјРµСЃС‚Рѕ.")
             }
             if (randt = 3)
             {
-                SendChat("/me закончив говорить, вернул" Female4 " в кабину, закрепил" Female " мегафон на торпеде.")
+                SendChat("/me Р·Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ, РІРµСЂРЅСѓР»" Female4 " РІ РєР°Р±РёРЅСѓ, Р·Р°РєСЂРµРїРёР»" Female " РјРµРіР°С„РѕРЅ РЅР° С‚РѕСЂРїРµРґРµ.")
             }
         }
         goto, obratka4
@@ -5032,19 +5032,19 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     {
         Random, randt, 1, 3
         if (randt = 1) {
-            SendChat("/me отслонил" Female " рацию мегафона со рта, после чего закрепил" Female " её возле боротового компютера.")
+            SendChat("/me РѕС‚СЃР»РѕРЅРёР»" Female " СЂР°С†РёСЋ РјРµРіР°С„РѕРЅР° СЃРѕ СЂС‚Р°, РїРѕСЃР»Рµ С‡РµРіРѕ Р·Р°РєСЂРµРїРёР»" Female " РµС‘ РІРѕР·Р»Рµ Р±РѕСЂРѕС‚РѕРІРѕРіРѕ РєРѕРјРїСЋС‚РµСЂР°.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к кнопки ремня отстегнул" Female " ремень после чего открыл" Female " дверь.")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє РєРЅРѕРїРєРё СЂРµРјРЅСЏ РѕС‚СЃС‚РµРіРЅСѓР»" Female " СЂРµРјРµРЅСЊ РїРѕСЃР»Рµ С‡РµРіРѕ РѕС‚РєСЂС‹Р»" Female " РґРІРµСЂСЊ.")
         }
         if (randt = 2) {
-            SendChat("/me отстегнул" Female " ремень, потянулся рукой к двери, потянув ручку на себя открыл" Female " дверь.")
+            SendChat("/me РѕС‚СЃС‚РµРіРЅСѓР»" Female " СЂРµРјРµРЅСЊ, РїРѕС‚СЏРЅСѓР»СЃСЏ СЂСѓРєРѕР№ Рє РґРІРµСЂРё, РїРѕС‚СЏРЅСѓРІ СЂСѓС‡РєСѓ РЅР° СЃРµР±СЏ РѕС‚РєСЂС‹Р»" Female " РґРІРµСЂСЊ.")
             Sleep, %sleepingtime%
-            SendChat("/me вышел" Female " из крузера, после чего направил" Female4 " к машине которая была рядом.")
+            SendChat("/me РІС‹С€РµР»" Female " РёР· РєСЂСѓР·РµСЂР°, РїРѕСЃР»Рµ С‡РµРіРѕ РЅР°РїСЂР°РІРёР»" Female4 " Рє РјР°С€РёРЅРµ РєРѕС‚РѕСЂР°СЏ Р±С‹Р»Р° СЂСЏРґРѕРј.")
         }
         if (randt = 3) {
-            SendChat("/me сняв ремень безопасности проверил" Female " тактильным ощущением оружие находящегося в кобуре.")
+            SendChat("/me СЃРЅСЏРІ СЂРµРјРµРЅСЊ Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїСЂРѕРІРµСЂРёР»" Female " С‚Р°РєС‚РёР»СЊРЅС‹Рј РѕС‰СѓС‰РµРЅРёРµРј РѕСЂСѓР¶РёРµ РЅР°С…РѕРґСЏС‰РµРіРѕСЃСЏ РІ РєРѕР±СѓСЂРµ.")
             Sleep, %sleepingtime%
-            SendChat("/me правой рукой открыл" Female " дверь крузера, после чего выш" Female7 " из машины.")
+            SendChat("/me РїСЂР°РІРѕР№ СЂСѓРєРѕР№ РѕС‚РєСЂС‹Р»" Female " РґРІРµСЂСЊ РєСЂСѓР·РµСЂР°, РїРѕСЃР»Рµ С‡РµРіРѕ РІС‹С€" Female7 " РёР· РјР°С€РёРЅС‹.")
         }
         goto, obratka4
     }
@@ -5053,24 +5053,24 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     {
         Random, randt, 1, 3
         if (randt = 1) {
-            SendChat("/me проходя мимо автомобиля, торкнул" Female4 " пальцем к багажнику, тем самим оставил отпечаток.")
+            SendChat("/me РїСЂРѕС…РѕРґСЏ РјРёРјРѕ Р°РІС‚РѕРјРѕР±РёР»СЏ, С‚РѕСЂРєРЅСѓР»" Female4 " РїР°Р»СЊС†РµРј Рє Р±Р°РіР°Р¶РЅРёРєСѓ, С‚РµРј СЃР°РјРёРј РѕСЃС‚Р°РІРёР» РѕС‚РїРµС‡Р°С‚РѕРє.")
         }
         if (randt = 2) {
-            SendChat("/me направляючись к окну водителя, провел" Female " рукой по багажнику, оставил" Female " отпечаток.")
+            SendChat("/me РЅР°РїСЂР°РІР»СЏСЋС‡РёСЃСЊ Рє РѕРєРЅСѓ РІРѕРґРёС‚РµР»СЏ, РїСЂРѕРІРµР»" Female " СЂСѓРєРѕР№ РїРѕ Р±Р°РіР°Р¶РЅРёРєСѓ, РѕСЃС‚Р°РІРёР»" Female " РѕС‚РїРµС‡Р°С‚РѕРє.")
         }
         if (randt = 3) {
-            SendChat("/me оставил" Female " отпечаток на багажнике автомобиля, одним глазком посматривая на задние съедения.")
+            SendChat("/me РѕСЃС‚Р°РІРёР»" Female " РѕС‚РїРµС‡Р°С‚РѕРє РЅР° Р±Р°РіР°Р¶РЅРёРєРµ Р°РІС‚РѕРјРѕР±РёР»СЏ, РѕРґРЅРёРј РіР»Р°Р·РєРѕРј РїРѕСЃРјР°С‚СЂРёРІР°СЏ РЅР° Р·Р°РґРЅРёРµ СЃСЉРµРґРµРЅРёСЏ.")
         }
         goto, obratka4
     }
     else
     if ErrorLevel = EndKey:Numpad4
     {
-        SendChat("/me согнув указательный палец, аккуратно постучал" Female " в окно двери водителя.")
+        SendChat("/me СЃРѕРіРЅСѓРІ СѓРєР°Р·Р°С‚РµР»СЊРЅС‹Р№ РїР°Р»РµС†, Р°РєРєСѓСЂР°С‚РЅРѕ РїРѕСЃС‚СѓС‡Р°Р»" Female " РІ РѕРєРЅРѕ РґРІРµСЂРё РІРѕРґРёС‚РµР»СЏ.")
         Sleep, %sleepingtime%
-        SendChat("/todo Опустите окно пожалуйста. *показывая жестами человеку в машине о том что нужно открыть окно.")
+        SendChat("/todo РћРїСѓСЃС‚РёС‚Рµ РѕРєРЅРѕ РїРѕР¶Р°Р»СѓР№СЃС‚Р°. *РїРѕРєР°Р·С‹РІР°СЏ Р¶РµСЃС‚Р°РјРё С‡РµР»РѕРІРµРєСѓ РІ РјР°С€РёРЅРµ Рѕ С‚РѕРј С‡С‚Рѕ РЅСѓР¶РЅРѕ РѕС‚РєСЂС‹С‚СЊ РѕРєРЅРѕ.")
         Sleep, %sleepingtime%
-        SendChat("/me пытается рассмотреть лицо водителя, после салон автомобиля.")
+        SendChat("/me РїС‹С‚Р°РµС‚СЃСЏ СЂР°СЃСЃРјРѕС‚СЂРµС‚СЊ Р»РёС†Рѕ РІРѕРґРёС‚РµР»СЏ, РїРѕСЃР»Рµ СЃР°Р»РѕРЅ Р°РІС‚РѕРјРѕР±РёР»СЏ.")
         goto, obratka4
     }
     else
@@ -5079,29 +5079,29 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         SendMessage, 0x50,, 0x4190419,,A
         Random, randt, 1, 3
         if (randt = 1) {
-            SendChat("Здравствуйте, " Org5 ": " name " " surname " беспокоит.")
+            SendChat("Р—РґСЂР°РІСЃС‚РІСѓР№С‚Рµ, " Org5 ": " name " " surname " Р±РµСЃРїРѕРєРѕРёС‚.")
             Sleep, %sleepingtime%
             SendChat("/anim 17")
             Sleep, %sleepingtime%
-            SendChat("/me достал" Female " удостоверение сотрудника " Org ".")
+            SendChat("/me РґРѕСЃС‚Р°Р»" Female " СѓРґРѕСЃС‚РѕРІРµСЂРµРЅРёРµ СЃРѕС‚СЂСѓРґРЅРёРєР° " Org ".")
             Sleep, %sleepingtime%
         }
         if (randt = 2) {
-            SendChat("Добрый день уважаемый, ваше время заберёт сотрудник " Org ": " name " " surname ".")
+            SendChat("Р”РѕР±СЂС‹Р№ РґРµРЅСЊ СѓРІР°Р¶Р°РµРјС‹Р№, РІР°С€Рµ РІСЂРµРјСЏ Р·Р°Р±РµСЂС‘С‚ СЃРѕС‚СЂСѓРґРЅРёРє " Org ": " name " " surname ".")
             Sleep, %sleepingtime%
-            SendChat("/me правой рукой открыл" Female " пафосным видом удостоверение сотрудника " Org ".")
+            SendChat("/me РїСЂР°РІРѕР№ СЂСѓРєРѕР№ РѕС‚РєСЂС‹Р»" Female " РїР°С„РѕСЃРЅС‹Рј РІРёРґРѕРј СѓРґРѕСЃС‚РѕРІРµСЂРµРЅРёРµ СЃРѕС‚СЂСѓРґРЅРёРєР° " Org ".")
             Sleep, %sleepingtime%
             SendChat("/anim 17")
             Sleep, %sleepingtime%
         }
         if (randt = 3) {
-            SendChat("Здравствуйте, Вас беспокоит сотрудник " Org2 " - " surname ".")
+            SendChat("Р—РґСЂР°РІСЃС‚РІСѓР№С‚Рµ, Р’Р°СЃ Р±РµСЃРїРѕРєРѕРёС‚ СЃРѕС‚СЂСѓРґРЅРёРє " Org2 " - " surname ".")
             Sleep, %sleepingtime%
-            SendChat("/do Верхнем кармашке жилета лежит удостоверение.")
+            SendChat("/do Р’РµСЂС…РЅРµРј РєР°СЂРјР°С€РєРµ Р¶РёР»РµС‚Р° Р»РµР¶РёС‚ СѓРґРѕСЃС‚РѕРІРµСЂРµРЅРёРµ.")
             Sleep, %sleepingtime%
             SendChat("/anim 17")
             Sleep, %sleepingtime%
-            SendChat("/me движением руки вытащил" Female " удостоверение, показав его человеку напротив.")
+            SendChat("/me РґРІРёР¶РµРЅРёРµРј СЂСѓРєРё РІС‹С‚Р°С‰РёР»" Female " СѓРґРѕСЃС‚РѕРІРµСЂРµРЅРёРµ, РїРѕРєР°Р·Р°РІ РµРіРѕ С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ.")
             Sleep, %sleepingtime%
         }
     SendInput {F6}/showudost{space}
@@ -5114,31 +5114,31 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         idskr:=getIdsInAnyVehicle()
         if (idskr == -1)
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}Error: {FFFFFF}Вы не в машине. / {F63939}Сядьте в машину, и повторите действие.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}Error: {FFFFFF}Р’С‹ РЅРµ РІ РјР°С€РёРЅРµ. / {F63939}РЎСЏРґСЊС‚Рµ РІ РјР°С€РёРЅСѓ, Рё РїРѕРІС‚РѕСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ.")
             goto, obratka4
         }
         else
         {
             Random, randt, 1, 2
             if (randt = 1) {
-                SendChat("/do Компактный бортовой компютер возле " name "а в салоне автомобиля.")
+                SendChat("/do РљРѕРјРїР°РєС‚РЅС‹Р№ Р±РѕСЂС‚РѕРІРѕР№ РєРѕРјРїСЋС‚РµСЂ РІРѕР·Р»Рµ " name "Р° РІ СЃР°Р»РѕРЅРµ Р°РІС‚РѕРјРѕР±РёР»СЏ.")
                 Sleep, %sleepingtime%
-                SendChat("/me клацал" Female " по КБК после чего в итоге включил" Female " его.")
+                SendChat("/me РєР»Р°С†Р°Р»" Female " РїРѕ РљР‘Рљ РїРѕСЃР»Рµ С‡РµРіРѕ РІ РёС‚РѕРіРµ РІРєР»СЋС‡РёР»" Female " РµРіРѕ.")
                 Sleep, %sleepingtime%
-                SendChat("/me заш" Female7 " в базу разыскиваемых, посмотрел" Female " нужную информацию после чего выключил КПК.")
+                SendChat("/me Р·Р°С€" Female7 " РІ Р±Р°Р·Сѓ СЂР°Р·С‹СЃРєРёРІР°РµРјС‹С…, РїРѕСЃРјРѕС‚СЂРµР»" Female " РЅСѓР¶РЅСѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ РїРѕСЃР»Рµ С‡РµРіРѕ РІС‹РєР»СЋС‡РёР» РљРџРљ.")
                 Sleep, %sleepingtime%
-                SendChat("/do Компактный Бортовой Компютер издал звук блокировки.")
+                SendChat("/do РљРѕРјРїР°РєС‚РЅС‹Р№ Р‘РѕСЂС‚РѕРІРѕР№ РљРѕРјРїСЋС‚РµСЂ РёР·РґР°Р» Р·РІСѓРє Р±Р»РѕРєРёСЂРѕРІРєРё.")
                 Sleep, %sleepingtime%
                 SendChat("/wanted")
             }
             if (randt = 2) {
-                SendChat("/do В автомобиле установлен бортовой компьютер.")
+                SendChat("/do Р’ Р°РІС‚РѕРјРѕР±РёР»Рµ СѓСЃС‚Р°РЅРѕРІР»РµРЅ Р±РѕСЂС‚РѕРІРѕР№ РєРѕРјРїСЊСЋС‚РµСЂ.")
                 Sleep, %sleepingtime%
-                SendChat("/me нажатием кнопки по экрану компьютера, зашел в базу *Staff wanted criminalsl*.")
+                SendChat("/me РЅР°Р¶Р°С‚РёРµРј РєРЅРѕРїРєРё РїРѕ СЌРєСЂР°РЅСѓ РєРѕРјРїСЊСЋС‚РµСЂР°, Р·Р°С€РµР» РІ Р±Р°Р·Сѓ *Staff wanted criminalsl*.")
                 Sleep, %sleepingtime%
-                SendChat("/me тыкая по клавиатуре ввёл инфомрацию о водителе читая её с документа.")
+                SendChat("/me С‚С‹РєР°СЏ РїРѕ РєР»Р°РІРёР°С‚СѓСЂРµ РІРІС‘Р» РёРЅС„РѕРјСЂР°С†РёСЋ Рѕ РІРѕРґРёС‚РµР»Рµ С‡РёС‚Р°СЏ РµС‘ СЃ РґРѕРєСѓРјРµРЅС‚Р°.")
                 Sleep, %sleepingtime%
-                SendChat("/do Информация о водителе высветилась на бортовом компютере.")
+                SendChat("/do РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РІРѕРґРёС‚РµР»Рµ РІС‹СЃРІРµС‚РёР»Р°СЃСЊ РЅР° Р±РѕСЂС‚РѕРІРѕРј РєРѕРјРїСЋС‚РµСЂРµ.")
                 Sleep, %sleepingtime%
                 SendChat("/wanted")
             }
@@ -5150,29 +5150,29 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     {
         Random, randt, 1, 3
         if (randt = 1) {
-            SendChat("/do В руке у " name "а был включённый коммуникатор.")
+            SendChat("/do Р’ СЂСѓРєРµ Сѓ " name "Р° Р±С‹Р» РІРєР»СЋС‡С‘РЅРЅС‹Р№ РєРѕРјРјСѓРЅРёРєР°С‚РѕСЂ.")
             Sleep, %sleepingtime%
-            SendChat("/me вош" Female7 " в раздел Лицензии, после чего ввёл" Female " данные о нарушителе.")
+            SendChat("/me РІРѕС€" Female7 " РІ СЂР°Р·РґРµР» Р›РёС†РµРЅР·РёРё, РїРѕСЃР»Рµ С‡РµРіРѕ РІРІС‘Р»" Female " РґР°РЅРЅС‹Рµ Рѕ РЅР°СЂСѓС€РёС‚РµР»Рµ.")
             Sleep, %sleepingtime%
-            SendChat("/me заполнив данные, нажал" Female " на [Enter], после чего выключил" Female " Коммуникатор.")
+            SendChat("/me Р·Р°РїРѕР»РЅРёРІ РґР°РЅРЅС‹Рµ, РЅР°Р¶Р°Р»" Female " РЅР° [Enter], РїРѕСЃР»Рµ С‡РµРіРѕ РІС‹РєР»СЋС‡РёР»" Female " РљРѕРјРјСѓРЅРёРєР°С‚РѕСЂ.")
             Sleep, %sleepingtime%
             SendChat("/take")
         }
         if (randt = 2) {
-            SendChat("/me правой рукой из верхнего кармана достал" Female " бланк, после ручку.")
+            SendChat("/me РїСЂР°РІРѕР№ СЂСѓРєРѕР№ РёР· РІРµСЂС…РЅРµРіРѕ РєР°СЂРјР°РЅР° РґРѕСЃС‚Р°Р»" Female " Р±Р»Р°РЅРє, РїРѕСЃР»Рµ СЂСѓС‡РєСѓ.")
             Sleep, %sleepingtime%
-            SendChat("/do Бланк и ручка в руках у " name "а.")
+            SendChat("/do Р‘Р»Р°РЅРє Рё СЂСѓС‡РєР° РІ СЂСѓРєР°С… Сѓ " name "Р°.")
             Sleep, %sleepingtime%
-            SendChat("/me заполняет бланк ручкой, вписывая каждые пропуски.")
+            SendChat("/me Р·Р°РїРѕР»РЅСЏРµС‚ Р±Р»Р°РЅРє СЂСѓС‡РєРѕР№, РІРїРёСЃС‹РІР°СЏ РєР°Р¶РґС‹Рµ РїСЂРѕРїСѓСЃРєРё.")
             Sleep, %sleepingtime%
-            SendChat("/do Через некоторое время заполнил" Female " бланк.")
+            SendChat("/do Р§РµСЂРµР· РЅРµРєРѕС‚РѕСЂРѕРµ РІСЂРµРјСЏ Р·Р°РїРѕР»РЅРёР»" Female " Р±Р»Р°РЅРє.")
             Sleep, %sleepingtime%
             SendChat("/take")
         }
         if (randt = 3) {
-            SendChat("/me достал из внутреннего кармана пиджака пакетик для улик.")
+            SendChat("/me РґРѕСЃС‚Р°Р» РёР· РІРЅСѓС‚СЂРµРЅРЅРµРіРѕ РєР°СЂРјР°РЅР° РїРёРґР¶Р°РєР° РїР°РєРµС‚РёРє РґР»СЏ СѓР»РёРє.")
             Sleep, %sleepingtime%
-            SendChat("/me забрал у нарушителя запрещенные предметы, положив их в пакетик.")
+            SendChat("/me Р·Р°Р±СЂР°Р» Сѓ РЅР°СЂСѓС€РёС‚РµР»СЏ Р·Р°РїСЂРµС‰РµРЅРЅС‹Рµ РїСЂРµРґРјРµС‚С‹, РїРѕР»РѕР¶РёРІ РёС… РІ РїР°РєРµС‚РёРє.")
             Sleep, %sleepingtime%
             SendChat("/take")
         }
@@ -5182,15 +5182,15 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     if ErrorLevel = EndKey:Numpad8
     {
         SendMessage, 0x50,, 0x4190419,,A
-        SendChat("/do На поясе у " name "а планшет с блаками для штрафов.")
+        SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name "Р° РїР»Р°РЅС€РµС‚ СЃ Р±Р»Р°РєР°РјРё РґР»СЏ С€С‚СЂР°С„РѕРІ.")
         Sleep, %sleepingtime%
-        SendChat("/me резким движением руки, вытягивает один бланк, после берёт его в руки.")
+        SendChat("/me СЂРµР·РєРёРј РґРІРёР¶РµРЅРёРµРј СЂСѓРєРё, РІС‹С‚СЏРіРёРІР°РµС‚ РѕРґРёРЅ Р±Р»Р°РЅРє, РїРѕСЃР»Рµ Р±РµСЂС‘С‚ РµРіРѕ РІ СЂСѓРєРё.")
         Sleep, %sleepingtime%
-        SendChat("/me заполняет бланк взяв ручку из нагрудного кармана.")
+        SendChat("/me Р·Р°РїРѕР»РЅСЏРµС‚ Р±Р»Р°РЅРє РІР·СЏРІ СЂСѓС‡РєСѓ РёР· РЅР°РіСЂСѓРґРЅРѕРіРѕ РєР°СЂРјР°РЅР°.")
         Sleep, %sleepingtime%
-        SendChat("/do Через некоторое время заполнил" Female " бланк полностью.")
+        SendChat("/do Р§РµСЂРµР· РЅРµРєРѕС‚РѕСЂРѕРµ РІСЂРµРјСЏ Р·Р°РїРѕР»РЅРёР»" Female " Р±Р»Р°РЅРє РїРѕР»РЅРѕСЃС‚СЊСЋ.")
         Sleep, %sleepingtime%
-        SendChat("/me передал" Female " человеку напротив заполненный бланк.")
+        SendChat("/me РїРµСЂРµРґР°Р»" Female " С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ Р·Р°РїРѕР»РЅРµРЅРЅС‹Р№ Р±Р»Р°РЅРє.")
         Sleep, %sleepingtime%
     SendInput {F6}/ticket{space}
         KeyWait, Enter, D
@@ -5199,16 +5199,16 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     else
     if ErrorLevel = EndKey:Numpad9
     {
-        SendChat("Хорошо, на этот раз я Вас отпускаю, но еще раз увижу, дам по шапке.")
+        SendChat("РҐРѕСЂРѕС€Рѕ, РЅР° СЌС‚РѕС‚ СЂР°Р· СЏ Р’Р°СЃ РѕС‚РїСѓСЃРєР°СЋ, РЅРѕ РµС‰Рµ СЂР°Р· СѓРІРёР¶Сѓ, РґР°Рј РїРѕ С€Р°РїРєРµ.")
         Sleep, %sleepingtime%
-        SendChat("/todo Счастливой дороги. И да, я слежу за Вами. *символизировал жест двумя пальцами с глаза на глаз.")
+        SendChat("/todo РЎС‡Р°СЃС‚Р»РёРІРѕР№ РґРѕСЂРѕРіРё. Р РґР°, СЏ СЃР»РµР¶Сѓ Р·Р° Р’Р°РјРё. *СЃРёРјРІРѕР»РёР·РёСЂРѕРІР°Р» Р¶РµСЃС‚ РґРІСѓРјСЏ РїР°Р»СЊС†Р°РјРё СЃ РіР»Р°Р·Р° РЅР° РіР»Р°Р·.")
         Sleep, %sleepingtime%
-    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы автоматически выйшли из меню рации. {00FF00}Продолжайте работу.")
+    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЂР°С†РёРё. {00FF00}РџСЂРѕРґРѕР»Р¶Р°Р№С‚Рµ СЂР°Р±РѕС‚Сѓ.")
     }
     else
     if ErrorLevel = EndKey:End
     {
-    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы выйшли из меню ситуации. {00FF00}Продолжайте работу.")
+    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЃРёС‚СѓР°С†РёРё. {00FF00}РџСЂРѕРґРѕР»Р¶Р°Р№С‚Рµ СЂР°Р±РѕС‚Сѓ.")
     }
     zavers:=0
 }
@@ -5218,33 +5218,33 @@ SendInput, {F6}/pagesize %page%{Enter}
 sleep, 75
 if (zavers==1)
 {
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Выйдите из предыдущего меню и повторите попытку.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹Р№РґРёС‚Рµ РёР· РїСЂРµРґС‹РґСѓС‰РµРіРѕ РјРµРЅСЋ Рё РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ.")
 }
 else
 {
     zavers:=1
 addChatMessage("{FFFFFF} <<< ===============================  Officer {00FF00}Adjutant {FFFFFF}=============================== >>>"  )
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[F2]{FFFFFF} - Оповестить диспетчера в рацию о погоне (c 57v).")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[F2]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° РІ СЂР°С†РёСЋ Рѕ РїРѕРіРѕРЅРµ (c 57v).")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[F3]{FFFFFF} - Оповестить диспетчера в рацию о остановке повышенного риска (c 66).")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[F3]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° РІ СЂР°С†РёСЋ Рѕ РѕСЃС‚Р°РЅРѕРІРєРµ РїРѕРІС‹С€РµРЅРЅРѕРіРѕ СЂРёСЃРєР° (c 66).")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 1]{FFFFFF} - Остановить нарушителя закона, используя /m - (c 57v) {F63939} *ДЛЯ ПРЕСТУПНИКА*.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 1]{FFFFFF} - РћСЃС‚Р°РЅРѕРІРёС‚СЊ РЅР°СЂСѓС€РёС‚РµР»СЏ Р·Р°РєРѕРЅР°, РёСЃРїРѕР»СЊР·СѓСЏ /m - (c 57v) {F63939} *Р”Р›РЇ РџР Р•РЎРўРЈРџРќРРљРђ*.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 2]{FFFFFF} - Заставить водителя и пассажиров выйти на дорогу и лечь на асфальт, используя /m. (c 66).")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 2]{FFFFFF} - Р—Р°СЃС‚Р°РІРёС‚СЊ РІРѕРґРёС‚РµР»СЏ Рё РїР°СЃСЃР°Р¶РёСЂРѕРІ РІС‹Р№С‚Рё РЅР° РґРѕСЂРѕРіСѓ Рё Р»РµС‡СЊ РЅР° Р°СЃС„Р°Р»СЊС‚, РёСЃРїРѕР»СЊР·СѓСЏ /m. (c 66).")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 3]{FFFFFF} - Закрепить на руках нарушителя наручники, используя /cuff.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 3]{FFFFFF} - Р—Р°РєСЂРµРїРёС‚СЊ РЅР° СЂСѓРєР°С… РЅР°СЂСѓС€РёС‚РµР»СЏ РЅР°СЂСѓС‡РЅРёРєРё, РёСЃРїРѕР»СЊР·СѓСЏ /cuff.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 4]{FFFFFF} - Повести нарушителя за собой, используя /gotome.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 4]{FFFFFF} - РџРѕРІРµСЃС‚Рё РЅР°СЂСѓС€РёС‚РµР»СЏ Р·Р° СЃРѕР±РѕР№, РёСЃРїРѕР»СЊР·СѓСЏ /gotome.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 5]{FFFFFF} - Посадить преступника в машину, используя /cput.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 5]{FFFFFF} - РџРѕСЃР°РґРёС‚СЊ РїСЂРµСЃС‚СѓРїРЅРёРєР° РІ РјР°С€РёРЅСѓ, РёСЃРїРѕР»СЊР·СѓСЏ /cput.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 6]{FFFFFF} - Зачитать правило миранды нарушителю, в машине.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 6]{FFFFFF} - Р—Р°С‡РёС‚Р°С‚СЊ РїСЂР°РІРёР»Рѕ РјРёСЂР°РЅРґС‹ РЅР°СЂСѓС€РёС‚РµР»СЋ, РІ РјР°С€РёРЅРµ.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 7]{FFFFFF} - Затащить нарушителя в участок, используя /ceject.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 7]{FFFFFF} - Р—Р°С‚Р°С‰РёС‚СЊ РЅР°СЂСѓС€РёС‚РµР»СЏ РІ СѓС‡Р°СЃС‚РѕРє, РёСЃРїРѕР»СЊР·СѓСЏ /ceject.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 8]{FFFFFF} - Открыть КПЗ, после чего посадить преступника за решетку используя /arrest.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 8]{FFFFFF} - РћС‚РєСЂС‹С‚СЊ РљРџР—, РїРѕСЃР»Рµ С‡РµРіРѕ РїРѕСЃР°РґРёС‚СЊ РїСЂРµСЃС‚СѓРїРЅРёРєР° Р·Р° СЂРµС€РµС‚РєСѓ РёСЃРїРѕР»СЊР·СѓСЏ /arrest.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из меню ситуации. {F63939}'НАЖИМАТЬ ОБЯЗАТЕЛЬНО ЕСЛИ ХОТИТЕ ВЫЙТИ'.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Р’С‹Р№С‚Рё РёР· РјРµРЅСЋ СЃРёС‚СѓР°С†РёРё. {F63939}'РќРђР–РРњРђРўР¬ РћР‘РЇР—РђРўР•Р›Р¬РќРћ Р•РЎР›Р РҐРћРўРРўР• Р’Р«Р™РўР'.")
     obratka3:
     Loop
     {
@@ -5293,7 +5293,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
             text = %info%
             restarting:=0
         }
-        if text contains *99 for last *57V,*99 for last *66,*99 for last *55,10-4 присоединяюсь к,10-4 for,10-4 для,10-4,*99
+        if text contains *99 for last *57V,*99 for last *66,*99 for last *55,10-4 РїСЂРёСЃРѕРµРґРёРЅСЏСЋСЃСЊ Рє,10-4 for,10-4 РґР»СЏ,10-4,*99
         {
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
             FileRead, info, %checkfile%
@@ -5302,7 +5302,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-55,*55,'55
         {
             1055:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-55 {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-55 {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1057v:=0
             1066:=0
@@ -5311,7 +5311,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-57v,10-57 victor,*57v,'57v,*57 victor,'57 victor
         {
             1057v:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-57 VICTOR {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-57 VICTOR {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1055:=0
             1066:=0
@@ -5320,16 +5320,16 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-66,*66,'66
         {
             1066:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-66 {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-66 {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1057v:=0
             1055:=0
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
         }
-        if text contains кюмба
+        if text contains РєСЋРјР±Р°
         {
             sleep, 750
-            SendChat("/rb я")
+            SendChat("/rb СЏ")
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
         }
         sleep, 75
@@ -5345,7 +5345,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     {
         if (sbros == 1)
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}Error: {FFFFFF}Вы не получили информацию о водителе / {FFFFFF}Нажмите [{F63939}" NameKey6 "{FFFFFF}]")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}Error: {FFFFFF}Р’С‹ РЅРµ РїРѕР»СѓС‡РёР»Рё РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РІРѕРґРёС‚РµР»Рµ / {FFFFFF}РќР°Р¶РјРёС‚Рµ [{F63939}" NameKey6 "{FFFFFF}]")
         }
         else if (sbros == 0)
         {
@@ -5353,21 +5353,21 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
             Random, randt, 1, 3
             if (randt = 1)
             {
-                SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+                SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
                 Sleep, %sleepingtime%
-                SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+                SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
             }
             if (randt = 2)
             {
-                SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+                SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
                 Sleep, %sleepingtime%
-                SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+                SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
             }
             if (randt = 3)
             {
-                SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+                SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
                 Sleep, %sleepingtime%
-                SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+                SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
             }
             Sleep, %sleepingtime%
             if (Radio1 = 1 and EngVer = 1)
@@ -5376,30 +5376,30 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
             }
             else if (Radio1 = 1 and EngVer = 0)
             {
-                SendChat("/r " Marking " to DISP: *57V, *20 " getPlayerZone() ", " M " [AT" su "" City "], недоступен, конец**")
+                SendChat("/r " Marking " to DISP: *57V, *20 " getPlayerZone() ", " M " [AT" su "" City "], РЅРµРґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС†**")
             }
             else if (Radio2 = 1)
             {
                 if (partner>=1)
                 {
-                    SendChat("/r " Tag " Докладывает " surname " | Погоня за " M " | Номера: [AT" su "" City "] | Район: " getPlayerZone() ".")
+                    SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РџРѕРіРѕРЅСЏ Р·Р° " M " | РќРѕРјРµСЂР°: [AT" su "" City "] | Р Р°Р№РѕРЅ: " getPlayerZone() ".")
                 }
                 else
-                SendChat("/r " Tag " Докладывает " surname " | Погоня за  " M " | Номера: [AT" su "" City "] | Район: " getPlayerZone() ".")
+                SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РџРѕРіРѕРЅСЏ Р·Р°  " M " | РќРѕРјРµСЂР°: [AT" su "" City "] | Р Р°Р№РѕРЅ: " getPlayerZone() ".")
             }
             restarting:=1
             Sleep, %sleepingtime%
             if (randt = 1)
             {
-                SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+                SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
             }
             if (randt = 2)
             {
-                SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+                SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
             }
             if (randt = 3)
             {
-                SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+                SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
             }
         }
         goto, obratka3
@@ -5408,7 +5408,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     {
         if (sbros == 1)
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}Error: {FFFFFF}Вы не получили информацию о водителе / {FFFFFF}Нажмите [{F63939}" NameKey6 "{FFFFFF}]")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}Error: {FFFFFF}Р’С‹ РЅРµ РїРѕР»СѓС‡РёР»Рё РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РІРѕРґРёС‚РµР»Рµ / {FFFFFF}РќР°Р¶РјРёС‚Рµ [{F63939}" NameKey6 "{FFFFFF}]")
         }
         else if (sbros == 0)
         {
@@ -5416,21 +5416,21 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
             Random, randt, 1, 3
             if (randt = 1)
             {
-                SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+                SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
                 Sleep, %sleepingtime%
-                SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+                SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
             }
             if (randt = 2)
             {
-                SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+                SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
                 Sleep, %sleepingtime%
-                SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+                SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
             }
             if (randt = 3)
             {
-                SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+                SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
                 Sleep, %sleepingtime%
-                SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+                SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
             }
             Sleep, %sleepingtime%
             if (Radio1 = 1 and EngVer = 1)
@@ -5439,30 +5439,30 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
             }
             else if (Radio1 = 1 and EngVer = 0)
             {
-                SendChat("/r " Marking " to DISP: *66, Код*один*, *20 " getPlayerZone() ", " M " [AT" su "" City "], недост., конец**")
+                SendChat("/r " Marking " to DISP: *66, РљРѕРґ*РѕРґРёРЅ*, *20 " getPlayerZone() ", " M " [AT" su "" City "], РЅРµРґРѕСЃС‚., РєРѕРЅРµС†**")
             }
             else if (Radio2 = 1)
             {
                 if (partner>=1)
                 {
-                    SendChat("/r " Tag " Докладывает " surname " | Остановили " M " | Номера: [AT" su "" City "] | Район: " getPlayerZone() ".")
+                    SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РћСЃС‚Р°РЅРѕРІРёР»Рё " M " | РќРѕРјРµСЂР°: [AT" su "" City "] | Р Р°Р№РѕРЅ: " getPlayerZone() ".")
                 }
                 else
-                SendChat("/r " Tag " Докладывает " surname " | Остановил " M " | Номера: [AT" su "" City "] | Район: " getPlayerZone() ".")
+                SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РћСЃС‚Р°РЅРѕРІРёР» " M " | РќРѕРјРµСЂР°: [AT" su "" City "] | Р Р°Р№РѕРЅ: " getPlayerZone() ".")
             }
             restarting:=1
             Sleep, %sleepingtime%
             if (randt = 1)
             {
-                SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+                SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
             }
             if (randt = 2)
             {
-                SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+                SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
             }
             if (randt = 3)
             {
-                SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+                SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
             }
         }
         goto, obratka3
@@ -5471,7 +5471,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     {
         If (sbros == 1)
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}Error: {FFFFFF}Вы не получили информацию о водителе / {FFFFFF}Нажмите [{F63939}" NameKey6 "{FFFFFF}]")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}Error: {FFFFFF}Р’С‹ РЅРµ РїРѕР»СѓС‡РёР»Рё РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РІРѕРґРёС‚РµР»Рµ / {FFFFFF}РќР°Р¶РјРёС‚Рµ [{F63939}" NameKey6 "{FFFFFF}]")
             goto, obratka3
         }
         else if (sbros == 0)
@@ -5480,61 +5480,61 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
             Random, randt, 1, 3
             if (randt = 1)
             {
-                SendChat("/do На торпеде полицейского крузера лежит мегафон.")
+                SendChat("/do РќР° С‚РѕСЂРїРµРґРµ РїРѕР»РёС†РµР№СЃРєРѕРіРѕ РєСЂСѓР·РµСЂР° Р»РµР¶РёС‚ РјРµРіР°С„РѕРЅ.")
                 Sleep, %sleepingtime%
-                SendChat("/me потянул" Female4 " к торпеде, взял" Female " мегафон, после поднес" Female6 " его ко рту, сказав:")
+                SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " Рє С‚РѕСЂРїРµРґРµ, РІР·СЏР»" Female " РјРµРіР°С„РѕРЅ, РїРѕСЃР»Рµ РїРѕРґРЅРµСЃ" Female6 " РµРіРѕ РєРѕ СЂС‚Сѓ, СЃРєР°Р·Р°РІ:")
             }
             if (randt = 2)
             {
-                SendChat("/do Между седеньями лежал мегафон.")
+                SendChat("/do РњРµР¶РґСѓ СЃРµРґРµРЅСЊСЏРјРё Р»РµР¶Р°Р» РјРµРіР°С„РѕРЅ.")
                 Sleep, %sleepingtime%
-                SendChat("/me потянул" Female4 " к мегафону, после чего взял" Female " его высунул" Female4 " из окна, сказав:")
+                SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " Рє РјРµРіР°С„РѕРЅСѓ, РїРѕСЃР»Рµ С‡РµРіРѕ РІР·СЏР»" Female " РµРіРѕ РІС‹СЃСѓРЅСѓР»" Female4 " РёР· РѕРєРЅР°, СЃРєР°Р·Р°РІ:")
             }
             if (randt = 3)
             {
-                SendChat("/do На торпеде был закреплен мегафон.")
+                SendChat("/do РќР° С‚РѕСЂРїРµРґРµ Р±С‹Р» Р·Р°РєСЂРµРїР»РµРЅ РјРµРіР°С„РѕРЅ.")
                 Sleep, %sleepingtime%
-                SendChat("/me обхватил" Female " рукоятку мегафона, после чего снял" Female " его с крепежа.")
+                SendChat("/me РѕР±С…РІР°С‚РёР»" Female " СЂСѓРєРѕСЏС‚РєСѓ РјРµРіР°С„РѕРЅР°, РїРѕСЃР»Рµ С‡РµРіРѕ СЃРЅСЏР»" Female " РµРіРѕ СЃ РєСЂРµРїРµР¶Р°.")
                 Sleep, %sleepingtime%
-                SendChat("/do Мегафон находился в руке у " name "" Female12 ".")
+                SendChat("/do РњРµРіР°С„РѕРЅ РЅР°С…РѕРґРёР»СЃСЏ РІ СЂСѓРєРµ Сѓ " name "" Female12 ".")
             }
             Sleep, %sleepingtime%
             if (M = "Coach") or (M = "Bus")
-            SendChat("/m - Водитель автобуса, немедленно прижмитесь к обочине, это " Org1 "!")
+            SendChat("/m - Р’РѕРґРёС‚РµР»СЊ Р°РІС‚РѕР±СѓСЃР°, РЅРµРјРµРґР»РµРЅРЅРѕ РїСЂРёР¶РјРёС‚РµСЃСЊ Рє РѕР±РѕС‡РёРЅРµ, СЌС‚Рѕ " Org1 "!")
             else if (M = "Cabbie") or (M = "Taxi")
-            SendChat("/m - Водитель такси, немедленно прижмитесь к обочине, это " Org1 "!")
+            SendChat("/m - Р’РѕРґРёС‚РµР»СЊ С‚Р°РєСЃРё, РЅРµРјРµРґР»РµРЅРЅРѕ РїСЂРёР¶РјРёС‚РµСЃСЊ Рє РѕР±РѕС‡РёРЅРµ, СЌС‚Рѕ " Org1 "!")
             else if (M = "Tanker") or (M = "Linerunner")  or (M = "Roadtrain")
-            SendChat("/m - Водитель грузовика, немедленно прижмитесь к обочине, это " Org1 "!")
+            SendChat("/m - Р’РѕРґРёС‚РµР»СЊ РіСЂСѓР·РѕРІРёРєР°, РЅРµРјРµРґР»РµРЅРЅРѕ РїСЂРёР¶РјРёС‚РµСЃСЊ Рє РѕР±РѕС‡РёРЅРµ, СЌС‚Рѕ " Org1 "!")
             else if (M = "PCJ-600") or (M = "Faggio") or (M = "Freeway") or (M = "Sanchez") or (M = "FCR-900") or (M = "NRG") or (M = "BF-400") or (M = "Wayfarer")
-            SendChat("/m - Водитель мотоцикла " M ", немедленно прижмитесь к обочине, это " Org1 "!")
+            SendChat("/m - Р’РѕРґРёС‚РµР»СЊ РјРѕС‚РѕС†РёРєР»Р° " M ", РЅРµРјРµРґР»РµРЅРЅРѕ РїСЂРёР¶РјРёС‚РµСЃСЊ Рє РѕР±РѕС‡РёРЅРµ, СЌС‚Рѕ " Org1 "!")
             else if (M = "Quad")
-            SendChat("/m - Водитель квадроцикла, немедленно прижмитесь к обочине, это " Org1 "!")
+            SendChat("/m - Р’РѕРґРёС‚РµР»СЊ РєРІР°РґСЂРѕС†РёРєР»Р°, РЅРµРјРµРґР»РµРЅРЅРѕ РїСЂРёР¶РјРёС‚РµСЃСЊ Рє РѕР±РѕС‡РёРЅРµ, СЌС‚Рѕ " Org1 "!")
             else
             Random, randt, 1, 2
             {
                 if (randt == 1)
                 {
-                    SendChat("/m - Говорит " Org3 ". Водитель автомобиля марки - *" M "* ")
+                    SendChat("/m - Р“РѕРІРѕСЂРёС‚ " Org3 ". Р’РѕРґРёС‚РµР»СЊ Р°РІС‚РѕРјРѕР±РёР»СЏ РјР°СЂРєРё - *" M "* ")
                     Sleep, %sleepingtime%
-                    SendChat("/m - Прижмитесь к обочине и заглушите двигатель! В противном случае мы можем открыть огонь.")
+                    SendChat("/m - РџСЂРёР¶РјРёС‚РµСЃСЊ Рє РѕР±РѕС‡РёРЅРµ Рё Р·Р°РіР»СѓС€РёС‚Рµ РґРІРёРіР°С‚РµР»СЊ! Р’ РїСЂРѕС‚РёРІРЅРѕРј СЃР»СѓС‡Р°Рµ РјС‹ РјРѕР¶РµРј РѕС‚РєСЂС‹С‚СЊ РѕРіРѕРЅСЊ.")
                 }
                 else if (randt == 2)
                 {
-                    SendChat("/m - Говорит " Org1 "! Водитель *" M "*. Остановитесь у обочины, или мы откроем огонь!")
+                    SendChat("/m - Р“РѕРІРѕСЂРёС‚ " Org1 "! Р’РѕРґРёС‚РµР»СЊ *" M "*. РћСЃС‚Р°РЅРѕРІРёС‚РµСЃСЊ Сѓ РѕР±РѕС‡РёРЅС‹, РёР»Рё РјС‹ РѕС‚РєСЂРѕРµРј РѕРіРѕРЅСЊ!")
                 }
             }
             Sleep, %sleepingtime%
             if (randt = 1)
             {
-                SendChat("/me закончив говорить положил" Female " мегафон обратно на торпеду.")
+                SendChat("/me Р·Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ РїРѕР»РѕР¶РёР»" Female " РјРµРіР°С„РѕРЅ РѕР±СЂР°С‚РЅРѕ РЅР° С‚РѕСЂРїРµРґСѓ.")
             }
             if (randt = 2)
             {
-                SendChat("/me донес" Female6 " свои требования до правонарушителя, положил" Female " мегафон на место.")
+                SendChat("/me РґРѕРЅРµСЃ" Female6 " СЃРІРѕРё С‚СЂРµР±РѕРІР°РЅРёСЏ РґРѕ РїСЂР°РІРѕРЅР°СЂСѓС€РёС‚РµР»СЏ, РїРѕР»РѕР¶РёР»" Female " РјРµРіР°С„РѕРЅ РЅР° РјРµСЃС‚Рѕ.")
             }
             if (randt = 3)
             {
-                SendChat("/me закончив говорить, вернул" Female4 " в кабину, закрепил" Female " мегафон на торпеде.")
+                SendChat("/me Р·Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ, РІРµСЂРЅСѓР»" Female4 " РІ РєР°Р±РёРЅСѓ, Р·Р°РєСЂРµРїРёР»" Female " РјРµРіР°С„РѕРЅ РЅР° С‚РѕСЂРїРµРґРµ.")
             }
         }
         goto, obratka3
@@ -5544,72 +5544,72 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     {
         If (sbros == 1)
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}Error: {FFFFFF}Вы не получили информацию о водителе / {FFFFFF}Нажмите [{F63939}" NameKey6 "{FFFFFF}]")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}Error: {FFFFFF}Р’С‹ РЅРµ РїРѕР»СѓС‡РёР»Рё РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РІРѕРґРёС‚РµР»Рµ / {FFFFFF}РќР°Р¶РјРёС‚Рµ [{F63939}" NameKey6 "{FFFFFF}]")
             goto, obratka3
         }
         else if (sbros == 0)
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На торпеде полицейского крузера лежит мегафон.")
+            SendChat("/do РќР° С‚РѕСЂРїРµРґРµ РїРѕР»РёС†РµР№СЃРєРѕРіРѕ РєСЂСѓР·РµСЂР° Р»РµР¶РёС‚ РјРµРіР°С„РѕРЅ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " к торпеде, взял" Female " мегафон, после поднес" Female6 " его ко рту, сказав:")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " Рє С‚РѕСЂРїРµРґРµ, РІР·СЏР»" Female " РјРµРіР°С„РѕРЅ, РїРѕСЃР»Рµ РїРѕРґРЅРµСЃ" Female6 " РµРіРѕ РєРѕ СЂС‚Сѓ, СЃРєР°Р·Р°РІ:")
         }
         if (randt = 2)
         {
-            SendChat("/do Между седеньями лежал мегафон.")
+            SendChat("/do РњРµР¶РґСѓ СЃРµРґРµРЅСЊСЏРјРё Р»РµР¶Р°Р» РјРµРіР°С„РѕРЅ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " к мегафону, после чего взял" Female " его высунул" Female4 " из окна, сказав:")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " Рє РјРµРіР°С„РѕРЅСѓ, РїРѕСЃР»Рµ С‡РµРіРѕ РІР·СЏР»" Female " РµРіРѕ РІС‹СЃСѓРЅСѓР»" Female4 " РёР· РѕРєРЅР°, СЃРєР°Р·Р°РІ:")
         }
         if (randt = 3)
         {
-            SendChat("/do На торпеде был закреплен мегафон.")
+            SendChat("/do РќР° С‚РѕСЂРїРµРґРµ Р±С‹Р» Р·Р°РєСЂРµРїР»РµРЅ РјРµРіР°С„РѕРЅ.")
             Sleep, %sleepingtime%
-            SendChat("/me обхватил" Female " рукоятку мегафона, после чего снял" Female " его с крепежа.")
+            SendChat("/me РѕР±С…РІР°С‚РёР»" Female " СЂСѓРєРѕСЏС‚РєСѓ РјРµРіР°С„РѕРЅР°, РїРѕСЃР»Рµ С‡РµРіРѕ СЃРЅСЏР»" Female " РµРіРѕ СЃ РєСЂРµРїРµР¶Р°.")
             Sleep, %sleepingtime%
-            SendChat("/do Мегафон находился в руке у " name "" Female12 ".")
+            SendChat("/do РњРµРіР°С„РѕРЅ РЅР°С…РѕРґРёР»СЃСЏ РІ СЂСѓРєРµ Сѓ " name "" Female12 ".")
         }
         Sleep, %sleepingtime%
         if (M = "Coach") or (M = "Bus") or (M = "Tanker") or (M = "Linerunner")  or (M = "Roadtrain")
         {
-            SendChat("/m - Вытащите ключ из замка зажигания, откройте окно и выкиньте ключ на дорогу.")
+            SendChat("/m - Р’С‹С‚Р°С‰РёС‚Рµ РєР»СЋС‡ РёР· Р·Р°РјРєР° Р·Р°Р¶РёРіР°РЅРёСЏ, РѕС‚РєСЂРѕР№С‚Рµ РѕРєРЅРѕ Рё РІС‹РєРёРЅСЊС‚Рµ РєР»СЋС‡ РЅР° РґРѕСЂРѕРіСѓ.")
             Sleep, %sleepingtime%
-            SendChat("/m - Водитель и пассажиры, если такие имеються, медленно выйдите на дорогу.")
+            SendChat("/m - Р’РѕРґРёС‚РµР»СЊ Рё РїР°СЃСЃР°Р¶РёСЂС‹, РµСЃР»Рё С‚Р°РєРёРµ РёРјРµСЋС‚СЊСЃСЏ, РјРµРґР»РµРЅРЅРѕ РІС‹Р№РґРёС‚Рµ РЅР° РґРѕСЂРѕРіСѓ.")
             Sleep, %sleepingtime%
-            SendChat("/m - Затем ложитесь на дорогу и никаких резких движений.")
+            SendChat("/m - Р—Р°С‚РµРј Р»РѕР¶РёС‚РµСЃСЊ РЅР° РґРѕСЂРѕРіСѓ Рё РЅРёРєР°РєРёС… СЂРµР·РєРёС… РґРІРёР¶РµРЅРёР№.")
         }
         else if (M = "PCJ-600") or (M = "Faggio") or (M = "Freeway") or (M = "Sanchez") or (M = "FCR-900") or (M = "NRG") or (M = "BF-400") or (M = "Wayfarer") or (M = "Quad")
         {
-            SendChat("/m - Вытащите ключ из замка зажигания и выкиньте ключ на дорогу.")
+            SendChat("/m - Р’С‹С‚Р°С‰РёС‚Рµ РєР»СЋС‡ РёР· Р·Р°РјРєР° Р·Р°Р¶РёРіР°РЅРёСЏ Рё РІС‹РєРёРЅСЊС‚Рµ РєР»СЋС‡ РЅР° РґРѕСЂРѕРіСѓ.")
             Sleep, %sleepingtime%
-            SendChat("/m - Поднимите руки, и слезайте с транспортного средства.")
+            SendChat("/m - РџРѕРґРЅРёРјРёС‚Рµ СЂСѓРєРё, Рё СЃР»РµР·Р°Р№С‚Рµ СЃ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕРіРѕ СЃСЂРµРґСЃС‚РІР°.")
             Sleep, %sleepingtime%
-            SendChat("/m - Не оборачиваясь на меня ложитесь на асфальт, руки положите на голову!")
+            SendChat("/m - РќРµ РѕР±РѕСЂР°С‡РёРІР°СЏСЃСЊ РЅР° РјРµРЅСЏ Р»РѕР¶РёС‚РµСЃСЊ РЅР° Р°СЃС„Р°Р»СЊС‚, СЂСѓРєРё РїРѕР»РѕР¶РёС‚Рµ РЅР° РіРѕР»РѕРІСѓ!")
         }
         else
         {
-            SendChat("/m - Вытащите ключ из замка зажигания, откройте окно и выкиньте ключ на дорогу.")
+            SendChat("/m - Р’С‹С‚Р°С‰РёС‚Рµ РєР»СЋС‡ РёР· Р·Р°РјРєР° Р·Р°Р¶РёРіР°РЅРёСЏ, РѕС‚РєСЂРѕР№С‚Рµ РѕРєРЅРѕ Рё РІС‹РєРёРЅСЊС‚Рµ РєР»СЋС‡ РЅР° РґРѕСЂРѕРіСѓ.")
             Sleep, %sleepingtime%
-            SendChat("/m - Водитель и пассажир, если такой имеется, вытащите руки из окна...")
+            SendChat("/m - Р’РѕРґРёС‚РµР»СЊ Рё РїР°СЃСЃР°Р¶РёСЂ, РµСЃР»Рё С‚Р°РєРѕР№ РёРјРµРµС‚СЃСЏ, РІС‹С‚Р°С‰РёС‚Рµ СЂСѓРєРё РёР· РѕРєРЅР°...")
             Sleep, %sleepingtime%
-            SendChat("/m - ...затем откройте боковую дверь снаружи.")
+            SendChat("/m - ...Р·Р°С‚РµРј РѕС‚РєСЂРѕР№С‚Рµ Р±РѕРєРѕРІСѓСЋ РґРІРµСЂСЊ СЃРЅР°СЂСѓР¶Рё.")
             Sleep, %sleepingtime%
-            SendChat("/m - Выйдите из автомобиля и медленно пройдите спиной ко мне к центру дороги.")
+            SendChat("/m - Р’С‹Р№РґРёС‚Рµ РёР· Р°РІС‚РѕРјРѕР±РёР»СЏ Рё РјРµРґР»РµРЅРЅРѕ РїСЂРѕР№РґРёС‚Рµ СЃРїРёРЅРѕР№ РєРѕ РјРЅРµ Рє С†РµРЅС‚СЂСѓ РґРѕСЂРѕРіРё.")
             Sleep, %sleepingtime%
-            SendChat("/m - Затем ложитесь на дорогу и никаких резких движений.")
+            SendChat("/m - Р—Р°С‚РµРј Р»РѕР¶РёС‚РµСЃСЊ РЅР° РґРѕСЂРѕРіСѓ Рё РЅРёРєР°РєРёС… СЂРµР·РєРёС… РґРІРёР¶РµРЅРёР№.")
         }
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/me закончив говорить положил" Female " мегафон обратно на торпеду.")
+            SendChat("/me Р·Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ РїРѕР»РѕР¶РёР»" Female " РјРµРіР°С„РѕРЅ РѕР±СЂР°С‚РЅРѕ РЅР° С‚РѕСЂРїРµРґСѓ.")
         }
         if (randt = 2)
         {
-            SendChat("/me донес" Female6 " свои требования до правонарушителя, положил" Female " мегафон на место.")
+            SendChat("/me РґРѕРЅРµСЃ" Female6 " СЃРІРѕРё С‚СЂРµР±РѕРІР°РЅРёСЏ РґРѕ РїСЂР°РІРѕРЅР°СЂСѓС€РёС‚РµР»СЏ, РїРѕР»РѕР¶РёР»" Female " РјРµРіР°С„РѕРЅ РЅР° РјРµСЃС‚Рѕ.")
         }
         if (randt = 3)
         {
-            SendChat("/me закончив говорить, вернул" Female4 " в кабину, закрепил" Female " мегафон на торпеде.")
+            SendChat("/me Р·Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ, РІРµСЂРЅСѓР»" Female4 " РІ РєР°Р±РёРЅСѓ, Р·Р°РєСЂРµРїРёР»" Female " РјРµРіР°С„РѕРЅ РЅР° С‚РѕСЂРїРµРґРµ.")
         }
         goto, obratka3
     }
@@ -5620,41 +5620,41 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         zones:=getPlayerZone()
         Random, randt, 1, 6
         if (randt = 1) {
-            SendChat("/me навали" Female2 " на человека, достает наручники с ручного держателя.")
+            SendChat("/me РЅР°РІР°Р»Рё" Female2 " РЅР° С‡РµР»РѕРІРµРєР°, РґРѕСЃС‚Р°РµС‚ РЅР°СЂСѓС‡РЅРёРєРё СЃ СЂСѓС‡РЅРѕРіРѕ РґРµСЂР¶Р°С‚РµР»СЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me заводит" Female3 " обе его руки за спину, надевает наручники.")
+            SendChat("/me Р·Р°РІРѕРґРёС‚" Female3 " РѕР±Рµ РµРіРѕ СЂСѓРєРё Р·Р° СЃРїРёРЅСѓ, РЅР°РґРµРІР°РµС‚ РЅР°СЂСѓС‡РЅРёРєРё.")
             Sleep, %sleepingtime%
         }
         if (randt = 2) {
-            SendChat("/me накинул" Female4 " на человека, складывая обе руки приступника за спину.")
+            SendChat("/me РЅР°РєРёРЅСѓР»" Female4 " РЅР° С‡РµР»РѕРІРµРєР°, СЃРєР»Р°РґС‹РІР°СЏ РѕР±Рµ СЂСѓРєРё РїСЂРёСЃС‚СѓРїРЅРёРєР° Р·Р° СЃРїРёРЅСѓ.")
             Sleep, %sleepingtime%
-            SendChat("/me достал" Female " наручникии с поясного держателя, после чего одел" Female " их на него.")
+            SendChat("/me РґРѕСЃС‚Р°Р»" Female " РЅР°СЂСѓС‡РЅРёРєРёРё СЃ РїРѕСЏСЃРЅРѕРіРѕ РґРµСЂР¶Р°С‚РµР»СЏ, РїРѕСЃР»Рµ С‡РµРіРѕ РѕРґРµР»" Female " РёС… РЅР° РЅРµРіРѕ.")
             Sleep, %sleepingtime%
         }
         if (randt = 3) {
-            SendChat("/do На поясе у " surname "а висят наручники.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " surname "Р° РІРёСЃСЏС‚ РЅР°СЂСѓС‡РЅРёРєРё.")
             Sleep, %sleepingtime%
-            SendChat("/me навали" Female2 " на человека, правой рукой снял" Female " наручники с держателя.")
+            SendChat("/me РЅР°РІР°Р»Рё" Female2 " РЅР° С‡РµР»РѕРІРµРєР°, РїСЂР°РІРѕР№ СЂСѓРєРѕР№ СЃРЅСЏР»" Female " РЅР°СЂСѓС‡РЅРёРєРё СЃ РґРµСЂР¶Р°С‚РµР»СЏ.")
             Sleep, %sleepingtime%
         }
         if (randt = 4) {
-            SendChat("/do Наручники на поясе у " surname "а.")
+            SendChat("/do РќР°СЂСѓС‡РЅРёРєРё РЅР° РїРѕСЏСЃРµ Сѓ " surname "Р°.")
             Sleep, %sleepingtime%
-            SendChat("/me лёгким движением руки снял" Female " наручники с пояса, после надел" Female " на задержанного.")
+            SendChat("/me Р»С‘РіРєРёРј РґРІРёР¶РµРЅРёРµРј СЂСѓРєРё СЃРЅСЏР»" Female " РЅР°СЂСѓС‡РЅРёРєРё СЃ РїРѕСЏСЃР°, РїРѕСЃР»Рµ РЅР°РґРµР»" Female " РЅР° Р·Р°РґРµСЂР¶Р°РЅРЅРѕРіРѕ.")
             Sleep, %sleepingtime%
         }
         if (randt = 5) {
-            SendChat("/do Наручники в кармане бронежилета у " surname "а.")
+            SendChat("/do РќР°СЂСѓС‡РЅРёРєРё РІ РєР°СЂРјР°РЅРµ Р±СЂРѕРЅРµР¶РёР»РµС‚Р° Сѓ " surname "Р°.")
             Sleep, %sleepingtime%
-            SendChat("/me отстигнул" Female " застешку от кармана бронижелета, затем достал" Female " наручники.")
+            SendChat("/me РѕС‚СЃС‚РёРіРЅСѓР»" Female " Р·Р°СЃС‚РµС€РєСѓ РѕС‚ РєР°СЂРјР°РЅР° Р±СЂРѕРЅРёР¶РµР»РµС‚Р°, Р·Р°С‚РµРј РґРѕСЃС‚Р°Р»" Female " РЅР°СЂСѓС‡РЅРёРєРё.")
             Sleep, %sleepingtime%
-            SendChat("/me навали" Female2 " на человека, заводит" Female3 " обе его руки за спину надевая наручники.")
+            SendChat("/me РЅР°РІР°Р»Рё" Female2 " РЅР° С‡РµР»РѕРІРµРєР°, Р·Р°РІРѕРґРёС‚" Female3 " РѕР±Рµ РµРіРѕ СЂСѓРєРё Р·Р° СЃРїРёРЅСѓ РЅР°РґРµРІР°СЏ РЅР°СЂСѓС‡РЅРёРєРё.")
             Sleep, %sleepingtime%
         }
         if (randt = 6) {
-            SendChat("/me заломал" Female " руки преступнику, после надел" Female " на него наручники.")
+            SendChat("/me Р·Р°Р»РѕРјР°Р»" Female " СЂСѓРєРё РїСЂРµСЃС‚СѓРїРЅРёРєСѓ, РїРѕСЃР»Рµ РЅР°РґРµР»" Female " РЅР° РЅРµРіРѕ РЅР°СЂСѓС‡РЅРёРєРё.")
             Sleep, %sleepingtime%
-            SendChat("/todo Не дергайся!*ударив дубинкой по колену.")
+            SendChat("/todo РќРµ РґРµСЂРіР°Р№СЃСЏ!*СѓРґР°СЂРёРІ РґСѓР±РёРЅРєРѕР№ РїРѕ РєРѕР»РµРЅСѓ.")
             Sleep, %sleepingtime%
         }
         id := getClosestPlayerId()
@@ -5677,7 +5677,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         FileRead, info, %checkfile%
         text = %info%
         Sleep, %sleepingtime%
-        if text contains Игрок не находится в розыске.
+        if text contains РРіСЂРѕРє РЅРµ РЅР°С…РѕРґРёС‚СЃСЏ РІ СЂРѕР·С‹СЃРєРµ.
         {
         SendInput, {F6}/su{SPACE}
             KeyWait, Enter, D
@@ -5689,7 +5689,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         }
         else if (radio1 = 1 and engver = 0)
         {
-        SendInput, {F6}/r %Marking% to DISP: *15, Задержал нарушителя, Код *четыре*, *20 %zones%, недоступен, конец**{SPACE}
+        SendInput, {F6}/r %Marking% to DISP: *15, Р—Р°РґРµСЂР¶Р°Р» РЅР°СЂСѓС€РёС‚РµР»СЏ, РљРѕРґ *С‡РµС‚С‹СЂРµ*, *20 %zones%, РЅРµРґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС†**{SPACE}
         }
         goto, obratka3
     }
@@ -5698,16 +5698,16 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     {
         Random, randt, 1, 4
         if (randt = 1) {
-            SendChat("/me вцепившись за туловише человека, потащил" Female " его за собой.")
+            SendChat("/me РІС†РµРїРёРІС€РёСЃСЊ Р·Р° С‚СѓР»РѕРІРёС€Рµ С‡РµР»РѕРІРµРєР°, РїРѕС‚Р°С‰РёР»" Female " РµРіРѕ Р·Р° СЃРѕР±РѕР№.")
         }
         if (randt = 2) {
-            SendChat("/me взял" Female " за затылок человека правой рукой, держа в левой оружие, после повел" Female " человека.")
+            SendChat("/me РІР·СЏР»" Female " Р·Р° Р·Р°С‚С‹Р»РѕРє С‡РµР»РѕРІРµРєР° РїСЂР°РІРѕР№ СЂСѓРєРѕР№, РґРµСЂР¶Р° РІ Р»РµРІРѕР№ РѕСЂСѓР¶РёРµ, РїРѕСЃР»Рµ РїРѕРІРµР»" Female " С‡РµР»РѕРІРµРєР°.")
         }
         if (randt = 3) {
-            SendChat("/me ухватил" Female4 " за плечо человека, после повел" Female " его перед собой.")
+            SendChat("/me СѓС…РІР°С‚РёР»" Female4 " Р·Р° РїР»РµС‡Рѕ С‡РµР»РѕРІРµРєР°, РїРѕСЃР»Рµ РїРѕРІРµР»" Female " РµРіРѕ РїРµСЂРµРґ СЃРѕР±РѕР№.")
         }
         if (randt = 4) {
-            SendChat("/me ловко вывернул" Female " руки человеку напротив, заломал" Female " его, после того повёл" Female " за собой.")
+            SendChat("/me Р»РѕРІРєРѕ РІС‹РІРµСЂРЅСѓР»" Female " СЂСѓРєРё С‡РµР»РѕРІРµРєСѓ РЅР°РїСЂРѕС‚РёРІ, Р·Р°Р»РѕРјР°Р»" Female " РµРіРѕ, РїРѕСЃР»Рµ С‚РѕРіРѕ РїРѕРІС‘Р»" Female " Р·Р° СЃРѕР±РѕР№.")
         }
         Sleep, %sleepingtime%
         id := getClosestPlayerId()
@@ -5735,32 +5735,32 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         SendMessage, 0x50,, 0x4190419,,A
         if (randt = 1) {
-            SendChat("/me правой рукой ухватившись за ручку двери открыл" Female " её.")
+            SendChat("/me РїСЂР°РІРѕР№ СЂСѓРєРѕР№ СѓС…РІР°С‚РёРІС€РёСЃСЊ Р·Р° СЂСѓС‡РєСѓ РґРІРµСЂРё РѕС‚РєСЂС‹Р»" Female " РµС‘.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " за голову преступника и затолкнул" Female " преступника в машину.")
+            SendChat("/me РІР·СЏР»" Female " Р·Р° РіРѕР»РѕРІСѓ РїСЂРµСЃС‚СѓРїРЅРёРєР° Рё Р·Р°С‚РѕР»РєРЅСѓР»" Female " РїСЂРµСЃС‚СѓРїРЅРёРєР° РІ РјР°С€РёРЅСѓ.")
             Sleep, %sleepingtime%
-            SendChat("/todo Удачной поездки. Животное.*хлопнул" Female " дверьми машины.")
+            SendChat("/todo РЈРґР°С‡РЅРѕР№ РїРѕРµР·РґРєРё. Р–РёРІРѕС‚РЅРѕРµ.*С…Р»РѕРїРЅСѓР»" Female " РґРІРµСЂСЊРјРё РјР°С€РёРЅС‹.")
         }
         if (randt = 2) {
-            SendChat("/me держа правой рукой преступника, левой рукой открыл" Female " дверь машины.")
+            SendChat("/me РґРµСЂР¶Р° РїСЂР°РІРѕР№ СЂСѓРєРѕР№ РїСЂРµСЃС‚СѓРїРЅРёРєР°, Р»РµРІРѕР№ СЂСѓРєРѕР№ РѕС‚РєСЂС‹Р»" Female " РґРІРµСЂСЊ РјР°С€РёРЅС‹.")
             Sleep, %sleepingtime%
-            SendChat("Ну что, голубчик, допрыгался ? Сиди и не рыпайся.")
+            SendChat("РќСѓ С‡С‚Рѕ, РіРѕР»СѓР±С‡РёРє, РґРѕРїСЂС‹РіР°Р»СЃСЏ ? РЎРёРґРё Рё РЅРµ СЂС‹РїР°Р№СЃСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me правой рукой пихнул" Female " человека в машину, после закрыл" Female " дверь машины.")
+            SendChat("/me РїСЂР°РІРѕР№ СЂСѓРєРѕР№ РїРёС…РЅСѓР»" Female " С‡РµР»РѕРІРµРєР° РІ РјР°С€РёРЅСѓ, РїРѕСЃР»Рµ Р·Р°РєСЂС‹Р»" Female " РґРІРµСЂСЊ РјР°С€РёРЅС‹.")
         }
         if (randt = 3) {
-            SendChat("/me подойдя с преступником к автомобилю, облокотил" Female " его на каркас автомобиля.")
+            SendChat("/me РїРѕРґРѕР№РґСЏ СЃ РїСЂРµСЃС‚СѓРїРЅРёРєРѕРј Рє Р°РІС‚РѕРјРѕР±РёР»СЋ, РѕР±Р»РѕРєРѕС‚РёР»" Female " РµРіРѕ РЅР° РєР°СЂРєР°СЃ Р°РІС‚РѕРјРѕР±РёР»СЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me открыв дверь автомобиля держа преступника правой рукой, подвёл" Female " его к двери.")
+            SendChat("/me РѕС‚РєСЂС‹РІ РґРІРµСЂСЊ Р°РІС‚РѕРјРѕР±РёР»СЏ РґРµСЂР¶Р° РїСЂРµСЃС‚СѓРїРЅРёРєР° РїСЂР°РІРѕР№ СЂСѓРєРѕР№, РїРѕРґРІС‘Р»" Female " РµРіРѕ Рє РґРІРµСЂРё.")
             Sleep, %sleepingtime%
-            SendChat("/do У " name "a на лице было ярко выражено ненависть к преступнику, но " Female5 " сдерживал" Female " себя.")
+            SendChat("/do РЈ " name "a РЅР° Р»РёС†Рµ Р±С‹Р»Рѕ СЏСЂРєРѕ РІС‹СЂР°Р¶РµРЅРѕ РЅРµРЅР°РІРёСЃС‚СЊ Рє РїСЂРµСЃС‚СѓРїРЅРёРєСѓ, РЅРѕ " Female5 " СЃРґРµСЂР¶РёРІР°Р»" Female " СЃРµР±СЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me аккуратно ухватил" Female4 " за голову преступника левой рукой, помог" Female6 " усадить его в автомобиль.")
+            SendChat("/me Р°РєРєСѓСЂР°С‚РЅРѕ СѓС…РІР°С‚РёР»" Female4 " Р·Р° РіРѕР»РѕРІСѓ РїСЂРµСЃС‚СѓРїРЅРёРєР° Р»РµРІРѕР№ СЂСѓРєРѕР№, РїРѕРјРѕРі" Female6 " СѓСЃР°РґРёС‚СЊ РµРіРѕ РІ Р°РІС‚РѕРјРѕР±РёР»СЊ.")
             Sleep, %sleepingtime%
-            SendChat("/me после того как усадил" Female " преступника, захлопнул" Female " дверь автомобиля.")
+            SendChat("/me РїРѕСЃР»Рµ С‚РѕРіРѕ РєР°Рє СѓСЃР°РґРёР»" Female " РїСЂРµСЃС‚СѓРїРЅРёРєР°, Р·Р°С…Р»РѕРїРЅСѓР»" Female " РґРІРµСЂСЊ Р°РІС‚РѕРјРѕР±РёР»СЏ.")
         }
         Sleep, 4100
-    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}Примечание* - {FFFFFF}Сядьте в автомобиль сейчас-же, комманда сейчас введеться в чат!")
+    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}РџСЂРёРјРµС‡Р°РЅРёРµ* - {FFFFFF}РЎСЏРґСЊС‚Рµ РІ Р°РІС‚РѕРјРѕР±РёР»СЊ СЃРµР№С‡Р°СЃ-Р¶Рµ, РєРѕРјРјР°РЅРґР° СЃРµР№С‡Р°СЃ РІРІРµРґРµС‚СЊСЃСЏ РІ С‡Р°С‚!")
         if (pid > -1)
         {
             SendChat("/cput " pid "")
@@ -5779,15 +5779,15 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     else
     if ErrorLevel = EndKey:Numpad6
     {
-        SendChat("Вы имеете право хранить молчание.")
+        SendChat("Р’С‹ РёРјРµРµС‚Рµ РїСЂР°РІРѕ С…СЂР°РЅРёС‚СЊ РјРѕР»С‡Р°РЅРёРµ.")
         Sleep, %sleepingtime%
-        SendChat("Всё, что вы скажете, может и будет использовано против вас в суде.")
+        SendChat("Р’СЃС‘, С‡С‚Рѕ РІС‹ СЃРєР°Р¶РµС‚Рµ, РјРѕР¶РµС‚ Рё Р±СѓРґРµС‚ РёСЃРїРѕР»СЊР·РѕРІР°РЅРѕ РїСЂРѕС‚РёРІ РІР°СЃ РІ СЃСѓРґРµ.")
         Sleep, %sleepingtime%
-        SendChat("Ваш адвокат может присутствовать при допросе.")
+        SendChat("Р’Р°С€ Р°РґРІРѕРєР°С‚ РјРѕР¶РµС‚ РїСЂРёСЃСѓС‚СЃС‚РІРѕРІР°С‚СЊ РїСЂРё РґРѕРїСЂРѕСЃРµ.")
         Sleep, %sleepingtime%
-        SendChat("Если вы не можете оплатить услуги адвоката, он будет предоставлен вам государством.")
+        SendChat("Р•СЃР»Рё РІС‹ РЅРµ РјРѕР¶РµС‚Рµ РѕРїР»Р°С‚РёС‚СЊ СѓСЃР»СѓРіРё Р°РґРІРѕРєР°С‚Р°, РѕРЅ Р±СѓРґРµС‚ РїСЂРµРґРѕСЃС‚Р°РІР»РµРЅ РІР°Рј РіРѕСЃСѓРґР°СЂСЃС‚РІРѕРј.")
         Sleep, %sleepingtime%
-        SendChat("Вы понимаете свои права ?")
+        SendChat("Р’С‹ РїРѕРЅРёРјР°РµС‚Рµ СЃРІРѕРё РїСЂР°РІР° ?")
         goto, obratka3
     }
     else
@@ -5796,10 +5796,10 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         SendMessage, 0x50,, 0x4190419,,A
         Random, randt, 1, 2
         if (randt = 1) {
-            SendChat("/do Через некоторое время преступник был заведён в депортамент.")
+            SendChat("/do Р§РµСЂРµР· РЅРµРєРѕС‚РѕСЂРѕРµ РІСЂРµРјСЏ РїСЂРµСЃС‚СѓРїРЅРёРє Р±С‹Р» Р·Р°РІРµРґС‘РЅ РІ РґРµРїРѕСЂС‚Р°РјРµРЅС‚.")
         }
         if (randt = 2) {
-            SendChat("/me выш" Female7 " из машины, открыл" Female " дверь машины, вытащил" Female " от туда преступника пов" Female8 " его в участок.")
+            SendChat("/me РІС‹С€" Female7 " РёР· РјР°С€РёРЅС‹, РѕС‚РєСЂС‹Р»" Female " РґРІРµСЂСЊ РјР°С€РёРЅС‹, РІС‹С‚Р°С‰РёР»" Female " РѕС‚ С‚СѓРґР° РїСЂРµСЃС‚СѓРїРЅРёРєР° РїРѕРІ" Female8 " РµРіРѕ РІ СѓС‡Р°СЃС‚РѕРє.")
         }
         Sleep, %sleepingtime%
         if (id > -1)
@@ -5819,39 +5819,39 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         SendMessage, 0x50,, 0x4190419,,A
         Random, randt, 1, 3
         if (randt = 1) {
-            SendChat("/me достал" Female " бланк с ручкой из своего верхнего кармана.")
+            SendChat("/me РґРѕСЃС‚Р°Р»" Female " Р±Р»Р°РЅРє СЃ СЂСѓС‡РєРѕР№ РёР· СЃРІРѕРµРіРѕ РІРµСЂС…РЅРµРіРѕ РєР°СЂРјР°РЅР°.")
             Sleep, %sleepingtime%
-            SendChat("/me заполняет бланк ручкой, не пропуская каждого пропуска.")
+            SendChat("/me Р·Р°РїРѕР»РЅСЏРµС‚ Р±Р»Р°РЅРє СЂСѓС‡РєРѕР№, РЅРµ РїСЂРѕРїСѓСЃРєР°СЏ РєР°Р¶РґРѕРіРѕ РїСЂРѕРїСѓСЃРєР°.")
             Sleep, %sleepingtime%
-            SendChat("/do Через некоторое время бланк был заполнен.")
+            SendChat("/do Р§РµСЂРµР· РЅРµРєРѕС‚РѕСЂРѕРµ РІСЂРµРјСЏ Р±Р»Р°РЅРє Р±С‹Р» Р·Р°РїРѕР»РЅРµРЅ.")
             Sleep, %sleepingtime%
-            SendChat("/me достал" Female " из кармана ключи от наручников, после чего снял" Female " их с нарушителя.")
+            SendChat("/me РґРѕСЃС‚Р°Р»" Female " РёР· РєР°СЂРјР°РЅР° РєР»СЋС‡Рё РѕС‚ РЅР°СЂСѓС‡РЅРёРєРѕРІ, РїРѕСЃР»Рµ С‡РµРіРѕ СЃРЅСЏР»" Female " РёС… СЃ РЅР°СЂСѓС€РёС‚РµР»СЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me открыл" Female " решётку, после чего пихнул" Female " человека в за неё.")
+            SendChat("/me РѕС‚РєСЂС‹Р»" Female " СЂРµС€С‘С‚РєСѓ, РїРѕСЃР»Рµ С‡РµРіРѕ РїРёС…РЅСѓР»" Female " С‡РµР»РѕРІРµРєР° РІ Р·Р° РЅРµС‘.")
         }
         if (randt = 2) {
-            SendChat("/do КПК в кармане у " surname "а.")
+            SendChat("/do РљРџРљ РІ РєР°СЂРјР°РЅРµ Сѓ " surname "Р°.")
             Sleep, %sleepingtime%
-            SendChat("/me достал" Female " КПК после чего включил его, открыл" Female " базу данных МВБ.")
+            SendChat("/me РґРѕСЃС‚Р°Р»" Female " РљРџРљ РїРѕСЃР»Рµ С‡РµРіРѕ РІРєР»СЋС‡РёР» РµРіРѕ, РѕС‚РєСЂС‹Р»" Female " Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РњР’Р‘.")
             Sleep, %sleepingtime%
-            SendChat("/me вводит данные о задержанном преступнике.")
+            SendChat("/me РІРІРѕРґРёС‚ РґР°РЅРЅС‹Рµ Рѕ Р·Р°РґРµСЂР¶Р°РЅРЅРѕРј РїСЂРµСЃС‚СѓРїРЅРёРєРµ.")
             Sleep, %sleepingtime%
-            SendChat("/do Высветилось сообщение в КПК - [Дело закрыто].")
+            SendChat("/do Р’С‹СЃРІРµС‚РёР»РѕСЃСЊ СЃРѕРѕР±С‰РµРЅРёРµ РІ РљРџРљ - [Р”РµР»Рѕ Р·Р°РєСЂС‹С‚Рѕ].")
             Sleep, %sleepingtime%
-            SendChat("/me выключил" Female " КПК, после чего снял" Female " наручники у подозреваемого.")
+            SendChat("/me РІС‹РєР»СЋС‡РёР»" Female " РљРџРљ, РїРѕСЃР»Рµ С‡РµРіРѕ СЃРЅСЏР»" Female " РЅР°СЂСѓС‡РЅРёРєРё Сѓ РїРѕРґРѕР·СЂРµРІР°РµРјРѕРіРѕ.")
             Sleep, %sleepingtime%
-            SendChat("/me открыл" Female " дверь, пихнул" Female " человека в участок.")
+            SendChat("/me РѕС‚РєСЂС‹Р»" Female " РґРІРµСЂСЊ, РїРёС…РЅСѓР»" Female " С‡РµР»РѕРІРµРєР° РІ СѓС‡Р°СЃС‚РѕРє.")
         }
         if (randt = 3) {
-            SendChat("/me прижав преступника лицом к стене, снял" Female " ключ с пояса, затем вставил" Female " его в скважину.")
+            SendChat("/me РїСЂРёР¶Р°РІ РїСЂРµСЃС‚СѓРїРЅРёРєР° Р»РёС†РѕРј Рє СЃС‚РµРЅРµ, СЃРЅСЏР»" Female " РєР»СЋС‡ СЃ РїРѕСЏСЃР°, Р·Р°С‚РµРј РІСЃС‚Р°РІРёР»" Female " РµРіРѕ РІ СЃРєРІР°Р¶РёРЅСѓ.")
             Sleep, %sleepingtime%
-            SendChat("/me провернув ключ открыл" Female " камеру, снял" Female " с преступника наручники, затолкал" Female " его в КПЗ.")
+            SendChat("/me РїСЂРѕРІРµСЂРЅСѓРІ РєР»СЋС‡ РѕС‚РєСЂС‹Р»" Female " РєР°РјРµСЂСѓ, СЃРЅСЏР»" Female " СЃ РїСЂРµСЃС‚СѓРїРЅРёРєР° РЅР°СЂСѓС‡РЅРёРєРё, Р·Р°С‚РѕР»РєР°Р»" Female " РµРіРѕ РІ РљРџР—.")
             Sleep, %sleepingtime%
-            SendChat("/do Ключи от камеры все еще находился в скважине.")
+            SendChat("/do РљР»СЋС‡Рё РѕС‚ РєР°РјРµСЂС‹ РІСЃРµ РµС‰Рµ РЅР°С…РѕРґРёР»СЃСЏ РІ СЃРєРІР°Р¶РёРЅРµ.")
             Sleep, %sleepingtime%
-            SendChat("/me закрыв камеру на ключ повернув им, после чего повесил" Female " связку с наручниками на пояс.")
+            SendChat("/me Р·Р°РєСЂС‹РІ РєР°РјРµСЂСѓ РЅР° РєР»СЋС‡ РїРѕРІРµСЂРЅСѓРІ РёРј, РїРѕСЃР»Рµ С‡РµРіРѕ РїРѕРІРµСЃРёР»" Female " СЃРІСЏР·РєСѓ СЃ РЅР°СЂСѓС‡РЅРёРєР°РјРё РЅР° РїРѕСЏСЃ.")
             Sleep, %sleepingtime%
-            SendChat("/do Камера закрыта на замок, ключ надёжно прикреплён к поясу " name "а.")
+            SendChat("/do РљР°РјРµСЂР° Р·Р°РєСЂС‹С‚Р° РЅР° Р·Р°РјРѕРє, РєР»СЋС‡ РЅР°РґС‘Р¶РЅРѕ РїСЂРёРєСЂРµРїР»С‘РЅ Рє РїРѕСЏСЃСѓ " name "Р°.")
         }
         Sleep, %sleepingtime%
         if (id > -1)
@@ -5863,12 +5863,12 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         SendInput {F6}/arrest{space}
             KeyWait, Enter, D
         }
-    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы автоматически выйшли из меню ситуации. {00FF00}Продолжайте работу.")
+    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЃРёС‚СѓР°С†РёРё. {00FF00}РџСЂРѕРґРѕР»Р¶Р°Р№С‚Рµ СЂР°Р±РѕС‚Сѓ.")
     }
     else
     if ErrorLevel = EndKey:End
     {
-    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы выйшли из меню ситуации. {00FF00}Продолжайте работу.")
+    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЃРёС‚СѓР°С†РёРё. {00FF00}РџСЂРѕРґРѕР»Р¶Р°Р№С‚Рµ СЂР°Р±РѕС‚Сѓ.")
     }
     zavers:=0
 }
@@ -5878,26 +5878,26 @@ SendInput, {F6}/pagesize %page%{Enter}
 sleep, 75
 if (zavers==1)
 {
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Выйдите из предыдущего меню и повторите попытку.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹Р№РґРёС‚Рµ РёР· РїСЂРµРґС‹РґСѓС‰РµРіРѕ РјРµРЅСЋ Рё РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ.")
 }
 else
 {
     zavers:=1
 addChatMessage("{FFFFFF} <<< ===============================  Officer {00FF00}Adjutant {FFFFFF}=============================== >>>"  )
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 1]{FFFFFF} - Отыгровка того что Вы взяли оружие на базе.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 1]{FFFFFF} - РћС‚С‹РіСЂРѕРІРєР° С‚РѕРіРѕ С‡С‚Рѕ Р’С‹ РІР·СЏР»Рё РѕСЂСѓР¶РёРµ РЅР° Р±Р°Р·Рµ.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 2]{FFFFFF} - Отыгровка того что Вы взяли из багажника ограждение.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 2]{FFFFFF} - РћС‚С‹РіСЂРѕРІРєР° С‚РѕРіРѕ С‡С‚Рѕ Р’С‹ РІР·СЏР»Рё РёР· Р±Р°РіР°Р¶РЅРёРєР° РѕРіСЂР°Р¶РґРµРЅРёРµ.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 3]{FFFFFF} - Прокричать в /s, о том что работает " Org1 ".")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 3]{FFFFFF} - РџСЂРѕРєСЂРёС‡Р°С‚СЊ РІ /s, Рѕ С‚РѕРј С‡С‚Рѕ СЂР°Р±РѕС‚Р°РµС‚ " Org1 ".")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 4]{FFFFFF} - Отыгровка разминирования бомбы.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 4]{FFFFFF} - РћС‚С‹РіСЂРѕРІРєР° СЂР°Р·РјРёРЅРёСЂРѕРІР°РЅРёСЏ Р±РѕРјР±С‹.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 5]{FFFFFF} - Отыгровка замораживания бомбы {F63939}*ЕСЛИ РАЗМИНИРОВАНО НЕУДАЧНО*.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 5]{FFFFFF} - РћС‚С‹РіСЂРѕРІРєР° Р·Р°РјРѕСЂР°Р¶РёРІР°РЅРёСЏ Р±РѕРјР±С‹ {F63939}*Р•РЎР›Р Р РђР—РњРРќРР РћР’РђРќРћ РќР•РЈР”РђР§РќРћ*.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 6]{FFFFFF} - Обыск преступников, используя /frisk.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 6]{FFFFFF} - РћР±С‹СЃРє РїСЂРµСЃС‚СѓРїРЅРёРєРѕРІ, РёСЃРїРѕР»СЊР·СѓСЏ /frisk.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из меню ситуации. {F63939}'НАЖИМАТЬ ОБЯЗАТЕЛЬНО ЕСЛИ ХОТИТЕ ВЫЙТИ'.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Р’С‹Р№С‚Рё РёР· РјРµРЅСЋ СЃРёС‚СѓР°С†РёРё. {F63939}'РќРђР–РРњРђРўР¬ РћР‘РЇР—РђРўР•Р›Р¬РќРћ Р•РЎР›Р РҐРћРўРРўР• Р’Р«Р™РўР'.")
     obratka5:
     Loop
     {
@@ -5946,7 +5946,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
             text = %info%
             restarting:=0
         }
-        if text contains *99 for last *57V,*99 for last *66,*99 for last *55,10-4 присоединяюсь к,10-4 for,10-4 для,10-4,*99
+        if text contains *99 for last *57V,*99 for last *66,*99 for last *55,10-4 РїСЂРёСЃРѕРµРґРёРЅСЏСЋСЃСЊ Рє,10-4 for,10-4 РґР»СЏ,10-4,*99
         {
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
             FileRead, info, %checkfile%
@@ -5955,7 +5955,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-55,*55,'55
         {
             1055:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-55 {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-55 {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1057v:=0
             1066:=0
@@ -5964,7 +5964,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-57v,10-57 victor,*57v,'57v,*57 victor,'57 victor
         {
             1057v:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-57 VICTOR {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-57 VICTOR {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1055:=0
             1066:=0
@@ -5973,16 +5973,16 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-66,*66,'66
         {
             1066:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-66 {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-66 {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1057v:=0
             1055:=0
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
         }
-        if text contains кюмба
+        if text contains РєСЋРјР±Р°
         {
             sleep, 750
-            SendChat("/rb я")
+            SendChat("/rb СЏ")
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
         }
         sleep, 75
@@ -5996,17 +5996,17 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     }
     if ErrorLevel = EndKey:Numpad1
     {
-        SendChat("/me увидел" Female " полки на которых были разные типы оружий.")
+        SendChat("/me СѓРІРёРґРµР»" Female " РїРѕР»РєРё РЅР° РєРѕС‚РѕСЂС‹С… Р±С‹Р»Рё СЂР°Р·РЅС‹Рµ С‚РёРїС‹ РѕСЂСѓР¶РёР№.")
         Sleep, %sleepingtime%
-        SendChat("/do На полках шкафа: Remington 1100 " Org1 ", Электрошокер, бронижилет.")
+        SendChat("/do РќР° РїРѕР»РєР°С… С€РєР°С„Р°: Remington 1100 " Org1 ", Р­Р»РµРєС‚СЂРѕС€РѕРєРµСЂ, Р±СЂРѕРЅРёР¶РёР»РµС‚.")
         Sleep, %sleepingtime%
-        SendChat("/me взял" Female " Remington 1100 " Org1 " с полки шкафа, повесил" Female " на спину...")
+        SendChat("/me РІР·СЏР»" Female " Remington 1100 " Org1 " СЃ РїРѕР»РєРё С€РєР°С„Р°, РїРѕРІРµСЃРёР»" Female " РЅР° СЃРїРёРЅСѓ...")
         Sleep, %sleepingtime%
-        SendChat("/me ...после чего взял Электрошокер с полки, вставил" Female " в кобуру.")
+        SendChat("/me ...РїРѕСЃР»Рµ С‡РµРіРѕ РІР·СЏР» Р­Р»РµРєС‚СЂРѕС€РѕРєРµСЂ СЃ РїРѕР»РєРё, РІСЃС‚Р°РІРёР»" Female " РІ РєРѕР±СѓСЂСѓ.")
         Sleep, %sleepingtime%
-        SendChat("/do На " name "е были установлены плотно оба оружия.")
+        SendChat("/do РќР° " name "Рµ Р±С‹Р»Рё СѓСЃС‚Р°РЅРѕРІР»РµРЅС‹ РїР»РѕС‚РЅРѕ РѕР±Р° РѕСЂСѓР¶РёСЏ.")
         Sleep, %sleepingtime%
-        SendChat("/me взял" Female " бронижилет с полки, после чего укрепил" Female " его на себе.")
+        SendChat("/me РІР·СЏР»" Female " Р±СЂРѕРЅРёР¶РёР»РµС‚ СЃ РїРѕР»РєРё, РїРѕСЃР»Рµ С‡РµРіРѕ СѓРєСЂРµРїРёР»" Female " РµРіРѕ РЅР° СЃРµР±Рµ.")
         goto, obratka5
     }
     else
@@ -6015,20 +6015,20 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         SendMessage, 0x50,, 0x4190419,,A
         Random, randt, 1, 2
         if (randt = 1) {
-            SendChat("/me достав ключ от багажника, вставил" Female " в скважено его, тем самым открыл его.")
+            SendChat("/me РґРѕСЃС‚Р°РІ РєР»СЋС‡ РѕС‚ Р±Р°РіР°Р¶РЅРёРєР°, РІСЃС‚Р°РІРёР»" Female " РІ СЃРєРІР°Р¶РµРЅРѕ РµРіРѕ, С‚РµРј СЃР°РјС‹Рј РѕС‚РєСЂС‹Р» РµРіРѕ.")
             Sleep, %sleepingtime%
-            SendChat("/do В багажнике были разные типы ограждений, которые можно было использовать.")
+            SendChat("/do Р’ Р±Р°РіР°Р¶РЅРёРєРµ Р±С‹Р»Рё СЂР°Р·РЅС‹Рµ С‚РёРїС‹ РѕРіСЂР°Р¶РґРµРЅРёР№, РєРѕС‚РѕСЂС‹Рµ РјРѕР¶РЅРѕ Р±С‹Р»Рѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ.")
             Sleep, %sleepingtime%
-            SendChat("/me достал" Female " нужное заграждение из багажника после чего пош" Female7 " устанавливать его.")
+            SendChat("/me РґРѕСЃС‚Р°Р»" Female " РЅСѓР¶РЅРѕРµ Р·Р°РіСЂР°Р¶РґРµРЅРёРµ РёР· Р±Р°РіР°Р¶РЅРёРєР° РїРѕСЃР»Рµ С‡РµРіРѕ РїРѕС€" Female7 " СѓСЃС‚Р°РЅР°РІР»РёРІР°С‚СЊ РµРіРѕ.")
             Sleep, %sleepingtime%
-            SendChat("/me положил" Female " заграждение на асфальт, после чего отош" Female7 ".")
+            SendChat("/me РїРѕР»РѕР¶РёР»" Female " Р·Р°РіСЂР°Р¶РґРµРЅРёРµ РЅР° Р°СЃС„Р°Р»СЊС‚, РїРѕСЃР»Рµ С‡РµРіРѕ РѕС‚РѕС€" Female7 ".")
         }
         if (randt = 2) {
-            SendChat("/me выняв ключ с пояса, открыл" Female " багажник.")
+            SendChat("/me РІС‹РЅСЏРІ РєР»СЋС‡ СЃ РїРѕСЏСЃР°, РѕС‚РєСЂС‹Р»" Female " Р±Р°РіР°Р¶РЅРёРє.")
             Sleep, %sleepingtime%
-            SendChat("/do В багажнике валялись ограждения и шины, с инструментами.")
+            SendChat("/do Р’ Р±Р°РіР°Р¶РЅРёРєРµ РІР°Р»СЏР»РёСЃСЊ РѕРіСЂР°Р¶РґРµРЅРёСЏ Рё С€РёРЅС‹, СЃ РёРЅСЃС‚СЂСѓРјРµРЅС‚Р°РјРё.")
             Sleep, %sleepingtime%
-            SendChat("/me достав ограждение из багажника пон" Female11 " его в нужное место.")
+            SendChat("/me РґРѕСЃС‚Р°РІ РѕРіСЂР°Р¶РґРµРЅРёРµ РёР· Р±Р°РіР°Р¶РЅРёРєР° РїРѕРЅ" Female11 " РµРіРѕ РІ РЅСѓР¶РЅРѕРµ РјРµСЃС‚Рѕ.")
         }
         Sleep, %sleepingtime%
     SendInput {F6}/break{space}
@@ -6040,24 +6040,24 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     {
         Random, randt, 1, 3
         if (randt = 1) {
-            SendChat("/s " Org1 ", НЕМЕДЛЕННО ЛЕЧЬ НА ЗЕМЛЮ И НЕ ДВИГАТЬСЯ!")
+            SendChat("/s " Org1 ", РќР•РњР•Р”Р›Р•РќРќРћ Р›Р•Р§Р¬ РќРђ Р—Р•РњР›Р® Р РќР• Р”Р’РР“РђРўР¬РЎРЇ!")
             Sleep, %sleepingtime%
-            SendChat("/b /anim 11 | Если прописал, значит сдался. Если нет - сопротивление при аресте.")
+            SendChat("/b /anim 11 | Р•СЃР»Рё РїСЂРѕРїРёСЃР°Р», Р·РЅР°С‡РёС‚ СЃРґР°Р»СЃСЏ. Р•СЃР»Рё РЅРµС‚ - СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ РїСЂРё Р°СЂРµСЃС‚Рµ.")
         }
         if (randt = 2) {
-            SendChat("/s ЭТО " Org1 ", ВСЕМ ЛЕЧЬ НА ЗЕМЛЮ, ЖИВО!")
+            SendChat("/s Р­РўРћ " Org1 ", Р’РЎР•Рњ Р›Р•Р§Р¬ РќРђ Р—Р•РњР›Р®, Р–РР’Рћ!")
             Sleep, %sleepingtime%
-            SendChat("/b /anim 11 | Если прописал, значит сдался. Если нет - сопротивление при аресте.")
+            SendChat("/b /anim 11 | Р•СЃР»Рё РїСЂРѕРїРёСЃР°Р», Р·РЅР°С‡РёС‚ СЃРґР°Р»СЃСЏ. Р•СЃР»Рё РЅРµС‚ - СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ РїСЂРё Р°СЂРµСЃС‚Рµ.")
         }
         if (randt = 3) {
-            SendChat("/s " Org7 ", ВСЕМ ЛЕЧЬ НА ЗЕМЛЮ, БЫСТРО!")
+            SendChat("/s " Org7 ", Р’РЎР•Рњ Р›Р•Р§Р¬ РќРђ Р—Р•РњР›Р®, Р‘Р«РЎРўР Рћ!")
             Sleep, %sleepingtime%
-            SendChat("/b /anim 11 | Если прописал, значит сдался. Если нет - сопротивление при аресте.")
+            SendChat("/b /anim 11 | Р•СЃР»Рё РїСЂРѕРїРёСЃР°Р», Р·РЅР°С‡РёС‚ СЃРґР°Р»СЃСЏ. Р•СЃР»Рё РЅРµС‚ - СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ РїСЂРё Р°СЂРµСЃС‚Рµ.")
         }
         if (randt = 4) {
-            SendChat("/s МОРДОЙ В ЗЕМЛЮ, РУКИ ЗА ГОЛОВУ, " Org1 "!")
+            SendChat("/s РњРћР Р”РћР™ Р’ Р—Р•РњР›Р®, Р РЈРљР Р—Рђ Р“РћР›РћР’РЈ, " Org1 "!")
             Sleep, %sleepingtime%
-            SendChat("/b /anim 11 | Если прописал, значит сдался. Если нет - сопротивление при аресте.")
+            SendChat("/b /anim 11 | Р•СЃР»Рё РїСЂРѕРїРёСЃР°Р», Р·РЅР°С‡РёС‚ СЃРґР°Р»СЃСЏ. Р•СЃР»Рё РЅРµС‚ - СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ РїСЂРё Р°СЂРµСЃС‚Рµ.")
         }
         goto, obratka5
     }
@@ -6066,56 +6066,56 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
     {
         Random, randt, 1, 2
         if (randt = 1) {
-            SendChat("/do В руках у " name "а был набор [Для сапёра] с логотипом [" Org1 "].")
+            SendChat("/do Р’ СЂСѓРєР°С… Сѓ " name "Р° Р±С‹Р» РЅР°Р±РѕСЂ [Р”Р»СЏ СЃР°РїС‘СЂР°] СЃ Р»РѕРіРѕС‚РёРїРѕРј [" Org1 "].")
             Sleep, %sleepingtime%
-            SendChat("/do На бомбе было видно крышку, с 4 болтиками которые прикрывали детонатор.")
+            SendChat("/do РќР° Р±РѕРјР±Рµ Р±С‹Р»Рѕ РІРёРґРЅРѕ РєСЂС‹С€РєСѓ, СЃ 4 Р±РѕР»С‚РёРєР°РјРё РєРѕС‚РѕСЂС‹Рµ РїСЂРёРєСЂС‹РІР°Р»Рё РґРµС‚РѕРЅР°С‚РѕСЂ.")
             Sleep, %sleepingtime%
-            SendChat("/me увидил" Female " на крышке бомбы 4 болта.")
+            SendChat("/me СѓРІРёРґРёР»" Female " РЅР° РєСЂС‹С€РєРµ Р±РѕРјР±С‹ 4 Р±РѕР»С‚Р°.")
             Sleep, %sleepingtime%
-            SendChat("/me достал" Female " отвертку из чемодана с набором сапера.")
+            SendChat("/me РґРѕСЃС‚Р°Р»" Female " РѕС‚РІРµСЂС‚РєСѓ РёР· С‡РµРјРѕРґР°РЅР° СЃ РЅР°Р±РѕСЂРѕРј СЃР°РїРµСЂР°.")
             Sleep, %sleepingtime%
-            SendChat("/do У " name "а в руках была отвертка, которую " Female5 " приготовился использовать.")
+            SendChat("/do РЈ " name "Р° РІ СЂСѓРєР°С… Р±С‹Р»Р° РѕС‚РІРµСЂС‚РєР°, РєРѕС‚РѕСЂСѓСЋ " Female5 " РїСЂРёРіРѕС‚РѕРІРёР»СЃСЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ.")
             Sleep, %sleepingtime%
-            SendChat("/me откручивает болтики отверткой.")
+            SendChat("/me РѕС‚РєСЂСѓС‡РёРІР°РµС‚ Р±РѕР»С‚РёРєРё РѕС‚РІРµСЂС‚РєРѕР№.")
             Sleep, %sleepingtime%
-            SendChat("/me открутил" Female " болтики а затем приоткрыл крышку бомбы.")
+            SendChat("/me РѕС‚РєСЂСѓС‚РёР»" Female " Р±РѕР»С‚РёРєРё Р° Р·Р°С‚РµРј РїСЂРёРѕС‚РєСЂС‹Р» РєСЂС‹С€РєСѓ Р±РѕРјР±С‹.")
             Sleep, %sleepingtime%
-            SendChat("/do В детонаторе было 2-а провода. Крастный и синий.")
+            SendChat("/do Р’ РґРµС‚РѕРЅР°С‚РѕСЂРµ Р±С‹Р»Рѕ 2-Р° РїСЂРѕРІРѕРґР°. РљСЂР°СЃС‚РЅС‹Р№ Рё СЃРёРЅРёР№.")
             Sleep, %sleepingtime%
-            SendChat("/me увидил" Female " что в детонатора 2 провода.")
+            SendChat("/me СѓРІРёРґРёР»" Female " С‡С‚Рѕ РІ РґРµС‚РѕРЅР°С‚РѕСЂР° 2 РїСЂРѕРІРѕРґР°.")
             Sleep, %sleepingtime%
-            SendChat("/me достал" Female " щипцы а затем надрезал" Female " красный провод.")
+            SendChat("/me РґРѕСЃС‚Р°Р»" Female " С‰РёРїС†С‹ Р° Р·Р°С‚РµРј РЅР°РґСЂРµР·Р°Р»" Female " РєСЂР°СЃРЅС‹Р№ РїСЂРѕРІРѕРґ.")
             Sleep, %sleepingtime%
-            SendChat("/try разминировал" Female " бомбу, которая лежит на полу")
+            SendChat("/try СЂР°Р·РјРёРЅРёСЂРѕРІР°Р»" Female " Р±РѕРјР±Сѓ, РєРѕС‚РѕСЂР°СЏ Р»РµР¶РёС‚ РЅР° РїРѕР»Сѓ")
             Sleep, 200
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Если разминирование бомбы не удачно - {F63939}*Numpad 5*")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р•СЃР»Рё СЂР°Р·РјРёРЅРёСЂРѕРІР°РЅРёРµ Р±РѕРјР±С‹ РЅРµ СѓРґР°С‡РЅРѕ - {F63939}*Numpad 5*")
         }
         if (randt = 2) {
-            SendChat("/do На поясе " name " " surname " прикреплен сапёрский набор. ")
+            SendChat("/do РќР° РїРѕСЏСЃРµ " name " " surname " РїСЂРёРєСЂРµРїР»РµРЅ СЃР°РїС‘СЂСЃРєРёР№ РЅР°Р±РѕСЂ. ")
             Sleep, %sleepingtime%
-            SendChat("/me резким движением отщелкнул" Female " набор с держателя, затем поставил" Female " его на пол, открыл" Female ".")
+            SendChat("/me СЂРµР·РєРёРј РґРІРёР¶РµРЅРёРµРј РѕС‚С‰РµР»РєРЅСѓР»" Female " РЅР°Р±РѕСЂ СЃ РґРµСЂР¶Р°С‚РµР»СЏ, Р·Р°С‚РµРј РїРѕСЃС‚Р°РІРёР»" Female " РµРіРѕ РЅР° РїРѕР», РѕС‚РєСЂС‹Р»" Female ".")
             Sleep, %sleepingtime%
-            SendChat("/do " name " " surname " достал" Female " из чемоданчика отвертку и жидкий азот.")
+            SendChat("/do " name " " surname " РґРѕСЃС‚Р°Р»" Female " РёР· С‡РµРјРѕРґР°РЅС‡РёРєР° РѕС‚РІРµСЂС‚РєСѓ Рё Р¶РёРґРєРёР№ Р°Р·РѕС‚.")
             Sleep, %sleepingtime%
-            SendChat("/do На корпусе бомбы находится 2 цензура.")
+            SendChat("/do РќР° РєРѕСЂРїСѓСЃРµ Р±РѕРјР±С‹ РЅР°С…РѕРґРёС‚СЃСЏ 2 С†РµРЅР·СѓСЂР°.")
             Sleep, %sleepingtime%
-            SendChat("/me открутил" Female " первый цензураик с крышки бомбы, затем открутил" Female " второй цензураик, после чего...")
+            SendChat("/me РѕС‚РєСЂСѓС‚РёР»" Female " РїРµСЂРІС‹Р№ С†РµРЅР·СѓСЂР°РёРє СЃ РєСЂС‹С€РєРё Р±РѕРјР±С‹, Р·Р°С‚РµРј РѕС‚РєСЂСѓС‚РёР»" Female " РІС‚РѕСЂРѕР№ С†РµРЅР·СѓСЂР°РёРє, РїРѕСЃР»Рµ С‡РµРіРѕ...")
             Sleep, %sleepingtime%
-            SendChat("/me ...резким движением закинул" Female " отвертку обратно в чемоданчик.")
+            SendChat("/me ...СЂРµР·РєРёРј РґРІРёР¶РµРЅРёРµРј Р·Р°РєРёРЅСѓР»" Female " РѕС‚РІРµСЂС‚РєСѓ РѕР±СЂР°С‚РЅРѕ РІ С‡РµРјРѕРґР°РЅС‡РёРє.")
             Sleep, %sleepingtime%
-            SendChat("/me аккуратно приоткрыл" Female " крышку бомбы.")
+            SendChat("/me Р°РєРєСѓСЂР°С‚РЅРѕ РїСЂРёРѕС‚РєСЂС‹Р»" Female " РєСЂС‹С€РєСѓ Р±РѕРјР±С‹.")
             Sleep, %sleepingtime%
-            SendChat("/do Видна детонирующая часть.")
+            SendChat("/do Р’РёРґРЅР° РґРµС‚РѕРЅРёСЂСѓСЋС‰Р°СЏ С‡Р°СЃС‚СЊ.")
             Sleep, %sleepingtime%
-            SendChat("/do " name " " surname " внимательно осмотрел бомбу, затем взял" Female " из чемоданчика кусачки.")
+            SendChat("/do " name " " surname " РІРЅРёРјР°С‚РµР»СЊРЅРѕ РѕСЃРјРѕС‚СЂРµР» Р±РѕРјР±Сѓ, Р·Р°С‚РµРј РІР·СЏР»" Female " РёР· С‡РµРјРѕРґР°РЅС‡РёРєР° РєСѓСЃР°С‡РєРё.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female " на себя красный провод, перекусил" Female " его кусачками.")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female " РЅР° СЃРµР±СЏ РєСЂР°СЃРЅС‹Р№ РїСЂРѕРІРѕРґ, РїРµСЂРµРєСѓСЃРёР»" Female " РµРіРѕ РєСѓСЃР°С‡РєР°РјРё.")
             Sleep, %sleepingtime%
-            SendChat("/do Таймер остановился, тиканья со стороны бомбы не слышно.")
+            SendChat("/do РўР°Р№РјРµСЂ РѕСЃС‚Р°РЅРѕРІРёР»СЃСЏ, С‚РёРєР°РЅСЊСЏ СЃРѕ СЃС‚РѕСЂРѕРЅС‹ Р±РѕРјР±С‹ РЅРµ СЃР»С‹С€РЅРѕ.")
             Sleep, %sleepingtime%
-            SendChat("/try разминировал" Female " бомбу, которая лежит на полу")
+            SendChat("/try СЂР°Р·РјРёРЅРёСЂРѕРІР°Р»" Female " Р±РѕРјР±Сѓ, РєРѕС‚РѕСЂР°СЏ Р»РµР¶РёС‚ РЅР° РїРѕР»Сѓ")
             Sleep, 200
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Если разминирование бомбы не удачно - {F63939}*Numpad 5*")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р•СЃР»Рё СЂР°Р·РјРёРЅРёСЂРѕРІР°РЅРёРµ Р±РѕРјР±С‹ РЅРµ СѓРґР°С‡РЅРѕ - {F63939}*Numpad 5*")
         }
         goto, obratka5
     }
@@ -6125,29 +6125,29 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 2
         if (randt = 1) {
             Sleep, %sleepingtime%
-            SendChat("/do Бомба не взорвалась, в наборе для сапёра находилась спец. заморозка.")
+            SendChat("/do Р‘РѕРјР±Р° РЅРµ РІР·РѕСЂРІР°Р»Р°СЃСЊ, РІ РЅР°Р±РѕСЂРµ РґР»СЏ СЃР°РїС‘СЂР° РЅР°С…РѕРґРёР»Р°СЃСЊ СЃРїРµС†. Р·Р°РјРѕСЂРѕР·РєР°.")
             Sleep, %sleepingtime%
-            SendChat("/me достал" Female " заморозку из набора для сапёра.")
+            SendChat("/me РґРѕСЃС‚Р°Р»" Female " Р·Р°РјРѕСЂРѕР·РєСѓ РёР· РЅР°Р±РѕСЂР° РґР»СЏ СЃР°РїС‘СЂР°.")
             Sleep, %sleepingtime%
-            SendChat("/me повернув кран пустил" Female " через него струю заморажуещего вещества.")
+            SendChat("/me РїРѕРІРµСЂРЅСѓРІ РєСЂР°РЅ РїСѓСЃС‚РёР»" Female " С‡РµСЂРµР· РЅРµРіРѕ СЃС‚СЂСѓСЋ Р·Р°РјРѕСЂР°Р¶СѓРµС‰РµРіРѕ РІРµС‰РµСЃС‚РІР°.")
             Sleep, %sleepingtime%
-            SendChat("/do Через некоторое время бомба была заморожена.")
+            SendChat("/do Р§РµСЂРµР· РЅРµРєРѕС‚РѕСЂРѕРµ РІСЂРµРјСЏ Р±РѕРјР±Р° Р±С‹Р»Р° Р·Р°РјРѕСЂРѕР¶РµРЅР°.")
             Sleep, %sleepingtime%
-            SendChat("/me осторожно подняв из земли бомбу, понес" Female6 " её в руках.")
+            SendChat("/me РѕСЃС‚РѕСЂРѕР¶РЅРѕ РїРѕРґРЅСЏРІ РёР· Р·РµРјР»Рё Р±РѕРјР±Сѓ, РїРѕРЅРµСЃ" Female6 " РµС‘ РІ СЂСѓРєР°С….")
         }
         if (randt = 2) {
             Sleep, %sleepingtime%
-            SendChat("/do Бомба не взорвалась, в наборе для сапёра находилась спец. заморозка.")
+            SendChat("/do Р‘РѕРјР±Р° РЅРµ РІР·РѕСЂРІР°Р»Р°СЃСЊ, РІ РЅР°Р±РѕСЂРµ РґР»СЏ СЃР°РїС‘СЂР° РЅР°С…РѕРґРёР»Р°СЃСЊ СЃРїРµС†. Р·Р°РјРѕСЂРѕР·РєР°.")
             Sleep, %sleepingtime%
-            SendChat("/me положил охлаждающий пакет с жидким азотом в детонирующую часть бомбы.")
+            SendChat("/me РїРѕР»РѕР¶РёР» РѕС…Р»Р°Р¶РґР°СЋС‰РёР№ РїР°РєРµС‚ СЃ Р¶РёРґРєРёРј Р°Р·РѕС‚РѕРј РІ РґРµС‚РѕРЅРёСЂСѓСЋС‰СѓСЋ С‡Р°СЃС‚СЊ Р±РѕРјР±С‹.")
             Sleep, %sleepingtime%
-            SendChat("/do Таймер сбросился еще на 10 секунд.")
+            SendChat("/do РўР°Р№РјРµСЂ СЃР±СЂРѕСЃРёР»СЃСЏ РµС‰Рµ РЅР° 10 СЃРµРєСѓРЅРґ.")
             Sleep, %sleepingtime%
-            SendChat("/me делает дополнительную заморозку бомбы прижимая пакет к бомбе.")
+            SendChat("/me РґРµР»Р°РµС‚ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅСѓСЋ Р·Р°РјРѕСЂРѕР·РєСѓ Р±РѕРјР±С‹ РїСЂРёР¶РёРјР°СЏ РїР°РєРµС‚ Рє Р±РѕРјР±Рµ.")
             Sleep, %sleepingtime%
-            SendChat("/do Бомба заморожена. Таймер замерз.")
+            SendChat("/do Р‘РѕРјР±Р° Р·Р°РјРѕСЂРѕР¶РµРЅР°. РўР°Р№РјРµСЂ Р·Р°РјРµСЂР·.")
             Sleep, %sleepingtime%
-            SendChat("/me осторожно подняв из земли бомбу, понес" Female6 " её в руках.")
+            SendChat("/me РѕСЃС‚РѕСЂРѕР¶РЅРѕ РїРѕРґРЅСЏРІ РёР· Р·РµРјР»Рё Р±РѕРјР±Сѓ, РїРѕРЅРµСЃ" Female6 " РµС‘ РІ СЂСѓРєР°С….")
         }
         goto, obratka5
     }
@@ -6157,43 +6157,43 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         SendMessage, 0x50,, 0x4190419,,A
         Random, randt, 1, 2
         if (randt = 1) {
-            SendChat("/do Перчатки для обыска у " surname "а лежат в правом кармане брюк.")
+            SendChat("/do РџРµСЂС‡Р°С‚РєРё РґР»СЏ РѕР±С‹СЃРєР° Сѓ " surname "Р° Р»РµР¶Р°С‚ РІ РїСЂР°РІРѕРј РєР°СЂРјР°РЅРµ Р±СЂСЋРє.")
             Sleep, %sleepingtime%
-            SendChat("/me протянул" Female " правую руку к перчаткам, после чего вытянул" Female " их, затем надел" Female " их.")
+            SendChat("/me РїСЂРѕС‚СЏРЅСѓР»" Female " РїСЂР°РІСѓСЋ СЂСѓРєСѓ Рє РїРµСЂС‡Р°С‚РєР°Рј, РїРѕСЃР»Рµ С‡РµРіРѕ РІС‹С‚СЏРЅСѓР»" Female " РёС…, Р·Р°С‚РµРј РЅР°РґРµР»" Female " РёС….")
             Sleep, %sleepingtime%
-            SendChat("/me подойдя ближе к человеку на против, ощупал" Female " его торс, затем прош" Female9 " руками по ногам.")
+            SendChat("/me РїРѕРґРѕР№РґСЏ Р±Р»РёР¶Рµ Рє С‡РµР»РѕРІРµРєСѓ РЅР° РїСЂРѕС‚РёРІ, РѕС‰СѓРїР°Р»" Female " РµРіРѕ С‚РѕСЂСЃ, Р·Р°С‚РµРј РїСЂРѕС€" Female9 " СЂСѓРєР°РјРё РїРѕ РЅРѕРіР°Рј.")
             Sleep, %sleepingtime%
-            SendChat("/do Пройшло некоторое время, после того как " name " провернул" Female " свои действия.")
+            SendChat("/do РџСЂРѕР№С€Р»Рѕ РЅРµРєРѕС‚РѕСЂРѕРµ РІСЂРµРјСЏ, РїРѕСЃР»Рµ С‚РѕРіРѕ РєР°Рє " name " РїСЂРѕРІРµСЂРЅСѓР»" Female " СЃРІРѕРё РґРµР№СЃС‚РІРёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me осматривая еще раз, провер" Female10 " наличие запрещённых предметов, а так-же наличие документов.")
+            SendChat("/me РѕСЃРјР°С‚СЂРёРІР°СЏ РµС‰Рµ СЂР°Р·, РїСЂРѕРІРµСЂ" Female10 " РЅР°Р»РёС‡РёРµ Р·Р°РїСЂРµС‰С‘РЅРЅС‹С… РїСЂРµРґРјРµС‚РѕРІ, Р° С‚Р°Рє-Р¶Рµ РЅР°Р»РёС‡РёРµ РґРѕРєСѓРјРµРЅС‚РѕРІ.")
             Sleep, %sleepingtime%
         SendInput {F6}/frisk{Space}
             KeyWait, Enter, D
             Sleep, %sleepingtime%
-            SendChat("/do Документы при себе имеются ?")
+            SendChat("/do Р”РѕРєСѓРјРµРЅС‚С‹ РїСЂРё СЃРµР±Рµ РёРјРµСЋС‚СЃСЏ ?")
         }
         if (randt = 2) {
-            SendChat("/me достал" Female " из кармана пиджака прорезиненные перчатки, надевает их поочередно на кисти рук.")
+            SendChat("/me РґРѕСЃС‚Р°Р»" Female " РёР· РєР°СЂРјР°РЅР° РїРёРґР¶Р°РєР° РїСЂРѕСЂРµР·РёРЅРµРЅРЅС‹Рµ РїРµСЂС‡Р°С‚РєРё, РЅР°РґРµРІР°РµС‚ РёС… РїРѕРѕС‡РµСЂРµРґРЅРѕ РЅР° РєРёСЃС‚Рё СЂСѓРє.")
             Sleep, %sleepingtime%
-            SendChat("/me похлопал" Female " по торсу, спине человека, затем по карманам одежды.")
+            SendChat("/me РїРѕС…Р»РѕРїР°Р»" Female " РїРѕ С‚РѕСЂСЃСѓ, СЃРїРёРЅРµ С‡РµР»РѕРІРµРєР°, Р·Р°С‚РµРј РїРѕ РєР°СЂРјР°РЅР°Рј РѕРґРµР¶РґС‹.")
             Sleep, %sleepingtime%
-            SendChat("/me похлопал" Female " по ногам, по карманам брюк.")
+            SendChat("/me РїРѕС…Р»РѕРїР°Р»" Female " РїРѕ РЅРѕРіР°Рј, РїРѕ РєР°СЂРјР°РЅР°Рј Р±СЂСЋРє.")
             Sleep, %sleepingtime%
-            SendChat("/do Пройшло некоторое время, после того как " name " провернул" Female " свои действия.")
+            SendChat("/do РџСЂРѕР№С€Р»Рѕ РЅРµРєРѕС‚РѕСЂРѕРµ РІСЂРµРјСЏ, РїРѕСЃР»Рµ С‚РѕРіРѕ РєР°Рє " name " РїСЂРѕРІРµСЂРЅСѓР»" Female " СЃРІРѕРё РґРµР№СЃС‚РІРёСЏ.")
             Sleep, %sleepingtime%
         SendInput {F6}/frisk{Space}
             KeyWait, Enter, D
             Sleep, %sleepingtime%
-            SendChat("/me снял" Female " перчатки с рук, убрал" Female " их обратно в карман.")
+            SendChat("/me СЃРЅСЏР»" Female " РїРµСЂС‡Р°С‚РєРё СЃ СЂСѓРє, СѓР±СЂР°Р»" Female " РёС… РѕР±СЂР°С‚РЅРѕ РІ РєР°СЂРјР°РЅ.")
             Sleep, %sleepingtime%
-            SendChat("/do Документы при себе имеются ?")
+            SendChat("/do Р”РѕРєСѓРјРµРЅС‚С‹ РїСЂРё СЃРµР±Рµ РёРјРµСЋС‚СЃСЏ ?")
         }
         goto, obratka5
     }
     else
     if ErrorLevel = EndKey:End
     {
-    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы выйшли из меню ситуации. {00FF00}Продолжайте работу.")
+    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЃРёС‚СѓР°С†РёРё. {00FF00}РџСЂРѕРґРѕР»Р¶Р°Р№С‚Рµ СЂР°Р±РѕС‚Сѓ.")
     }
     zavers:=0
 }
@@ -6203,7 +6203,7 @@ SendInput, {F6}/pagesize %page%{Enter}
 sleep, 75
 if (zavers==1)
 {
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Выйдите из предыдущего меню и повторите попытку.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹Р№РґРёС‚Рµ РёР· РїСЂРµРґС‹РґСѓС‰РµРіРѕ РјРµРЅСЋ Рё РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ.")
 }
 else if (Zavers==0 and EngVer==1 and Radio1==1)
 {
@@ -6211,27 +6211,27 @@ else if (Zavers==0 and EngVer==1 and Radio1==1)
     city:=getPlayerCity()
 addChatMessage("{FFFFFF} <<< =============================== Police {00BFFF}Radio{FFFFFF} =============================== >>>"  )
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 1]{FFFFFF} - Оповестить диспетчера о том что Вы покинули гараж в Линкольне\Адаме.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 1]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ Р’С‹ РїРѕРєРёРЅСѓР»Рё РіР°СЂР°Р¶ РІ Р›РёРЅРєРѕР»СЊРЅРµ\РђРґР°РјРµ.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 2]{FFFFFF} - Оповестить диспетчера о том что Вы патрулируете " city ".")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 2]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ Р’С‹ РїР°С‚СЂСѓР»РёСЂСѓРµС‚Рµ " city ".")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 3]{FFFFFF} - Оповестить диспетчера о том что Вы приняли последний вызов ('10-4).")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 3]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ Р’С‹ РїСЂРёРЅСЏР»Рё РїРѕСЃР»РµРґРЅРёР№ РІС‹Р·РѕРІ ('10-4).")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 4]{FFFFFF} - Оповестить диспетчера о том что у Вы берёте перерыв на обед ( Код '7').")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 4]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ Сѓ Р’С‹ Р±РµСЂС‘С‚Рµ РїРµСЂРµСЂС‹РІ РЅР° РѕР±РµРґ ( РљРѕРґ '7').")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 5]{FFFFFF} - Оповестить диспетчера о том что Вы в бедственном положении ( Код '1').")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 5]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ Р’С‹ РІ Р±РµРґСЃС‚РІРµРЅРЅРѕРј РїРѕР»РѕР¶РµРЅРёРё ( РљРѕРґ '1').")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 6]{FFFFFF} - Оповестить диспетчера о том что на Вас напали. ( Код '0').")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 6]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ РЅР° Р’Р°СЃ РЅР°РїР°Р»Рё. ( РљРѕРґ '0').")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 7]{FFFFFF} - Оповестить диспетчера о том что ситуация урегулирована ('99)")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 7]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ СЃРёС‚СѓР°С†РёСЏ СѓСЂРµРіСѓР»РёСЂРѕРІР°РЅР° ('99)")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 8]{FFFFFF} - Оповестить диспетчера о том что Вы запрашиваете транспортировку.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 8]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ Р’С‹ Р·Р°РїСЂР°С€РёРІР°РµС‚Рµ С‚СЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРєСѓ.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 9]{FFFFFF} - Готовоя форма обращения в рацию к диспетчеру.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 9]{FFFFFF} - Р“РѕС‚РѕРІРѕСЏ С„РѕСЂРјР° РѕР±СЂР°С‰РµРЅРёСЏ РІ СЂР°С†РёСЋ Рє РґРёСЃРїРµС‚С‡РµСЂСѓ.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 0]{FFFFFF} - Оповестить диспетчера о нарушителе, используя /su.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 0]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ РЅР°СЂСѓС€РёС‚РµР»Рµ, РёСЃРїРѕР»СЊР·СѓСЏ /su.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из меню рации. {F63939}'НАЖИМАТЬ ОБЯЗАТЕЛЬНО ЕСЛИ ХОТИТЕ ВЫЙТИ'.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Р’С‹Р№С‚Рё РёР· РјРµРЅСЋ СЂР°С†РёРё. {F63939}'РќРђР–РРњРђРўР¬ РћР‘РЇР—РђРўР•Р›Р¬РќРћ Р•РЎР›Р РҐРћРўРРўР• Р’Р«Р™РўР'.")
     idtvoi:=getId()
     obratka2:
     Loop
@@ -6281,7 +6281,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
             text = %info%
             restarting:=0
         }
-        if text contains *99 for last *57V,*99 for last *66,*99 for last *55,10-4 присоединяюсь к,10-4 for,10-4 для,10-4,*99
+        if text contains *99 for last *57V,*99 for last *66,*99 for last *55,10-4 РїСЂРёСЃРѕРµРґРёРЅСЏСЋСЃСЊ Рє,10-4 for,10-4 РґР»СЏ,10-4,*99
         {
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
             FileRead, info, %checkfile%
@@ -6290,7 +6290,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-55,*55,'55
         {
             1055:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-55 {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-55 {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1057v:=0
             1066:=0
@@ -6299,7 +6299,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-57v,10-57 victor,*57v,'57v,*57 victor,'57 victor
         {
             1057v:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-57 VICTOR {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-57 VICTOR {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1055:=0
             1066:=0
@@ -6308,16 +6308,16 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-66,*66,'66
         {
             1066:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-66 {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-66 {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1057v:=0
             1055:=0
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
         }
-        if text contains кюмба
+        if text contains РєСЋРјР±Р°
         {
             sleep, 750
-            SendChat("/rb я")
+            SendChat("/rb СЏ")
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
         }
         sleep, 75
@@ -6335,15 +6335,15 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if (idskr == -1)
         {
             SendMessage, 0x50,, 0x4190419,,A
-            SendChat("/me опустил" Female " руку в нагрудный карман, после достал" Female " её от туда держа в руках *КПК*.")
+            SendChat("/me РѕРїСѓСЃС‚РёР»" Female " СЂСѓРєСѓ РІ РЅР°РіСЂСѓРґРЅС‹Р№ РєР°СЂРјР°РЅ, РїРѕСЃР»Рµ РґРѕСЃС‚Р°Р»" Female " РµС‘ РѕС‚ С‚СѓРґР° РґРµСЂР¶Р° РІ СЂСѓРєР°С… *РљРџРљ*.")
             Sleep, %sleepingtime%
-            SendChat("/me ввёл" Female " данные о правонарушителе, после чего вернул *КПК* обратно.")
+            SendChat("/me РІРІС‘Р»" Female " РґР°РЅРЅС‹Рµ Рѕ РїСЂР°РІРѕРЅР°СЂСѓС€РёС‚РµР»Рµ, РїРѕСЃР»Рµ С‡РµРіРѕ РІРµСЂРЅСѓР» *РљРџРљ* РѕР±СЂР°С‚РЅРѕ.")
             Sleep, %sleepingtime%
         }
         else
         {
             SendMessage, 0x50,, 0x4190419,,A
-            SendChat("/me правой рукой клацая по бортовому компютеру ввёл данные о нарушителе")
+            SendChat("/me РїСЂР°РІРѕР№ СЂСѓРєРѕР№ РєР»Р°С†Р°СЏ РїРѕ Р±РѕСЂС‚РѕРІРѕРјСѓ РєРѕРјРїСЋС‚РµСЂСѓ РІРІС‘Р» РґР°РЅРЅС‹Рµ Рѕ РЅР°СЂСѓС€РёС‚РµР»Рµ")
             Sleep, %sleepingtime%
         }
     SendInput {F6}/su{space}
@@ -6354,21 +6354,21 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         if (partner=3)
@@ -6382,15 +6382,15 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -6399,21 +6399,21 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         city:=getPlayerCity()
         Sleep, %sleepingtime%
@@ -6432,15 +6432,15 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -6449,21 +6449,21 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         if 1055 = 1
@@ -6495,15 +6495,15 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -6512,36 +6512,36 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         SendChat("/r " Marking " to DISP: Take the code *7*, nRFR, OVER SAY **")
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -6550,36 +6550,36 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         SendChat("/r " Marking " to DISP: *70, *20 " getPlayerZone() ", code *one*, need a help! nRFR, OVER SAY **")
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -6588,36 +6588,36 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         SendChat("/r " Marking " to DISP: MAYDAY, MAYDAY, *70, *20 " getPlayerZone() ", code *null*, nRFR, OVER SAY **")
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -6626,21 +6626,21 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         if (57v = 1)
@@ -6670,15 +6670,15 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -6687,36 +6687,36 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         SendChat("/r " Marking " to DISP: *14, on *20 " getPlayerZone() ", nRFR, OVER SAY **")
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -6725,21 +6725,21 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         SendMessage, 0x50,, 0x4190419,,A
@@ -6748,24 +6748,24 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
     if ErrorLevel = EndKey:End
     {
-    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Ожидайте, выходим из меню...")
+    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РћР¶РёРґР°Р№С‚Рµ, РІС‹С…РѕРґРёРј РёР· РјРµРЅСЋ...")
     }
     sleep, 200
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы автоматически выйшли из меню рации. {00FF00}Продолжайте работу.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЂР°С†РёРё. {00FF00}РџСЂРѕРґРѕР»Р¶Р°Р№С‚Рµ СЂР°Р±РѕС‚Сѓ.")
     zavers:=0
 }
 else if (Zavers = 0 and EngVer = 0 and Radio1 = 1)
@@ -6774,27 +6774,27 @@ else if (Zavers = 0 and EngVer = 0 and Radio1 = 1)
     city:=getPlayerCity()
 addChatMessage("{FFFFFF} <<< =============================== Police {00BFFF}Radio{FFFFFF} =============================== >>>"  )
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 1]{FFFFFF} - Оповестить диспетчера о том что Вы покинули гараж в Линкольне\Адаме.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 1]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ Р’С‹ РїРѕРєРёРЅСѓР»Рё РіР°СЂР°Р¶ РІ Р›РёРЅРєРѕР»СЊРЅРµ\РђРґР°РјРµ.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 2]{FFFFFF} - Оповестить диспетчера о том что Вы патрулируете " city ".")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 2]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ Р’С‹ РїР°С‚СЂСѓР»РёСЂСѓРµС‚Рµ " city ".")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 3]{FFFFFF} - Оповестить диспетчера о том что Вы приняли последний вызов ('10-4).")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 3]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ Р’С‹ РїСЂРёРЅСЏР»Рё РїРѕСЃР»РµРґРЅРёР№ РІС‹Р·РѕРІ ('10-4).")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 4]{FFFFFF} - Оповестить диспетчера о том что у Вы берёте перерыв на обед ( Код '7').")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 4]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ Сѓ Р’С‹ Р±РµСЂС‘С‚Рµ РїРµСЂРµСЂС‹РІ РЅР° РѕР±РµРґ ( РљРѕРґ '7').")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 5]{FFFFFF} - Оповестить диспетчера о том что Вы в бедственном положении ( Код '1').")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 5]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ Р’С‹ РІ Р±РµРґСЃС‚РІРµРЅРЅРѕРј РїРѕР»РѕР¶РµРЅРёРё ( РљРѕРґ '1').")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 6]{FFFFFF} - Оповестить диспетчера о том что на Вас напали. ( Код '0').")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 6]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ РЅР° Р’Р°СЃ РЅР°РїР°Р»Рё. ( РљРѕРґ '0').")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 7]{FFFFFF} - Оповестить диспетчера о том что ситуация урегулирована ( *99 ).")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 7]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ СЃРёС‚СѓР°С†РёСЏ СѓСЂРµРіСѓР»РёСЂРѕРІР°РЅР° ( *99 ).")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 8]{FFFFFF} - Оповестить диспетчера о том что Вы запрашиваете транспортировку.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 8]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ С‚РѕРј С‡С‚Рѕ Р’С‹ Р·Р°РїСЂР°С€РёРІР°РµС‚Рµ С‚СЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРєСѓ.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 9]{FFFFFF} - Готовоя форма обращения в рацию к диспетчеру.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 9]{FFFFFF} - Р“РѕС‚РѕРІРѕСЏ С„РѕСЂРјР° РѕР±СЂР°С‰РµРЅРёСЏ РІ СЂР°С†РёСЋ Рє РґРёСЃРїРµС‚С‡РµСЂСѓ.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 0]{FFFFFF} - Оповестить диспетчера о нарушителе, используя /su.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 0]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ РЅР°СЂСѓС€РёС‚РµР»Рµ, РёСЃРїРѕР»СЊР·СѓСЏ /su.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из меню рации. {F63939}'НАЖИМАТЬ ОБЯЗАТЕЛЬНО ЕСЛИ ХОТИТЕ ВЫЙТИ'.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Р’С‹Р№С‚Рё РёР· РјРµРЅСЋ СЂР°С†РёРё. {F63939}'РќРђР–РРњРђРўР¬ РћР‘РЇР—РђРўР•Р›Р¬РќРћ Р•РЎР›Р РҐРћРўРРўР• Р’Р«Р™РўР'.")
     idtvoi:=getId()
     obratka12:
     Loop
@@ -6844,7 +6844,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
             text = %info%
             restarting:=0
         }
-        if text contains *99 for last *57V,*99 for last *66,*99 for last *55,10-4 присоединяюсь к,10-4 for,10-4 для,10-4,*99
+        if text contains *99 for last *57V,*99 for last *66,*99 for last *55,10-4 РїСЂРёСЃРѕРµРґРёРЅСЏСЋСЃСЊ Рє,10-4 for,10-4 РґР»СЏ,10-4,*99
         {
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
             FileRead, info, %checkfile%
@@ -6853,7 +6853,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-55,*55,'55
         {
             1055:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-55 {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-55 {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1057v:=0
             1066:=0
@@ -6862,7 +6862,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-57v,10-57 victor,*57v,'57v,*57 victor,'57 victor
         {
             1057v:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-57 VICTOR {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-57 VICTOR {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1055:=0
             1066:=0
@@ -6871,16 +6871,16 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-66,*66,'66
         {
             1066:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-66 {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-66 {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1057v:=0
             1055:=0
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
         }
-        if text contains кюмба
+        if text contains РєСЋРјР±Р°
         {
             sleep, 750
-            SendChat("/rb я")
+            SendChat("/rb СЏ")
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
         }
         sleep, 75
@@ -6898,14 +6898,14 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         idskr:=getIdsInAnyVehicle()
         if (idskr == -1)
         {
-            SendChat("/me опустил" Female " руку в нагрудный карман, после достал" Female " её от туда держа в руках *КПК*.")
+            SendChat("/me РѕРїСѓСЃС‚РёР»" Female " СЂСѓРєСѓ РІ РЅР°РіСЂСѓРґРЅС‹Р№ РєР°СЂРјР°РЅ, РїРѕСЃР»Рµ РґРѕСЃС‚Р°Р»" Female " РµС‘ РѕС‚ С‚СѓРґР° РґРµСЂР¶Р° РІ СЂСѓРєР°С… *РљРџРљ*.")
             Sleep, %sleepingtime%
-            SendChat("/me ввёл" Female " данные о правонарушителе, после чего вернул *КПК* обратно.")
+            SendChat("/me РІРІС‘Р»" Female " РґР°РЅРЅС‹Рµ Рѕ РїСЂР°РІРѕРЅР°СЂСѓС€РёС‚РµР»Рµ, РїРѕСЃР»Рµ С‡РµРіРѕ РІРµСЂРЅСѓР» *РљРџРљ* РѕР±СЂР°С‚РЅРѕ.")
             Sleep, %sleepingtime%
         }
         else
         {
-            SendChat("/me правой рукой клацая по бортовому компютеру ввёл данные о нарушителе")
+            SendChat("/me РїСЂР°РІРѕР№ СЂСѓРєРѕР№ РєР»Р°С†Р°СЏ РїРѕ Р±РѕСЂС‚РѕРІРѕРјСѓ РєРѕРјРїСЋС‚РµСЂСѓ РІРІС‘Р» РґР°РЅРЅС‹Рµ Рѕ РЅР°СЂСѓС€РёС‚РµР»Рµ")
             Sleep, %sleepingtime%
         }
     SendInput {F6}/su{space}
@@ -6916,43 +6916,43 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         if (partner=3)
         {
-            SendChat("/r " Rank "#" idtvoi " & " partnerPost "#" partnerId " to DISP: Выехали на смену, по маркировке - " Marking ". доступен, конец**")
+            SendChat("/r " Rank "#" idtvoi " & " partnerPost "#" partnerId " to DISP: Р’С‹РµС…Р°Р»Рё РЅР° СЃРјРµРЅСѓ, РїРѕ РјР°СЂРєРёСЂРѕРІРєРµ - " Marking ". РґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС†**")
         }
         else
         {
-            SendChat("/r " Rank "#" idtvoi " to DISP: Выехал на смену, по маркировке - " Marking ", доступен, конец**")
+            SendChat("/r " Rank "#" idtvoi " to DISP: Р’С‹РµС…Р°Р» РЅР° СЃРјРµРЅСѓ, РїРѕ РјР°СЂРєРёСЂРѕРІРєРµ - " Marking ", РґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС†**")
         }
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -6961,48 +6961,48 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         city:=getPlayerCity()
         Sleep, %sleepingtime%
         if (city == "LS")
         {
-            SendChat("/r " Marking " to DISP: Начинаем патрулирование улицы Лос-Сантоса, доступен, конец**")
+            SendChat("/r " Marking " to DISP: РќР°С‡РёРЅР°РµРј РїР°С‚СЂСѓР»РёСЂРѕРІР°РЅРёРµ СѓР»РёС†С‹ Р›РѕСЃ-РЎР°РЅС‚РѕСЃР°, РґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС†**")
         }
         else if (city = "SF")
         {
-            SendChat("/r " Marking " to DISP: Начинаем патрулирование улицы Сан-Фиерро, доступен, конец**")
+            SendChat("/r " Marking " to DISP: РќР°С‡РёРЅР°РµРј РїР°С‚СЂСѓР»РёСЂРѕРІР°РЅРёРµ СѓР»РёС†С‹ РЎР°РЅ-Р¤РёРµСЂСЂРѕ, РґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС†**")
         }
         else if (city = "LV")
         {
-            SendChat("/r " Marking " to DISP: Начинаем патрулирование улицы Лас-Вентураса, доступен, конец**")
+            SendChat("/r " Marking " to DISP: РќР°С‡РёРЅР°РµРј РїР°С‚СЂСѓР»РёСЂРѕРІР°РЅРёРµ СѓР»РёС†С‹ Р›Р°СЃ-Р’РµРЅС‚СѓСЂР°СЃР°, РґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС†**")
         }
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -7011,61 +7011,61 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         if 1055 = 1
         {
-            SendChat("/r " Marking " to DISP: 10-4 для *55, недоступен, конец**")
+            SendChat("/r " Marking " to DISP: 10-4 РґР»СЏ *55, РЅРµРґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС†**")
             1057v:=0
             1066:=0
             1055:=0
         }
         else if 1057v = 1
         {
-            SendChat("/r " Marking " to DISP: 10-4 для *57v, недоступен, конец**")
+            SendChat("/r " Marking " to DISP: 10-4 РґР»СЏ *57v, РЅРµРґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС†**")
             1055:=0
             1066:=0
             1057v:=0
         }
         else if 1066 = 1
         {
-            SendChat("/r " Marking " to DISP: 10-4 для *66, недоступен, конец**")
+            SendChat("/r " Marking " to DISP: 10-4 РґР»СЏ *66, РЅРµРґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС†**")
             1057v:=0
             1055:=0
             1066:=0
         }
         else
         {
-            SendChat("/r " Marking " to DISP: 10-4 для последнего вызова, недоступен, конец**")
+            SendChat("/r " Marking " to DISP: 10-4 РґР»СЏ РїРѕСЃР»РµРґРЅРµРіРѕ РІС‹Р·РѕРІР°, РЅРµРґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС†**")
         }
         FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -7074,36 +7074,36 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
-        SendChat("/r " Marking " to DISP: Берём код *7*, недоступен, конец связи**")
+        SendChat("/r " Marking " to DISP: Р‘РµСЂС‘Рј РєРѕРґ *7*, РЅРµРґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС† СЃРІСЏР·Рё**")
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -7112,36 +7112,36 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
-        SendChat("/r " Marking " to DISP: *70, *20 " getPlayerZone() ", код*один*, нужна помощь! недоступен, конец**")
+        SendChat("/r " Marking " to DISP: *70, *20 " getPlayerZone() ", РєРѕРґ*РѕРґРёРЅ*, РЅСѓР¶РЅР° РїРѕРјРѕС‰СЊ! РЅРµРґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС†**")
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -7150,36 +7150,36 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
-        SendChat("/r " Marking " to DISP: МэйДей, МэйДей *70, *20 " getPlayerZone() ", код*ноль*,  конец**")
+        SendChat("/r " Marking " to DISP: РњСЌР№Р”РµР№, РњСЌР№Р”РµР№ *70, *20 " getPlayerZone() ", РєРѕРґ*РЅРѕР»СЊ*,  РєРѕРЅРµС†**")
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -7188,54 +7188,54 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         if (57v = 1)
         {
-            SendChat("/r " Marking " to DISP: *99 для последнего *57V, доступен, конец связи**")
+            SendChat("/r " Marking " to DISP: *99 РґР»СЏ РїРѕСЃР»РµРґРЅРµРіРѕ *57V, РґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС† СЃРІСЏР·Рё**")
             57v := 0
         }
         else if (66c = 1)
         {
-            SendChat("/r " Marking " to DISP: *99 для последнего *66, доступен, конец связи**")
+            SendChat("/r " Marking " to DISP: *99 РґР»СЏ РїРѕСЃР»РµРґРЅРµРіРѕ *66, РґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС† СЃРІСЏР·Рё**")
             57f := 0
         }
         else if (code0 = 1)
         {
-            SendChat("/r " Marking " to DISP: *99 для последнего кода *ноль* , доступен, конец связи**")
+            SendChat("/r " Marking " to DISP: *99 РґР»СЏ РїРѕСЃР»РµРґРЅРµРіРѕ РєРѕРґР° *РЅРѕР»СЊ* , РґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС† СЃРІСЏР·Рё**")
             code0 := 0
         }
         else
         {
-            SendChat("/r " Marking " to DISP: *99 для последнего вызова, доступен, конец связи**")
+            SendChat("/r " Marking " to DISP: *99 РґР»СЏ РїРѕСЃР»РµРґРЅРµРіРѕ РІС‹Р·РѕРІР°, РґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС† СЃРІСЏР·Рё**")
         }
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -7244,36 +7244,36 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
-        SendChat("/r " Marking " to DISP: *14, по *20 " getPlayerZone() ", недоступен, конец**")
+        SendChat("/r " Marking " to DISP: *14, РїРѕ *20 " getPlayerZone() ", РЅРµРґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС†**")
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -7282,47 +7282,47 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         SendMessage, 0x50,, 0x4190419,,A
-    SendInput {F6}/r %Marking% to DISP: , доступен, конец связи**{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}
+    SendInput {F6}/r %Marking% to DISP: , РґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС† СЃРІСЏР·Рё**{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}{left}
         KeyWait, Enter, D
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
     if ErrorLevel = EndKey:End
     {
-    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Ожидайте, выходим из меню...")
+    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РћР¶РёРґР°Р№С‚Рµ, РІС‹С…РѕРґРёРј РёР· РјРµРЅСЋ...")
     }
     sleep, 200
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы автоматически выйшли из меню рации. {00FF00}Продолжайте работу.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЂР°С†РёРё. {00FF00}РџСЂРѕРґРѕР»Р¶Р°Р№С‚Рµ СЂР°Р±РѕС‚Сѓ.")
     zavers:=0
 }
 else if (Radio2 = 1)
@@ -7330,25 +7330,25 @@ else if (Radio2 = 1)
     zavers:=1
 addChatMessage("{FFFFFF} <<< =============================== Police {00BFFF}Radio{FFFFFF} =============================== >>>"  )
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 1]{FFFFFF} - Доложить о том что Вы покинули гараж.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 1]{FFFFFF} - Р”РѕР»РѕР¶РёС‚СЊ Рѕ С‚РѕРј С‡С‚Рѕ Р’С‹ РїРѕРєРёРЅСѓР»Рё РіР°СЂР°Р¶.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 2]{FFFFFF} - Доложить о том что Вы патрулируете.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 2]{FFFFFF} - Р”РѕР»РѕР¶РёС‚СЊ Рѕ С‚РѕРј С‡С‚Рѕ Р’С‹ РїР°С‚СЂСѓР»РёСЂСѓРµС‚Рµ.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 3]{FFFFFF} - Доложить о том что Вы стоите на посту.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 3]{FFFFFF} - Р”РѕР»РѕР¶РёС‚СЊ Рѕ С‚РѕРј С‡С‚Рѕ Р’С‹ СЃС‚РѕРёС‚Рµ РЅР° РїРѕСЃС‚Сѓ.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 4]{FFFFFF} - Доложить о том что Вы ведёте воздушный патруль.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 4]{FFFFFF} - Р”РѕР»РѕР¶РёС‚СЊ Рѕ С‚РѕРј С‡С‚Рѕ Р’С‹ РІРµРґС‘С‚Рµ РІРѕР·РґСѓС€РЅС‹Р№ РїР°С‚СЂСѓР»СЊ.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 5]{FFFFFF} - Доложить о том что Вы вы потеряли правонарушителя.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 5]{FFFFFF} - Р”РѕР»РѕР¶РёС‚СЊ Рѕ С‚РѕРј С‡С‚Рѕ Р’С‹ РІС‹ РїРѕС‚РµСЂСЏР»Рё РїСЂР°РІРѕРЅР°СЂСѓС€РёС‚РµР»СЏ.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 6]{FFFFFF} - Доложить о том что Вам нужен вертолёт.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 6]{FFFFFF} - Р”РѕР»РѕР¶РёС‚СЊ Рѕ С‚РѕРј С‡С‚Рѕ Р’Р°Рј РЅСѓР¶РµРЅ РІРµСЂС‚РѕР»С‘С‚.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 7]{FFFFFF} - Доложить о том что на Вас напали.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 7]{FFFFFF} - Р”РѕР»РѕР¶РёС‚СЊ Рѕ С‚РѕРј С‡С‚Рѕ РЅР° Р’Р°СЃ РЅР°РїР°Р»Рё.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 8]{FFFFFF} - Оповестить диспетчера о нарушителе, используя /su.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 8]{FFFFFF} - РћРїРѕРІРµСЃС‚РёС‚СЊ РґРёСЃРїРµС‚С‡РµСЂР° Рѕ РЅР°СЂСѓС€РёС‚РµР»Рµ, РёСЃРїРѕР»СЊР·СѓСЏ /su.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 9]{FFFFFF} - Доложить о том что вы ведёте погоню.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[Numpad 9]{FFFFFF} - Р”РѕР»РѕР¶РёС‚СЊ Рѕ С‚РѕРј С‡С‚Рѕ РІС‹ РІРµРґС‘С‚Рµ РїРѕРіРѕРЅСЋ.")
     sleep, 50
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из меню рации. {F63939}'НАЖИМАТЬ ОБЯЗАТЕЛЬНО ЕСЛИ ХОТИТЕ ВЫЙТИ'.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Р’С‹Р№С‚Рё РёР· РјРµРЅСЋ СЂР°С†РёРё. {F63939}'РќРђР–РРњРђРўР¬ РћР‘РЇР—РђРўР•Р›Р¬РќРћ Р•РЎР›Р РҐРћРўРРўР• Р’Р«Р™РўР'.")
     idtvoi:=getId()
     obratka22:
     Loop
@@ -7398,7 +7398,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
             text = %info%
             restarting:=0
         }
-        if text contains *99 for last *57V,*99 for last *66,*99 for last *55,10-4 присоединяюсь к,10-4 for,10-4 для,10-4,*99
+        if text contains *99 for last *57V,*99 for last *66,*99 for last *55,10-4 РїСЂРёСЃРѕРµРґРёРЅСЏСЋСЃСЊ Рє,10-4 for,10-4 РґР»СЏ,10-4,*99
         {
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
             FileRead, info, %checkfile%
@@ -7407,7 +7407,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-55,*55,'55
         {
             1055:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-55 {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-55 {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1057v:=0
             1066:=0
@@ -7416,7 +7416,7 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-57v,10-57 victor,*57v,'57v,*57 victor,'57 victor
         {
             1057v:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-57 VICTOR {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-57 VICTOR {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1055:=0
             1066:=0
@@ -7425,16 +7425,16 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if text contains 10-66,*66,'66
         {
             1066:=1
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Поступила информация о {FF0000}10-66 {FFFFFF}примите вызов используя меню рации...")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕСЃС‚СѓРїРёР»Р° РёРЅС„РѕСЂРјР°С†РёСЏ Рѕ {FF0000}10-66 {FFFFFF}РїСЂРёРјРёС‚Рµ РІС‹Р·РѕРІ РёСЃРїРѕР»СЊР·СѓСЏ РјРµРЅСЋ СЂР°С†РёРё...")
             showGameText("RADIO", 1000, 1)
             1057v:=0
             1055:=0
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
         }
-        if text contains кюмба
+        if text contains РєСЋРјР±Р°
         {
             sleep, 750
-            SendChat("/rb я")
+            SendChat("/rb СЏ")
             FileDelete, %A_MyDocuments%\GTA San Andreas User Files\SAMP\chatlog.txt
         }
         sleep, 75
@@ -7451,43 +7451,43 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         if (Partner>=1)
         {
-            SendChat("/r " Tag " Докладывает " surname " | Напарник: " partnerSurname " | Статус: Выехали из " Org6 ".")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РќР°РїР°СЂРЅРёРє: " partnerSurname " | РЎС‚Р°С‚СѓСЃ: Р’С‹РµС…Р°Р»Рё РёР· " Org6 ".")
         }
         else
         {
-            SendChat("/r " Tag " Докладывает " surname " | Без напарника | Статус: Выехал из " Org6 ".")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | Р‘РµР· РЅР°РїР°СЂРЅРёРєР° | РЎС‚Р°С‚СѓСЃ: Р’С‹РµС…Р°Р» РёР· " Org6 ".")
         }
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     Else
@@ -7496,43 +7496,43 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         if (partner>=1)
         {
-            SendChat("/r " Tag " Докладывает " surname " | Проводим патруль района " getPlayerZone() " | Статус: Спокойно.")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РџСЂРѕРІРѕРґРёРј РїР°С‚СЂСѓР»СЊ СЂР°Р№РѕРЅР° " getPlayerZone() " | РЎС‚Р°С‚СѓСЃ: РЎРїРѕРєРѕР№РЅРѕ.")
         }
         else
         {
-            SendChat("/r " Tag " Докладывает " surname " | Провожу патруль района " getPlayerZone() " | Статус: Спокойно.")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РџСЂРѕРІРѕР¶Сѓ РїР°С‚СЂСѓР»СЊ СЂР°Р№РѕРЅР° " getPlayerZone() " | РЎС‚Р°С‚СѓСЃ: РЎРїРѕРєРѕР№РЅРѕ.")
         }
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -7541,43 +7541,43 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         if (partner>=1)
         {
-            SendChat("/r " Tag " Докладывает " surname " | Пост: " getPlayerZone() " | Напарник: " partnerSurname " | Статус: Стабильно.")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РџРѕСЃС‚: " getPlayerZone() " | РќР°РїР°СЂРЅРёРє: " partnerSurname " | РЎС‚Р°С‚СѓСЃ: РЎС‚Р°Р±РёР»СЊРЅРѕ.")
         }
         else
         {
-            SendChat("/r " Tag " Докладывает " surname " | Пост: " getPlayerZone() " | Без напарника | Статус: Стабильно.")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РџРѕСЃС‚: " getPlayerZone() " | Р‘РµР· РЅР°РїР°СЂРЅРёРєР° | РЎС‚Р°С‚СѓСЃ: РЎС‚Р°Р±РёР»СЊРЅРѕ.")
         }
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -7586,43 +7586,43 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         if (partner>=1)
         {
-            SendChat("/r " Tag " Докладывает " surname " | Ведём воздушный патруль города " getPlayerCity() " | Статус: Стабильно.")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | Р’РµРґС‘Рј РІРѕР·РґСѓС€РЅС‹Р№ РїР°С‚СЂСѓР»СЊ РіРѕСЂРѕРґР° " getPlayerCity() " | РЎС‚Р°С‚СѓСЃ: РЎС‚Р°Р±РёР»СЊРЅРѕ.")
         }
         else
         {
-            SendChat("/r " Tag " Докладывает " surname " | Веду воздушный патруль города " getPlayerCity() " | Статус: Стабильно.")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | Р’РµРґСѓ РІРѕР·РґСѓС€РЅС‹Р№ РїР°С‚СЂСѓР»СЊ РіРѕСЂРѕРґР° " getPlayerCity() " | РЎС‚Р°С‚СѓСЃ: РЎС‚Р°Р±РёР»СЊРЅРѕ.")
         }
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -7631,43 +7631,43 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         if (partner>=1)
         {
-            SendChat("/r " Tag " Докладывает " surname " | Правонарушитель скрылся где-то в районе*" getPlayerZone() "*.")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РџСЂР°РІРѕРЅР°СЂСѓС€РёС‚РµР»СЊ СЃРєСЂС‹Р»СЃСЏ РіРґРµ-С‚Рѕ РІ СЂР°Р№РѕРЅРµ*" getPlayerZone() "*.")
         }
         else
         {
-            SendChat("/r " Tag " Докладывает " surname " | Правонарушитель скрылся где-то в районе*" getPlayerZone() "*.")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РџСЂР°РІРѕРЅР°СЂСѓС€РёС‚РµР»СЊ СЃРєСЂС‹Р»СЃСЏ РіРґРµ-С‚Рѕ РІ СЂР°Р№РѕРЅРµ*" getPlayerZone() "*.")
         }
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -7676,43 +7676,43 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         if (partner>=1)
         {
-            SendChat("/r " Tag " Докладывает " surname " | Напарник: " partnerSurname " | Нужен вертолёт на " getPlayerZone() ".")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РќР°РїР°СЂРЅРёРє: " partnerSurname " | РќСѓР¶РµРЅ РІРµСЂС‚РѕР»С‘С‚ РЅР° " getPlayerZone() ".")
         }
         else
         {
-            SendChat("/r " Tag " Докладывает " surname " | Нуждаюсь в воздушной поддержке на " getPlayerZone() ".")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РќСѓР¶РґР°СЋСЃСЊ РІ РІРѕР·РґСѓС€РЅРѕР№ РїРѕРґРґРµСЂР¶РєРµ РЅР° " getPlayerZone() ".")
         }
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -7721,43 +7721,43 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         if (partner>=1)
         {
-            SendChat("/r " Tag " Докладывает " surname " | Напарник: " partnerSurname " | Запрашиваю поддержку на " getPlayerZone() ".")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | РќР°РїР°СЂРЅРёРє: " partnerSurname " | Р—Р°РїСЂР°С€РёРІР°СЋ РїРѕРґРґРµСЂР¶РєСѓ РЅР° " getPlayerZone() ".")
         }
         else
         {
-            SendChat("/r " Tag " Докладывает " surname " | Запрашиваю срочную поддержку на " getPlayerZone() ".")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | Р—Р°РїСЂР°С€РёРІР°СЋ СЃСЂРѕС‡РЅСѓСЋ РїРѕРґРґРµСЂР¶РєСѓ РЅР° " getPlayerZone() ".")
         }
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс. ")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ. ")
         }
     }
     else
@@ -7767,15 +7767,15 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         if (idskr == -1)
         {
             SendMessage, 0x50,, 0x4190419,,A
-            SendChat("/me опустил" Female " руку в нагрудный карман, после достал" Female " её от туда держа в руках *КПК*.")
+            SendChat("/me РѕРїСѓСЃС‚РёР»" Female " СЂСѓРєСѓ РІ РЅР°РіСЂСѓРґРЅС‹Р№ РєР°СЂРјР°РЅ, РїРѕСЃР»Рµ РґРѕСЃС‚Р°Р»" Female " РµС‘ РѕС‚ С‚СѓРґР° РґРµСЂР¶Р° РІ СЂСѓРєР°С… *РљРџРљ*.")
             Sleep, %sleepingtime%
-            SendChat("/me ввёл" Female " данные о правонарушителе, после чего вернул *КПК* обратно.")
+            SendChat("/me РІРІС‘Р»" Female " РґР°РЅРЅС‹Рµ Рѕ РїСЂР°РІРѕРЅР°СЂСѓС€РёС‚РµР»Рµ, РїРѕСЃР»Рµ С‡РµРіРѕ РІРµСЂРЅСѓР» *РљРџРљ* РѕР±СЂР°С‚РЅРѕ.")
             Sleep, %sleepingtime%
         }
         else
         {
             SendMessage, 0x50,, 0x4190419,,A
-            SendChat("/me правой рукой клацая по бортовому компютеру ввёл данные о нарушителе")
+            SendChat("/me РїСЂР°РІРѕР№ СЂСѓРєРѕР№ РєР»Р°С†Р°СЏ РїРѕ Р±РѕСЂС‚РѕРІРѕРјСѓ РєРѕРјРїСЋС‚РµСЂСѓ РІРІС‘Р» РґР°РЅРЅС‹Рµ Рѕ РЅР°СЂСѓС€РёС‚РµР»Рµ")
             Sleep, %sleepingtime%
         }
     SendInput {F6}/su{space}
@@ -7786,50 +7786,50 @@ addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - {F63939}[End]{FFFFFF} - Выйти из ме
         Random, randt, 1, 3
         if (randt = 1)
         {
-            SendChat("/do На груди " name "" Female12 " висела полицейская рация.")
+            SendChat("/do РќР° РіСЂСѓРґРё " name "" Female12 " РІРёСЃРµР»Р° РїРѕР»РёС†РµР№СЃРєР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me потянул" Female4 " рукой к рации, зажал" Female " кнопку *R* на рации. после что-то произнес" Female6 "")
+            SendChat("/me РїРѕС‚СЏРЅСѓР»" Female4 " СЂСѓРєРѕР№ Рє СЂР°С†РёРё, Р·Р°Р¶Р°Р»" Female " РєРЅРѕРїРєСѓ *R* РЅР° СЂР°С†РёРё. РїРѕСЃР»Рµ С‡С‚Рѕ-С‚Рѕ РїСЂРѕРёР·РЅРµСЃ" Female6 "")
         }
         if (randt = 2)
         {
-            SendChat("/me снял" Female " полицейскую рацию с бронежилета")
+            SendChat("/me СЃРЅСЏР»" Female " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ СЃ Р±СЂРѕРЅРµР¶РёР»РµС‚Р°")
             Sleep, %sleepingtime%
-            SendChat("/me поднес" Female6 " полицейскую рацию ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РїРѕРґРЅРµСЃ" Female6 " РїРѕР»РёС†РµР№СЃРєСѓСЋ СЂР°С†РёСЋ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         if (randt = 3)
         {
-            SendChat("/do На поясе у " name ", была включенная и работоспособная рация.")
+            SendChat("/do РќР° РїРѕСЏСЃРµ Сѓ " name ", Р±С‹Р»Р° РІРєР»СЋС‡РµРЅРЅР°СЏ Рё СЂР°Р±РѕС‚РѕСЃРїРѕСЃРѕР±РЅР°СЏ СЂР°С†РёСЏ.")
             Sleep, %sleepingtime%
-            SendChat("/me взял" Female " рацию, поднес" Female6 " её ко рту, после произнес" Female6 " что-то")
+            SendChat("/me РІР·СЏР»" Female " СЂР°С†РёСЋ, РїРѕРґРЅРµСЃ" Female6 " РµС‘ РєРѕ СЂС‚Сѓ, РїРѕСЃР»Рµ РїСЂРѕРёР·РЅРµСЃ" Female6 " С‡С‚Рѕ-С‚Рѕ")
         }
         Sleep, %sleepingtime%
         if (partner >= 1)
         {
-            SendChat("/r " Tag " Докладывает " surname " | Ведём погоню за " M " | Номера: [AT" su "" City "] | Район: " getPlayerZone() ".")
+            SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | Р’РµРґС‘Рј РїРѕРіРѕРЅСЋ Р·Р° " M " | РќРѕРјРµСЂР°: [AT" su "" City "] | Р Р°Р№РѕРЅ: " getPlayerZone() ".")
         }
         else
-        SendChat("/r " Tag " Докладывает " surname " | Веду погоню за " M " | Номера: [AT" su "" City "] | Район: " getPlayerZone() ".")
+        SendChat("/r " Tag " Р”РѕРєР»Р°РґС‹РІР°РµС‚ " surname " | Р’РµРґСѓ РїРѕРіРѕРЅСЋ Р·Р° " M " | РќРѕРјРµСЂР°: [AT" su "" City "] | Р Р°Р№РѕРЅ: " getPlayerZone() ".")
         Sleep, %sleepingtime%
         if (randt = 1)
         {
-            SendChat("/do Закончив говорить " name " перестал" Female " зажимать кнопку *R*.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРµСЂРµСЃС‚Р°Р»" Female " Р·Р°Р¶РёРјР°С‚СЊ РєРЅРѕРїРєСѓ *R*.")
         }
         if (randt = 2)
         {
-            SendChat("/do Закончив говорить " name " повесил" Female " рацию обратно на бронежилет.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕРІРµСЃРёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° Р±СЂРѕРЅРµР¶РёР»РµС‚.")
         }
         if (randt = 3)
         {
-            SendChat("/do Закончив говорить " name " положил" Female " рацию обратно на пояс.")
+            SendChat("/do Р—Р°РєРѕРЅС‡РёРІ РіРѕРІРѕСЂРёС‚СЊ " name " РїРѕР»РѕР¶РёР»" Female " СЂР°С†РёСЋ РѕР±СЂР°С‚РЅРѕ РЅР° РїРѕСЏСЃ.")
         }
     }
     else
     if ErrorLevel = EndKey:End
     {
-    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Ожидайте, выходим из меню...")
+    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РћР¶РёРґР°Р№С‚Рµ, РІС‹С…РѕРґРёРј РёР· РјРµРЅСЋ...")
     }
     sleep, 200
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы автоматически выйшли из меню рации. {00FF00}Продолжайте работу.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЂР°С†РёРё. {00FF00}РџСЂРѕРґРѕР»Р¶Р°Р№С‚Рµ СЂР°Р±РѕС‚Сѓ.")
     zavers:=0
 }
 return
@@ -7843,7 +7843,7 @@ sc3B::
     line_num  := getDialogLineNumber()
     line_text  := getDialogLine(line_num)
     sleep, 50
-Showdialog(2, "{00FF00}[ADJUTANT]{FFFFFF} - Помощь по функциям биндера.", "{FF0000}[1]{FFFFFF} - Информация о забинденых клавишах.`n{FF0000}[2]{FFFFFF} - Помощь по роли сотрудника " Organ ".`n{FF0000}[3]{FFFFFF} - Единичные\Десятичные коды.`n{FF0000}[4]{FFFFFF} - Поставить\Снять паузу отыгровки 'автогана'`n{FF0000}[5]{FFFFFF} - Смена маркировки. | Сейчас у вас: {00FF00} " marking "`n{FF0000}[6]{FFFFFF} - Перезагрузка биндера.`n{FF0000}[7]{FFFFFF} - Автор и связь с ним.`n{FF0000}[8]{FFFFFF} - Меню 'Напарник'{FFFFFF}.`n{FF0000}[9]{FFFFFF} - Смена скорости /limit. | Сейчас у вас:{00FF00} " limit "{FFFFFF}.", "ВЫБОР")
+Showdialog(2, "{00FF00}[ADJUTANT]{FFFFFF} - РџРѕРјРѕС‰СЊ РїРѕ С„СѓРЅРєС†РёСЏРј Р±РёРЅРґРµСЂР°.", "{FF0000}[1]{FFFFFF} - РРЅС„РѕСЂРјР°С†РёСЏ Рѕ Р·Р°Р±РёРЅРґРµРЅС‹С… РєР»Р°РІРёС€Р°С….`n{FF0000}[2]{FFFFFF} - РџРѕРјРѕС‰СЊ РїРѕ СЂРѕР»Рё СЃРѕС‚СЂСѓРґРЅРёРєР° " Organ ".`n{FF0000}[3]{FFFFFF} - Р•РґРёРЅРёС‡РЅС‹Рµ\Р”РµСЃСЏС‚РёС‡РЅС‹Рµ РєРѕРґС‹.`n{FF0000}[4]{FFFFFF} - РџРѕСЃС‚Р°РІРёС‚СЊ\РЎРЅСЏС‚СЊ РїР°СѓР·Сѓ РѕС‚С‹РіСЂРѕРІРєРё 'Р°РІС‚РѕРіР°РЅР°'`n{FF0000}[5]{FFFFFF} - РЎРјРµРЅР° РјР°СЂРєРёСЂРѕРІРєРё. | РЎРµР№С‡Р°СЃ Сѓ РІР°СЃ: {00FF00} " marking "`n{FF0000}[6]{FFFFFF} - РџРµСЂРµР·Р°РіСЂСѓР·РєР° Р±РёРЅРґРµСЂР°.`n{FF0000}[7]{FFFFFF} - РђРІС‚РѕСЂ Рё СЃРІСЏР·СЊ СЃ РЅРёРј.`n{FF0000}[8]{FFFFFF} - РњРµРЅСЋ 'РќР°РїР°СЂРЅРёРє'{FFFFFF}.`n{FF0000}[9]{FFFFFF} - РЎРјРµРЅР° СЃРєРѕСЂРѕСЃС‚Рё /limit. | РЎРµР№С‡Р°СЃ Сѓ РІР°СЃ:{00FF00} " limit "{FFFFFF}.", "Р’Р«Р‘РћР ")
 }
 menu:=1
 return
@@ -7875,20 +7875,20 @@ if (menu == 1)
         line_text  := getDialogLine(line_num)
         if (line_num == 1)
         {
-        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - ИНФОРМАЦИЯ О КЛАВИШАХ", "{FFFFFF}=============================================================================================`n{FFFF00}" NameKey1 "{FFFFFF} - Ситуация 'Трафик-стоп' (*55).`n{FFFF00}" NameKey2 "{FFFFFF} - Ситуация 'Арест правонарушителя'(*57v and *66).`n{FFFF00}" NameKey3 "{FFFFFF} - Ситуация 'Теракт'.`n{FFFF00}" NameKey4 "{FFFFFF} - Меню 'Рация'.`n`n{FFFF00}" NameKey5 "{FFFFFF} - Зафиксироваться на ближайшей машине, по бортовому компютеру.`n{FFFF00}" NameKey6 "{FFFFFF} - Снять фиксацию машины из бортового компютера.`n`n{FFFF00}" NameKey7 "{FFFFFF} - Установить лимит машине '" limit "' км\час.`n{FFFF00}" NameKey8 "{FFFFFF} - Отыграть часы + автоматическое F8.`n`n{FFFF00}/mask{FFFFFF} - Отыграть маску и одеть её.`n{FFFF00}/reps{FFFFFF} - Попросить администрацию проследить за вами\ситуацией.`n{FFFFFF}=============================================================================================`n", "X")
+        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - РРќР¤РћР РњРђР¦РРЇ Рћ РљР›РђР’РРЁРђРҐ", "{FFFFFF}=============================================================================================`n{FFFF00}" NameKey1 "{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ 'РўСЂР°С„РёРє-СЃС‚РѕРї' (*55).`n{FFFF00}" NameKey2 "{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ 'РђСЂРµСЃС‚ РїСЂР°РІРѕРЅР°СЂСѓС€РёС‚РµР»СЏ'(*57v and *66).`n{FFFF00}" NameKey3 "{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ 'РўРµСЂР°РєС‚'.`n{FFFF00}" NameKey4 "{FFFFFF} - РњРµРЅСЋ 'Р Р°С†РёСЏ'.`n`n{FFFF00}" NameKey5 "{FFFFFF} - Р—Р°С„РёРєСЃРёСЂРѕРІР°С‚СЊСЃСЏ РЅР° Р±Р»РёР¶Р°Р№С€РµР№ РјР°С€РёРЅРµ, РїРѕ Р±РѕСЂС‚РѕРІРѕРјСѓ РєРѕРјРїСЋС‚РµСЂСѓ.`n{FFFF00}" NameKey6 "{FFFFFF} - РЎРЅСЏС‚СЊ С„РёРєСЃР°С†РёСЋ РјР°С€РёРЅС‹ РёР· Р±РѕСЂС‚РѕРІРѕРіРѕ РєРѕРјРїСЋС‚РµСЂР°.`n`n{FFFF00}" NameKey7 "{FFFFFF} - РЈСЃС‚Р°РЅРѕРІРёС‚СЊ Р»РёРјРёС‚ РјР°С€РёРЅРµ '" limit "' РєРј\С‡Р°СЃ.`n{FFFF00}" NameKey8 "{FFFFFF} - РћС‚С‹РіСЂР°С‚СЊ С‡Р°СЃС‹ + Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ F8.`n`n{FFFF00}/mask{FFFFFF} - РћС‚С‹РіСЂР°С‚СЊ РјР°СЃРєСѓ Рё РѕРґРµС‚СЊ РµС‘.`n{FFFF00}/reps{FFFFFF} - РџРѕРїСЂРѕСЃРёС‚СЊ Р°РґРјРёРЅРёСЃС‚СЂР°С†РёСЋ РїСЂРѕСЃР»РµРґРёС‚СЊ Р·Р° РІР°РјРё\СЃРёС‚СѓР°С†РёРµР№.`n{FFFFFF}=============================================================================================`n", "X")
             return
         }
         else if (line_num == 2)
         {
             menu := 0
-        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP СОТРУДНИК SAPD (1 стр).", "{FFFFFF}=============================================================================================`n{00BFFF}Правила Дорожного Движения:`n`n{FFFF00}1. {FFFFFF}Движение пешеходов по проезжей части, по рельсовым путям запрещено.`n{FFFF00}2. {FFFFFF}Движение транспортного средства должно проходить по право-сторонней линии.`n{FFFF00}3. {FFFFFF}Запрещается движение по тротуарам, обочинам, по трамвайным рельсам и ж/д путям.`n{FFFF00}4. {FFFFFF}Запрещается движение транспортных средств по путям встречного направления, кроме случаев обгона.`n{FFFF00}5. {FFFFFF}Запрещается управлять транспортным средством в наркотическом или алкогольном опьянении.`n{FFFF00}6. {FFFFFF}Водители обязаны предоставлять свое ТС офицеру полиции, солдату национальной гвардии, агенту ФБР или`n    сотруднику ДПС, если оно требуется для исполнения его служебных обязанностей.`n{FFFF00}7. {FFFFFF}Скорость передвижение:`n {FFFFFF}В {FF0000}жилых{FFFFFF} и пешеходных районах не больше{FF0000} - {00FF00}20 км\ч.`n {FFFFFF}На {FF0000}населённом{FFFFFF} пункте максимально {FF0000}- {00FF00}60 км\ч.`n {FFFFFF}За {FF0000}городом{FFFFFF} допустимая скорость {FF0000}- {00FF00}110 км\ч. `n{FFFFFF}=============================================================================================`n{00BFFF}Траффик стоп – {FFFFFF}это остановка автомобиля с причиной проверки водителя.`n`n{FFFFFF}При каких случаях разрешается проводить траффик стоп:`n{FFFF00}1. {FFFFFF}Если водитель {FF0000}водит крайне неаккуратно{FFFFFF}, то есть виляет в разные стороны.`n{FFFF00}2. {FFFFFF}Транспорт или же сидящие в нем люди находятся {FF0000}в розыске.`n{FFFF00}3. {FFFFFF}Если водитель нарушил {FF0000}ПДД.`n`n{FFFFFF}Первым делом, вы должны включить {FF0000}спец. сигналы и попросить водителя снизить скорость{FFFFFF} и`n{FFFFFF}прижаться к обочине{FFFFFF}. Если после двух требований остановиться `n{00FF00}(Интервал между требованиями 15секунд) {FFFFFF}водитель {FF0000}не отреагировал, то объявляется преследование.`n`n{FFFFFF}Если же водитель остановился после {FF0000}1-2-го требования{FFFFFF}, то смело приступаем к траффик стопу.`n`n{FFFFFF}Первое, что вы должны сделать – {00FF00}попросить водителя заглушить двигатель{FFFFFF}, приготовить документы`nи держать руки на руле.`n`n{FFFFFF}Далее выходите из машины, руки сразу же ставите на кобуру и двигайтесь к задней части авто. `n{FFFFFF}Оставляйте на фаре отпечаток пальца (для того, чтобы провести анализ, в случае того, если вас `n{FFFFFF}убьют.) и двигайтесь к водителю. Осматривайте салон и водителя, просите его показать `n{FFFFFF}документы. Далее, если у вас есть напарник, просите его пробить человека по базе данных, `n{FFFFFF}если же его нет, берете документы и едете в круизер и проверяйте один.`n`n{FFFFFF}Продолжение на {FF0000}<2-ой странице>`n{FFFFFF}=============================================================================================`n", "2 СТР")
+        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP РЎРћРўР РЈР”РќРРљ SAPD (1 СЃС‚СЂ).", "{FFFFFF}=============================================================================================`n{00BFFF}РџСЂР°РІРёР»Р° Р”РѕСЂРѕР¶РЅРѕРіРѕ Р”РІРёР¶РµРЅРёСЏ:`n`n{FFFF00}1. {FFFFFF}Р”РІРёР¶РµРЅРёРµ РїРµС€РµС…РѕРґРѕРІ РїРѕ РїСЂРѕРµР·Р¶РµР№ С‡Р°СЃС‚Рё, РїРѕ СЂРµР»СЊСЃРѕРІС‹Рј РїСѓС‚СЏРј Р·Р°РїСЂРµС‰РµРЅРѕ.`n{FFFF00}2. {FFFFFF}Р”РІРёР¶РµРЅРёРµ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕРіРѕ СЃСЂРµРґСЃС‚РІР° РґРѕР»Р¶РЅРѕ РїСЂРѕС…РѕРґРёС‚СЊ РїРѕ РїСЂР°РІРѕ-СЃС‚РѕСЂРѕРЅРЅРµР№ Р»РёРЅРёРё.`n{FFFF00}3. {FFFFFF}Р—Р°РїСЂРµС‰Р°РµС‚СЃСЏ РґРІРёР¶РµРЅРёРµ РїРѕ С‚СЂРѕС‚СѓР°СЂР°Рј, РѕР±РѕС‡РёРЅР°Рј, РїРѕ С‚СЂР°РјРІР°Р№РЅС‹Рј СЂРµР»СЊСЃР°Рј Рё Р¶/Рґ РїСѓС‚СЏРј.`n{FFFF00}4. {FFFFFF}Р—Р°РїСЂРµС‰Р°РµС‚СЃСЏ РґРІРёР¶РµРЅРёРµ С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… СЃСЂРµРґСЃС‚РІ РїРѕ РїСѓС‚СЏРј РІСЃС‚СЂРµС‡РЅРѕРіРѕ РЅР°РїСЂР°РІР»РµРЅРёСЏ, РєСЂРѕРјРµ СЃР»СѓС‡Р°РµРІ РѕР±РіРѕРЅР°.`n{FFFF00}5. {FFFFFF}Р—Р°РїСЂРµС‰Р°РµС‚СЃСЏ СѓРїСЂР°РІР»СЏС‚СЊ С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹Рј СЃСЂРµРґСЃС‚РІРѕРј РІ РЅР°СЂРєРѕС‚РёС‡РµСЃРєРѕРј РёР»Рё Р°Р»РєРѕРіРѕР»СЊРЅРѕРј РѕРїСЊСЏРЅРµРЅРёРё.`n{FFFF00}6. {FFFFFF}Р’РѕРґРёС‚РµР»Рё РѕР±СЏР·Р°РЅС‹ РїСЂРµРґРѕСЃС‚Р°РІР»СЏС‚СЊ СЃРІРѕРµ РўРЎ РѕС„РёС†РµСЂСѓ РїРѕР»РёС†РёРё, СЃРѕР»РґР°С‚Сѓ РЅР°С†РёРѕРЅР°Р»СЊРЅРѕР№ РіРІР°СЂРґРёРё, Р°РіРµРЅС‚Сѓ Р¤Р‘Р  РёР»Рё`n    СЃРѕС‚СЂСѓРґРЅРёРєСѓ Р”РџРЎ, РµСЃР»Рё РѕРЅРѕ С‚СЂРµР±СѓРµС‚СЃСЏ РґР»СЏ РёСЃРїРѕР»РЅРµРЅРёСЏ РµРіРѕ СЃР»СѓР¶РµР±РЅС‹С… РѕР±СЏР·Р°РЅРЅРѕСЃС‚РµР№.`n{FFFF00}7. {FFFFFF}РЎРєРѕСЂРѕСЃС‚СЊ РїРµСЂРµРґРІРёР¶РµРЅРёРµ:`n {FFFFFF}Р’ {FF0000}Р¶РёР»С‹С…{FFFFFF} Рё РїРµС€РµС…РѕРґРЅС‹С… СЂР°Р№РѕРЅР°С… РЅРµ Р±РѕР»СЊС€Рµ{FF0000} - {00FF00}20 РєРј\С‡.`n {FFFFFF}РќР° {FF0000}РЅР°СЃРµР»С‘РЅРЅРѕРј{FFFFFF} РїСѓРЅРєС‚Рµ РјР°РєСЃРёРјР°Р»СЊРЅРѕ {FF0000}- {00FF00}60 РєРј\С‡.`n {FFFFFF}Р—Р° {FF0000}РіРѕСЂРѕРґРѕРј{FFFFFF} РґРѕРїСѓСЃС‚РёРјР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ {FF0000}- {00FF00}110 РєРј\С‡. `n{FFFFFF}=============================================================================================`n{00BFFF}РўСЂР°С„С„РёРє СЃС‚РѕРї вЂ“ {FFFFFF}СЌС‚Рѕ РѕСЃС‚Р°РЅРѕРІРєР° Р°РІС‚РѕРјРѕР±РёР»СЏ СЃ РїСЂРёС‡РёРЅРѕР№ РїСЂРѕРІРµСЂРєРё РІРѕРґРёС‚РµР»СЏ.`n`n{FFFFFF}РџСЂРё РєР°РєРёС… СЃР»СѓС‡Р°СЏС… СЂР°Р·СЂРµС€Р°РµС‚СЃСЏ РїСЂРѕРІРѕРґРёС‚СЊ С‚СЂР°С„С„РёРє СЃС‚РѕРї:`n{FFFF00}1. {FFFFFF}Р•СЃР»Рё РІРѕРґРёС‚РµР»СЊ {FF0000}РІРѕРґРёС‚ РєСЂР°Р№РЅРµ РЅРµР°РєРєСѓСЂР°С‚РЅРѕ{FFFFFF}, С‚Рѕ РµСЃС‚СЊ РІРёР»СЏРµС‚ РІ СЂР°Р·РЅС‹Рµ СЃС‚РѕСЂРѕРЅС‹.`n{FFFF00}2. {FFFFFF}РўСЂР°РЅСЃРїРѕСЂС‚ РёР»Рё Р¶Рµ СЃРёРґСЏС‰РёРµ РІ РЅРµРј Р»СЋРґРё РЅР°С…РѕРґСЏС‚СЃСЏ {FF0000}РІ СЂРѕР·С‹СЃРєРµ.`n{FFFF00}3. {FFFFFF}Р•СЃР»Рё РІРѕРґРёС‚РµР»СЊ РЅР°СЂСѓС€РёР» {FF0000}РџР”Р”.`n`n{FFFFFF}РџРµСЂРІС‹Рј РґРµР»РѕРј, РІС‹ РґРѕР»Р¶РЅС‹ РІРєР»СЋС‡РёС‚СЊ {FF0000}СЃРїРµС†. СЃРёРіРЅР°Р»С‹ Рё РїРѕРїСЂРѕСЃРёС‚СЊ РІРѕРґРёС‚РµР»СЏ СЃРЅРёР·РёС‚СЊ СЃРєРѕСЂРѕСЃС‚СЊ{FFFFFF} Рё`n{FFFFFF}РїСЂРёР¶Р°С‚СЊСЃСЏ Рє РѕР±РѕС‡РёРЅРµ{FFFFFF}. Р•СЃР»Рё РїРѕСЃР»Рµ РґРІСѓС… С‚СЂРµР±РѕРІР°РЅРёР№ РѕСЃС‚Р°РЅРѕРІРёС‚СЊСЃСЏ `n{00FF00}(РРЅС‚РµСЂРІР°Р» РјРµР¶РґСѓ С‚СЂРµР±РѕРІР°РЅРёСЏРјРё 15СЃРµРєСѓРЅРґ) {FFFFFF}РІРѕРґРёС‚РµР»СЊ {FF0000}РЅРµ РѕС‚СЂРµР°РіРёСЂРѕРІР°Р», С‚Рѕ РѕР±СЉСЏРІР»СЏРµС‚СЃСЏ РїСЂРµСЃР»РµРґРѕРІР°РЅРёРµ.`n`n{FFFFFF}Р•СЃР»Рё Р¶Рµ РІРѕРґРёС‚РµР»СЊ РѕСЃС‚Р°РЅРѕРІРёР»СЃСЏ РїРѕСЃР»Рµ {FF0000}1-2-РіРѕ С‚СЂРµР±РѕРІР°РЅРёСЏ{FFFFFF}, С‚Рѕ СЃРјРµР»Рѕ РїСЂРёСЃС‚СѓРїР°РµРј Рє С‚СЂР°С„С„РёРє СЃС‚РѕРїСѓ.`n`n{FFFFFF}РџРµСЂРІРѕРµ, С‡С‚Рѕ РІС‹ РґРѕР»Р¶РЅС‹ СЃРґРµР»Р°С‚СЊ вЂ“ {00FF00}РїРѕРїСЂРѕСЃРёС‚СЊ РІРѕРґРёС‚РµР»СЏ Р·Р°РіР»СѓС€РёС‚СЊ РґРІРёРіР°С‚РµР»СЊ{FFFFFF}, РїСЂРёРіРѕС‚РѕРІРёС‚СЊ РґРѕРєСѓРјРµРЅС‚С‹`nРё РґРµСЂР¶Р°С‚СЊ СЂСѓРєРё РЅР° СЂСѓР»Рµ.`n`n{FFFFFF}Р”Р°Р»РµРµ РІС‹С…РѕРґРёС‚Рµ РёР· РјР°С€РёРЅС‹, СЂСѓРєРё СЃСЂР°Р·Сѓ Р¶Рµ СЃС‚Р°РІРёС‚Рµ РЅР° РєРѕР±СѓСЂСѓ Рё РґРІРёРіР°Р№С‚РµСЃСЊ Рє Р·Р°РґРЅРµР№ С‡Р°СЃС‚Рё Р°РІС‚Рѕ. `n{FFFFFF}РћСЃС‚Р°РІР»СЏР№С‚Рµ РЅР° С„Р°СЂРµ РѕС‚РїРµС‡Р°С‚РѕРє РїР°Р»СЊС†Р° (РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РїСЂРѕРІРµСЃС‚Рё Р°РЅР°Р»РёР·, РІ СЃР»СѓС‡Р°Рµ С‚РѕРіРѕ, РµСЃР»Рё РІР°СЃ `n{FFFFFF}СѓР±СЊСЋС‚.) Рё РґРІРёРіР°Р№С‚РµСЃСЊ Рє РІРѕРґРёС‚РµР»СЋ. РћСЃРјР°С‚СЂРёРІР°Р№С‚Рµ СЃР°Р»РѕРЅ Рё РІРѕРґРёС‚РµР»СЏ, РїСЂРѕСЃРёС‚Рµ РµРіРѕ РїРѕРєР°Р·Р°С‚СЊ `n{FFFFFF}РґРѕРєСѓРјРµРЅС‚С‹. Р”Р°Р»РµРµ, РµСЃР»Рё Сѓ РІР°СЃ РµСЃС‚СЊ РЅР°РїР°СЂРЅРёРє, РїСЂРѕСЃРёС‚Рµ РµРіРѕ РїСЂРѕР±РёС‚СЊ С‡РµР»РѕРІРµРєР° РїРѕ Р±Р°Р·Рµ РґР°РЅРЅС‹С…, `n{FFFFFF}РµСЃР»Рё Р¶Рµ РµРіРѕ РЅРµС‚, Р±РµСЂРµС‚Рµ РґРѕРєСѓРјРµРЅС‚С‹ Рё РµРґРµС‚Рµ РІ РєСЂСѓРёР·РµСЂ Рё РїСЂРѕРІРµСЂСЏР№С‚Рµ РѕРґРёРЅ.`n`n{FFFFFF}РџСЂРѕРґРѕР»Р¶РµРЅРёРµ РЅР° {FF0000}<2-РѕР№ СЃС‚СЂР°РЅРёС†Рµ>`n{FFFFFF}=============================================================================================`n", "2 РЎРўР ")
             menu := 4
             return
         }
         else if (line_num == 3)
         {
             menu := 0
-        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - ДЕСЯТИЧНЫЕ КОДЫ (1 стр).", "{FFFFFF}=================================================================================================`n{00BFFF}ДЕСЯТИЧНЫЕ КОДЫ`n{FFFFFF}{FFFF00}10-1{FFFFFF} - Встреча всех офицеров на дежурстве (включая локацию и код).`n{FFFF00}10-3{FFFFFF} - Радиомолчание (для срочных сообщений).`n{FFFF00}10-4{FFFFFF} - Принято.`n{FFFF00}10-5{FFFFFF} - Повторите последнее сообщение.`n{FFFF00}10-6{FFFFFF} - Не принято/не верно/нет.`n{FFFF00}10-7{FFFFFF} - Ожидайте.`n{FFFF00}10-8{FFFFFF} - В настоящее время занят/не доступен.`n{FFFF00}10-9{FFFFFF} - В настоящее время занят/не доступен (детективы на ситуации).`n{FFFF00}10-14{FFFFFF} - Запрос транспортировки (включая локацию и цель транспортировки).`n{FFFF00}10-15{FFFFFF} - Подозреваемые арестованы (включая кол-во подозреваемых, локацию).`n{FFFF00}10-20{FFFFFF} - Локация.`n{FFFF00}10-21{FFFFFF} - Сообщение о статусе и местонахождении, описание ситуации.`n{FFFF00}10-22{FFFFFF} - Направляйтесь в 'локация' (обращение к конкретному офицеру).`n{FFFF00}10-27{FFFFFF} - Меняю маркировку патруля (включая старую и новую маркировку).`n{FFFF00}10-40{FFFFFF} - Большое скопление людей (4 и больше).`n{FFFF00}10-41{FFFFFF} - Нелегальная активность.`n{FFFF00}10-46{FFFFFF} - Провожу обыск.`n{FFFF00}10-55{FFFFFF} - Траффик-стоп.`n{FFFF00}10-56{FFFFFF} - Запрашиваю информацию (включая номер авто/имя подозреваемого).`n{FFFF00}10-57 VICTOR{FFFFFF} - Погоня за автомобилем (включая модель авто, цвет, местонахождение).`n{FFFF00}10-57 FOXTROT{FFFFFF} - Пешая погоня (включая внешность подозреваемого, оружие (если имеется))`n{FFFF00}10-60{FFFFFF} - Информация об автомобиле (включая название авто, цвет, количество людей внутри).`n{FFFF00}10-61{FFFFFF} - Информация о пешем подозреваемом (включая расу, одежду).`n{FFFF00}10-66{FFFFFF} - Остановка повышенного риска (если известно, что подозреваемый в авто вооружен/совершил преступление. `nЕсли остановка произошла после погони).`n{FFFF00}10-70{FFFFFF} - Запрос поддержки (включая количество юнитов, код).`n{FFFF00}10-71{FFFFFF} - Запрос медицинской поддержки.`n{FFFF00}10-99{FFFFFF} - Ситуация урегулирована.`n`n{FFFFFF}Продолжение на {FF0000}<2-ой странице>`n{FFFFFF}=================================================================================================`n", "2 СТР")
+        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - Р”Р•РЎРЇРўРР§РќР«Р• РљРћР”Р« (1 СЃС‚СЂ).", "{FFFFFF}=================================================================================================`n{00BFFF}Р”Р•РЎРЇРўРР§РќР«Р• РљРћР”Р«`n{FFFFFF}{FFFF00}10-1{FFFFFF} - Р’СЃС‚СЂРµС‡Р° РІСЃРµС… РѕС„РёС†РµСЂРѕРІ РЅР° РґРµР¶СѓСЂСЃС‚РІРµ (РІРєР»СЋС‡Р°СЏ Р»РѕРєР°С†РёСЋ Рё РєРѕРґ).`n{FFFF00}10-3{FFFFFF} - Р Р°РґРёРѕРјРѕР»С‡Р°РЅРёРµ (РґР»СЏ СЃСЂРѕС‡РЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№).`n{FFFF00}10-4{FFFFFF} - РџСЂРёРЅСЏС‚Рѕ.`n{FFFF00}10-5{FFFFFF} - РџРѕРІС‚РѕСЂРёС‚Рµ РїРѕСЃР»РµРґРЅРµРµ СЃРѕРѕР±С‰РµРЅРёРµ.`n{FFFF00}10-6{FFFFFF} - РќРµ РїСЂРёРЅСЏС‚Рѕ/РЅРµ РІРµСЂРЅРѕ/РЅРµС‚.`n{FFFF00}10-7{FFFFFF} - РћР¶РёРґР°Р№С‚Рµ.`n{FFFF00}10-8{FFFFFF} - Р’ РЅР°СЃС‚РѕСЏС‰РµРµ РІСЂРµРјСЏ Р·Р°РЅСЏС‚/РЅРµ РґРѕСЃС‚СѓРїРµРЅ.`n{FFFF00}10-9{FFFFFF} - Р’ РЅР°СЃС‚РѕСЏС‰РµРµ РІСЂРµРјСЏ Р·Р°РЅСЏС‚/РЅРµ РґРѕСЃС‚СѓРїРµРЅ (РґРµС‚РµРєС‚РёРІС‹ РЅР° СЃРёС‚СѓР°С†РёРё).`n{FFFF00}10-14{FFFFFF} - Р—Р°РїСЂРѕСЃ С‚СЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРєРё (РІРєР»СЋС‡Р°СЏ Р»РѕРєР°С†РёСЋ Рё С†РµР»СЊ С‚СЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРєРё).`n{FFFF00}10-15{FFFFFF} - РџРѕРґРѕР·СЂРµРІР°РµРјС‹Рµ Р°СЂРµСЃС‚РѕРІР°РЅС‹ (РІРєР»СЋС‡Р°СЏ РєРѕР»-РІРѕ РїРѕРґРѕР·СЂРµРІР°РµРјС‹С…, Р»РѕРєР°С†РёСЋ).`n{FFFF00}10-20{FFFFFF} - Р›РѕРєР°С†РёСЏ.`n{FFFF00}10-21{FFFFFF} - РЎРѕРѕР±С‰РµРЅРёРµ Рѕ СЃС‚Р°С‚СѓСЃРµ Рё РјРµСЃС‚РѕРЅР°С…РѕР¶РґРµРЅРёРё, РѕРїРёСЃР°РЅРёРµ СЃРёС‚СѓР°С†РёРё.`n{FFFF00}10-22{FFFFFF} - РќР°РїСЂР°РІР»СЏР№С‚РµСЃСЊ РІ 'Р»РѕРєР°С†РёСЏ' (РѕР±СЂР°С‰РµРЅРёРµ Рє РєРѕРЅРєСЂРµС‚РЅРѕРјСѓ РѕС„РёС†РµСЂСѓ).`n{FFFF00}10-27{FFFFFF} - РњРµРЅСЏСЋ РјР°СЂРєРёСЂРѕРІРєСѓ РїР°С‚СЂСѓР»СЏ (РІРєР»СЋС‡Р°СЏ СЃС‚Р°СЂСѓСЋ Рё РЅРѕРІСѓСЋ РјР°СЂРєРёСЂРѕРІРєСѓ).`n{FFFF00}10-40{FFFFFF} - Р‘РѕР»СЊС€РѕРµ СЃРєРѕРїР»РµРЅРёРµ Р»СЋРґРµР№ (4 Рё Р±РѕР»СЊС€Рµ).`n{FFFF00}10-41{FFFFFF} - РќРµР»РµРіР°Р»СЊРЅР°СЏ Р°РєС‚РёРІРЅРѕСЃС‚СЊ.`n{FFFF00}10-46{FFFFFF} - РџСЂРѕРІРѕР¶Сѓ РѕР±С‹СЃРє.`n{FFFF00}10-55{FFFFFF} - РўСЂР°С„С„РёРє-СЃС‚РѕРї.`n{FFFF00}10-56{FFFFFF} - Р—Р°РїСЂР°С€РёРІР°СЋ РёРЅС„РѕСЂРјР°С†РёСЋ (РІРєР»СЋС‡Р°СЏ РЅРѕРјРµСЂ Р°РІС‚Рѕ/РёРјСЏ РїРѕРґРѕР·СЂРµРІР°РµРјРѕРіРѕ).`n{FFFF00}10-57 VICTOR{FFFFFF} - РџРѕРіРѕРЅСЏ Р·Р° Р°РІС‚РѕРјРѕР±РёР»РµРј (РІРєР»СЋС‡Р°СЏ РјРѕРґРµР»СЊ Р°РІС‚Рѕ, С†РІРµС‚, РјРµСЃС‚РѕРЅР°С…РѕР¶РґРµРЅРёРµ).`n{FFFF00}10-57 FOXTROT{FFFFFF} - РџРµС€Р°СЏ РїРѕРіРѕРЅСЏ (РІРєР»СЋС‡Р°СЏ РІРЅРµС€РЅРѕСЃС‚СЊ РїРѕРґРѕР·СЂРµРІР°РµРјРѕРіРѕ, РѕСЂСѓР¶РёРµ (РµСЃР»Рё РёРјРµРµС‚СЃСЏ))`n{FFFF00}10-60{FFFFFF} - РРЅС„РѕСЂРјР°С†РёСЏ РѕР± Р°РІС‚РѕРјРѕР±РёР»Рµ (РІРєР»СЋС‡Р°СЏ РЅР°Р·РІР°РЅРёРµ Р°РІС‚Рѕ, С†РІРµС‚, РєРѕР»РёС‡РµСЃС‚РІРѕ Р»СЋРґРµР№ РІРЅСѓС‚СЂРё).`n{FFFF00}10-61{FFFFFF} - РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїРµС€РµРј РїРѕРґРѕР·СЂРµРІР°РµРјРѕРј (РІРєР»СЋС‡Р°СЏ СЂР°СЃСѓ, РѕРґРµР¶РґСѓ).`n{FFFF00}10-66{FFFFFF} - РћСЃС‚Р°РЅРѕРІРєР° РїРѕРІС‹С€РµРЅРЅРѕРіРѕ СЂРёСЃРєР° (РµСЃР»Рё РёР·РІРµСЃС‚РЅРѕ, С‡С‚Рѕ РїРѕРґРѕР·СЂРµРІР°РµРјС‹Р№ РІ Р°РІС‚Рѕ РІРѕРѕСЂСѓР¶РµРЅ/СЃРѕРІРµСЂС€РёР» РїСЂРµСЃС‚СѓРїР»РµРЅРёРµ. `nР•СЃР»Рё РѕСЃС‚Р°РЅРѕРІРєР° РїСЂРѕРёР·РѕС€Р»Р° РїРѕСЃР»Рµ РїРѕРіРѕРЅРё).`n{FFFF00}10-70{FFFFFF} - Р—Р°РїСЂРѕСЃ РїРѕРґРґРµСЂР¶РєРё (РІРєР»СЋС‡Р°СЏ РєРѕР»РёС‡РµСЃС‚РІРѕ СЋРЅРёС‚РѕРІ, РєРѕРґ).`n{FFFF00}10-71{FFFFFF} - Р—Р°РїСЂРѕСЃ РјРµРґРёС†РёРЅСЃРєРѕР№ РїРѕРґРґРµСЂР¶РєРё.`n{FFFF00}10-99{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ СѓСЂРµРіСѓР»РёСЂРѕРІР°РЅР°.`n`n{FFFFFF}РџСЂРѕРґРѕР»Р¶РµРЅРёРµ РЅР° {FF0000}<2-РѕР№ СЃС‚СЂР°РЅРёС†Рµ>`n{FFFFFF}=================================================================================================`n", "2 РЎРўР ")
             menu := 5
             return
         }
@@ -7899,7 +7899,7 @@ if (menu == 1)
         else if (line_num == 5)
         {
             menu := 0
-        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - СМЕНА МАРКИРОВКИ", "{FFFFFF}Введите новою маркировку. {FF0000}|{FFFFFF}  Пример: {00FFFF}1-A-3 {FFFFFF}или  {00FFFF}L-5{FFFFFF}.`n{FFFFFF}После чего что-бы принять изменение нажмите{32CD32} <Insert>`n{FFFFFF}А для того чтоб просто выйти из меню нажмите {FF0000}<Esc>", "НЕ ТРОЖ")
+        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - РЎРњР•РќРђ РњРђР РљРР РћР’РљР", "{FFFFFF}Р’РІРµРґРёС‚Рµ РЅРѕРІРѕСЋ РјР°СЂРєРёСЂРѕРІРєСѓ. {FF0000}|{FFFFFF}  РџСЂРёРјРµСЂ: {00FFFF}1-A-3 {FFFFFF}РёР»Рё  {00FFFF}L-5{FFFFFF}.`n{FFFFFF}РџРѕСЃР»Рµ С‡РµРіРѕ С‡С‚Рѕ-Р±С‹ РїСЂРёРЅСЏС‚СЊ РёР·РјРµРЅРµРЅРёРµ РЅР°Р¶РјРёС‚Рµ{32CD32} <Insert>`n{FFFFFF}Рђ РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР± РїСЂРѕСЃС‚Рѕ РІС‹Р№С‚Рё РёР· РјРµРЅСЋ РЅР°Р¶РјРёС‚Рµ {FF0000}<Esc>", "РќР• РўР РћР–")
             SendMessage, 0x50,, 0x4090409,, A
         input, newmarking, V, {Insert}.{Escape}.{Enter}
             if ErrorLevel = EndKey:Insert
@@ -7907,13 +7907,13 @@ if (menu == 1)
                 sleep, 100
             SendInput,{INSERT}
             SendInput,{ENTER}
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы удачно сменили свою маркировку на - {00FFFF}" newmarking "{FFFFFF}.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ СѓРґР°С‡РЅРѕ СЃРјРµРЅРёР»Рё СЃРІРѕСЋ РјР°СЂРєРёСЂРѕРІРєСѓ РЅР° - {00FFFF}" newmarking "{FFFFFF}.")
                 Sleep, 1500
                 if (EngVer = 1 and Radio1 = 1){
                     SendChat("/r " Rank "#" idtvoi " to DISP: 10-27, on " newmarking ", RFR, OVER SAY **")
                 }
                 if (EngVer = 0 and Radio1 = 1){
-                    SendChat("/r " Rank "#" idtvoi " to DISP: 10-27, на " newmarking ", доступен, конец связи **")
+                    SendChat("/r " Rank "#" idtvoi " to DISP: 10-27, РЅР° " newmarking ", РґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС† СЃРІСЏР·Рё **")
                 }
                 marking:=newmarking
                 IniWrite, %Marking%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Information, Marking
@@ -7923,7 +7923,7 @@ if (menu == 1)
             else
             if ErrorLevel = EndKey:Escape
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы выйшли из меню смены маркировки, Ваша маркировка - {00FFFF}" marking "{FFFFFF}.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЃРјРµРЅС‹ РјР°СЂРєРёСЂРѕРІРєРё, Р’Р°С€Р° РјР°СЂРєРёСЂРѕРІРєР° - {00FFFF}" marking "{FFFFFF}.")
                 newmarking:=-1
                 menu := 0
                 return
@@ -7931,31 +7931,31 @@ if (menu == 1)
             else
             if ErrorLevel = EndKey:Enter
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Повторите пожалуйста попытку нажав{32CD32} <Insert>{FFFFFF} что-бы применить настройки.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕРІС‚РѕСЂРёС‚Рµ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїС‹С‚РєСѓ РЅР°Р¶Р°РІ{32CD32} <Insert>{FFFFFF} С‡С‚Рѕ-Р±С‹ РїСЂРёРјРµРЅРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё.")
             }
             return
         }
         else if (line_num == 6)
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Скрипт будет перезагружен.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РЎРєСЂРёРїС‚ Р±СѓРґРµС‚ РїРµСЂРµР·Р°РіСЂСѓР¶РµРЅ.")
             Sleep 500
             showGameText("Reloaded", 3000, 4)
             Sleep 1500
             Reload
         }
         else if (line_num == 7){
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Создателем данного скрипта является: Даниел, {FF0000}Daniel Cooper.")
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Если у вас возникают вопросы/проблемы: обращайтесь ко мне в VK\Discord.")
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Мой Discord: {FF0000}DanielCooper#2416{FFFFFF} | Мой VK: {FF0000}id380297165{FFFFFF} | Version: {FF0000}" vupd "")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РЎРѕР·РґР°С‚РµР»РµРј РґР°РЅРЅРѕРіРѕ СЃРєСЂРёРїС‚Р° СЏРІР»СЏРµС‚СЃСЏ: Р”Р°РЅРёРµР», {FF0000}Daniel Cooper.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р•СЃР»Рё Сѓ РІР°СЃ РІРѕР·РЅРёРєР°СЋС‚ РІРѕРїСЂРѕСЃС‹/РїСЂРѕР±Р»РµРјС‹: РѕР±СЂР°С‰Р°Р№С‚РµСЃСЊ РєРѕ РјРЅРµ РІ VK\Discord.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РњРѕР№ Discord: {FF0000}DanielCooper#2416{FFFFFF} | РњРѕР№ VK: {FF0000}id380297165{FFFFFF} | Version: {FF0000}" vupd "")
             return
         }
         else if (line_num == 8){
-        Showdialog(2, "{00FF00}[ADJUTANT]{FFFFFF} - МЕНЮ НАПАРНИКА", "{FF0000}[1]{FFFFFF} - Фамилия напарника. |{00FF00} " partnerSurname "`n{FF0000}[2]{FFFFFF} - Id напарника. | {00FF00}" partnerId "`n{FF0000}[3]{FFFFFF} - Должность напарника. | {00FF00}" partnerPost "`n{FF0000}[4]{FFFFFF} - {00FF00}Сохранить напарника`n{FF0000}[5]{FFFFFF} - {FF0000}Удалить напарника", "ВЫБОР")
+        Showdialog(2, "{00FF00}[ADJUTANT]{FFFFFF} - РњР•РќР® РќРђРџРђР РќРРљРђ", "{FF0000}[1]{FFFFFF} - Р¤Р°РјРёР»РёСЏ РЅР°РїР°СЂРЅРёРєР°. |{00FF00} " partnerSurname "`n{FF0000}[2]{FFFFFF} - Id РЅР°РїР°СЂРЅРёРєР°. | {00FF00}" partnerId "`n{FF0000}[3]{FFFFFF} - Р”РѕР»Р¶РЅРѕСЃС‚СЊ РЅР°РїР°СЂРЅРёРєР°. | {00FF00}" partnerPost "`n{FF0000}[4]{FFFFFF} - {00FF00}РЎРѕС…СЂР°РЅРёС‚СЊ РЅР°РїР°СЂРЅРёРєР°`n{FF0000}[5]{FFFFFF} - {FF0000}РЈРґР°Р»РёС‚СЊ РЅР°РїР°СЂРЅРёРєР°", "Р’Р«Р‘РћР ")
             menu := 6
             sleep, 500
         }
         else if (line_num == 9){
-        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - СМЕНА /limit", "{FFFFFF}Введите новое значение скорости. {FF0000}|{FFFFFF}  Пример: {00FFFF}60{FFFFFF}.`n{FFFFFF}После чего что-бы принять изменение нажмите{32CD32} <Insert>`n{FFFFFF}А для того чтоб просто выйти из меню нажмите {FF0000}<Esc>", "НЕ ТРОЖ")
+        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - РЎРњР•РќРђ /limit", "{FFFFFF}Р’РІРµРґРёС‚Рµ РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃРєРѕСЂРѕСЃС‚Рё. {FF0000}|{FFFFFF}  РџСЂРёРјРµСЂ: {00FFFF}60{FFFFFF}.`n{FFFFFF}РџРѕСЃР»Рµ С‡РµРіРѕ С‡С‚Рѕ-Р±С‹ РїСЂРёРЅСЏС‚СЊ РёР·РјРµРЅРµРЅРёРµ РЅР°Р¶РјРёС‚Рµ{32CD32} <Insert>`n{FFFFFF}Рђ РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР± РїСЂРѕСЃС‚Рѕ РІС‹Р№С‚Рё РёР· РјРµРЅСЋ РЅР°Р¶РјРёС‚Рµ {FF0000}<Esc>", "РќР• РўР РћР–")
             menu := 0
         input, newlimit, V, {Insert}.{Escape}.{Enter}
             sleep, 50
@@ -7965,19 +7965,19 @@ if (menu == 1)
             SendInput,{INSERT}
             SendInput,{ENTER}
                 limit:=newlimit
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы установили новое значение для команды /limit - {00FFFF}" limit "{FFFFFF} км\час.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ СѓСЃС‚Р°РЅРѕРІРёР»Рё РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ РєРѕРјР°РЅРґС‹ /limit - {00FFFF}" limit "{FFFFFF} РєРј\С‡Р°СЃ.")
                 IniWrite, %limit%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Auto, limit
                 return
             }
             else
             if ErrorLevel = EndKey:Escape
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы выйшли из меню смены значения /limit. Ваш лимит - {00FFFF}" limit "{FFFFFF} км\час.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЃРјРµРЅС‹ Р·РЅР°С‡РµРЅРёСЏ /limit. Р’Р°С€ Р»РёРјРёС‚ - {00FFFF}" limit "{FFFFFF} РєРј\С‡Р°СЃ.")
             }
             else
             if ErrorLevel = EndKey:Enter
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Повторите пожалуйста попытку нажав{32CD32} <Insert>{FFFFFF} что-бы применить настройки.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕРІС‚РѕСЂРёС‚Рµ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїС‹С‚РєСѓ РЅР°Р¶Р°РІ{32CD32} <Insert>{FFFFFF} С‡С‚Рѕ-Р±С‹ РїСЂРёРјРµРЅРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё.")
             }
             menu:=0
             return
@@ -7990,18 +7990,18 @@ if (menu == 1)
         line_text  := getDialogLine(line_num)
         if (line_num == 1)
         {
-        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - ИНФОРМАЦИЯ О КЛАВИШАХ", "{FFFFFF}=============================================================================================`n{FFFF00}" NameKey1 "{FFFFFF} - Ситуация 'Трафик-стоп' (*55).`n{FFFF00}" NameKey2 "{FFFFFF} - Ситуация 'Арест правонарушителя'(*57v and *66).`n{FFFF00}" NameKey3 "{FFFFFF} - Ситуация 'Теракт'.`n{FFFF00}" NameKey4 "{FFFFFF} - Меню 'Рация'.`n`n{FFFF00}" NameKey5 "{FFFFFF} - Зафиксироваться на ближайшей машине, по бортовому компютеру.`n{FFFF00}" NameKey6 "{FFFFFF} - Снять фиксацию машины из бортового компютера.`n`n{FFFF00}" NameKey7 "{FFFFFF} - Установить лимит машине '" limit "' км\час.`n{FFFF00}" NameKey8 "{FFFFFF} - Отыграть часы + автоматическое F8.`n`n{FFFF00}/mask{FFFFFF} - Отыграть маску и одеть её.`n{FFFF00}/reps{FFFFFF} - Попросить администрацию проследить за вами\ситуацией.`n{FFFFFF}=============================================================================================`n", "X")
+        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - РРќР¤РћР РњРђР¦РРЇ Рћ РљР›РђР’РРЁРђРҐ", "{FFFFFF}=============================================================================================`n{FFFF00}" NameKey1 "{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ 'РўСЂР°С„РёРє-СЃС‚РѕРї' (*55).`n{FFFF00}" NameKey2 "{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ 'РђСЂРµСЃС‚ РїСЂР°РІРѕРЅР°СЂСѓС€РёС‚РµР»СЏ'(*57v and *66).`n{FFFF00}" NameKey3 "{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ 'РўРµСЂР°РєС‚'.`n{FFFF00}" NameKey4 "{FFFFFF} - РњРµРЅСЋ 'Р Р°С†РёСЏ'.`n`n{FFFF00}" NameKey5 "{FFFFFF} - Р—Р°С„РёРєСЃРёСЂРѕРІР°С‚СЊСЃСЏ РЅР° Р±Р»РёР¶Р°Р№С€РµР№ РјР°С€РёРЅРµ, РїРѕ Р±РѕСЂС‚РѕРІРѕРјСѓ РєРѕРјРїСЋС‚РµСЂСѓ.`n{FFFF00}" NameKey6 "{FFFFFF} - РЎРЅСЏС‚СЊ С„РёРєСЃР°С†РёСЋ РјР°С€РёРЅС‹ РёР· Р±РѕСЂС‚РѕРІРѕРіРѕ РєРѕРјРїСЋС‚РµСЂР°.`n`n{FFFF00}" NameKey7 "{FFFFFF} - РЈСЃС‚Р°РЅРѕРІРёС‚СЊ Р»РёРјРёС‚ РјР°С€РёРЅРµ '" limit "' РєРј\С‡Р°СЃ.`n{FFFF00}" NameKey8 "{FFFFFF} - РћС‚С‹РіСЂР°С‚СЊ С‡Р°СЃС‹ + Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ F8.`n`n{FFFF00}/mask{FFFFFF} - РћС‚С‹РіСЂР°С‚СЊ РјР°СЃРєСѓ Рё РѕРґРµС‚СЊ РµС‘.`n{FFFF00}/reps{FFFFFF} - РџРѕРїСЂРѕСЃРёС‚СЊ Р°РґРјРёРЅРёСЃС‚СЂР°С†РёСЋ РїСЂРѕСЃР»РµРґРёС‚СЊ Р·Р° РІР°РјРё\СЃРёС‚СѓР°С†РёРµР№.`n{FFFFFF}=============================================================================================`n", "X")
             return
         }
         else if (line_num == 2)
         {
-        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP СОТРУДНИК FBI (1 стр).", "{FFFFFF}=============================================================================================`n{00BFFF}Правила Дорожного Движения:`n`n{FFFF00}1. {FFFFFF}Движение пешеходов по проезжей части, по рельсовым путям запрещено.`n{FFFF00}2. {FFFFFF}Движение транспортного средства должно проходить по право-сторонней линии.`n{FFFF00}3. {FFFFFF}Запрещается движение по тротуарам, обочинам, по трамвайным рельсам и ж/д путям.`n{FFFF00}4. {FFFFFF}Запрещается движение транспортных средств по путям встречного направления, кроме случаев обгона.`n{FFFF00}5. {FFFFFF}Запрещается управлять транспортным средством в наркотическом или алкогольном опьянении.`n{FFFF00}6. {FFFFFF}Водители обязаны предоставлять свое ТС офицеру полиции, солдату национальной гвардии, агенту ФБР или`n    сотруднику ДПС, если оно требуется для исполнения его служебных обязанностей.`n{FFFF00}7. {FFFFFF}Скорость передвижение:`n {FFFFFF}В {FF0000}жилых{FFFFFF} и пешеходных районах не больше{FF0000} - {00FF00}20 км\ч.`n {FFFFFF}На {FF0000}населённом{FFFFFF} пункте максимально {FF0000}- {00FF00}60 км\ч.`n {FFFFFF}За {FF0000}городом{FFFFFF} допустимая скорость {FF0000}- {00FF00}110 км\ч. `n{FFFFFF}=============================================================================================`n{00BFFF}Траффик стоп – {FFFFFF}это остановка автомобиля с причиной проверки водителя.`n`n{FFFFFF}При каких случаях разрешается проводить траффик стоп:`n{FFFF00}1. {FFFFFF}Если водитель {FF0000}водит крайне неаккуратно{FFFFFF}, то есть виляет в разные стороны.`n{FFFF00}2. {FFFFFF}Транспорт или же сидящие в нем люди находятся {FF0000}в розыске.`n{FFFF00}3. {FFFFFF}Если водитель нарушил {FF0000}ПДД.`n`n{FFFFFF}Первым делом, вы должны включить {FF0000}спец. сигналы и попросить водителя снизить скорость{FFFFFF} и`n{FFFFFF}прижаться к обочине {00FF00}( F2 ){FFFFFF}. Если после двух требований остановиться `n{00FF00}(Интервал между требованиями 15секунд) {FFFFFF}водитель {FF0000}не отреагировал, то объявляется преследование.{00FF00} (Alt+Num4) `n`n{FFFFFF}Если же водитель остановился после {FF0000}1-2-го требования{FFFFFF}, то смело приступаем к траффик стопу.`n`n{FFFFFF}Первое, что вы должны сделать – {00FF00}попросить водителя заглушить двигатель {00FF00}( F2 ){FFFFFF}, приготовить документы`nи держать руки на руле.`n`n{FFFFFF}Далее выходите из машины, руки сразу же ставите на кобуру {00FF00}( Alt + P ){FFFFFF} и двигайтесь к задней части авто. `n{FFFFFF}Оставляйте на фаре отпечаток пальца (для того, чтобы провести анализ, в случае того, если вас `n{FFFFFF}убьют.) и двигайтесь к водителю. Осматривайте салон и водителя, просите его показать `n{FFFFFF}документы {00FF00}(F3, Alt + Home){FFFFFF}. Далее, если у вас есть напарник, просите его пробить человека по базе данных, `n{FFFFFF}если же его нет, берете документы и едете в круизер и проверяйте один.`n`n{FFFFFF}Продолжение на {FF0000}<2-ой странице>`n{FFFFFF}=============================================================================================`n", "2 СТР")
+        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP РЎРћРўР РЈР”РќРРљ FBI (1 СЃС‚СЂ).", "{FFFFFF}=============================================================================================`n{00BFFF}РџСЂР°РІРёР»Р° Р”РѕСЂРѕР¶РЅРѕРіРѕ Р”РІРёР¶РµРЅРёСЏ:`n`n{FFFF00}1. {FFFFFF}Р”РІРёР¶РµРЅРёРµ РїРµС€РµС…РѕРґРѕРІ РїРѕ РїСЂРѕРµР·Р¶РµР№ С‡Р°СЃС‚Рё, РїРѕ СЂРµР»СЊСЃРѕРІС‹Рј РїСѓС‚СЏРј Р·Р°РїСЂРµС‰РµРЅРѕ.`n{FFFF00}2. {FFFFFF}Р”РІРёР¶РµРЅРёРµ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕРіРѕ СЃСЂРµРґСЃС‚РІР° РґРѕР»Р¶РЅРѕ РїСЂРѕС…РѕРґРёС‚СЊ РїРѕ РїСЂР°РІРѕ-СЃС‚РѕСЂРѕРЅРЅРµР№ Р»РёРЅРёРё.`n{FFFF00}3. {FFFFFF}Р—Р°РїСЂРµС‰Р°РµС‚СЃСЏ РґРІРёР¶РµРЅРёРµ РїРѕ С‚СЂРѕС‚СѓР°СЂР°Рј, РѕР±РѕС‡РёРЅР°Рј, РїРѕ С‚СЂР°РјРІР°Р№РЅС‹Рј СЂРµР»СЊСЃР°Рј Рё Р¶/Рґ РїСѓС‚СЏРј.`n{FFFF00}4. {FFFFFF}Р—Р°РїСЂРµС‰Р°РµС‚СЃСЏ РґРІРёР¶РµРЅРёРµ С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… СЃСЂРµРґСЃС‚РІ РїРѕ РїСѓС‚СЏРј РІСЃС‚СЂРµС‡РЅРѕРіРѕ РЅР°РїСЂР°РІР»РµРЅРёСЏ, РєСЂРѕРјРµ СЃР»СѓС‡Р°РµРІ РѕР±РіРѕРЅР°.`n{FFFF00}5. {FFFFFF}Р—Р°РїСЂРµС‰Р°РµС‚СЃСЏ СѓРїСЂР°РІР»СЏС‚СЊ С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹Рј СЃСЂРµРґСЃС‚РІРѕРј РІ РЅР°СЂРєРѕС‚РёС‡РµСЃРєРѕРј РёР»Рё Р°Р»РєРѕРіРѕР»СЊРЅРѕРј РѕРїСЊСЏРЅРµРЅРёРё.`n{FFFF00}6. {FFFFFF}Р’РѕРґРёС‚РµР»Рё РѕР±СЏР·Р°РЅС‹ РїСЂРµРґРѕСЃС‚Р°РІР»СЏС‚СЊ СЃРІРѕРµ РўРЎ РѕС„РёС†РµСЂСѓ РїРѕР»РёС†РёРё, СЃРѕР»РґР°С‚Сѓ РЅР°С†РёРѕРЅР°Р»СЊРЅРѕР№ РіРІР°СЂРґРёРё, Р°РіРµРЅС‚Сѓ Р¤Р‘Р  РёР»Рё`n    СЃРѕС‚СЂСѓРґРЅРёРєСѓ Р”РџРЎ, РµСЃР»Рё РѕРЅРѕ С‚СЂРµР±СѓРµС‚СЃСЏ РґР»СЏ РёСЃРїРѕР»РЅРµРЅРёСЏ РµРіРѕ СЃР»СѓР¶РµР±РЅС‹С… РѕР±СЏР·Р°РЅРЅРѕСЃС‚РµР№.`n{FFFF00}7. {FFFFFF}РЎРєРѕСЂРѕСЃС‚СЊ РїРµСЂРµРґРІРёР¶РµРЅРёРµ:`n {FFFFFF}Р’ {FF0000}Р¶РёР»С‹С…{FFFFFF} Рё РїРµС€РµС…РѕРґРЅС‹С… СЂР°Р№РѕРЅР°С… РЅРµ Р±РѕР»СЊС€Рµ{FF0000} - {00FF00}20 РєРј\С‡.`n {FFFFFF}РќР° {FF0000}РЅР°СЃРµР»С‘РЅРЅРѕРј{FFFFFF} РїСѓРЅРєС‚Рµ РјР°РєСЃРёРјР°Р»СЊРЅРѕ {FF0000}- {00FF00}60 РєРј\С‡.`n {FFFFFF}Р—Р° {FF0000}РіРѕСЂРѕРґРѕРј{FFFFFF} РґРѕРїСѓСЃС‚РёРјР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ {FF0000}- {00FF00}110 РєРј\С‡. `n{FFFFFF}=============================================================================================`n{00BFFF}РўСЂР°С„С„РёРє СЃС‚РѕРї вЂ“ {FFFFFF}СЌС‚Рѕ РѕСЃС‚Р°РЅРѕРІРєР° Р°РІС‚РѕРјРѕР±РёР»СЏ СЃ РїСЂРёС‡РёРЅРѕР№ РїСЂРѕРІРµСЂРєРё РІРѕРґРёС‚РµР»СЏ.`n`n{FFFFFF}РџСЂРё РєР°РєРёС… СЃР»СѓС‡Р°СЏС… СЂР°Р·СЂРµС€Р°РµС‚СЃСЏ РїСЂРѕРІРѕРґРёС‚СЊ С‚СЂР°С„С„РёРє СЃС‚РѕРї:`n{FFFF00}1. {FFFFFF}Р•СЃР»Рё РІРѕРґРёС‚РµР»СЊ {FF0000}РІРѕРґРёС‚ РєСЂР°Р№РЅРµ РЅРµР°РєРєСѓСЂР°С‚РЅРѕ{FFFFFF}, С‚Рѕ РµСЃС‚СЊ РІРёР»СЏРµС‚ РІ СЂР°Р·РЅС‹Рµ СЃС‚РѕСЂРѕРЅС‹.`n{FFFF00}2. {FFFFFF}РўСЂР°РЅСЃРїРѕСЂС‚ РёР»Рё Р¶Рµ СЃРёРґСЏС‰РёРµ РІ РЅРµРј Р»СЋРґРё РЅР°С…РѕРґСЏС‚СЃСЏ {FF0000}РІ СЂРѕР·С‹СЃРєРµ.`n{FFFF00}3. {FFFFFF}Р•СЃР»Рё РІРѕРґРёС‚РµР»СЊ РЅР°СЂСѓС€РёР» {FF0000}РџР”Р”.`n`n{FFFFFF}РџРµСЂРІС‹Рј РґРµР»РѕРј, РІС‹ РґРѕР»Р¶РЅС‹ РІРєР»СЋС‡РёС‚СЊ {FF0000}СЃРїРµС†. СЃРёРіРЅР°Р»С‹ Рё РїРѕРїСЂРѕСЃРёС‚СЊ РІРѕРґРёС‚РµР»СЏ СЃРЅРёР·РёС‚СЊ СЃРєРѕСЂРѕСЃС‚СЊ{FFFFFF} Рё`n{FFFFFF}РїСЂРёР¶Р°С‚СЊСЃСЏ Рє РѕР±РѕС‡РёРЅРµ {00FF00}( F2 ){FFFFFF}. Р•СЃР»Рё РїРѕСЃР»Рµ РґРІСѓС… С‚СЂРµР±РѕРІР°РЅРёР№ РѕСЃС‚Р°РЅРѕРІРёС‚СЊСЃСЏ `n{00FF00}(РРЅС‚РµСЂРІР°Р» РјРµР¶РґСѓ С‚СЂРµР±РѕРІР°РЅРёСЏРјРё 15СЃРµРєСѓРЅРґ) {FFFFFF}РІРѕРґРёС‚РµР»СЊ {FF0000}РЅРµ РѕС‚СЂРµР°РіРёСЂРѕРІР°Р», С‚Рѕ РѕР±СЉСЏРІР»СЏРµС‚СЃСЏ РїСЂРµСЃР»РµРґРѕРІР°РЅРёРµ.{00FF00} (Alt+Num4) `n`n{FFFFFF}Р•СЃР»Рё Р¶Рµ РІРѕРґРёС‚РµР»СЊ РѕСЃС‚Р°РЅРѕРІРёР»СЃСЏ РїРѕСЃР»Рµ {FF0000}1-2-РіРѕ С‚СЂРµР±РѕРІР°РЅРёСЏ{FFFFFF}, С‚Рѕ СЃРјРµР»Рѕ РїСЂРёСЃС‚СѓРїР°РµРј Рє С‚СЂР°С„С„РёРє СЃС‚РѕРїСѓ.`n`n{FFFFFF}РџРµСЂРІРѕРµ, С‡С‚Рѕ РІС‹ РґРѕР»Р¶РЅС‹ СЃРґРµР»Р°С‚СЊ вЂ“ {00FF00}РїРѕРїСЂРѕСЃРёС‚СЊ РІРѕРґРёС‚РµР»СЏ Р·Р°РіР»СѓС€РёС‚СЊ РґРІРёРіР°С‚РµР»СЊ {00FF00}( F2 ){FFFFFF}, РїСЂРёРіРѕС‚РѕРІРёС‚СЊ РґРѕРєСѓРјРµРЅС‚С‹`nРё РґРµСЂР¶Р°С‚СЊ СЂСѓРєРё РЅР° СЂСѓР»Рµ.`n`n{FFFFFF}Р”Р°Р»РµРµ РІС‹С…РѕРґРёС‚Рµ РёР· РјР°С€РёРЅС‹, СЂСѓРєРё СЃСЂР°Р·Сѓ Р¶Рµ СЃС‚Р°РІРёС‚Рµ РЅР° РєРѕР±СѓСЂСѓ {00FF00}( Alt + P ){FFFFFF} Рё РґРІРёРіР°Р№С‚РµСЃСЊ Рє Р·Р°РґРЅРµР№ С‡Р°СЃС‚Рё Р°РІС‚Рѕ. `n{FFFFFF}РћСЃС‚Р°РІР»СЏР№С‚Рµ РЅР° С„Р°СЂРµ РѕС‚РїРµС‡Р°С‚РѕРє РїР°Р»СЊС†Р° (РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РїСЂРѕРІРµСЃС‚Рё Р°РЅР°Р»РёР·, РІ СЃР»СѓС‡Р°Рµ С‚РѕРіРѕ, РµСЃР»Рё РІР°СЃ `n{FFFFFF}СѓР±СЊСЋС‚.) Рё РґРІРёРіР°Р№С‚РµСЃСЊ Рє РІРѕРґРёС‚РµР»СЋ. РћСЃРјР°С‚СЂРёРІР°Р№С‚Рµ СЃР°Р»РѕРЅ Рё РІРѕРґРёС‚РµР»СЏ, РїСЂРѕСЃРёС‚Рµ РµРіРѕ РїРѕРєР°Р·Р°С‚СЊ `n{FFFFFF}РґРѕРєСѓРјРµРЅС‚С‹ {00FF00}(F3, Alt + Home){FFFFFF}. Р”Р°Р»РµРµ, РµСЃР»Рё Сѓ РІР°СЃ РµСЃС‚СЊ РЅР°РїР°СЂРЅРёРє, РїСЂРѕСЃРёС‚Рµ РµРіРѕ РїСЂРѕР±РёС‚СЊ С‡РµР»РѕРІРµРєР° РїРѕ Р±Р°Р·Рµ РґР°РЅРЅС‹С…, `n{FFFFFF}РµСЃР»Рё Р¶Рµ РµРіРѕ РЅРµС‚, Р±РµСЂРµС‚Рµ РґРѕРєСѓРјРµРЅС‚С‹ Рё РµРґРµС‚Рµ РІ РєСЂСѓРёР·РµСЂ Рё РїСЂРѕРІРµСЂСЏР№С‚Рµ РѕРґРёРЅ.`n`n{FFFFFF}РџСЂРѕРґРѕР»Р¶РµРЅРёРµ РЅР° {FF0000}<2-РѕР№ СЃС‚СЂР°РЅРёС†Рµ>`n{FFFFFF}=============================================================================================`n", "2 РЎРўР ")
             menu := 4
             return
         }
         else if (line_num == 3)
         {
-        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - ДЕСЯТИЧНЫЕ КОДЫ (1 стр).", "{FFFFFF}=================================================================================================`n{00BFFF}ДЕСЯТИЧНЫЕ КОДЫ`n{FFFFFF}{FFFF00}10-1{FFFFFF} - Встреча всех офицеров на дежурстве (включая локацию и код).`n{FFFF00}10-3{FFFFFF} - Радиомолчание (для срочных сообщений).`n{FFFF00}10-4{FFFFFF} - Принято.`n{FFFF00}10-5{FFFFFF} - Повторите последнее сообщение.`n{FFFF00}10-6{FFFFFF} - Не принято/не верно/нет.`n{FFFF00}10-7{FFFFFF} - Ожидайте.`n{FFFF00}10-8{FFFFFF} - В настоящее время занят/не доступен.`n{FFFF00}10-9{FFFFFF} - В настоящее время занят/не доступен (детективы на ситуации).`n{FFFF00}10-14{FFFFFF} - Запрос транспортировки (включая локацию и цель транспортировки).`n{FFFF00}10-15{FFFFFF} - Подозреваемые арестованы (включая кол-во подозреваемых, локацию).`n{FFFF00}10-20{FFFFFF} - Локация.`n{FFFF00}10-21{FFFFFF} - Сообщение о статусе и местонахождении, описание ситуации.`n{FFFF00}10-22{FFFFFF} - Направляйтесь в 'локация' (обращение к конкретному офицеру).`n{FFFF00}10-27{FFFFFF} - Меняю маркировку патруля (включая старую и новую маркировку).`n{FFFF00}10-40{FFFFFF} - Большое скопление людей (4 и больше).`n{FFFF00}10-41{FFFFFF} - Нелегальная активность.`n{FFFF00}10-46{FFFFFF} - Провожу обыск.`n{FFFF00}10-55{FFFFFF} - Траффик-стоп.`n{FFFF00}10-56{FFFFFF} - Запрашиваю информацию (включая номер авто/имя подозреваемого).`n{FFFF00}10-57 VICTOR{FFFFFF} - Погоня за автомобилем (включая модель авто, цвет, местонахождение).`n{FFFF00}10-57 FOXTROT{FFFFFF} - Пешая погоня (включая внешность подозреваемого, оружие (если имеется))`n{FFFF00}10-60{FFFFFF} - Информация об автомобиле (включая название авто, цвет, количество людей внутри).`n{FFFF00}10-61{FFFFFF} - Информация о пешем подозреваемом (включая расу, одежду).`n{FFFF00}10-66{FFFFFF} - Остановка повышенного риска (если известно, что подозреваемый в авто вооружен/совершил преступление. `nЕсли остановка произошла после погони).`n{FFFF00}10-70{FFFFFF} - Запрос поддержки (включая количество юнитов, код).`n{FFFF00}10-71{FFFFFF} - Запрос медицинской поддержки.`n{FFFF00}10-99{FFFFFF} - Ситуация урегулирована.`n`n{FFFFFF}Продолжение на {FF0000}<2-ой странице>`n{FFFFFF}=================================================================================================`n", "2 СТР")
+        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - Р”Р•РЎРЇРўРР§РќР«Р• РљРћР”Р« (1 СЃС‚СЂ).", "{FFFFFF}=================================================================================================`n{00BFFF}Р”Р•РЎРЇРўРР§РќР«Р• РљРћР”Р«`n{FFFFFF}{FFFF00}10-1{FFFFFF} - Р’СЃС‚СЂРµС‡Р° РІСЃРµС… РѕС„РёС†РµСЂРѕРІ РЅР° РґРµР¶СѓСЂСЃС‚РІРµ (РІРєР»СЋС‡Р°СЏ Р»РѕРєР°С†РёСЋ Рё РєРѕРґ).`n{FFFF00}10-3{FFFFFF} - Р Р°РґРёРѕРјРѕР»С‡Р°РЅРёРµ (РґР»СЏ СЃСЂРѕС‡РЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№).`n{FFFF00}10-4{FFFFFF} - РџСЂРёРЅСЏС‚Рѕ.`n{FFFF00}10-5{FFFFFF} - РџРѕРІС‚РѕСЂРёС‚Рµ РїРѕСЃР»РµРґРЅРµРµ СЃРѕРѕР±С‰РµРЅРёРµ.`n{FFFF00}10-6{FFFFFF} - РќРµ РїСЂРёРЅСЏС‚Рѕ/РЅРµ РІРµСЂРЅРѕ/РЅРµС‚.`n{FFFF00}10-7{FFFFFF} - РћР¶РёРґР°Р№С‚Рµ.`n{FFFF00}10-8{FFFFFF} - Р’ РЅР°СЃС‚РѕСЏС‰РµРµ РІСЂРµРјСЏ Р·Р°РЅСЏС‚/РЅРµ РґРѕСЃС‚СѓРїРµРЅ.`n{FFFF00}10-9{FFFFFF} - Р’ РЅР°СЃС‚РѕСЏС‰РµРµ РІСЂРµРјСЏ Р·Р°РЅСЏС‚/РЅРµ РґРѕСЃС‚СѓРїРµРЅ (РґРµС‚РµРєС‚РёРІС‹ РЅР° СЃРёС‚СѓР°С†РёРё).`n{FFFF00}10-14{FFFFFF} - Р—Р°РїСЂРѕСЃ С‚СЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРєРё (РІРєР»СЋС‡Р°СЏ Р»РѕРєР°С†РёСЋ Рё С†РµР»СЊ С‚СЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРєРё).`n{FFFF00}10-15{FFFFFF} - РџРѕРґРѕР·СЂРµРІР°РµРјС‹Рµ Р°СЂРµСЃС‚РѕРІР°РЅС‹ (РІРєР»СЋС‡Р°СЏ РєРѕР»-РІРѕ РїРѕРґРѕР·СЂРµРІР°РµРјС‹С…, Р»РѕРєР°С†РёСЋ).`n{FFFF00}10-20{FFFFFF} - Р›РѕРєР°С†РёСЏ.`n{FFFF00}10-21{FFFFFF} - РЎРѕРѕР±С‰РµРЅРёРµ Рѕ СЃС‚Р°С‚СѓСЃРµ Рё РјРµСЃС‚РѕРЅР°С…РѕР¶РґРµРЅРёРё, РѕРїРёСЃР°РЅРёРµ СЃРёС‚СѓР°С†РёРё.`n{FFFF00}10-22{FFFFFF} - РќР°РїСЂР°РІР»СЏР№С‚РµСЃСЊ РІ 'Р»РѕРєР°С†РёСЏ' (РѕР±СЂР°С‰РµРЅРёРµ Рє РєРѕРЅРєСЂРµС‚РЅРѕРјСѓ РѕС„РёС†РµСЂСѓ).`n{FFFF00}10-27{FFFFFF} - РњРµРЅСЏСЋ РјР°СЂРєРёСЂРѕРІРєСѓ РїР°С‚СЂСѓР»СЏ (РІРєР»СЋС‡Р°СЏ СЃС‚Р°СЂСѓСЋ Рё РЅРѕРІСѓСЋ РјР°СЂРєРёСЂРѕРІРєСѓ).`n{FFFF00}10-40{FFFFFF} - Р‘РѕР»СЊС€РѕРµ СЃРєРѕРїР»РµРЅРёРµ Р»СЋРґРµР№ (4 Рё Р±РѕР»СЊС€Рµ).`n{FFFF00}10-41{FFFFFF} - РќРµР»РµРіР°Р»СЊРЅР°СЏ Р°РєС‚РёРІРЅРѕСЃС‚СЊ.`n{FFFF00}10-46{FFFFFF} - РџСЂРѕРІРѕР¶Сѓ РѕР±С‹СЃРє.`n{FFFF00}10-55{FFFFFF} - РўСЂР°С„С„РёРє-СЃС‚РѕРї.`n{FFFF00}10-56{FFFFFF} - Р—Р°РїСЂР°С€РёРІР°СЋ РёРЅС„РѕСЂРјР°С†РёСЋ (РІРєР»СЋС‡Р°СЏ РЅРѕРјРµСЂ Р°РІС‚Рѕ/РёРјСЏ РїРѕРґРѕР·СЂРµРІР°РµРјРѕРіРѕ).`n{FFFF00}10-57 VICTOR{FFFFFF} - РџРѕРіРѕРЅСЏ Р·Р° Р°РІС‚РѕРјРѕР±РёР»РµРј (РІРєР»СЋС‡Р°СЏ РјРѕРґРµР»СЊ Р°РІС‚Рѕ, С†РІРµС‚, РјРµСЃС‚РѕРЅР°С…РѕР¶РґРµРЅРёРµ).`n{FFFF00}10-57 FOXTROT{FFFFFF} - РџРµС€Р°СЏ РїРѕРіРѕРЅСЏ (РІРєР»СЋС‡Р°СЏ РІРЅРµС€РЅРѕСЃС‚СЊ РїРѕРґРѕР·СЂРµРІР°РµРјРѕРіРѕ, РѕСЂСѓР¶РёРµ (РµСЃР»Рё РёРјРµРµС‚СЃСЏ))`n{FFFF00}10-60{FFFFFF} - РРЅС„РѕСЂРјР°С†РёСЏ РѕР± Р°РІС‚РѕРјРѕР±РёР»Рµ (РІРєР»СЋС‡Р°СЏ РЅР°Р·РІР°РЅРёРµ Р°РІС‚Рѕ, С†РІРµС‚, РєРѕР»РёС‡РµСЃС‚РІРѕ Р»СЋРґРµР№ РІРЅСѓС‚СЂРё).`n{FFFF00}10-61{FFFFFF} - РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїРµС€РµРј РїРѕРґРѕР·СЂРµРІР°РµРјРѕРј (РІРєР»СЋС‡Р°СЏ СЂР°СЃСѓ, РѕРґРµР¶РґСѓ).`n{FFFF00}10-66{FFFFFF} - РћСЃС‚Р°РЅРѕРІРєР° РїРѕРІС‹С€РµРЅРЅРѕРіРѕ СЂРёСЃРєР° (РµСЃР»Рё РёР·РІРµСЃС‚РЅРѕ, С‡С‚Рѕ РїРѕРґРѕР·СЂРµРІР°РµРјС‹Р№ РІ Р°РІС‚Рѕ РІРѕРѕСЂСѓР¶РµРЅ/СЃРѕРІРµСЂС€РёР» РїСЂРµСЃС‚СѓРїР»РµРЅРёРµ. `nР•СЃР»Рё РѕСЃС‚Р°РЅРѕРІРєР° РїСЂРѕРёР·РѕС€Р»Р° РїРѕСЃР»Рµ РїРѕРіРѕРЅРё).`n{FFFF00}10-70{FFFFFF} - Р—Р°РїСЂРѕСЃ РїРѕРґРґРµСЂР¶РєРё (РІРєР»СЋС‡Р°СЏ РєРѕР»РёС‡РµСЃС‚РІРѕ СЋРЅРёС‚РѕРІ, РєРѕРґ).`n{FFFF00}10-71{FFFFFF} - Р—Р°РїСЂРѕСЃ РјРµРґРёС†РёРЅСЃРєРѕР№ РїРѕРґРґРµСЂР¶РєРё.`n{FFFF00}10-99{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ СѓСЂРµРіСѓР»РёСЂРѕРІР°РЅР°.`n`n{FFFFFF}РџСЂРѕРґРѕР»Р¶РµРЅРёРµ РЅР° {FF0000}<2-РѕР№ СЃС‚СЂР°РЅРёС†Рµ>`n{FFFFFF}=================================================================================================`n", "2 РЎРўР ")
             menu := 5
             return
         }
@@ -8012,7 +8012,7 @@ if (menu == 1)
         }
         else if (line_num == 5)
         {
-        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - СМЕНА МАРКИРОВКИ", "{FFFFFF}Введите новою маркировку. {FF0000}|{FFFFFF}  Пример: {00FFFF}1-A-3 {FFFFFF}или  {00FFFF}L-5{FFFFFF}.`n{FFFFFF}После чего что-бы принять изменение нажмите{32CD32} <Insert>`n{FFFFFF}А для того чтоб просто выйти из меню нажмите {FF0000}<Esc>", "НЕ ТРОЖ")
+        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - РЎРњР•РќРђ РњРђР РљРР РћР’РљР", "{FFFFFF}Р’РІРµРґРёС‚Рµ РЅРѕРІРѕСЋ РјР°СЂРєРёСЂРѕРІРєСѓ. {FF0000}|{FFFFFF}  РџСЂРёРјРµСЂ: {00FFFF}1-A-3 {FFFFFF}РёР»Рё  {00FFFF}L-5{FFFFFF}.`n{FFFFFF}РџРѕСЃР»Рµ С‡РµРіРѕ С‡С‚Рѕ-Р±С‹ РїСЂРёРЅСЏС‚СЊ РёР·РјРµРЅРµРЅРёРµ РЅР°Р¶РјРёС‚Рµ{32CD32} <Insert>`n{FFFFFF}Рђ РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР± РїСЂРѕСЃС‚Рѕ РІС‹Р№С‚Рё РёР· РјРµРЅСЋ РЅР°Р¶РјРёС‚Рµ {FF0000}<Esc>", "РќР• РўР РћР–")
             SendMessage, 0x50,, 0x4090409,, A
         input, newmarking, V, {Insert}.{Escape}.{Enter}
             if ErrorLevel = EndKey:Insert
@@ -8020,13 +8020,13 @@ if (menu == 1)
                 sleep, 100
             SendInput,{INSERT}
             SendInput,{ENTER}
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы удачно сменили свою маркировку на - {00FFFF}" newmarking "{FFFFFF}.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ СѓРґР°С‡РЅРѕ СЃРјРµРЅРёР»Рё СЃРІРѕСЋ РјР°СЂРєРёСЂРѕРІРєСѓ РЅР° - {00FFFF}" newmarking "{FFFFFF}.")
                 Sleep, 1500
                 if (EngVer = 1 and Radio1 = 1){
                     SendChat("/r " Rank "#" idtvoi " to DISP: 10-27, on " newmarking ", RFR, OVER SAY **")
                 }
                 if (EngVer = 0 and Radio1 = 1){
-                    SendChat("/r " Rank "#" idtvoi " to DISP: 10-27, на " newmarking ", доступен, конец связи **")
+                    SendChat("/r " Rank "#" idtvoi " to DISP: 10-27, РЅР° " newmarking ", РґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС† СЃРІСЏР·Рё **")
                 }
                 marking:=newmarking
                 IniWrite, %Marking%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Information, Marking
@@ -8036,7 +8036,7 @@ if (menu == 1)
             else
             if ErrorLevel = EndKey:Escape
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы выйшли из меню смены маркировки, Ваша маркировка - {00FFFF}" marking "{FFFFFF}.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЃРјРµРЅС‹ РјР°СЂРєРёСЂРѕРІРєРё, Р’Р°С€Р° РјР°СЂРєРёСЂРѕРІРєР° - {00FFFF}" marking "{FFFFFF}.")
                 newmarking:=-1
                 menu := 0
                 return
@@ -8044,13 +8044,13 @@ if (menu == 1)
             else
             if ErrorLevel = EndKey:Enter
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Повторите пожалуйста попытку нажав{32CD32} <Insert>{FFFFFF} что-бы применить настройки.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕРІС‚РѕСЂРёС‚Рµ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїС‹С‚РєСѓ РЅР°Р¶Р°РІ{32CD32} <Insert>{FFFFFF} С‡С‚Рѕ-Р±С‹ РїСЂРёРјРµРЅРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё.")
             }
             return
         }
         else if (line_num == 6)
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Скрипт будет перезагружен.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РЎРєСЂРёРїС‚ Р±СѓРґРµС‚ РїРµСЂРµР·Р°РіСЂСѓР¶РµРЅ.")
             Sleep 500
             showGameText("Reloaded", 3000, 4)
             Sleep 1500
@@ -8059,19 +8059,19 @@ if (menu == 1)
         }
         else if (line_num == 7)
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Создателем данного скрипта является: Даниел, {FF0000}Daniel Cooper.")
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Если у вас возникают вопросы/проблемы: обращайтесь ко мне в VK\Discord.")
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Мой Discord: {FF0000}DanielCooper#2416{FFFFFF} | Мой VK: {FF0000}id380297165{FFFFFF} | Version: {FF0000}" vupd "")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РЎРѕР·РґР°С‚РµР»РµРј РґР°РЅРЅРѕРіРѕ СЃРєСЂРёРїС‚Р° СЏРІР»СЏРµС‚СЃСЏ: Р”Р°РЅРёРµР», {FF0000}Daniel Cooper.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р•СЃР»Рё Сѓ РІР°СЃ РІРѕР·РЅРёРєР°СЋС‚ РІРѕРїСЂРѕСЃС‹/РїСЂРѕР±Р»РµРјС‹: РѕР±СЂР°С‰Р°Р№С‚РµСЃСЊ РєРѕ РјРЅРµ РІ VK\Discord.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РњРѕР№ Discord: {FF0000}DanielCooper#2416{FFFFFF} | РњРѕР№ VK: {FF0000}id380297165{FFFFFF} | Version: {FF0000}" vupd "")
             return
         }
         else if (line_num == 8){
-        Showdialog(2, "{00FF00}[ADJUTANT]{FFFFFF} - МЕНЮ НАПАРНИКА", "{FF0000}[1]{FFFFFF} - Фамилия напарника. |{00FF00} " partnerSurname "`n{FF0000}[2]{FFFFFF} - Id напарника. | {00FF00}" partnerId "`n{FF0000}[3]{FFFFFF} - Должность напарника. | {00FF00}" partnerPost "`n{FF0000}[4]{FFFFFF} - {00FF00}Сохранить напарника`n{FF0000}[5]{FFFFFF} - {FF0000}Удалить напарника", "ВЫБОР")
+        Showdialog(2, "{00FF00}[ADJUTANT]{FFFFFF} - РњР•РќР® РќРђРџРђР РќРРљРђ", "{FF0000}[1]{FFFFFF} - Р¤Р°РјРёР»РёСЏ РЅР°РїР°СЂРЅРёРєР°. |{00FF00} " partnerSurname "`n{FF0000}[2]{FFFFFF} - Id РЅР°РїР°СЂРЅРёРєР°. | {00FF00}" partnerId "`n{FF0000}[3]{FFFFFF} - Р”РѕР»Р¶РЅРѕСЃС‚СЊ РЅР°РїР°СЂРЅРёРєР°. | {00FF00}" partnerPost "`n{FF0000}[4]{FFFFFF} - {00FF00}РЎРѕС…СЂР°РЅРёС‚СЊ РЅР°РїР°СЂРЅРёРєР°`n{FF0000}[5]{FFFFFF} - {FF0000}РЈРґР°Р»РёС‚СЊ РЅР°РїР°СЂРЅРёРєР°", "Р’Р«Р‘РћР ")
             menu := 6
             sleep, 500
         }
         else if (line_num == 9){
             menu := 0
-        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - СМЕНА /limit", "{FFFFFF}Введите новое значение скорости. {FF0000}|{FFFFFF}  Пример: {00FFFF}60{FFFFFF}.`n{FFFFFF}После чего что-бы принять изменение нажмите{32CD32} <Insert>`n{FFFFFF}А для того чтоб просто выйти из меню нажмите {FF0000}<Esc>", "НЕ ТРОЖ")
+        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - РЎРњР•РќРђ /limit", "{FFFFFF}Р’РІРµРґРёС‚Рµ РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃРєРѕСЂРѕСЃС‚Рё. {FF0000}|{FFFFFF}  РџСЂРёРјРµСЂ: {00FFFF}60{FFFFFF}.`n{FFFFFF}РџРѕСЃР»Рµ С‡РµРіРѕ С‡С‚Рѕ-Р±С‹ РїСЂРёРЅСЏС‚СЊ РёР·РјРµРЅРµРЅРёРµ РЅР°Р¶РјРёС‚Рµ{32CD32} <Insert>`n{FFFFFF}Рђ РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР± РїСЂРѕСЃС‚Рѕ РІС‹Р№С‚Рё РёР· РјРµРЅСЋ РЅР°Р¶РјРёС‚Рµ {FF0000}<Esc>", "РќР• РўР РћР–")
         input, newlimit, V, {Insert}.{Escape}.{Enter}
             sleep, 50
             if ErrorLevel = EndKey:Insert
@@ -8080,19 +8080,19 @@ if (menu == 1)
             SendInput,{INSERT}
             SendInput,{ENTER}
                 limit:=newlimit
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы установили новое значение для команды /limit - {00FFFF}" limit "{FFFFFF} км\час.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ СѓСЃС‚Р°РЅРѕРІРёР»Рё РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ РєРѕРјР°РЅРґС‹ /limit - {00FFFF}" limit "{FFFFFF} РєРј\С‡Р°СЃ.")
                 IniWrite, %limit%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Auto, limit
                 return
             }
             else
             if ErrorLevel = EndKey:Escape
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы выйшли из меню смены значения /limit. Ваш лимит - {00FFFF}" limit "{FFFFFF} км\час.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЃРјРµРЅС‹ Р·РЅР°С‡РµРЅРёСЏ /limit. Р’Р°С€ Р»РёРјРёС‚ - {00FFFF}" limit "{FFFFFF} РєРј\С‡Р°СЃ.")
             }
             else
             if ErrorLevel = EndKey:Enter
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Повторите пожалуйста попытку нажав{32CD32} <Insert>{FFFFFF} что-бы применить настройки.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕРІС‚РѕСЂРёС‚Рµ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїС‹С‚РєСѓ РЅР°Р¶Р°РІ{32CD32} <Insert>{FFFFFF} С‡С‚Рѕ-Р±С‹ РїСЂРёРјРµРЅРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё.")
             }
             menu:=0
             return
@@ -8105,18 +8105,18 @@ if (menu == 1)
         line_text  := getDialogLine(line_num)
         if (line_num == 1)
         {
-        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - ИНФОРМАЦИЯ О КЛАВИШАХ", "{FFFFFF}=============================================================================================`n{FFFF00}" NameKey1 "{FFFFFF} - Ситуация 'Трафик-стоп' (*55).`n{FFFF00}" NameKey2 "{FFFFFF} - Ситуация 'Арест правонарушителя'(*57v and *66).`n{FFFF00}" NameKey3 "{FFFFFF} - Ситуация 'Теракт'.`n{FFFF00}" NameKey4 "{FFFFFF} - Меню 'Рация'.`n`n{FFFF00}" NameKey5 "{FFFFFF} - Зафиксироваться на ближайшей машине, по бортовому компютеру.`n{FFFF00}" NameKey6 "{FFFFFF} - Снять фиксацию машины из бортового компютера.`n`n{FFFF00}" NameKey7 "{FFFFFF} - Установить лимит машине '" limit "' км\час.`n{FFFF00}" NameKey8 "{FFFFFF} - Отыграть часы + автоматическое F8.`n`n{FFFF00}/mask{FFFFFF} - Отыграть маску и одеть её.`n{FFFF00}/reps{FFFFFF} - Попросить администрацию проследить за вами\ситуацией.`n{FFFFFF}=============================================================================================`n", "X")
+        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - РРќР¤РћР РњРђР¦РРЇ Рћ РљР›РђР’РРЁРђРҐ", "{FFFFFF}=============================================================================================`n{FFFF00}" NameKey1 "{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ 'РўСЂР°С„РёРє-СЃС‚РѕРї' (*55).`n{FFFF00}" NameKey2 "{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ 'РђСЂРµСЃС‚ РїСЂР°РІРѕРЅР°СЂСѓС€РёС‚РµР»СЏ'(*57v and *66).`n{FFFF00}" NameKey3 "{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ 'РўРµСЂР°РєС‚'.`n{FFFF00}" NameKey4 "{FFFFFF} - РњРµРЅСЋ 'Р Р°С†РёСЏ'.`n`n{FFFF00}" NameKey5 "{FFFFFF} - Р—Р°С„РёРєСЃРёСЂРѕРІР°С‚СЊСЃСЏ РЅР° Р±Р»РёР¶Р°Р№С€РµР№ РјР°С€РёРЅРµ, РїРѕ Р±РѕСЂС‚РѕРІРѕРјСѓ РєРѕРјРїСЋС‚РµСЂСѓ.`n{FFFF00}" NameKey6 "{FFFFFF} - РЎРЅСЏС‚СЊ С„РёРєСЃР°С†РёСЋ РјР°С€РёРЅС‹ РёР· Р±РѕСЂС‚РѕРІРѕРіРѕ РєРѕРјРїСЋС‚РµСЂР°.`n`n{FFFF00}" NameKey7 "{FFFFFF} - РЈСЃС‚Р°РЅРѕРІРёС‚СЊ Р»РёРјРёС‚ РјР°С€РёРЅРµ '" limit "' РєРј\С‡Р°СЃ.`n{FFFF00}" NameKey8 "{FFFFFF} - РћС‚С‹РіСЂР°С‚СЊ С‡Р°СЃС‹ + Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ F8.`n`n{FFFF00}/mask{FFFFFF} - РћС‚С‹РіСЂР°С‚СЊ РјР°СЃРєСѓ Рё РѕРґРµС‚СЊ РµС‘.`n{FFFF00}/reps{FFFFFF} - РџРѕРїСЂРѕСЃРёС‚СЊ Р°РґРјРёРЅРёСЃС‚СЂР°С†РёСЋ РїСЂРѕСЃР»РµРґРёС‚СЊ Р·Р° РІР°РјРё\СЃРёС‚СѓР°С†РёРµР№.`n{FFFFFF}=============================================================================================`n", "X")
             return
         }
         else if (line_num == 2)
         {
-        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP СОТРУДНИК SWAT", "{FFFFFF}====================================================================================================================`n{00BFFF}>Оцепление территории (Система)<`n`n{FFFF00}-{FFFFFF} При спец. задании, где нужно оцеплять территорию: митинг, авария или другое;`n{FFFF00}-{FFFFFF} Используйте барьеры! Все барьеры лежат в автомобилях S.W.A.T. - {00FF00}( Alt + N ){FFFFFF};`n{FFFF00}-{FFFFFF} Просто так барьеры ставить запрещено!`n{FFFF00}-{FFFFFF} Карается выговором, вплоть до увольнения!`n`n{00BFFF}>Основные задачи S.W.A.T.<`n`n{FFFF00}-{FFFFFF} Спасение заложников;`n{FFFF00}-{FFFFFF} Обеспечение периметра безопасности против снайперов во время визитов государственных лиц;`n{FFFF00}-{FFFFFF} Обеспечение превосходящей огневой мощи в некоторых ситуациях, в том числе против забаррикадировавшихся подозреваемых;`n{FFFF00}-{FFFFFF} Спасение полицейских и гражданских, попавших под обстрел;`n{FFFF00}-{FFFFFF} Контртеррористические операции в городах штата Atlantic;`n{FFFF00}-{FFFFFF} Разрешение ситуаций, характеризующихся высоким риском при минимуме смертей, ранений и повреждений собственности;`n{FFFF00}-{FFFFFF} Разрешение ситуаций с забаррикадировавшимися личностями;`n{FFFF00}-{FFFFFF} Стабилизация ситуаций, характеризующихся высоким риском с самоубийцами;`n{FFFF00}-{FFFFFF} Обеспечение поддержки при рейдах против наркомафии, арестах по судебному ордеру, обысках подозреваемых (Помощь FBI, CIA, SAPD);`n{FFFF00}-{FFFFFF} Обеспечение поддержки при особых событиях;`n{FFFF00}-{FFFFFF} Стабилизация опасных ситуаций при столкновении с преступниками (такими как расисты, серийные убийцы, гангстеры);`n{FFFF00}-{FFFFFF} Борьба с уличными беспорядками;`n`n{00BFFF}>Чем отличается спец. подразделение S.W.A.T. от остальных организаций, таких как SAPD или FBI?<`n`n{FFFF00}-{FFFFFF} Начнем со сравнения нашего спец. подразделения с гос. структурой San Andreas Police Department...`n  Для начала, S.W.A.T. не занимается патрулем или ловлей преступников (не считая особо опасных,`n  которых не в силах поймать сотрудники полиции), спец. подразделение S.W.A.T. - это элитное`n  подразделение, оно занимается делами намного важными, нежели обычная Полиция штата;`n`n{00BFFF}>Устранение Митинга<`n`n{FFFF00}-{FFFFFF} В случае митинга, строго запрещено использовать огнестрельное оружие! (Только если это не вооруженные митингующие);`n{FFFF00}-{FFFFFF} Обязательная отыгровка RP;`n{FFFF00}-{FFFFFF} Необходимо осуществить оцепление территории и выстроиться в определенный ряд;`n{FFFF00}-{FFFFFF} После этого необходимо с помощью Мегафона [/m] или крика [/s];`n{FFFF00}-{FFFFFF} Попытаться устранить митинг, если бастующие отказываются действовать по указанному плану или сопротивляются,`n  то применяется сила (использовать дубинки), после этого подаем на человека в розыск и одеваем наручники!`n  Так делаем с каждым! Убираем свои заграждения и везем преступников в КПЗ!`n{FFFFFF}====================================================================================================================`n", "X")
+        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP РЎРћРўР РЈР”РќРРљ SWAT", "{FFFFFF}====================================================================================================================`n{00BFFF}>РћС†РµРїР»РµРЅРёРµ С‚РµСЂСЂРёС‚РѕСЂРёРё (РЎРёСЃС‚РµРјР°)<`n`n{FFFF00}-{FFFFFF} РџСЂРё СЃРїРµС†. Р·Р°РґР°РЅРёРё, РіРґРµ РЅСѓР¶РЅРѕ РѕС†РµРїР»СЏС‚СЊ С‚РµСЂСЂРёС‚РѕСЂРёСЋ: РјРёС‚РёРЅРі, Р°РІР°СЂРёСЏ РёР»Рё РґСЂСѓРіРѕРµ;`n{FFFF00}-{FFFFFF} РСЃРїРѕР»СЊР·СѓР№С‚Рµ Р±Р°СЂСЊРµСЂС‹! Р’СЃРµ Р±Р°СЂСЊРµСЂС‹ Р»РµР¶Р°С‚ РІ Р°РІС‚РѕРјРѕР±РёР»СЏС… S.W.A.T. - {00FF00}( Alt + N ){FFFFFF};`n{FFFF00}-{FFFFFF} РџСЂРѕСЃС‚Рѕ С‚Р°Рє Р±Р°СЂСЊРµСЂС‹ СЃС‚Р°РІРёС‚СЊ Р·Р°РїСЂРµС‰РµРЅРѕ!`n{FFFF00}-{FFFFFF} РљР°СЂР°РµС‚СЃСЏ РІС‹РіРѕРІРѕСЂРѕРј, РІРїР»РѕС‚СЊ РґРѕ СѓРІРѕР»СЊРЅРµРЅРёСЏ!`n`n{00BFFF}>РћСЃРЅРѕРІРЅС‹Рµ Р·Р°РґР°С‡Рё S.W.A.T.<`n`n{FFFF00}-{FFFFFF} РЎРїР°СЃРµРЅРёРµ Р·Р°Р»РѕР¶РЅРёРєРѕРІ;`n{FFFF00}-{FFFFFF} РћР±РµСЃРїРµС‡РµРЅРёРµ РїРµСЂРёРјРµС‚СЂР° Р±РµР·РѕРїР°СЃРЅРѕСЃС‚Рё РїСЂРѕС‚РёРІ СЃРЅР°Р№РїРµСЂРѕРІ РІРѕ РІСЂРµРјСЏ РІРёР·РёС‚РѕРІ РіРѕСЃСѓРґР°СЂСЃС‚РІРµРЅРЅС‹С… Р»РёС†;`n{FFFF00}-{FFFFFF} РћР±РµСЃРїРµС‡РµРЅРёРµ РїСЂРµРІРѕСЃС…РѕРґСЏС‰РµР№ РѕРіРЅРµРІРѕР№ РјРѕС‰Рё РІ РЅРµРєРѕС‚РѕСЂС‹С… СЃРёС‚СѓР°С†РёСЏС…, РІ С‚РѕРј С‡РёСЃР»Рµ РїСЂРѕС‚РёРІ Р·Р°Р±Р°СЂСЂРёРєР°РґРёСЂРѕРІР°РІС€РёС…СЃСЏ РїРѕРґРѕР·СЂРµРІР°РµРјС‹С…;`n{FFFF00}-{FFFFFF} РЎРїР°СЃРµРЅРёРµ РїРѕР»РёС†РµР№СЃРєРёС… Рё РіСЂР°Р¶РґР°РЅСЃРєРёС…, РїРѕРїР°РІС€РёС… РїРѕРґ РѕР±СЃС‚СЂРµР»;`n{FFFF00}-{FFFFFF} РљРѕРЅС‚СЂС‚РµСЂСЂРѕСЂРёСЃС‚РёС‡РµСЃРєРёРµ РѕРїРµСЂР°С†РёРё РІ РіРѕСЂРѕРґР°С… С€С‚Р°С‚Р° Atlantic;`n{FFFF00}-{FFFFFF} Р Р°Р·СЂРµС€РµРЅРёРµ СЃРёС‚СѓР°С†РёР№, С…Р°СЂР°РєС‚РµСЂРёР·СѓСЋС‰РёС…СЃСЏ РІС‹СЃРѕРєРёРј СЂРёСЃРєРѕРј РїСЂРё РјРёРЅРёРјСѓРјРµ СЃРјРµСЂС‚РµР№, СЂР°РЅРµРЅРёР№ Рё РїРѕРІСЂРµР¶РґРµРЅРёР№ СЃРѕР±СЃС‚РІРµРЅРЅРѕСЃС‚Рё;`n{FFFF00}-{FFFFFF} Р Р°Р·СЂРµС€РµРЅРёРµ СЃРёС‚СѓР°С†РёР№ СЃ Р·Р°Р±Р°СЂСЂРёРєР°РґРёСЂРѕРІР°РІС€РёРјРёСЃСЏ Р»РёС‡РЅРѕСЃС‚СЏРјРё;`n{FFFF00}-{FFFFFF} РЎС‚Р°Р±РёР»РёР·Р°С†РёСЏ СЃРёС‚СѓР°С†РёР№, С…Р°СЂР°РєС‚РµСЂРёР·СѓСЋС‰РёС…СЃСЏ РІС‹СЃРѕРєРёРј СЂРёСЃРєРѕРј СЃ СЃР°РјРѕСѓР±РёР№С†Р°РјРё;`n{FFFF00}-{FFFFFF} РћР±РµСЃРїРµС‡РµРЅРёРµ РїРѕРґРґРµСЂР¶РєРё РїСЂРё СЂРµР№РґР°С… РїСЂРѕС‚РёРІ РЅР°СЂРєРѕРјР°С„РёРё, Р°СЂРµСЃС‚Р°С… РїРѕ СЃСѓРґРµР±РЅРѕРјСѓ РѕСЂРґРµСЂСѓ, РѕР±С‹СЃРєР°С… РїРѕРґРѕР·СЂРµРІР°РµРјС‹С… (РџРѕРјРѕС‰СЊ FBI, CIA, SAPD);`n{FFFF00}-{FFFFFF} РћР±РµСЃРїРµС‡РµРЅРёРµ РїРѕРґРґРµСЂР¶РєРё РїСЂРё РѕСЃРѕР±С‹С… СЃРѕР±С‹С‚РёСЏС…;`n{FFFF00}-{FFFFFF} РЎС‚Р°Р±РёР»РёР·Р°С†РёСЏ РѕРїР°СЃРЅС‹С… СЃРёС‚СѓР°С†РёР№ РїСЂРё СЃС‚РѕР»РєРЅРѕРІРµРЅРёРё СЃ РїСЂРµСЃС‚СѓРїРЅРёРєР°РјРё (С‚Р°РєРёРјРё РєР°Рє СЂР°СЃРёСЃС‚С‹, СЃРµСЂРёР№РЅС‹Рµ СѓР±РёР№С†С‹, РіР°РЅРіСЃС‚РµСЂС‹);`n{FFFF00}-{FFFFFF} Р‘РѕСЂСЊР±Р° СЃ СѓР»РёС‡РЅС‹РјРё Р±РµСЃРїРѕСЂСЏРґРєР°РјРё;`n`n{00BFFF}>Р§РµРј РѕС‚Р»РёС‡Р°РµС‚СЃСЏ СЃРїРµС†. РїРѕРґСЂР°Р·РґРµР»РµРЅРёРµ S.W.A.T. РѕС‚ РѕСЃС‚Р°Р»СЊРЅС‹С… РѕСЂРіР°РЅРёР·Р°С†РёР№, С‚Р°РєРёС… РєР°Рє SAPD РёР»Рё FBI?<`n`n{FFFF00}-{FFFFFF} РќР°С‡РЅРµРј СЃРѕ СЃСЂР°РІРЅРµРЅРёСЏ РЅР°С€РµРіРѕ СЃРїРµС†. РїРѕРґСЂР°Р·РґРµР»РµРЅРёСЏ СЃ РіРѕСЃ. СЃС‚СЂСѓРєС‚СѓСЂРѕР№ San Andreas Police Department...`n  Р”Р»СЏ РЅР°С‡Р°Р»Р°, S.W.A.T. РЅРµ Р·Р°РЅРёРјР°РµС‚СЃСЏ РїР°С‚СЂСѓР»РµРј РёР»Рё Р»РѕРІР»РµР№ РїСЂРµСЃС‚СѓРїРЅРёРєРѕРІ (РЅРµ СЃС‡РёС‚Р°СЏ РѕСЃРѕР±Рѕ РѕРїР°СЃРЅС‹С…,`n  РєРѕС‚РѕСЂС‹С… РЅРµ РІ СЃРёР»Р°С… РїРѕР№РјР°С‚СЊ СЃРѕС‚СЂСѓРґРЅРёРєРё РїРѕР»РёС†РёРё), СЃРїРµС†. РїРѕРґСЂР°Р·РґРµР»РµРЅРёРµ S.W.A.T. - СЌС‚Рѕ СЌР»РёС‚РЅРѕРµ`n  РїРѕРґСЂР°Р·РґРµР»РµРЅРёРµ, РѕРЅРѕ Р·Р°РЅРёРјР°РµС‚СЃСЏ РґРµР»Р°РјРё РЅР°РјРЅРѕРіРѕ РІР°Р¶РЅС‹РјРё, РЅРµР¶РµР»Рё РѕР±С‹С‡РЅР°СЏ РџРѕР»РёС†РёСЏ С€С‚Р°С‚Р°;`n`n{00BFFF}>РЈСЃС‚СЂР°РЅРµРЅРёРµ РњРёС‚РёРЅРіР°<`n`n{FFFF00}-{FFFFFF} Р’ СЃР»СѓС‡Р°Рµ РјРёС‚РёРЅРіР°, СЃС‚СЂРѕРіРѕ Р·Р°РїСЂРµС‰РµРЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РѕРіРЅРµСЃС‚СЂРµР»СЊРЅРѕРµ РѕСЂСѓР¶РёРµ! (РўРѕР»СЊРєРѕ РµСЃР»Рё СЌС‚Рѕ РЅРµ РІРѕРѕСЂСѓР¶РµРЅРЅС‹Рµ РјРёС‚РёРЅРіСѓСЋС‰РёРµ);`n{FFFF00}-{FFFFFF} РћР±СЏР·Р°С‚РµР»СЊРЅР°СЏ РѕС‚С‹РіСЂРѕРІРєР° RP;`n{FFFF00}-{FFFFFF} РќРµРѕР±С…РѕРґРёРјРѕ РѕСЃСѓС‰РµСЃС‚РІРёС‚СЊ РѕС†РµРїР»РµРЅРёРµ С‚РµСЂСЂРёС‚РѕСЂРёРё Рё РІС‹СЃС‚СЂРѕРёС‚СЊСЃСЏ РІ РѕРїСЂРµРґРµР»РµРЅРЅС‹Р№ СЂСЏРґ;`n{FFFF00}-{FFFFFF} РџРѕСЃР»Рµ СЌС‚РѕРіРѕ РЅРµРѕР±С…РѕРґРёРјРѕ СЃ РїРѕРјРѕС‰СЊСЋ РњРµРіР°С„РѕРЅР° [/m] РёР»Рё РєСЂРёРєР° [/s];`n{FFFF00}-{FFFFFF} РџРѕРїС‹С‚Р°С‚СЊСЃСЏ СѓСЃС‚СЂР°РЅРёС‚СЊ РјРёС‚РёРЅРі, РµСЃР»Рё Р±Р°СЃС‚СѓСЋС‰РёРµ РѕС‚РєР°Р·С‹РІР°СЋС‚СЃСЏ РґРµР№СЃС‚РІРѕРІР°С‚СЊ РїРѕ СѓРєР°Р·Р°РЅРЅРѕРјСѓ РїР»Р°РЅСѓ РёР»Рё СЃРѕРїСЂРѕС‚РёРІР»СЏСЋС‚СЃСЏ,`n  С‚Рѕ РїСЂРёРјРµРЅСЏРµС‚СЃСЏ СЃРёР»Р° (РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РґСѓР±РёРЅРєРё), РїРѕСЃР»Рµ СЌС‚РѕРіРѕ РїРѕРґР°РµРј РЅР° С‡РµР»РѕРІРµРєР° РІ СЂРѕР·С‹СЃРє Рё РѕРґРµРІР°РµРј РЅР°СЂСѓС‡РЅРёРєРё!`n  РўР°Рє РґРµР»Р°РµРј СЃ РєР°Р¶РґС‹Рј! РЈР±РёСЂР°РµРј СЃРІРѕРё Р·Р°РіСЂР°Р¶РґРµРЅРёСЏ Рё РІРµР·РµРј РїСЂРµСЃС‚СѓРїРЅРёРєРѕРІ РІ РљРџР—!`n{FFFFFF}====================================================================================================================`n", "X")
             menu := 4
             return
         }
         else if (line_num == 3)
         {
-        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - ДЕСЯТИЧНЫЕ КОДЫ (1 стр).", "{FFFFFF}=================================================================================================`n{00BFFF}ДЕСЯТИЧНЫЕ КОДЫ`n{FFFFFF}{FFFF00}10-1{FFFFFF} - Встреча всех офицеров на дежурстве (включая локацию и код).`n{FFFF00}10-3{FFFFFF} - Радиомолчание (для срочных сообщений).`n{FFFF00}10-4{FFFFFF} - Принято.`n{FFFF00}10-5{FFFFFF} - Повторите последнее сообщение.`n{FFFF00}10-6{FFFFFF} - Не принято/не верно/нет.`n{FFFF00}10-7{FFFFFF} - Ожидайте.`n{FFFF00}10-8{FFFFFF} - В настоящее время занят/не доступен.`n{FFFF00}10-9{FFFFFF} - В настоящее время занят/не доступен (детективы на ситуации).`n{FFFF00}10-14{FFFFFF} - Запрос транспортировки (включая локацию и цель транспортировки).`n{FFFF00}10-15{FFFFFF} - Подозреваемые арестованы (включая кол-во подозреваемых, локацию).`n{FFFF00}10-20{FFFFFF} - Локация.`n{FFFF00}10-21{FFFFFF} - Сообщение о статусе и местонахождении, описание ситуации.`n{FFFF00}10-22{FFFFFF} - Направляйтесь в 'локация' (обращение к конкретному офицеру).`n{FFFF00}10-27{FFFFFF} - Меняю маркировку патруля (включая старую и новую маркировку).`n{FFFF00}10-40{FFFFFF} - Большое скопление людей (4 и больше).`n{FFFF00}10-41{FFFFFF} - Нелегальная активность.`n{FFFF00}10-46{FFFFFF} - Провожу обыск.`n{FFFF00}10-55{FFFFFF} - Траффик-стоп.`n{FFFF00}10-56{FFFFFF} - Запрашиваю информацию (включая номер авто/имя подозреваемого).`n{FFFF00}10-57 VICTOR{FFFFFF} - Погоня за автомобилем (включая модель авто, цвет, местонахождение).`n{FFFF00}10-57 FOXTROT{FFFFFF} - Пешая погоня (включая внешность подозреваемого, оружие (если имеется))`n{FFFF00}10-60{FFFFFF} - Информация об автомобиле (включая название авто, цвет, количество людей внутри).`n{FFFF00}10-61{FFFFFF} - Информация о пешем подозреваемом (включая расу, одежду).`n{FFFF00}10-66{FFFFFF} - Остановка повышенного риска (если известно, что подозреваемый в авто вооружен/совершил преступление. `nЕсли остановка произошла после погони).`n{FFFF00}10-70{FFFFFF} - Запрос поддержки (включая количество юнитов, код).`n{FFFF00}10-71{FFFFFF} - Запрос медицинской поддержки.`n{FFFF00}10-99{FFFFFF} - Ситуация урегулирована.`n`n{FFFFFF}Продолжение на {FF0000}<2-ой странице>`n{FFFFFF}=================================================================================================`n", "2 СТР")
+        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - Р”Р•РЎРЇРўРР§РќР«Р• РљРћР”Р« (1 СЃС‚СЂ).", "{FFFFFF}=================================================================================================`n{00BFFF}Р”Р•РЎРЇРўРР§РќР«Р• РљРћР”Р«`n{FFFFFF}{FFFF00}10-1{FFFFFF} - Р’СЃС‚СЂРµС‡Р° РІСЃРµС… РѕС„РёС†РµСЂРѕРІ РЅР° РґРµР¶СѓСЂСЃС‚РІРµ (РІРєР»СЋС‡Р°СЏ Р»РѕРєР°С†РёСЋ Рё РєРѕРґ).`n{FFFF00}10-3{FFFFFF} - Р Р°РґРёРѕРјРѕР»С‡Р°РЅРёРµ (РґР»СЏ СЃСЂРѕС‡РЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№).`n{FFFF00}10-4{FFFFFF} - РџСЂРёРЅСЏС‚Рѕ.`n{FFFF00}10-5{FFFFFF} - РџРѕРІС‚РѕСЂРёС‚Рµ РїРѕСЃР»РµРґРЅРµРµ СЃРѕРѕР±С‰РµРЅРёРµ.`n{FFFF00}10-6{FFFFFF} - РќРµ РїСЂРёРЅСЏС‚Рѕ/РЅРµ РІРµСЂРЅРѕ/РЅРµС‚.`n{FFFF00}10-7{FFFFFF} - РћР¶РёРґР°Р№С‚Рµ.`n{FFFF00}10-8{FFFFFF} - Р’ РЅР°СЃС‚РѕСЏС‰РµРµ РІСЂРµРјСЏ Р·Р°РЅСЏС‚/РЅРµ РґРѕСЃС‚СѓРїРµРЅ.`n{FFFF00}10-9{FFFFFF} - Р’ РЅР°СЃС‚РѕСЏС‰РµРµ РІСЂРµРјСЏ Р·Р°РЅСЏС‚/РЅРµ РґРѕСЃС‚СѓРїРµРЅ (РґРµС‚РµРєС‚РёРІС‹ РЅР° СЃРёС‚СѓР°С†РёРё).`n{FFFF00}10-14{FFFFFF} - Р—Р°РїСЂРѕСЃ С‚СЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРєРё (РІРєР»СЋС‡Р°СЏ Р»РѕРєР°С†РёСЋ Рё С†РµР»СЊ С‚СЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРєРё).`n{FFFF00}10-15{FFFFFF} - РџРѕРґРѕР·СЂРµРІР°РµРјС‹Рµ Р°СЂРµСЃС‚РѕРІР°РЅС‹ (РІРєР»СЋС‡Р°СЏ РєРѕР»-РІРѕ РїРѕРґРѕР·СЂРµРІР°РµРјС‹С…, Р»РѕРєР°С†РёСЋ).`n{FFFF00}10-20{FFFFFF} - Р›РѕРєР°С†РёСЏ.`n{FFFF00}10-21{FFFFFF} - РЎРѕРѕР±С‰РµРЅРёРµ Рѕ СЃС‚Р°С‚СѓСЃРµ Рё РјРµСЃС‚РѕРЅР°С…РѕР¶РґРµРЅРёРё, РѕРїРёСЃР°РЅРёРµ СЃРёС‚СѓР°С†РёРё.`n{FFFF00}10-22{FFFFFF} - РќР°РїСЂР°РІР»СЏР№С‚РµСЃСЊ РІ 'Р»РѕРєР°С†РёСЏ' (РѕР±СЂР°С‰РµРЅРёРµ Рє РєРѕРЅРєСЂРµС‚РЅРѕРјСѓ РѕС„РёС†РµСЂСѓ).`n{FFFF00}10-27{FFFFFF} - РњРµРЅСЏСЋ РјР°СЂРєРёСЂРѕРІРєСѓ РїР°С‚СЂСѓР»СЏ (РІРєР»СЋС‡Р°СЏ СЃС‚Р°СЂСѓСЋ Рё РЅРѕРІСѓСЋ РјР°СЂРєРёСЂРѕРІРєСѓ).`n{FFFF00}10-40{FFFFFF} - Р‘РѕР»СЊС€РѕРµ СЃРєРѕРїР»РµРЅРёРµ Р»СЋРґРµР№ (4 Рё Р±РѕР»СЊС€Рµ).`n{FFFF00}10-41{FFFFFF} - РќРµР»РµРіР°Р»СЊРЅР°СЏ Р°РєС‚РёРІРЅРѕСЃС‚СЊ.`n{FFFF00}10-46{FFFFFF} - РџСЂРѕРІРѕР¶Сѓ РѕР±С‹СЃРє.`n{FFFF00}10-55{FFFFFF} - РўСЂР°С„С„РёРє-СЃС‚РѕРї.`n{FFFF00}10-56{FFFFFF} - Р—Р°РїСЂР°С€РёРІР°СЋ РёРЅС„РѕСЂРјР°С†РёСЋ (РІРєР»СЋС‡Р°СЏ РЅРѕРјРµСЂ Р°РІС‚Рѕ/РёРјСЏ РїРѕРґРѕР·СЂРµРІР°РµРјРѕРіРѕ).`n{FFFF00}10-57 VICTOR{FFFFFF} - РџРѕРіРѕРЅСЏ Р·Р° Р°РІС‚РѕРјРѕР±РёР»РµРј (РІРєР»СЋС‡Р°СЏ РјРѕРґРµР»СЊ Р°РІС‚Рѕ, С†РІРµС‚, РјРµСЃС‚РѕРЅР°С…РѕР¶РґРµРЅРёРµ).`n{FFFF00}10-57 FOXTROT{FFFFFF} - РџРµС€Р°СЏ РїРѕРіРѕРЅСЏ (РІРєР»СЋС‡Р°СЏ РІРЅРµС€РЅРѕСЃС‚СЊ РїРѕРґРѕР·СЂРµРІР°РµРјРѕРіРѕ, РѕСЂСѓР¶РёРµ (РµСЃР»Рё РёРјРµРµС‚СЃСЏ))`n{FFFF00}10-60{FFFFFF} - РРЅС„РѕСЂРјР°С†РёСЏ РѕР± Р°РІС‚РѕРјРѕР±РёР»Рµ (РІРєР»СЋС‡Р°СЏ РЅР°Р·РІР°РЅРёРµ Р°РІС‚Рѕ, С†РІРµС‚, РєРѕР»РёС‡РµСЃС‚РІРѕ Р»СЋРґРµР№ РІРЅСѓС‚СЂРё).`n{FFFF00}10-61{FFFFFF} - РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїРµС€РµРј РїРѕРґРѕР·СЂРµРІР°РµРјРѕРј (РІРєР»СЋС‡Р°СЏ СЂР°СЃСѓ, РѕРґРµР¶РґСѓ).`n{FFFF00}10-66{FFFFFF} - РћСЃС‚Р°РЅРѕРІРєР° РїРѕРІС‹С€РµРЅРЅРѕРіРѕ СЂРёСЃРєР° (РµСЃР»Рё РёР·РІРµСЃС‚РЅРѕ, С‡С‚Рѕ РїРѕРґРѕР·СЂРµРІР°РµРјС‹Р№ РІ Р°РІС‚Рѕ РІРѕРѕСЂСѓР¶РµРЅ/СЃРѕРІРµСЂС€РёР» РїСЂРµСЃС‚СѓРїР»РµРЅРёРµ. `nР•СЃР»Рё РѕСЃС‚Р°РЅРѕРІРєР° РїСЂРѕРёР·РѕС€Р»Р° РїРѕСЃР»Рµ РїРѕРіРѕРЅРё).`n{FFFF00}10-70{FFFFFF} - Р—Р°РїСЂРѕСЃ РїРѕРґРґРµСЂР¶РєРё (РІРєР»СЋС‡Р°СЏ РєРѕР»РёС‡РµСЃС‚РІРѕ СЋРЅРёС‚РѕРІ, РєРѕРґ).`n{FFFF00}10-71{FFFFFF} - Р—Р°РїСЂРѕСЃ РјРµРґРёС†РёРЅСЃРєРѕР№ РїРѕРґРґРµСЂР¶РєРё.`n{FFFF00}10-99{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ СѓСЂРµРіСѓР»РёСЂРѕРІР°РЅР°.`n`n{FFFFFF}РџСЂРѕРґРѕР»Р¶РµРЅРёРµ РЅР° {FF0000}<2-РѕР№ СЃС‚СЂР°РЅРёС†Рµ>`n{FFFFFF}=================================================================================================`n", "2 РЎРўР ")
             menu := 5
             return
         }
@@ -8127,7 +8127,7 @@ if (menu == 1)
         }
         else if (line_num == 5)
         {
-        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - СМЕНА МАРКИРОВКИ", "{FFFFFF}Введите новою маркировку. {FF0000}|{FFFFFF}  Пример: {00FFFF}1-A-3 {FFFFFF}или  {00FFFF}L-5{FFFFFF}.`n{FFFFFF}После чего что-бы принять изменение нажмите{32CD32} <Insert>`n{FFFFFF}А для того чтоб просто выйти из меню нажмите {FF0000}<Esc>", "НЕ ТРОЖ")
+        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - РЎРњР•РќРђ РњРђР РљРР РћР’РљР", "{FFFFFF}Р’РІРµРґРёС‚Рµ РЅРѕРІРѕСЋ РјР°СЂРєРёСЂРѕРІРєСѓ. {FF0000}|{FFFFFF}  РџСЂРёРјРµСЂ: {00FFFF}1-A-3 {FFFFFF}РёР»Рё  {00FFFF}L-5{FFFFFF}.`n{FFFFFF}РџРѕСЃР»Рµ С‡РµРіРѕ С‡С‚Рѕ-Р±С‹ РїСЂРёРЅСЏС‚СЊ РёР·РјРµРЅРµРЅРёРµ РЅР°Р¶РјРёС‚Рµ{32CD32} <Insert>`n{FFFFFF}Рђ РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР± РїСЂРѕСЃС‚Рѕ РІС‹Р№С‚Рё РёР· РјРµРЅСЋ РЅР°Р¶РјРёС‚Рµ {FF0000}<Esc>", "РќР• РўР РћР–")
             SendMessage, 0x50,, 0x4090409,, A
         input, newmarking, V, {Insert}.{Escape}.{Enter}
             if ErrorLevel = EndKey:Insert
@@ -8135,13 +8135,13 @@ if (menu == 1)
                 sleep, 100
             SendInput,{INSERT}
             SendInput,{ENTER}
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы удачно сменили свою маркировку на - {00FFFF}" newmarking "{FFFFFF}.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ СѓРґР°С‡РЅРѕ СЃРјРµРЅРёР»Рё СЃРІРѕСЋ РјР°СЂРєРёСЂРѕРІРєСѓ РЅР° - {00FFFF}" newmarking "{FFFFFF}.")
                 Sleep, 1500
                 if (EngVer = 1 and Radio1 = 1){
                     SendChat("/r " Rank "#" idtvoi " to DISP: 10-27, on " newmarking ", RFR, OVER SAY **")
                 }
                 if (EngVer = 0 and Radio1 = 1){
-                    SendChat("/r " Rank "#" idtvoi " to DISP: 10-27, на " newmarking ", доступен, конец связи **")
+                    SendChat("/r " Rank "#" idtvoi " to DISP: 10-27, РЅР° " newmarking ", РґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС† СЃРІСЏР·Рё **")
                 }
                 marking:=newmarking
                 IniWrite, %Marking%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Information, Marking
@@ -8151,7 +8151,7 @@ if (menu == 1)
             else
             if ErrorLevel = EndKey:Escape
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы выйшли из меню смены маркировки, Ваша маркировка - {00FFFF}" marking "{FFFFFF}.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЃРјРµРЅС‹ РјР°СЂРєРёСЂРѕРІРєРё, Р’Р°С€Р° РјР°СЂРєРёСЂРѕРІРєР° - {00FFFF}" marking "{FFFFFF}.")
                 newmarking:=-1
                 menu := 0
                 return
@@ -8159,13 +8159,13 @@ if (menu == 1)
             else
             if ErrorLevel = EndKey:Enter
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Повторите пожалуйста попытку нажав{32CD32} <Insert>{FFFFFF} что-бы применить настройки.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕРІС‚РѕСЂРёС‚Рµ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїС‹С‚РєСѓ РЅР°Р¶Р°РІ{32CD32} <Insert>{FFFFFF} С‡С‚Рѕ-Р±С‹ РїСЂРёРјРµРЅРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё.")
             }
             return
         }
         else if (line_num == 6)
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Скрипт будет перезагружен.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РЎРєСЂРёРїС‚ Р±СѓРґРµС‚ РїРµСЂРµР·Р°РіСЂСѓР¶РµРЅ.")
             Sleep 500
             showGameText("Reloaded", 3000, 4)
             Sleep 1500
@@ -8174,19 +8174,19 @@ if (menu == 1)
         }
         else if (line_num == 7)
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Создателем данного скрипта является: Даниел, {FF0000}Daniel Cooper.")
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Если у вас возникают вопросы/проблемы: обращайтесь ко мне в VK\Discord.")
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Мой Discord: {FF0000}DanielCooper#2416{FFFFFF} | Мой VK: {FF0000}id380297165{FFFFFF} | Version: {FF0000}" vupd "")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РЎРѕР·РґР°С‚РµР»РµРј РґР°РЅРЅРѕРіРѕ СЃРєСЂРёРїС‚Р° СЏРІР»СЏРµС‚СЃСЏ: Р”Р°РЅРёРµР», {FF0000}Daniel Cooper.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р•СЃР»Рё Сѓ РІР°СЃ РІРѕР·РЅРёРєР°СЋС‚ РІРѕРїСЂРѕСЃС‹/РїСЂРѕР±Р»РµРјС‹: РѕР±СЂР°С‰Р°Р№С‚РµСЃСЊ РєРѕ РјРЅРµ РІ VK\Discord.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РњРѕР№ Discord: {FF0000}DanielCooper#2416{FFFFFF} | РњРѕР№ VK: {FF0000}id380297165{FFFFFF} | Version: {FF0000}" vupd "")
             return
         }
         else if (line_num == 8){
-        Showdialog(2, "{00FF00}[ADJUTANT]{FFFFFF} - МЕНЮ НАПАРНИКА", "{FF0000}[1]{FFFFFF} - Фамилия напарника. |{00FF00} " partnerSurname "`n{FF0000}[2]{FFFFFF} - Id напарника. | {00FF00}" partnerId "`n{FF0000}[3]{FFFFFF} - Должность напарника. | {00FF00}" partnerPost "`n{FF0000}[4]{FFFFFF} - {00FF00}Сохранить напарника`n{FF0000}[5]{FFFFFF} - {FF0000}Удалить напарника", "ВЫБОР")
+        Showdialog(2, "{00FF00}[ADJUTANT]{FFFFFF} - РњР•РќР® РќРђРџРђР РќРРљРђ", "{FF0000}[1]{FFFFFF} - Р¤Р°РјРёР»РёСЏ РЅР°РїР°СЂРЅРёРєР°. |{00FF00} " partnerSurname "`n{FF0000}[2]{FFFFFF} - Id РЅР°РїР°СЂРЅРёРєР°. | {00FF00}" partnerId "`n{FF0000}[3]{FFFFFF} - Р”РѕР»Р¶РЅРѕСЃС‚СЊ РЅР°РїР°СЂРЅРёРєР°. | {00FF00}" partnerPost "`n{FF0000}[4]{FFFFFF} - {00FF00}РЎРѕС…СЂР°РЅРёС‚СЊ РЅР°РїР°СЂРЅРёРєР°`n{FF0000}[5]{FFFFFF} - {FF0000}РЈРґР°Р»РёС‚СЊ РЅР°РїР°СЂРЅРёРєР°", "Р’Р«Р‘РћР ")
             menu := 6
             sleep, 500
         }
         else if (line_num == 9){
             menu := 0
-        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - СМЕНА /limit", "{FFFFFF}Введите новое значение скорости. {FF0000}|{FFFFFF}  Пример: {00FFFF}60{FFFFFF}.`n{FFFFFF}После чего что-бы принять изменение нажмите{32CD32} <Insert>`n{FFFFFF}А для того чтоб просто выйти из меню нажмите {FF0000}<Esc>", "НЕ ТРОЖ")
+        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - РЎРњР•РќРђ /limit", "{FFFFFF}Р’РІРµРґРёС‚Рµ РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃРєРѕСЂРѕСЃС‚Рё. {FF0000}|{FFFFFF}  РџСЂРёРјРµСЂ: {00FFFF}60{FFFFFF}.`n{FFFFFF}РџРѕСЃР»Рµ С‡РµРіРѕ С‡С‚Рѕ-Р±С‹ РїСЂРёРЅСЏС‚СЊ РёР·РјРµРЅРµРЅРёРµ РЅР°Р¶РјРёС‚Рµ{32CD32} <Insert>`n{FFFFFF}Рђ РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР± РїСЂРѕСЃС‚Рѕ РІС‹Р№С‚Рё РёР· РјРµРЅСЋ РЅР°Р¶РјРёС‚Рµ {FF0000}<Esc>", "РќР• РўР РћР–")
         input, newlimit, V, {Insert}.{Escape}.{Enter}
             sleep, 50
             if ErrorLevel = EndKey:Insert
@@ -8195,19 +8195,19 @@ if (menu == 1)
             SendInput,{INSERT}
             SendInput,{ENTER}
                 limit:=newlimit
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы установили новое значение для команды /limit - {00FFFF}" limit "{FFFFFF} км\час.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ СѓСЃС‚Р°РЅРѕРІРёР»Рё РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ РєРѕРјР°РЅРґС‹ /limit - {00FFFF}" limit "{FFFFFF} РєРј\С‡Р°СЃ.")
                 IniWrite, %limit%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Auto, limit
                 return
             }
             else
             if ErrorLevel = EndKey:Escape
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы выйшли из меню смены значения /limit. Ваш лимит - {00FFFF}" limit "{FFFFFF} км\час.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЃРјРµРЅС‹ Р·РЅР°С‡РµРЅРёСЏ /limit. Р’Р°С€ Р»РёРјРёС‚ - {00FFFF}" limit "{FFFFFF} РєРј\С‡Р°СЃ.")
             }
             else
             if ErrorLevel = EndKey:Enter
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Повторите пожалуйста попытку нажав{32CD32} <Insert>{FFFFFF} что-бы применить настройки.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕРІС‚РѕСЂРёС‚Рµ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїС‹С‚РєСѓ РЅР°Р¶Р°РІ{32CD32} <Insert>{FFFFFF} С‡С‚Рѕ-Р±С‹ РїСЂРёРјРµРЅРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё.")
             }
             menu:=0
             return
@@ -8220,18 +8220,18 @@ if (menu == 1)
         line_text  := getDialogLine(line_num)
         if (line_num == 1)
         {
-        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - ИНФОРМАЦИЯ О КЛАВИШАХ", "{FFFFFF}=============================================================================================`n{FFFF00}" NameKey1 "{FFFFFF} - Ситуация 'Трафик-стоп' (*55).`n{FFFF00}" NameKey2 "{FFFFFF} - Ситуация 'Арест правонарушителя'(*57v and *66).`n{FFFF00}" NameKey3 "{FFFFFF} - Ситуация 'Теракт'.`n{FFFF00}" NameKey4 "{FFFFFF} - Меню 'Рация'.`n`n{FFFF00}" NameKey5 "{FFFFFF} - Зафиксироваться на ближайшей машине, по бортовому компютеру.`n{FFFF00}" NameKey6 "{FFFFFF} - Снять фиксацию машины из бортового компютера.`n`n{FFFF00}" NameKey7 "{FFFFFF} - Установить лимит машине '" limit "' км\час.`n{FFFF00}" NameKey8 "{FFFFFF} - Отыграть часы + автоматическое F8.`n`n{FFFF00}/mask{FFFFFF} - Отыграть маску и одеть её.`n{FFFF00}/reps{FFFFFF} - Попросить администрацию проследить за вами\ситуацией.`n{FFFFFF}=============================================================================================`n", "X")
+        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - РРќР¤РћР РњРђР¦РРЇ Рћ РљР›РђР’РРЁРђРҐ", "{FFFFFF}=============================================================================================`n{FFFF00}" NameKey1 "{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ 'РўСЂР°С„РёРє-СЃС‚РѕРї' (*55).`n{FFFF00}" NameKey2 "{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ 'РђСЂРµСЃС‚ РїСЂР°РІРѕРЅР°СЂСѓС€РёС‚РµР»СЏ'(*57v and *66).`n{FFFF00}" NameKey3 "{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ 'РўРµСЂР°РєС‚'.`n{FFFF00}" NameKey4 "{FFFFFF} - РњРµРЅСЋ 'Р Р°С†РёСЏ'.`n`n{FFFF00}" NameKey5 "{FFFFFF} - Р—Р°С„РёРєСЃРёСЂРѕРІР°С‚СЊСЃСЏ РЅР° Р±Р»РёР¶Р°Р№С€РµР№ РјР°С€РёРЅРµ, РїРѕ Р±РѕСЂС‚РѕРІРѕРјСѓ РєРѕРјРїСЋС‚РµСЂСѓ.`n{FFFF00}" NameKey6 "{FFFFFF} - РЎРЅСЏС‚СЊ С„РёРєСЃР°С†РёСЋ РјР°С€РёРЅС‹ РёР· Р±РѕСЂС‚РѕРІРѕРіРѕ РєРѕРјРїСЋС‚РµСЂР°.`n`n{FFFF00}" NameKey7 "{FFFFFF} - РЈСЃС‚Р°РЅРѕРІРёС‚СЊ Р»РёРјРёС‚ РјР°С€РёРЅРµ '" limit "' РєРј\С‡Р°СЃ.`n{FFFF00}" NameKey8 "{FFFFFF} - РћС‚С‹РіСЂР°С‚СЊ С‡Р°СЃС‹ + Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ F8.`n`n{FFFF00}/mask{FFFFFF} - РћС‚С‹РіСЂР°С‚СЊ РјР°СЃРєСѓ Рё РѕРґРµС‚СЊ РµС‘.`n{FFFF00}/reps{FFFFFF} - РџРѕРїСЂРѕСЃРёС‚СЊ Р°РґРјРёРЅРёСЃС‚СЂР°С†РёСЋ РїСЂРѕСЃР»РµРґРёС‚СЊ Р·Р° РІР°РјРё\СЃРёС‚СѓР°С†РёРµР№.`n{FFFFFF}=============================================================================================`n", "X")
             return
         }
         else if (line_num == 2)
         {
-        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP СОТРУДНИК CIA (1 стр).", "{FFFFFF}=============================================================================================`n{00BFFF}Правила Дорожного Движения:`n`n{FFFF00}1. {FFFFFF}Движение пешеходов по проезжей части, по рельсовым путям запрещено.`n{FFFF00}2. {FFFFFF}Движение транспортного средства должно проходить по право-сторонней линии.`n{FFFF00}3. {FFFFFF}Запрещается движение по тротуарам, обочинам, по трамвайным рельсам и ж/д путям.`n{FFFF00}4. {FFFFFF}Запрещается движение транспортных средств по путям встречного направления, кроме случаев обгона.`n{FFFF00}5. {FFFFFF}Запрещается управлять транспортным средством в наркотическом или алкогольном опьянении.`n{FFFF00}6. {FFFFFF}Водители обязаны предоставлять свое ТС офицеру полиции, солдату национальной гвардии, агенту ФБР или`n    сотруднику ДПС, если оно требуется для исполнения его служебных обязанностей.`n{FFFF00}7. {FFFFFF}Скорость передвижение:`n {FFFFFF}В {FF0000}жилых{FFFFFF} и пешеходных районах не больше{FF0000} - {00FF00}20 км\ч.`n {FFFFFF}На {FF0000}населённом{FFFFFF} пункте максимально {FF0000}- {00FF00}60 км\ч.`n {FFFFFF}За {FF0000}городом{FFFFFF} допустимая скорость {FF0000}- {00FF00}110 км\ч. `n{FFFFFF}=============================================================================================`n{00BFFF}Траффик стоп – {FFFFFF}это остановка автомобиля с причиной проверки водителя.`n`n{FFFFFF}При каких случаях разрешается проводить траффик стоп:`n{FFFF00}1. {FFFFFF}Если водитель {FF0000}водит крайне неаккуратно{FFFFFF}, то есть виляет в разные стороны.`n{FFFF00}2. {FFFFFF}Транспорт или же сидящие в нем люди находятся {FF0000}в розыске.`n{FFFF00}3. {FFFFFF}Если водитель нарушил {FF0000}ПДД.`n`n{FFFFFF}Первым делом, вы должны включить {FF0000}спец. сигналы и попросить водителя снизить скорость{FFFFFF} и`n{FFFFFF}прижаться к обочине {00FF00}( F2 ){FFFFFF}. Если после двух требований остановиться `n{00FF00}(Интервал между требованиями 15секунд) {FFFFFF}водитель {FF0000}не отреагировал, то объявляется преследование.{00FF00} (Alt+Num4) `n`n{FFFFFF}Если же водитель остановился после {FF0000}1-2-го требования{FFFFFF}, то смело приступаем к траффик стопу.`n`n{FFFFFF}Первое, что вы должны сделать – {00FF00}попросить водителя заглушить двигатель {00FF00}( F2 ){FFFFFF}, приготовить документы`nи держать руки на руле.`n`n{FFFFFF}Далее выходите из машины, руки сразу же ставите на кобуру {00FF00}( Alt + P ){FFFFFF} и двигайтесь к задней части авто. `n{FFFFFF}Оставляйте на фаре отпечаток пальца (для того, чтобы провести анализ, в случае того, если вас `n{FFFFFF}убьют.) и двигайтесь к водителю. Осматривайте салон и водителя, просите его показать `n{FFFFFF}документы {00FF00}(F3, Alt + Home){FFFFFF}. Далее, если у вас есть напарник, просите его пробить человека по базе данных, `n{FFFFFF}если же его нет, берете документы и едете в круизер и проверяйте один.`n`n{FFFFFF}Продолжение на {FF0000}<2-ой странице>`n{FFFFFF}=============================================================================================`n", "2 СТР")
+        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP РЎРћРўР РЈР”РќРРљ CIA (1 СЃС‚СЂ).", "{FFFFFF}=============================================================================================`n{00BFFF}РџСЂР°РІРёР»Р° Р”РѕСЂРѕР¶РЅРѕРіРѕ Р”РІРёР¶РµРЅРёСЏ:`n`n{FFFF00}1. {FFFFFF}Р”РІРёР¶РµРЅРёРµ РїРµС€РµС…РѕРґРѕРІ РїРѕ РїСЂРѕРµР·Р¶РµР№ С‡Р°СЃС‚Рё, РїРѕ СЂРµР»СЊСЃРѕРІС‹Рј РїСѓС‚СЏРј Р·Р°РїСЂРµС‰РµРЅРѕ.`n{FFFF00}2. {FFFFFF}Р”РІРёР¶РµРЅРёРµ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕРіРѕ СЃСЂРµРґСЃС‚РІР° РґРѕР»Р¶РЅРѕ РїСЂРѕС…РѕРґРёС‚СЊ РїРѕ РїСЂР°РІРѕ-СЃС‚РѕСЂРѕРЅРЅРµР№ Р»РёРЅРёРё.`n{FFFF00}3. {FFFFFF}Р—Р°РїСЂРµС‰Р°РµС‚СЃСЏ РґРІРёР¶РµРЅРёРµ РїРѕ С‚СЂРѕС‚СѓР°СЂР°Рј, РѕР±РѕС‡РёРЅР°Рј, РїРѕ С‚СЂР°РјРІР°Р№РЅС‹Рј СЂРµР»СЊСЃР°Рј Рё Р¶/Рґ РїСѓС‚СЏРј.`n{FFFF00}4. {FFFFFF}Р—Р°РїСЂРµС‰Р°РµС‚СЃСЏ РґРІРёР¶РµРЅРёРµ С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹С… СЃСЂРµРґСЃС‚РІ РїРѕ РїСѓС‚СЏРј РІСЃС‚СЂРµС‡РЅРѕРіРѕ РЅР°РїСЂР°РІР»РµРЅРёСЏ, РєСЂРѕРјРµ СЃР»СѓС‡Р°РµРІ РѕР±РіРѕРЅР°.`n{FFFF00}5. {FFFFFF}Р—Р°РїСЂРµС‰Р°РµС‚СЃСЏ СѓРїСЂР°РІР»СЏС‚СЊ С‚СЂР°РЅСЃРїРѕСЂС‚РЅС‹Рј СЃСЂРµРґСЃС‚РІРѕРј РІ РЅР°СЂРєРѕС‚РёС‡РµСЃРєРѕРј РёР»Рё Р°Р»РєРѕРіРѕР»СЊРЅРѕРј РѕРїСЊСЏРЅРµРЅРёРё.`n{FFFF00}6. {FFFFFF}Р’РѕРґРёС‚РµР»Рё РѕР±СЏР·Р°РЅС‹ РїСЂРµРґРѕСЃС‚Р°РІР»СЏС‚СЊ СЃРІРѕРµ РўРЎ РѕС„РёС†РµСЂСѓ РїРѕР»РёС†РёРё, СЃРѕР»РґР°С‚Сѓ РЅР°С†РёРѕРЅР°Р»СЊРЅРѕР№ РіРІР°СЂРґРёРё, Р°РіРµРЅС‚Сѓ Р¤Р‘Р  РёР»Рё`n    СЃРѕС‚СЂСѓРґРЅРёРєСѓ Р”РџРЎ, РµСЃР»Рё РѕРЅРѕ С‚СЂРµР±СѓРµС‚СЃСЏ РґР»СЏ РёСЃРїРѕР»РЅРµРЅРёСЏ РµРіРѕ СЃР»СѓР¶РµР±РЅС‹С… РѕР±СЏР·Р°РЅРЅРѕСЃС‚РµР№.`n{FFFF00}7. {FFFFFF}РЎРєРѕСЂРѕСЃС‚СЊ РїРµСЂРµРґРІРёР¶РµРЅРёРµ:`n {FFFFFF}Р’ {FF0000}Р¶РёР»С‹С…{FFFFFF} Рё РїРµС€РµС…РѕРґРЅС‹С… СЂР°Р№РѕРЅР°С… РЅРµ Р±РѕР»СЊС€Рµ{FF0000} - {00FF00}20 РєРј\С‡.`n {FFFFFF}РќР° {FF0000}РЅР°СЃРµР»С‘РЅРЅРѕРј{FFFFFF} РїСѓРЅРєС‚Рµ РјР°РєСЃРёРјР°Р»СЊРЅРѕ {FF0000}- {00FF00}60 РєРј\С‡.`n {FFFFFF}Р—Р° {FF0000}РіРѕСЂРѕРґРѕРј{FFFFFF} РґРѕРїСѓСЃС‚РёРјР°СЏ СЃРєРѕСЂРѕСЃС‚СЊ {FF0000}- {00FF00}110 РєРј\С‡. `n{FFFFFF}=============================================================================================`n{00BFFF}РўСЂР°С„С„РёРє СЃС‚РѕРї вЂ“ {FFFFFF}СЌС‚Рѕ РѕСЃС‚Р°РЅРѕРІРєР° Р°РІС‚РѕРјРѕР±РёР»СЏ СЃ РїСЂРёС‡РёРЅРѕР№ РїСЂРѕРІРµСЂРєРё РІРѕРґРёС‚РµР»СЏ.`n`n{FFFFFF}РџСЂРё РєР°РєРёС… СЃР»СѓС‡Р°СЏС… СЂР°Р·СЂРµС€Р°РµС‚СЃСЏ РїСЂРѕРІРѕРґРёС‚СЊ С‚СЂР°С„С„РёРє СЃС‚РѕРї:`n{FFFF00}1. {FFFFFF}Р•СЃР»Рё РІРѕРґРёС‚РµР»СЊ {FF0000}РІРѕРґРёС‚ РєСЂР°Р№РЅРµ РЅРµР°РєРєСѓСЂР°С‚РЅРѕ{FFFFFF}, С‚Рѕ РµСЃС‚СЊ РІРёР»СЏРµС‚ РІ СЂР°Р·РЅС‹Рµ СЃС‚РѕСЂРѕРЅС‹.`n{FFFF00}2. {FFFFFF}РўСЂР°РЅСЃРїРѕСЂС‚ РёР»Рё Р¶Рµ СЃРёРґСЏС‰РёРµ РІ РЅРµРј Р»СЋРґРё РЅР°С…РѕРґСЏС‚СЃСЏ {FF0000}РІ СЂРѕР·С‹СЃРєРµ.`n{FFFF00}3. {FFFFFF}Р•СЃР»Рё РІРѕРґРёС‚РµР»СЊ РЅР°СЂСѓС€РёР» {FF0000}РџР”Р”.`n`n{FFFFFF}РџРµСЂРІС‹Рј РґРµР»РѕРј, РІС‹ РґРѕР»Р¶РЅС‹ РІРєР»СЋС‡РёС‚СЊ {FF0000}СЃРїРµС†. СЃРёРіРЅР°Р»С‹ Рё РїРѕРїСЂРѕСЃРёС‚СЊ РІРѕРґРёС‚РµР»СЏ СЃРЅРёР·РёС‚СЊ СЃРєРѕСЂРѕСЃС‚СЊ{FFFFFF} Рё`n{FFFFFF}РїСЂРёР¶Р°С‚СЊСЃСЏ Рє РѕР±РѕС‡РёРЅРµ {00FF00}( F2 ){FFFFFF}. Р•СЃР»Рё РїРѕСЃР»Рµ РґРІСѓС… С‚СЂРµР±РѕРІР°РЅРёР№ РѕСЃС‚Р°РЅРѕРІРёС‚СЊСЃСЏ `n{00FF00}(РРЅС‚РµСЂРІР°Р» РјРµР¶РґСѓ С‚СЂРµР±РѕРІР°РЅРёСЏРјРё 15СЃРµРєСѓРЅРґ) {FFFFFF}РІРѕРґРёС‚РµР»СЊ {FF0000}РЅРµ РѕС‚СЂРµР°РіРёСЂРѕРІР°Р», С‚Рѕ РѕР±СЉСЏРІР»СЏРµС‚СЃСЏ РїСЂРµСЃР»РµРґРѕРІР°РЅРёРµ.{00FF00} (Alt+Num4) `n`n{FFFFFF}Р•СЃР»Рё Р¶Рµ РІРѕРґРёС‚РµР»СЊ РѕСЃС‚Р°РЅРѕРІРёР»СЃСЏ РїРѕСЃР»Рµ {FF0000}1-2-РіРѕ С‚СЂРµР±РѕРІР°РЅРёСЏ{FFFFFF}, С‚Рѕ СЃРјРµР»Рѕ РїСЂРёСЃС‚СѓРїР°РµРј Рє С‚СЂР°С„С„РёРє СЃС‚РѕРїСѓ.`n`n{FFFFFF}РџРµСЂРІРѕРµ, С‡С‚Рѕ РІС‹ РґРѕР»Р¶РЅС‹ СЃРґРµР»Р°С‚СЊ вЂ“ {00FF00}РїРѕРїСЂРѕСЃРёС‚СЊ РІРѕРґРёС‚РµР»СЏ Р·Р°РіР»СѓС€РёС‚СЊ РґРІРёРіР°С‚РµР»СЊ {00FF00}( F2 ){FFFFFF}, РїСЂРёРіРѕС‚РѕРІРёС‚СЊ РґРѕРєСѓРјРµРЅС‚С‹`nРё РґРµСЂР¶Р°С‚СЊ СЂСѓРєРё РЅР° СЂСѓР»Рµ.`n`n{FFFFFF}Р”Р°Р»РµРµ РІС‹С…РѕРґРёС‚Рµ РёР· РјР°С€РёРЅС‹, СЂСѓРєРё СЃСЂР°Р·Сѓ Р¶Рµ СЃС‚Р°РІРёС‚Рµ РЅР° РєРѕР±СѓСЂСѓ {00FF00}( Alt + P ){FFFFFF} Рё РґРІРёРіР°Р№С‚РµСЃСЊ Рє Р·Р°РґРЅРµР№ С‡Р°СЃС‚Рё Р°РІС‚Рѕ. `n{FFFFFF}РћСЃС‚Р°РІР»СЏР№С‚Рµ РЅР° С„Р°СЂРµ РѕС‚РїРµС‡Р°С‚РѕРє РїР°Р»СЊС†Р° (РґР»СЏ С‚РѕРіРѕ, С‡С‚РѕР±С‹ РїСЂРѕРІРµСЃС‚Рё Р°РЅР°Р»РёР·, РІ СЃР»СѓС‡Р°Рµ С‚РѕРіРѕ, РµСЃР»Рё РІР°СЃ `n{FFFFFF}СѓР±СЊСЋС‚.) Рё РґРІРёРіР°Р№С‚РµСЃСЊ Рє РІРѕРґРёС‚РµР»СЋ. РћСЃРјР°С‚СЂРёРІР°Р№С‚Рµ СЃР°Р»РѕРЅ Рё РІРѕРґРёС‚РµР»СЏ, РїСЂРѕСЃРёС‚Рµ РµРіРѕ РїРѕРєР°Р·Р°С‚СЊ `n{FFFFFF}РґРѕРєСѓРјРµРЅС‚С‹ {00FF00}(F3, Alt + Home){FFFFFF}. Р”Р°Р»РµРµ, РµСЃР»Рё Сѓ РІР°СЃ РµСЃС‚СЊ РЅР°РїР°СЂРЅРёРє, РїСЂРѕСЃРёС‚Рµ РµРіРѕ РїСЂРѕР±РёС‚СЊ С‡РµР»РѕРІРµРєР° РїРѕ Р±Р°Р·Рµ РґР°РЅРЅС‹С…, `n{FFFFFF}РµСЃР»Рё Р¶Рµ РµРіРѕ РЅРµС‚, Р±РµСЂРµС‚Рµ РґРѕРєСѓРјРµРЅС‚С‹ Рё РµРґРµС‚Рµ РІ РєСЂСѓРёР·РµСЂ Рё РїСЂРѕРІРµСЂСЏР№С‚Рµ РѕРґРёРЅ.`n`n{FFFFFF}РџСЂРѕРґРѕР»Р¶РµРЅРёРµ РЅР° {FF0000}<2-РѕР№ СЃС‚СЂР°РЅРёС†Рµ>`n{FFFFFF}=============================================================================================`n", "2 РЎРўР ")
             menu := 4
             return
         }
         else if (line_num == 3)
         {
-        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - ДЕСЯТИЧНЫЕ КОДЫ (1 стр).", "{FFFFFF}=================================================================================================`n{00BFFF}ДЕСЯТИЧНЫЕ КОДЫ`n{FFFFFF}{FFFF00}10-1{FFFFFF} - Встреча всех офицеров на дежурстве (включая локацию и код).`n{FFFF00}10-3{FFFFFF} - Радиомолчание (для срочных сообщений).`n{FFFF00}10-4{FFFFFF} - Принято.`n{FFFF00}10-5{FFFFFF} - Повторите последнее сообщение.`n{FFFF00}10-6{FFFFFF} - Не принято/не верно/нет.`n{FFFF00}10-7{FFFFFF} - Ожидайте.`n{FFFF00}10-8{FFFFFF} - В настоящее время занят/не доступен.`n{FFFF00}10-9{FFFFFF} - В настоящее время занят/не доступен (детективы на ситуации).`n{FFFF00}10-14{FFFFFF} - Запрос транспортировки (включая локацию и цель транспортировки).`n{FFFF00}10-15{FFFFFF} - Подозреваемые арестованы (включая кол-во подозреваемых, локацию).`n{FFFF00}10-20{FFFFFF} - Локация.`n{FFFF00}10-21{FFFFFF} - Сообщение о статусе и местонахождении, описание ситуации.`n{FFFF00}10-22{FFFFFF} - Направляйтесь в 'локация' (обращение к конкретному офицеру).`n{FFFF00}10-27{FFFFFF} - Меняю маркировку патруля (включая старую и новую маркировку).`n{FFFF00}10-40{FFFFFF} - Большое скопление людей (4 и больше).`n{FFFF00}10-41{FFFFFF} - Нелегальная активность.`n{FFFF00}10-46{FFFFFF} - Провожу обыск.`n{FFFF00}10-55{FFFFFF} - Траффик-стоп.`n{FFFF00}10-56{FFFFFF} - Запрашиваю информацию (включая номер авто/имя подозреваемого).`n{FFFF00}10-57 VICTOR{FFFFFF} - Погоня за автомобилем (включая модель авто, цвет, местонахождение).`n{FFFF00}10-57 FOXTROT{FFFFFF} - Пешая погоня (включая внешность подозреваемого, оружие (если имеется))`n{FFFF00}10-60{FFFFFF} - Информация об автомобиле (включая название авто, цвет, количество людей внутри).`n{FFFF00}10-61{FFFFFF} - Информация о пешем подозреваемом (включая расу, одежду).`n{FFFF00}10-66{FFFFFF} - Остановка повышенного риска (если известно, что подозреваемый в авто вооружен/совершил преступление. `nЕсли остановка произошла после погони).`n{FFFF00}10-70{FFFFFF} - Запрос поддержки (включая количество юнитов, код).`n{FFFF00}10-71{FFFFFF} - Запрос медицинской поддержки.`n{FFFF00}10-99{FFFFFF} - Ситуация урегулирована.`n`n{FFFFFF}Продолжение на {FF0000}<2-ой странице>`n{FFFFFF}=================================================================================================`n", "2 СТР")
+        showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - Р”Р•РЎРЇРўРР§РќР«Р• РљРћР”Р« (1 СЃС‚СЂ).", "{FFFFFF}=================================================================================================`n{00BFFF}Р”Р•РЎРЇРўРР§РќР«Р• РљРћР”Р«`n{FFFFFF}{FFFF00}10-1{FFFFFF} - Р’СЃС‚СЂРµС‡Р° РІСЃРµС… РѕС„РёС†РµСЂРѕРІ РЅР° РґРµР¶СѓСЂСЃС‚РІРµ (РІРєР»СЋС‡Р°СЏ Р»РѕРєР°С†РёСЋ Рё РєРѕРґ).`n{FFFF00}10-3{FFFFFF} - Р Р°РґРёРѕРјРѕР»С‡Р°РЅРёРµ (РґР»СЏ СЃСЂРѕС‡РЅС‹С… СЃРѕРѕР±С‰РµРЅРёР№).`n{FFFF00}10-4{FFFFFF} - РџСЂРёРЅСЏС‚Рѕ.`n{FFFF00}10-5{FFFFFF} - РџРѕРІС‚РѕСЂРёС‚Рµ РїРѕСЃР»РµРґРЅРµРµ СЃРѕРѕР±С‰РµРЅРёРµ.`n{FFFF00}10-6{FFFFFF} - РќРµ РїСЂРёРЅСЏС‚Рѕ/РЅРµ РІРµСЂРЅРѕ/РЅРµС‚.`n{FFFF00}10-7{FFFFFF} - РћР¶РёРґР°Р№С‚Рµ.`n{FFFF00}10-8{FFFFFF} - Р’ РЅР°СЃС‚РѕСЏС‰РµРµ РІСЂРµРјСЏ Р·Р°РЅСЏС‚/РЅРµ РґРѕСЃС‚СѓРїРµРЅ.`n{FFFF00}10-9{FFFFFF} - Р’ РЅР°СЃС‚РѕСЏС‰РµРµ РІСЂРµРјСЏ Р·Р°РЅСЏС‚/РЅРµ РґРѕСЃС‚СѓРїРµРЅ (РґРµС‚РµРєС‚РёРІС‹ РЅР° СЃРёС‚СѓР°С†РёРё).`n{FFFF00}10-14{FFFFFF} - Р—Р°РїСЂРѕСЃ С‚СЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРєРё (РІРєР»СЋС‡Р°СЏ Р»РѕРєР°С†РёСЋ Рё С†РµР»СЊ С‚СЂР°РЅСЃРїРѕСЂС‚РёСЂРѕРІРєРё).`n{FFFF00}10-15{FFFFFF} - РџРѕРґРѕР·СЂРµРІР°РµРјС‹Рµ Р°СЂРµСЃС‚РѕРІР°РЅС‹ (РІРєР»СЋС‡Р°СЏ РєРѕР»-РІРѕ РїРѕРґРѕР·СЂРµРІР°РµРјС‹С…, Р»РѕРєР°С†РёСЋ).`n{FFFF00}10-20{FFFFFF} - Р›РѕРєР°С†РёСЏ.`n{FFFF00}10-21{FFFFFF} - РЎРѕРѕР±С‰РµРЅРёРµ Рѕ СЃС‚Р°С‚СѓСЃРµ Рё РјРµСЃС‚РѕРЅР°С…РѕР¶РґРµРЅРёРё, РѕРїРёСЃР°РЅРёРµ СЃРёС‚СѓР°С†РёРё.`n{FFFF00}10-22{FFFFFF} - РќР°РїСЂР°РІР»СЏР№С‚РµСЃСЊ РІ 'Р»РѕРєР°С†РёСЏ' (РѕР±СЂР°С‰РµРЅРёРµ Рє РєРѕРЅРєСЂРµС‚РЅРѕРјСѓ РѕС„РёС†РµСЂСѓ).`n{FFFF00}10-27{FFFFFF} - РњРµРЅСЏСЋ РјР°СЂРєРёСЂРѕРІРєСѓ РїР°С‚СЂСѓР»СЏ (РІРєР»СЋС‡Р°СЏ СЃС‚Р°СЂСѓСЋ Рё РЅРѕРІСѓСЋ РјР°СЂРєРёСЂРѕРІРєСѓ).`n{FFFF00}10-40{FFFFFF} - Р‘РѕР»СЊС€РѕРµ СЃРєРѕРїР»РµРЅРёРµ Р»СЋРґРµР№ (4 Рё Р±РѕР»СЊС€Рµ).`n{FFFF00}10-41{FFFFFF} - РќРµР»РµРіР°Р»СЊРЅР°СЏ Р°РєС‚РёРІРЅРѕСЃС‚СЊ.`n{FFFF00}10-46{FFFFFF} - РџСЂРѕРІРѕР¶Сѓ РѕР±С‹СЃРє.`n{FFFF00}10-55{FFFFFF} - РўСЂР°С„С„РёРє-СЃС‚РѕРї.`n{FFFF00}10-56{FFFFFF} - Р—Р°РїСЂР°С€РёРІР°СЋ РёРЅС„РѕСЂРјР°С†РёСЋ (РІРєР»СЋС‡Р°СЏ РЅРѕРјРµСЂ Р°РІС‚Рѕ/РёРјСЏ РїРѕРґРѕР·СЂРµРІР°РµРјРѕРіРѕ).`n{FFFF00}10-57 VICTOR{FFFFFF} - РџРѕРіРѕРЅСЏ Р·Р° Р°РІС‚РѕРјРѕР±РёР»РµРј (РІРєР»СЋС‡Р°СЏ РјРѕРґРµР»СЊ Р°РІС‚Рѕ, С†РІРµС‚, РјРµСЃС‚РѕРЅР°С…РѕР¶РґРµРЅРёРµ).`n{FFFF00}10-57 FOXTROT{FFFFFF} - РџРµС€Р°СЏ РїРѕРіРѕРЅСЏ (РІРєР»СЋС‡Р°СЏ РІРЅРµС€РЅРѕСЃС‚СЊ РїРѕРґРѕР·СЂРµРІР°РµРјРѕРіРѕ, РѕСЂСѓР¶РёРµ (РµСЃР»Рё РёРјРµРµС‚СЃСЏ))`n{FFFF00}10-60{FFFFFF} - РРЅС„РѕСЂРјР°С†РёСЏ РѕР± Р°РІС‚РѕРјРѕР±РёР»Рµ (РІРєР»СЋС‡Р°СЏ РЅР°Р·РІР°РЅРёРµ Р°РІС‚Рѕ, С†РІРµС‚, РєРѕР»РёС‡РµСЃС‚РІРѕ Р»СЋРґРµР№ РІРЅСѓС‚СЂРё).`n{FFFF00}10-61{FFFFFF} - РРЅС„РѕСЂРјР°С†РёСЏ Рѕ РїРµС€РµРј РїРѕРґРѕР·СЂРµРІР°РµРјРѕРј (РІРєР»СЋС‡Р°СЏ СЂР°СЃСѓ, РѕРґРµР¶РґСѓ).`n{FFFF00}10-66{FFFFFF} - РћСЃС‚Р°РЅРѕРІРєР° РїРѕРІС‹С€РµРЅРЅРѕРіРѕ СЂРёСЃРєР° (РµСЃР»Рё РёР·РІРµСЃС‚РЅРѕ, С‡С‚Рѕ РїРѕРґРѕР·СЂРµРІР°РµРјС‹Р№ РІ Р°РІС‚Рѕ РІРѕРѕСЂСѓР¶РµРЅ/СЃРѕРІРµСЂС€РёР» РїСЂРµСЃС‚СѓРїР»РµРЅРёРµ. `nР•СЃР»Рё РѕСЃС‚Р°РЅРѕРІРєР° РїСЂРѕРёР·РѕС€Р»Р° РїРѕСЃР»Рµ РїРѕРіРѕРЅРё).`n{FFFF00}10-70{FFFFFF} - Р—Р°РїСЂРѕСЃ РїРѕРґРґРµСЂР¶РєРё (РІРєР»СЋС‡Р°СЏ РєРѕР»РёС‡РµСЃС‚РІРѕ СЋРЅРёС‚РѕРІ, РєРѕРґ).`n{FFFF00}10-71{FFFFFF} - Р—Р°РїСЂРѕСЃ РјРµРґРёС†РёРЅСЃРєРѕР№ РїРѕРґРґРµСЂР¶РєРё.`n{FFFF00}10-99{FFFFFF} - РЎРёС‚СѓР°С†РёСЏ СѓСЂРµРіСѓР»РёСЂРѕРІР°РЅР°.`n`n{FFFFFF}РџСЂРѕРґРѕР»Р¶РµРЅРёРµ РЅР° {FF0000}<2-РѕР№ СЃС‚СЂР°РЅРёС†Рµ>`n{FFFFFF}=================================================================================================`n", "2 РЎРўР ")
             menu := 5
             return
         }
@@ -8242,7 +8242,7 @@ if (menu == 1)
         }
         else if (line_num == 5)
         {
-        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - СМЕНА МАРКИРОВКИ", "{FFFFFF}Введите новою маркировку. {FF0000}|{FFFFFF}  Пример: {00FFFF}1-A-3 {FFFFFF}или  {00FFFF}L-5{FFFFFF}.`n{FFFFFF}После чего что-бы принять изменение нажмите{32CD32} <Insert>`n{FFFFFF}А для того чтоб просто выйти из меню нажмите {FF0000}<Esc>", "НЕ ТРОЖ")
+        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - РЎРњР•РќРђ РњРђР РљРР РћР’РљР", "{FFFFFF}Р’РІРµРґРёС‚Рµ РЅРѕРІРѕСЋ РјР°СЂРєРёСЂРѕРІРєСѓ. {FF0000}|{FFFFFF}  РџСЂРёРјРµСЂ: {00FFFF}1-A-3 {FFFFFF}РёР»Рё  {00FFFF}L-5{FFFFFF}.`n{FFFFFF}РџРѕСЃР»Рµ С‡РµРіРѕ С‡С‚Рѕ-Р±С‹ РїСЂРёРЅСЏС‚СЊ РёР·РјРµРЅРµРЅРёРµ РЅР°Р¶РјРёС‚Рµ{32CD32} <Insert>`n{FFFFFF}Рђ РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР± РїСЂРѕСЃС‚Рѕ РІС‹Р№С‚Рё РёР· РјРµРЅСЋ РЅР°Р¶РјРёС‚Рµ {FF0000}<Esc>", "РќР• РўР РћР–")
             SendMessage, 0x50,, 0x4090409,, A
         input, newmarking, V, {Insert}.{Escape}.{Enter}
             if ErrorLevel = EndKey:Insert
@@ -8250,13 +8250,13 @@ if (menu == 1)
                 sleep, 100
             SendInput,{INSERT}
             SendInput,{ENTER}
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы удачно сменили свою маркировку на - {00FFFF}" newmarking "{FFFFFF}.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ СѓРґР°С‡РЅРѕ СЃРјРµРЅРёР»Рё СЃРІРѕСЋ РјР°СЂРєРёСЂРѕРІРєСѓ РЅР° - {00FFFF}" newmarking "{FFFFFF}.")
                 Sleep, 1500
                 if (EngVer = 1 and Radio1 = 1){
                     SendChat("/r " Rank "#" idtvoi " to DISP: 10-27, on " newmarking ", RFR, OVER SAY **")
                 }
                 if (EngVer = 0 and Radio1 = 1){
-                    SendChat("/r " Rank "#" idtvoi " to DISP: 10-27, на " newmarking ", доступен, конец связи **")
+                    SendChat("/r " Rank "#" idtvoi " to DISP: 10-27, РЅР° " newmarking ", РґРѕСЃС‚СѓРїРµРЅ, РєРѕРЅРµС† СЃРІСЏР·Рё **")
                 }
                 marking:=newmarking
                 IniWrite, %Marking%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Information, Marking
@@ -8266,7 +8266,7 @@ if (menu == 1)
             else
             if ErrorLevel = EndKey:Escape
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы выйшли из меню смены маркировки, Ваша маркировка - {00FFFF}" marking "{FFFFFF}.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЃРјРµРЅС‹ РјР°СЂРєРёСЂРѕРІРєРё, Р’Р°С€Р° РјР°СЂРєРёСЂРѕРІРєР° - {00FFFF}" marking "{FFFFFF}.")
                 newmarking:=-1
                 menu := 0
                 return
@@ -8274,13 +8274,13 @@ if (menu == 1)
             else
             if ErrorLevel = EndKey:Enter
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Повторите пожалуйста попытку нажав{32CD32} <Insert>{FFFFFF} что-бы применить настройки.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕРІС‚РѕСЂРёС‚Рµ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїС‹С‚РєСѓ РЅР°Р¶Р°РІ{32CD32} <Insert>{FFFFFF} С‡С‚Рѕ-Р±С‹ РїСЂРёРјРµРЅРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё.")
             }
             return
         }
         else if (line_num == 6)
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Скрипт будет перезагружен.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РЎРєСЂРёРїС‚ Р±СѓРґРµС‚ РїРµСЂРµР·Р°РіСЂСѓР¶РµРЅ.")
             Sleep 500
             showGameText("Reloaded", 3000, 4)
             Sleep 1500
@@ -8289,18 +8289,18 @@ if (menu == 1)
         }
         else if (line_num == 7)
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Создателем данного скрипта является: Даниел, {FF0000}Daniel Cooper.")
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Если у вас возникают вопросы/проблемы: обращайтесь ко мне в VK\Discord.")
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Мой Discord: {FF0000}DanielCooper#2416{FFFFFF} | Мой VK: {FF0000}id380297165{FFFFFF} | Version: {FF0000}" vupd "")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РЎРѕР·РґР°С‚РµР»РµРј РґР°РЅРЅРѕРіРѕ СЃРєСЂРёРїС‚Р° СЏРІР»СЏРµС‚СЃСЏ: Р”Р°РЅРёРµР», {FF0000}Daniel Cooper.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р•СЃР»Рё Сѓ РІР°СЃ РІРѕР·РЅРёРєР°СЋС‚ РІРѕРїСЂРѕСЃС‹/РїСЂРѕР±Р»РµРјС‹: РѕР±СЂР°С‰Р°Р№С‚РµСЃСЊ РєРѕ РјРЅРµ РІ VK\Discord.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РњРѕР№ Discord: {FF0000}DanielCooper#2416{FFFFFF} | РњРѕР№ VK: {FF0000}id380297165{FFFFFF} | Version: {FF0000}" vupd "")
         }
         else if (line_num == 8){
-        Showdialog(2, "{00FF00}[ADJUTANT]{FFFFFF} - МЕНЮ НАПАРНИКА", "{FF0000}[1]{FFFFFF} - Фамилия напарника. |{00FF00} " partnerSurname "`n{FF0000}[2]{FFFFFF} - Id напарника. | {00FF00}" partnerId "`n{FF0000}[3]{FFFFFF} - Должность напарника. | {00FF00}" partnerPost "`n{FF0000}[4]{FFFFFF} - {00FF00}Сохранить напарника`n{FF0000}[5]{FFFFFF} - {FF0000}Удалить напарника", "ВЫБОР")
+        Showdialog(2, "{00FF00}[ADJUTANT]{FFFFFF} - РњР•РќР® РќРђРџРђР РќРРљРђ", "{FF0000}[1]{FFFFFF} - Р¤Р°РјРёР»РёСЏ РЅР°РїР°СЂРЅРёРєР°. |{00FF00} " partnerSurname "`n{FF0000}[2]{FFFFFF} - Id РЅР°РїР°СЂРЅРёРєР°. | {00FF00}" partnerId "`n{FF0000}[3]{FFFFFF} - Р”РѕР»Р¶РЅРѕСЃС‚СЊ РЅР°РїР°СЂРЅРёРєР°. | {00FF00}" partnerPost "`n{FF0000}[4]{FFFFFF} - {00FF00}РЎРѕС…СЂР°РЅРёС‚СЊ РЅР°РїР°СЂРЅРёРєР°`n{FF0000}[5]{FFFFFF} - {FF0000}РЈРґР°Р»РёС‚СЊ РЅР°РїР°СЂРЅРёРєР°", "Р’Р«Р‘РћР ")
             menu := 6
             sleep, 500
         }
         else if (line_num == 9){
             menu := 0
-        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - СМЕНА /limit", "{FFFFFF}Введите новое значение скорости. {FF0000}|{FFFFFF}  Пример: {00FFFF}60{FFFFFF}.`n{FFFFFF}После чего что-бы принять изменение нажмите{32CD32} <Insert>`n{FFFFFF}А для того чтоб просто выйти из меню нажмите {FF0000}<Esc>", "НЕ ТРОЖ")
+        showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - РЎРњР•РќРђ /limit", "{FFFFFF}Р’РІРµРґРёС‚Рµ РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃРєРѕСЂРѕСЃС‚Рё. {FF0000}|{FFFFFF}  РџСЂРёРјРµСЂ: {00FFFF}60{FFFFFF}.`n{FFFFFF}РџРѕСЃР»Рµ С‡РµРіРѕ С‡С‚Рѕ-Р±С‹ РїСЂРёРЅСЏС‚СЊ РёР·РјРµРЅРµРЅРёРµ РЅР°Р¶РјРёС‚Рµ{32CD32} <Insert>`n{FFFFFF}Рђ РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР± РїСЂРѕСЃС‚Рѕ РІС‹Р№С‚Рё РёР· РјРµРЅСЋ РЅР°Р¶РјРёС‚Рµ {FF0000}<Esc>", "РќР• РўР РћР–")
         input, newlimit, V, {Insert}.{Escape}.{Enter}
             sleep, 50
             if ErrorLevel = EndKey:Insert
@@ -8309,19 +8309,19 @@ if (menu == 1)
             SendInput,{INSERT}
             SendInput,{ENTER}
                 limit:=newlimit
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы установили новое значение для команды /limit - {00FFFF}" limit "{FFFFFF} км\час.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ СѓСЃС‚Р°РЅРѕРІРёР»Рё РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ РєРѕРјР°РЅРґС‹ /limit - {00FFFF}" limit "{FFFFFF} РєРј\С‡Р°СЃ.")
                 IniWrite, %limit%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Auto, limit
                 return
             }
             else
             if ErrorLevel = EndKey:Escape
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы выйшли из меню смены значения /limit. Ваш лимит - {00FFFF}" limit "{FFFFFF} км\час.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ СЃРјРµРЅС‹ Р·РЅР°С‡РµРЅРёСЏ /limit. Р’Р°С€ Р»РёРјРёС‚ - {00FFFF}" limit "{FFFFFF} РєРј\С‡Р°СЃ.")
             }
             else
             if ErrorLevel = EndKey:Enter
             {
-            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Повторите пожалуйста попытку нажав{32CD32} <Insert>{FFFFFF} что-бы применить настройки.")
+            addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕРІС‚РѕСЂРёС‚Рµ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїС‹С‚РєСѓ РЅР°Р¶Р°РІ{32CD32} <Insert>{FFFFFF} С‡С‚Рѕ-Р±С‹ РїСЂРёРјРµРЅРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё.")
             }
             menu:=0
             return
@@ -8333,32 +8333,32 @@ else if (menu == 4)
     if Organ = SAPD
     {
         menu := 0
-    showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP СОТРУДНИК PD (2 стр).", "{FFFFFF}=============================================================================================`n {00BFFF}Что требуется для составления протокола ?`n{FF0000}( Составляется при арресте наруштеля в участке депортамента )`n`n{FFFF00}1. {FFFFFF}Протокол № *Любая 3-ех значная цифра*`n{FFFF00}2. {FFFFFF}Дата составления протокола, время задержания подозреваемого.`n{FFFF00}3. {FFFFFF}Место составления протокола, место задержания подозреваемого.`n{FFFF00}4. {FFFFFF}Нарушение.`n{FFFF00}5. {FFFFFF}Имя, фамилия подозреваемого.`n{FFFF00}6. {FFFFFF}Имя, фамилия офицеа\офицеров которые провели задержание.`n{FFFF00}7. {FFFFFF}Прикрепленные документы подозреваемого. ( Если документов нету при `n{FFFFFF}    нарушителе, пробить по компютеру и розпечатать).`n{FFFF00}8. {FFFFFF}Подпись ознакомления протоколом (Для подозреваемого).`n{FFFFFF}=============================================================================================`n", "1 СТР")
+    showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP РЎРћРўР РЈР”РќРРљ PD (2 СЃС‚СЂ).", "{FFFFFF}=============================================================================================`n {00BFFF}Р§С‚Рѕ С‚СЂРµР±СѓРµС‚СЃСЏ РґР»СЏ СЃРѕСЃС‚Р°РІР»РµРЅРёСЏ РїСЂРѕС‚РѕРєРѕР»Р° ?`n{FF0000}( РЎРѕСЃС‚Р°РІР»СЏРµС‚СЃСЏ РїСЂРё Р°СЂСЂРµСЃС‚Рµ РЅР°СЂСѓС€С‚РµР»СЏ РІ СѓС‡Р°СЃС‚РєРµ РґРµРїРѕСЂС‚Р°РјРµРЅС‚Р° )`n`n{FFFF00}1. {FFFFFF}РџСЂРѕС‚РѕРєРѕР» в„– *Р›СЋР±Р°СЏ 3-РµС… Р·РЅР°С‡РЅР°СЏ С†РёС„СЂР°*`n{FFFF00}2. {FFFFFF}Р”Р°С‚Р° СЃРѕСЃС‚Р°РІР»РµРЅРёСЏ РїСЂРѕС‚РѕРєРѕР»Р°, РІСЂРµРјСЏ Р·Р°РґРµСЂР¶Р°РЅРёСЏ РїРѕРґРѕР·СЂРµРІР°РµРјРѕРіРѕ.`n{FFFF00}3. {FFFFFF}РњРµСЃС‚Рѕ СЃРѕСЃС‚Р°РІР»РµРЅРёСЏ РїСЂРѕС‚РѕРєРѕР»Р°, РјРµСЃС‚Рѕ Р·Р°РґРµСЂР¶Р°РЅРёСЏ РїРѕРґРѕР·СЂРµРІР°РµРјРѕРіРѕ.`n{FFFF00}4. {FFFFFF}РќР°СЂСѓС€РµРЅРёРµ.`n{FFFF00}5. {FFFFFF}РРјСЏ, С„Р°РјРёР»РёСЏ РїРѕРґРѕР·СЂРµРІР°РµРјРѕРіРѕ.`n{FFFF00}6. {FFFFFF}РРјСЏ, С„Р°РјРёР»РёСЏ РѕС„РёС†РµР°\РѕС„РёС†РµСЂРѕРІ РєРѕС‚РѕСЂС‹Рµ РїСЂРѕРІРµР»Рё Р·Р°РґРµСЂР¶Р°РЅРёРµ.`n{FFFF00}7. {FFFFFF}РџСЂРёРєСЂРµРїР»РµРЅРЅС‹Рµ РґРѕРєСѓРјРµРЅС‚С‹ РїРѕРґРѕР·СЂРµРІР°РµРјРѕРіРѕ. ( Р•СЃР»Рё РґРѕРєСѓРјРµРЅС‚РѕРІ РЅРµС‚Сѓ РїСЂРё `n{FFFFFF}    РЅР°СЂСѓС€РёС‚РµР»Рµ, РїСЂРѕР±РёС‚СЊ РїРѕ РєРѕРјРїСЋС‚РµСЂСѓ Рё СЂРѕР·РїРµС‡Р°С‚Р°С‚СЊ).`n{FFFF00}8. {FFFFFF}РџРѕРґРїРёСЃСЊ РѕР·РЅР°РєРѕРјР»РµРЅРёСЏ РїСЂРѕС‚РѕРєРѕР»РѕРј (Р”Р»СЏ РїРѕРґРѕР·СЂРµРІР°РµРјРѕРіРѕ).`n{FFFFFF}=============================================================================================`n", "1 РЎРўР ")
         menu := 1
     }
     if Organ = FBI
     {
         menu := 0
-    showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP СОТРУДНИК FBI (2 стр).", "{FFFFFF}=============================================================================================`n Text {FFFFFF}=============================================================================================`n", "1 СТР")
+    showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP РЎРћРўР РЈР”РќРРљ FBI (2 СЃС‚СЂ).", "{FFFFFF}=============================================================================================`n Text {FFFFFF}=============================================================================================`n", "1 РЎРўР ")
         menu := 1
     }
     if Organ = SWAT
     {
         menu := 0
-    showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP СОТРУДНИК SWAT (2 стр).", "{FFFFFF}=============================================================================================`n Text {FFFFFF}=============================================================================================`n", "1 СТР")
+    showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP РЎРћРўР РЈР”РќРРљ SWAT (2 СЃС‚СЂ).", "{FFFFFF}=============================================================================================`n Text {FFFFFF}=============================================================================================`n", "1 РЎРўР ")
         menu := 1
     }
     if Organ = CIA
     {
         menu := 0
-    showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP СОТРУДНИК CIA (2 стр).", "{FFFFFF}=============================================================================================`n Text {FFFFFF}=============================================================================================`n", "1 СТР")
+    showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - RP РЎРћРўР РЈР”РќРРљ CIA (2 СЃС‚СЂ).", "{FFFFFF}=============================================================================================`n Text {FFFFFF}=============================================================================================`n", "1 РЎРўР ")
         menu := 1
     }
 }
 else if (menu == 5)
 {
     menu := 0
-showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - ЕДИНИЧНЫЕ КОДЫ (2 стр).", "=================================================================================================`n{00BFFF}ЕДИНИЧНЫЕ КОДЫ`n{FFFFFF}{FFFF00}Code 0{FFFFFF} - Необходима немедленная поддержка. Все офицеры на дежурстве обязаны бросить все, чем занимаются `nв данный момент (не важно погоня это или арест) и направиться на место, где объявлен КОД 0.`n{FFFF00}Code 1{FFFFFF} - Офицер в бедственном положении. Повышенный КОД 3, где офицеру срочно требуется помощь, `nоднако ситуация не настолько серьезная, чтобы объявлять КОД 0.`n{FFFF00}Code 2{FFFFFF} - Приоритетный вызов (без сирен/стробоскопов).`n{FFFF00}Code 3{FFFFFF} - Срочный вызов (сирены, стробоскопы).`n{FFFF00}Code 4{FFFFFF} - Помощь не требуется. ( все стабильно )`n{FFFF00}Code 4 ADAM{FFFFFF} - Помощь не требуется, при этом подозреваемый потерян. Дополнительные юниты, которые прибыли, `nобъявляется для (ASD) Air Support Division, для места где летающие средства департамента `nмогут быть подвержены повреждениям, а так же химическому разрушению, либо наблюдение за данной `nзоной невозможно из-за сильного задымления.`n{FFFF00}Code 5{FFFFFF} - Зона заново свободна и доступна для патрулирования, всем `nпатрулям разрешено посещать данную местность.`n{FFFF00}Code 6{FFFFFF} - Задерживаюсь на месте (включая локацию и причину (например, 911)).`n{FFFF00}Code 7{FFFFFF} - Перерыв на обед.`n{FFFF00}Code 8{FFFFFF} - Объявляется при обнаружении сильного пожара, при котором есть угроза жизни населению, либо персоналу.`n{FFFF00}Code 9{FFFFFF} - Объявляется при случае, когда требуется свободная чистота для вещания, при котором офицер:`n- Запрашивает информацию о ордерах на арест на личность.`n- Запрашивает информацию о транспортном средстве.`n- Идентифицирует себя самого либо свой номер юнита.`n{FFFF00}Code 10{FFFFFF} - Объявляется при необычном или странном дорожно-транспортном происшествии или событии, `nкоторое может затронуть общественность.`n=================================================================================================`n", "1 СТР")
+showDialog(0, "{00FF00}[ADJUTANT]{FFFFFF} - Р•Р”РРќРР§РќР«Р• РљРћР”Р« (2 СЃС‚СЂ).", "=================================================================================================`n{00BFFF}Р•Р”РРќРР§РќР«Р• РљРћР”Р«`n{FFFFFF}{FFFF00}Code 0{FFFFFF} - РќРµРѕР±С…РѕРґРёРјР° РЅРµРјРµРґР»РµРЅРЅР°СЏ РїРѕРґРґРµСЂР¶РєР°. Р’СЃРµ РѕС„РёС†РµСЂС‹ РЅР° РґРµР¶СѓСЂСЃС‚РІРµ РѕР±СЏР·Р°РЅС‹ Р±СЂРѕСЃРёС‚СЊ РІСЃРµ, С‡РµРј Р·Р°РЅРёРјР°СЋС‚СЃСЏ `nРІ РґР°РЅРЅС‹Р№ РјРѕРјРµРЅС‚ (РЅРµ РІР°Р¶РЅРѕ РїРѕРіРѕРЅСЏ СЌС‚Рѕ РёР»Рё Р°СЂРµСЃС‚) Рё РЅР°РїСЂР°РІРёС‚СЊСЃСЏ РЅР° РјРµСЃС‚Рѕ, РіРґРµ РѕР±СЉСЏРІР»РµРЅ РљРћР” 0.`n{FFFF00}Code 1{FFFFFF} - РћС„РёС†РµСЂ РІ Р±РµРґСЃС‚РІРµРЅРЅРѕРј РїРѕР»РѕР¶РµРЅРёРё. РџРѕРІС‹С€РµРЅРЅС‹Р№ РљРћР” 3, РіРґРµ РѕС„РёС†РµСЂСѓ СЃСЂРѕС‡РЅРѕ С‚СЂРµР±СѓРµС‚СЃСЏ РїРѕРјРѕС‰СЊ, `nРѕРґРЅР°РєРѕ СЃРёС‚СѓР°С†РёСЏ РЅРµ РЅР°СЃС‚РѕР»СЊРєРѕ СЃРµСЂСЊРµР·РЅР°СЏ, С‡С‚РѕР±С‹ РѕР±СЉСЏРІР»СЏС‚СЊ РљРћР” 0.`n{FFFF00}Code 2{FFFFFF} - РџСЂРёРѕСЂРёС‚РµС‚РЅС‹Р№ РІС‹Р·РѕРІ (Р±РµР· СЃРёСЂРµРЅ/СЃС‚СЂРѕР±РѕСЃРєРѕРїРѕРІ).`n{FFFF00}Code 3{FFFFFF} - РЎСЂРѕС‡РЅС‹Р№ РІС‹Р·РѕРІ (СЃРёСЂРµРЅС‹, СЃС‚СЂРѕР±РѕСЃРєРѕРїС‹).`n{FFFF00}Code 4{FFFFFF} - РџРѕРјРѕС‰СЊ РЅРµ С‚СЂРµР±СѓРµС‚СЃСЏ. ( РІСЃРµ СЃС‚Р°Р±РёР»СЊРЅРѕ )`n{FFFF00}Code 4 ADAM{FFFFFF} - РџРѕРјРѕС‰СЊ РЅРµ С‚СЂРµР±СѓРµС‚СЃСЏ, РїСЂРё СЌС‚РѕРј РїРѕРґРѕР·СЂРµРІР°РµРјС‹Р№ РїРѕС‚РµСЂСЏРЅ. Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ СЋРЅРёС‚С‹, РєРѕС‚РѕСЂС‹Рµ РїСЂРёР±С‹Р»Рё, `nРѕР±СЉСЏРІР»СЏРµС‚СЃСЏ РґР»СЏ (ASD) Air Support Division, РґР»СЏ РјРµСЃС‚Р° РіРґРµ Р»РµС‚Р°СЋС‰РёРµ СЃСЂРµРґСЃС‚РІР° РґРµРїР°СЂС‚Р°РјРµРЅС‚Р° `nРјРѕРіСѓС‚ Р±С‹С‚СЊ РїРѕРґРІРµСЂР¶РµРЅС‹ РїРѕРІСЂРµР¶РґРµРЅРёСЏРј, Р° С‚Р°Рє Р¶Рµ С…РёРјРёС‡РµСЃРєРѕРјСѓ СЂР°Р·СЂСѓС€РµРЅРёСЋ, Р»РёР±Рѕ РЅР°Р±Р»СЋРґРµРЅРёРµ Р·Р° РґР°РЅРЅРѕР№ `nР·РѕРЅРѕР№ РЅРµРІРѕР·РјРѕР¶РЅРѕ РёР·-Р·Р° СЃРёР»СЊРЅРѕРіРѕ Р·Р°РґС‹РјР»РµРЅРёСЏ.`n{FFFF00}Code 5{FFFFFF} - Р—РѕРЅР° Р·Р°РЅРѕРІРѕ СЃРІРѕР±РѕРґРЅР° Рё РґРѕСЃС‚СѓРїРЅР° РґР»СЏ РїР°С‚СЂСѓР»РёСЂРѕРІР°РЅРёСЏ, РІСЃРµРј `nРїР°С‚СЂСѓР»СЏРј СЂР°Р·СЂРµС€РµРЅРѕ РїРѕСЃРµС‰Р°С‚СЊ РґР°РЅРЅСѓСЋ РјРµСЃС‚РЅРѕСЃС‚СЊ.`n{FFFF00}Code 6{FFFFFF} - Р—Р°РґРµСЂР¶РёРІР°СЋСЃСЊ РЅР° РјРµСЃС‚Рµ (РІРєР»СЋС‡Р°СЏ Р»РѕРєР°С†РёСЋ Рё РїСЂРёС‡РёРЅСѓ (РЅР°РїСЂРёРјРµСЂ, 911)).`n{FFFF00}Code 7{FFFFFF} - РџРµСЂРµСЂС‹РІ РЅР° РѕР±РµРґ.`n{FFFF00}Code 8{FFFFFF} - РћР±СЉСЏРІР»СЏРµС‚СЃСЏ РїСЂРё РѕР±РЅР°СЂСѓР¶РµРЅРёРё СЃРёР»СЊРЅРѕРіРѕ РїРѕР¶Р°СЂР°, РїСЂРё РєРѕС‚РѕСЂРѕРј РµСЃС‚СЊ СѓРіСЂРѕР·Р° Р¶РёР·РЅРё РЅР°СЃРµР»РµРЅРёСЋ, Р»РёР±Рѕ РїРµСЂСЃРѕРЅР°Р»Сѓ.`n{FFFF00}Code 9{FFFFFF} - РћР±СЉСЏРІР»СЏРµС‚СЃСЏ РїСЂРё СЃР»СѓС‡Р°Рµ, РєРѕРіРґР° С‚СЂРµР±СѓРµС‚СЃСЏ СЃРІРѕР±РѕРґРЅР°СЏ С‡РёСЃС‚РѕС‚Р° РґР»СЏ РІРµС‰Р°РЅРёСЏ, РїСЂРё РєРѕС‚РѕСЂРѕРј РѕС„РёС†РµСЂ:`n- Р—Р°РїСЂР°С€РёРІР°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РѕСЂРґРµСЂР°С… РЅР° Р°СЂРµСЃС‚ РЅР° Р»РёС‡РЅРѕСЃС‚СЊ.`n- Р—Р°РїСЂР°С€РёРІР°РµС‚ РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕРј СЃСЂРµРґСЃС‚РІРµ.`n- РРґРµРЅС‚РёС„РёС†РёСЂСѓРµС‚ СЃРµР±СЏ СЃР°РјРѕРіРѕ Р»РёР±Рѕ СЃРІРѕР№ РЅРѕРјРµСЂ СЋРЅРёС‚Р°.`n{FFFF00}Code 10{FFFFFF} - РћР±СЉСЏРІР»СЏРµС‚СЃСЏ РїСЂРё РЅРµРѕР±С‹С‡РЅРѕРј РёР»Рё СЃС‚СЂР°РЅРЅРѕРј РґРѕСЂРѕР¶РЅРѕ-С‚СЂР°РЅСЃРїРѕСЂС‚РЅРѕРј РїСЂРѕРёСЃС€РµСЃС‚РІРёРё РёР»Рё СЃРѕР±С‹С‚РёРё, `nРєРѕС‚РѕСЂРѕРµ РјРѕР¶РµС‚ Р·Р°С‚СЂРѕРЅСѓС‚СЊ РѕР±С‰РµСЃС‚РІРµРЅРЅРѕСЃС‚СЊ.`n=================================================================================================`n", "1 РЎРўР ")
     menu := 1
     return
 }
@@ -8369,12 +8369,12 @@ else if (menu == 6)
     line_text  := getDialogLine(line_num)
     if (line_num == 1)
     {
-    showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - ФАМИЛИЯ НАПАРНИКА", "{FFFFFF}Введите фамилию напарника, по формату: {00FFFF}Surname{FFFFFF}.  {FF0000}|{FFFFFF}  Пример: {00FFFF}Cooper{FFFFFF}.`n{FFFFFF}После чего что-бы принять изменение нажмите{32CD32} <Insert>`n{FFFFFF}А для того что-бы выйти из меню нажмите {FF0000}<Esc>", "НЕ ТРОЖ")
+    showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - Р¤РђРњРР›РРЇ РќРђРџРђР РќРРљРђ", "{FFFFFF}Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ РЅР°РїР°СЂРЅРёРєР°, РїРѕ С„РѕСЂРјР°С‚Сѓ: {00FFFF}Surname{FFFFFF}.  {FF0000}|{FFFFFF}  РџСЂРёРјРµСЂ: {00FFFF}Cooper{FFFFFF}.`n{FFFFFF}РџРѕСЃР»Рµ С‡РµРіРѕ С‡С‚Рѕ-Р±С‹ РїСЂРёРЅСЏС‚СЊ РёР·РјРµРЅРµРЅРёРµ РЅР°Р¶РјРёС‚Рµ{32CD32} <Insert>`n{FFFFFF}Рђ РґР»СЏ С‚РѕРіРѕ С‡С‚Рѕ-Р±С‹ РІС‹Р№С‚Рё РёР· РјРµРЅСЋ РЅР°Р¶РјРёС‚Рµ {FF0000}<Esc>", "РќР• РўР РћР–")
     input, ps, V, {Insert}.{Escape}.{Enter}
         sleep, 50
         if ErrorLevel = EndKey:Escape
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы выйшли из меню 'фамилия напарника'. Фамилия напарника была не указана!")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ 'С„Р°РјРёР»РёСЏ РЅР°РїР°СЂРЅРёРєР°'. Р¤Р°РјРёР»РёСЏ РЅР°РїР°СЂРЅРёРєР° Р±С‹Р»Р° РЅРµ СѓРєР°Р·Р°РЅР°!")
         }
         else
         if ErrorLevel = EndKey:Insert
@@ -8382,20 +8382,20 @@ else if (menu == 6)
         SendInput,{INSERT}
         SendInput,{ENTER}
             partnersurname:=ps
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы установили фамилию напарника - {00FFFF}" partnersurname "")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ СѓСЃС‚Р°РЅРѕРІРёР»Рё С„Р°РјРёР»РёСЋ РЅР°РїР°СЂРЅРёРєР° - {00FFFF}" partnersurname "")
             partner := 1
         }
         else
         if ErrorLevel = EndKey:Enter
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Повторите пожалуйста попытку нажав{32CD32} <Insert>{FFFFFF} что-бы применить настройки.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕРІС‚РѕСЂРёС‚Рµ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїС‹С‚РєСѓ РЅР°Р¶Р°РІ{32CD32} <Insert>{FFFFFF} С‡С‚Рѕ-Р±С‹ РїСЂРёРјРµРЅРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё.")
         }
         menu:=0
         return
     }
     else if (line_num == 2)
     {
-    showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - ID НАПАРНИКА", "{FFFFFF}Введите id напарника, по формату: {00FFFF}цыфра(1-999){FFFFFF}.  {FF0000}|{FFFFFF}  Пример: {00FFFF}35{FFFFFF}.`n{FFFFFF}После чего что-бы принять изменение нажмите{32CD32} <Insert>`n{FFFFFF}А для того что-бы выйти из меню нажмите {FF0000}<Esc>", "НЕ ТРОЖ")
+    showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - ID РќРђРџРђР РќРРљРђ", "{FFFFFF}Р’РІРµРґРёС‚Рµ id РЅР°РїР°СЂРЅРёРєР°, РїРѕ С„РѕСЂРјР°С‚Сѓ: {00FFFF}С†С‹С„СЂР°(1-999){FFFFFF}.  {FF0000}|{FFFFFF}  РџСЂРёРјРµСЂ: {00FFFF}35{FFFFFF}.`n{FFFFFF}РџРѕСЃР»Рµ С‡РµРіРѕ С‡С‚Рѕ-Р±С‹ РїСЂРёРЅСЏС‚СЊ РёР·РјРµРЅРµРЅРёРµ РЅР°Р¶РјРёС‚Рµ{32CD32} <Insert>`n{FFFFFF}Рђ РґР»СЏ С‚РѕРіРѕ С‡С‚Рѕ-Р±С‹ РІС‹Р№С‚Рё РёР· РјРµРЅСЋ РЅР°Р¶РјРёС‚Рµ {FF0000}<Esc>", "РќР• РўР РћР–")
     input, paid, V, {Insert}.{Escape}.{Enter}
         sleep, 50
         if ErrorLevel = EndKey:Insert
@@ -8403,25 +8403,25 @@ else if (menu == 6)
         SendInput,{INSERT}
         SendInput,{ENTER}
             partnerid:=paid
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы установили ID напарника - {00FFFF}" partnerid "")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ СѓСЃС‚Р°РЅРѕРІРёР»Рё ID РЅР°РїР°СЂРЅРёРєР° - {00FFFF}" partnerid "")
             Partner:=2
         }
         else
         if ErrorLevel = EndKey:Escape
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы выйшли из меню 'ID напарника'. ID напарника не был указан!")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ 'ID РЅР°РїР°СЂРЅРёРєР°'. ID РЅР°РїР°СЂРЅРёРєР° РЅРµ Р±С‹Р» СѓРєР°Р·Р°РЅ!")
         }
         else
         if ErrorLevel = EndKey:Enter
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Повторите пожалуйста попытку нажав{32CD32} <Insert>{FFFFFF} что-бы применить настройки.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕРІС‚РѕСЂРёС‚Рµ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїС‹С‚РєСѓ РЅР°Р¶Р°РІ{32CD32} <Insert>{FFFFFF} С‡С‚Рѕ-Р±С‹ РїСЂРёРјРµРЅРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё.")
         }
         menu:=0
         return
     }
     else if (line_num == 3)
     {
-    showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - ДОЛЖНОСТЬ НАПАРНИКА", "{FFFFFF}Введите должность напарника, по формату: {00FFFF}сокрощенное звание (PO-I) - Police Officer I{FFFFFF}.  {FF0000}|{FFFFFF}  Пример: {00FFFF}PO-II{FFFFFF}.`n{FFFFFF}После чего что-бы принять изменение нажмите{32CD32} <Insert>`n{FFFFFF}А для того чтоб просто выйти из меню нажмите {FF0000}<Esc>", "НЕ ТРОЖ")
+    showDialog(1, "{00FF00}[ADJUTANT]{FFFFFF} - Р”РћР›Р–РќРћРЎРўР¬ РќРђРџРђР РќРРљРђ", "{FFFFFF}Р’РІРµРґРёС‚Рµ РґРѕР»Р¶РЅРѕСЃС‚СЊ РЅР°РїР°СЂРЅРёРєР°, РїРѕ С„РѕСЂРјР°С‚Сѓ: {00FFFF}СЃРѕРєСЂРѕС‰РµРЅРЅРѕРµ Р·РІР°РЅРёРµ (PO-I) - Police Officer I{FFFFFF}.  {FF0000}|{FFFFFF}  РџСЂРёРјРµСЂ: {00FFFF}PO-II{FFFFFF}.`n{FFFFFF}РџРѕСЃР»Рµ С‡РµРіРѕ С‡С‚Рѕ-Р±С‹ РїСЂРёРЅСЏС‚СЊ РёР·РјРµРЅРµРЅРёРµ РЅР°Р¶РјРёС‚Рµ{32CD32} <Insert>`n{FFFFFF}Рђ РґР»СЏ С‚РѕРіРѕ С‡С‚РѕР± РїСЂРѕСЃС‚Рѕ РІС‹Р№С‚Рё РёР· РјРµРЅСЋ РЅР°Р¶РјРёС‚Рµ {FF0000}<Esc>", "РќР• РўР РћР–")
     input, ppost, V, {Insert}.{Escape}.{Enter}
         sleep, 50
         if ErrorLevel = EndKey:Insert
@@ -8429,19 +8429,19 @@ else if (menu == 6)
         SendInput,{INSERT}
         SendInput,{ENTER}
             partnerpost:=ppost
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы установили должность напарника - {00FFFF}" partnerpost "")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ СѓСЃС‚Р°РЅРѕРІРёР»Рё РґРѕР»Р¶РЅРѕСЃС‚СЊ РЅР°РїР°СЂРЅРёРєР° - {00FFFF}" partnerpost "")
             Partner:=3
             return
         }
         else
         if ErrorLevel = EndKey:Escape
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы выйшли из меню 'должность напарника'. Должность напарника не была указана!")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РІС‹Р№С€Р»Рё РёР· РјРµРЅСЋ 'РґРѕР»Р¶РЅРѕСЃС‚СЊ РЅР°РїР°СЂРЅРёРєР°'. Р”РѕР»Р¶РЅРѕСЃС‚СЊ РЅР°РїР°СЂРЅРёРєР° РЅРµ Р±С‹Р»Р° СѓРєР°Р·Р°РЅР°!")
         }
         else
         if ErrorLevel = EndKey:Enter
         {
-        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Повторите пожалуйста попытку нажав{32CD32} <Insert>{FFFFFF} что-бы применить настройки.")
+        addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РџРѕРІС‚РѕСЂРёС‚Рµ РїРѕР¶Р°Р»СѓР№СЃС‚Р° РїРѕРїС‹С‚РєСѓ РЅР°Р¶Р°РІ{32CD32} <Insert>{FFFFFF} С‡С‚Рѕ-Р±С‹ РїСЂРёРјРµРЅРёС‚СЊ РЅР°СЃС‚СЂРѕР№РєРё.")
         }
         menu:=0
         return
@@ -8451,7 +8451,7 @@ else if (menu == 6)
         IniWrite, %partnerSurname%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Partner, Surname
         IniWrite, %partnerId%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Partner, Id
         IniWrite, %partnerPost%, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Partner, Post
-    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Ваш напарник - {00FFFF}" partnerSurname "{FFFFFF}, с {00FFFF}" partnerId "{FFFFFF} id и должностью {00FFFF}" partnerPost "{FFFFFF}.")
+    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’Р°С€ РЅР°РїР°СЂРЅРёРє - {00FFFF}" partnerSurname "{FFFFFF}, СЃ {00FFFF}" partnerId "{FFFFFF} id Рё РґРѕР»Р¶РЅРѕСЃС‚СЊСЋ {00FFFF}" partnerPost "{FFFFFF}.")
         menu:=0
     }
     else if (line_num == 5)
@@ -8463,13 +8463,13 @@ else if (menu == 6)
         partnersurname:="None"
         partnerid:="None"
         partnerpost:="None"
-    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы успешно {FF0000}удалили {FFFFFF}информацию о своем напарнике.")
+    addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ СѓСЃРїРµС€РЅРѕ {FF0000}СѓРґР°Р»РёР»Рё {FFFFFF}РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ СЃРІРѕРµРј РЅР°РїР°СЂРЅРёРєРµ.")
         menu:=0
     }
     menu := 0
 }
 else if (menu == 7){
-Showdialog(2, "{00FF00}[ADJUTANT]{FFFFFF} - МЕНЮ НАПАРНИКА", "{FF0000}[1]{FFFFFF} - Фамилия напарника. |{00FF00} " partnerSurname "`n{FF0000}[2]{FFFFFF} - Id напарника. | {00FF00}" partnerId "`n{FF0000}[3]{FFFFFF} - Должность напарника. | {00FF00}" partnerPost "`n{FF0000}[4]{FFFFFF} - {00FF00}Сохранить напарника`n{FF0000}[5]{FFFFFF} - {FF0000}Удалить напарника", "ВЫБОР")
+Showdialog(2, "{00FF00}[ADJUTANT]{FFFFFF} - РњР•РќР® РќРђРџРђР РќРРљРђ", "{FF0000}[1]{FFFFFF} - Р¤Р°РјРёР»РёСЏ РЅР°РїР°СЂРЅРёРєР°. |{00FF00} " partnerSurname "`n{FF0000}[2]{FFFFFF} - Id РЅР°РїР°СЂРЅРёРєР°. | {00FF00}" partnerId "`n{FF0000}[3]{FFFFFF} - Р”РѕР»Р¶РЅРѕСЃС‚СЊ РЅР°РїР°СЂРЅРёРєР°. | {00FF00}" partnerPost "`n{FF0000}[4]{FFFFFF} - {00FF00}РЎРѕС…СЂР°РЅРёС‚СЊ РЅР°РїР°СЂРЅРёРєР°`n{FF0000}[5]{FFFFFF} - {FF0000}РЈРґР°Р»РёС‚СЊ РЅР°РїР°СЂРЅРёРєР°", "Р’Р«Р‘РћР ")
     menu := 6
     sleep, 500
 }
@@ -8481,18 +8481,18 @@ pauseme:
 if (pou==1 and TempWeapon==0)
 {
     pou:=0
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы поставили паузу на отыгровку 'автогана'")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ РїРѕСЃС‚Р°РІРёР»Рё РїР°СѓР·Сѓ РЅР° РѕС‚С‹РіСЂРѕРІРєСѓ 'Р°РІС‚РѕРіР°РЅР°'")
     statusd:=false
 }
 else if (pou==1 and TempWeapon>=1)
 {
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Уберите оружие из рук, и повторите попытку.")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - РЈР±РµСЂРёС‚Рµ РѕСЂСѓР¶РёРµ РёР· СЂСѓРє, Рё РїРѕРІС‚РѕСЂРёС‚Рµ РїРѕРїС‹С‚РєСѓ.")
 }
 else if (pou==0)
 {
     pou:=1
     statusd:=true
-addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Вы сняли паузу на отыгровку 'автогана'")
+addChatMessage("{00FF00}[ADJUTANT]{FFFFFF} - Р’С‹ СЃРЅСЏР»Рё РїР°СѓР·Сѓ РЅР° РѕС‚С‹РіСЂРѕРІРєСѓ 'Р°РІС‚РѕРіР°РЅР°'")
 }
 return?PNG
 
