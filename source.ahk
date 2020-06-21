@@ -8206,14 +8206,6 @@ Gosub, ReadSettingsInfo
 }
 if (guiyep != "1")
 {
-    fileinstall, image\backgrond1.png , %a_temp%\backgrond1.png
-    fileinstall, image\backgrond2.png , %a_temp%\backgrond2.png
-    fileinstall, image\backgrond3.png , %a_temp%\backgrond3.png
-    fileinstall, image\backgrond4.png , %a_temp%\backgrond4.png
-    fileinstall, image\backgrond5.png , %a_temp%\backgrond5.png
-    fileinstall, image\backgrond6.png , %a_temp%\backgrond6.png
-    fileinstall, image\strob.png , %a_temp%\strob.png
-    fileinstall, image\tuturu.mp3 , %a_temp%\tuturu.mp3
     IniRead, vupd, %a_temp%\verlen.ini, UPD, v
     Gui, +hwndhGui1
     IniRead nextbackground, %A_MyDocuments%\GTA San Andreas User Files\SAMP\configer.ini, Background, Number
