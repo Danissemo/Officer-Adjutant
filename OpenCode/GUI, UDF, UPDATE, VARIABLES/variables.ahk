@@ -1,0 +1,11 @@
+﻿limits:=0
+zavers:=0
+pou:=1
+sbros=1
+k:=0
+su:=-1
+start_time:=0
+start_time1:=0
+start_time2:=0
+start_time3:=0
+restarting:=0
